@@ -1,0 +1,21 @@
+:root{
+
+    --green-background-color: rgb(0, 230, 0);
+    --white-text-color:white;
+    --black-text-color: rgb(32,32,32);
+
+}
+
+::ng-deep * {
+      
+    margin: 0;
+    padding: 0;
+}
+
+*{
+
+    margin: 0px;
+    padding: 0px;
+    font-family: Poppins;
+
+}

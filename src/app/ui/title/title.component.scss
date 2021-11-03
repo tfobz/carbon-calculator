@@ -1,0 +1,56 @@
+*{
+
+    --green-background-color: rgb(0, 230, 0);
+    --white-text-color:white;
+
+}
+
+
+.box{
+
+    display: flex;
+    align-items: center;
+
+    height: 10vh;
+    background-color: var(--green-background-color);
+
+    .title{
+
+        margin-left: 3vh;
+        font-size: 2.5em;
+        color: var(--white-text-color);
+        transition: transform 0.2s;
+        
+        &:hover{
+
+            cursor: default;
+            transform: scale(1.05);
+
+        }
+
+    }
+
+    .dots{
+
+        margin-left: auto;
+        margin-right: 2vh;
+        transition: transform 0.2s;
+
+        &:hover{
+
+            cursor: pointer;
+            transform: scale(1.05);
+
+        }
+
+    }
+
+    .dots::after{
+
+        color: var(--white-text-color);
+        content: '\2807';
+        font-size: 3em;
+
+    }
+
+}
