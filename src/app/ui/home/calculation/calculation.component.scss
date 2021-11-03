@@ -1,33 +1,21 @@
-*{
-
-    --green-background-color: rgb(0, 230, 0);
-
-    margin: 0;
-    padding: 0;
-
-    --vh:1.5vh;
-    --font-size:1.5em;
-
-}
-
 
 .border{
 
-    margin-left: calc(2*var(--vh));
-    margin-right: calc(2*var(--vh));
-    margin-top: var(--vh);
+    margin-left: calc(2*var(--padding-in-calculation));
+    margin-right: calc(2*var(--padding-in-calculation));
+    margin-top: var(--padding-in-calculation);
 
-    border: solid;
-    border-radius: var(--vh);
+    border: solid var(--black-text-color);
+    border-radius: var(--padding-in-calculation);
 
-    box-shadow: calc(0.15*var(--vh)) calc(0.15*var(--vh));
+    box-shadow: calc(0.15*var(--padding-in-calculation)) calc(0.15*var(--padding-in-calculation));
     transition: transform .2s;
 
     .center{
         
-        margin-left: var(--vh);
-        margin-top: var(--vh);
-        margin-bottom: var(--vh);
+        margin-left: var(--padding-in-calculation);
+        margin-top: var(--padding-in-calculation);
+        margin-bottom: var(--padding-in-calculation);
 
     }
 
@@ -40,6 +28,7 @@
 
     .name{
 
+        color: var(--black-text-color);
         display: inline;
         font-size: var(--font-size);
     
@@ -51,7 +40,7 @@
 
         transform: scale(1.01);
 
-        box-shadow: 0 0 calc(0.5*var(--vh)) var(--green-background-color);
+        box-shadow: 0 0 calc(0.5*var(--padding-in-calculation)) var(--green-background-color);
 
         transition: box-shadow 0.15s ease-in-out;
 
