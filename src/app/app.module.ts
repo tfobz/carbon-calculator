@@ -7,6 +7,7 @@ import { UiComponent } from './ui/ui.component';
 import { CalculationComponent } from './ui/home/calculation/calculation.component';
 import { HomeComponent } from './ui/home/home.component';
 import { TitleComponent } from './ui/title/title.component';
+import { ArrowComponent } from './ui/title/arrow/arrow.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { TitleComponent } from './ui/title/title.component';
     UiComponent,
     CalculationComponent,
     HomeComponent,
-    TitleComponent
+    TitleComponent,
+    ArrowComponent
   ],
   imports: [
     BrowserModule,

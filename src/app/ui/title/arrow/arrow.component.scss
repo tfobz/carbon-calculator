@@ -1,0 +1,21 @@
+.arrowbox{
+
+    margin-left: 3vh;
+    transition: transform 0.1s;
+    margin-top: -1vh;
+
+    .arrow{
+
+        text-decoration: none;
+        color: var(--white-text-color);
+        font-size: calc(4*var(--font-size));
+
+    }
+
+    &:hover{
+
+        transform: scale(1.05);
+
+    }
+
+}

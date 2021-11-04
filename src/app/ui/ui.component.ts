@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UiComponent implements OnInit {
 
-  public emissions: String = "Emissionen";
+  public title: String = "Emissionen";
+  public back: String = "";
 
   constructor() { }
 
