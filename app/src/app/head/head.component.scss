@@ -11,14 +11,14 @@
 
         margin-left: 5%;
         font-weight: normal;
-        font-size: calc(1.75*var(--font-size));
+        font-size: calc(1.25*var(--font-size));
         color: var(--white-text-color);
         transition: transform 0.2s;
         
         &:hover{
 
             cursor: default;
-            transform: scale(1.05);
+            transform: scale(1.02);
 
         }
 
@@ -33,7 +33,7 @@
         &:hover{
 
             cursor: pointer;
-            transform: scale(1.05);
+            
 
         }
 
@@ -43,7 +43,7 @@
 
         color: var(--white-text-color);
         content: '\2807';
-        font-size: calc(2*var(--font-size));
+        font-size: calc(1.25*var(--font-size));
 
     }
 

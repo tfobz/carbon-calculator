@@ -8,6 +8,7 @@ import { CalculationComponent } from './home/calculation/calculation.component';
 import { HomeComponent } from './home/home.component';
 import { HeadComponent } from './head/head.component';
 import { ArrowComponent } from './head/arrow/arrow.component';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ArrowComponent } from './head/arrow/arrow.component';
     CalculationComponent,
     HomeComponent,
     HeadComponent,
-    ArrowComponent
+    ArrowComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

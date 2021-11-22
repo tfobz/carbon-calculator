@@ -8,5 +8,6 @@ import { Component, Input } from '@angular/core';
 export class CalculationComponent {
 
   @Input() name: String = "";  
+  @Input() emission: number = 0;
 
 }
