@@ -1,0 +1,12 @@
+<!-- head -->
+<app-head [title]="title"></app-head>
+
+<!-- Buttons-->
+
+<div class="content">
+
+    <app-emision-calculation *ngFor="let calcs of calculations" name = {{calcs}}></app-emision-calculation>
+
+</div>
+
+<!-- create new -->

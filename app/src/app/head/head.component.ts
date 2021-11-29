@@ -8,6 +8,6 @@ import { Component, Input } from '@angular/core';
 export class HeadComponent {
 
   @Input() title: String = "";
-  @Input() back: String = "#";
+  @Input() back: String = "";
 
 }
