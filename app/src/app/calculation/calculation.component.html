@@ -1,4 +1,6 @@
 <!-- head -->
-<app-head back='/emision' [title]="title"></app-head>
+<app-head back='/emission' [title]="title"></app-head>
 
 <!-- Calculations -->
+
+<app-calculation-card *ngFor="let name of names" title={{name}} [values]="values"></app-calculation-card>

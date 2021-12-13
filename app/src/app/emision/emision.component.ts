@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 
 
 @Component({
@@ -9,8 +9,8 @@ import { Component, Input } from '@angular/core';
 export class EmisionComponent {
 
   //TESTING
-  @Input() calculations: string[] = ["Testing", "LOL", "xD"];
+  calculations: string[] = ["Testing", "LOL", "xD"];
 
-  title : string = "Emisionen"; 
+  title : string = "Emissions"; 
 
 }

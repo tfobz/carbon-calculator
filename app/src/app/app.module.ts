@@ -10,6 +10,7 @@ import { HeadComponent } from './head/head.component';
 import { ArrowComponent } from './head/arrow/arrow.component';
 import { CardComponent } from './card/card.component';
 import { CalculationComponent } from './calculation/calculation.component';
+import { CalculationCardComponent } from './calculation/calculation-card/calculation-card.component';
 import { SharedDataService } from './shared/shared-data-service';
 
 @NgModule({
@@ -20,7 +21,8 @@ import { SharedDataService } from './shared/shared-data-service';
     HeadComponent,
     ArrowComponent,
     CardComponent,
-    CalculationComponent
+    CalculationComponent,
+    CalculationCardComponent
   ],
   imports: [
     BrowserModule,

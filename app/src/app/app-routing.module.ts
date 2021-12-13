@@ -5,9 +5,10 @@ import { EmisionComponent } from './emision/emision.component';
 
 
 const routes: Routes = [
-  { path: 'emision', pathMatch: 'full', component: EmisionComponent },
-  { path: 'calculation', pathMatch: 'full' , component: CalculationComponent },
-  { path: '',   redirectTo: '/emision', pathMatch: 'full' }
+  { path: 'emission', component: EmisionComponent },
+  { path: 'emission/:title', component: CalculationComponent },
+  { path : "**", redirectTo:'emission'}
+
 ];
 
 @NgModule({

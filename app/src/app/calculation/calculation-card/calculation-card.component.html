@@ -1,0 +1,26 @@
+<app-card>
+
+    <div class ="head">
+
+        <p>{{ title }}</p>
+        
+
+    </div>
+
+    <hr>
+
+    <div class = "content">
+
+        <div class="valueGroups" *ngFor="let value of values">
+
+            <p>{{ value.split(";")[0] }}</p>
+            <p>{{ value.split(";")[1] }}</p>
+            
+
+        </div>
+
+    </div>
+
+    
+
+</app-card>
