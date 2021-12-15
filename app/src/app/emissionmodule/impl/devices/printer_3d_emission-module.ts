@@ -2,7 +2,7 @@ import { EmissionModule, EmissionUtils, FactorEmissionModule } from "../../emiss
 
 export const PRINTER_3D_EMISSION_MODULE_ID = "printer_3d_emission_module";
 
-export default class Printer3DEmissionModule extends FactorEmissionModule{
+export class Printer3DEmissionModule extends FactorEmissionModule{
     constructor(){
         super(PRINTER_3D_EMISSION_MODULE_ID);
         super.factor = 102.69;

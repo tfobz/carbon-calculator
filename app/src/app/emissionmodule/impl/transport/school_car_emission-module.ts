@@ -2,7 +2,7 @@ import { EmissionUtils, EmissionModule, FactorEmissionModule } from "../../emiss
 
 export const SCHOOL_CAR_EMISSION_MODULE_ID = "school_car_emission_module";
 
-export default class SchoolCarEmissionModule extends FactorEmissionModule{
+export class SchoolCarEmissionModule extends FactorEmissionModule{
     constructor(){
         super(SCHOOL_CAR_EMISSION_MODULE_ID);
         super.factor = 0.31;

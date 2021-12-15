@@ -2,7 +2,7 @@ import { EmissionModule, EmissionUtils, FactorEmissionModule } from "../../emiss
 
 export const PIZZA_EMISSION_MODULE_ID = "pizza_emission_module";
 
-export default class PizzaEmissionModule extends FactorEmissionModule{
+export class PizzaEmissionModule extends FactorEmissionModule{
     constructor(){
         super(PIZZA_EMISSION_MODULE_ID);
         super.factor = 1.5; // Excel has * 200

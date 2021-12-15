@@ -1,10 +1,10 @@
 import { FactorEmissionModule } from "../../emission-module";
-import ComputerEmissionModule from "./computer_emission-module";
-import LaptopEmissionModule from "./laptop_emission-module";
-import PlotterEmissionModule from "./plotter_emission-module";
-import Printer3DEmissionModule from "./printer_3d_emission-module";
-import PrinterEmissionModule from "./printer_emission-module";
-import ServerEmissionModule from "./server_emission-module";
+import { ComputerEmissionModule } from "./computer_emission-module";
+import { LaptopEmissionModule } from "./laptop_emission-module";
+import { PlotterEmissionModule } from "./plotter_emission-module";
+import { Printer3DEmissionModule } from "./printer_3d_emission-module";
+import { PrinterEmissionModule } from "./printer_emission-module";
+import { ServerEmissionModule } from "./server_emission-module";
 
 describe('computer_emission-module', () => {
     it("factor should be 102.69", () => {

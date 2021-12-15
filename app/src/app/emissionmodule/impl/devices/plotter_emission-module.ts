@@ -2,7 +2,7 @@ import { EmissionModule, EmissionUtils, FactorEmissionModule } from "../../emiss
 
 export const PLOTTER_EMISSION_MODULE_ID = "plotter_emission_module";
 
-export default class PlotterEmissionModule extends FactorEmissionModule{
+export class PlotterEmissionModule extends FactorEmissionModule{
     constructor(){
         super(PLOTTER_EMISSION_MODULE_ID);
         super.factor = 102.69;

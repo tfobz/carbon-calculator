@@ -2,7 +2,7 @@ import { EmissionModule, EmissionUtils, FactorEmissionModule } from "../../emiss
 
 export const DINA4_EMISSION_MODULE_ID = "dina4_emission_module";
 
-export default class DINA4EmissionModule extends FactorEmissionModule{
+export class DINA4EmissionModule extends FactorEmissionModule{
     constructor(){
         super(DINA4_EMISSION_MODULE_ID);
         super.factor = 0.0044;

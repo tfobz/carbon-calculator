@@ -1,6 +1,6 @@
 import { FactorEmissionModule } from "../../emission-module";
-import DINA4EmissionModule from "./DINA4_emission-module";
-import DINA3EmissionModule from "./DINA3_emission-module";
+import { DINA4EmissionModule } from "./DINA4_emission-module";
+import { DINA3EmissionModule } from "./DINA3_emission-module";
 
 
 describe('DINA4_emission-module', () => {

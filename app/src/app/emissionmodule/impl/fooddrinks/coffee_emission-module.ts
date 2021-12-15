@@ -2,7 +2,7 @@ import { EmissionModule, EmissionUtils, FactorEmissionModule } from "../../emiss
 
 export const COFFEE_EMISSION_MODULE_ID = "coffee_emission_module";
 
-export default class CoffeeEmissionModule extends FactorEmissionModule{
+export class CoffeeEmissionModule extends FactorEmissionModule{
     constructor(){
         super(COFFEE_EMISSION_MODULE_ID);
         super.factor = 0.1;

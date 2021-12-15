@@ -2,7 +2,7 @@ import { EmissionModule, EmissionUtils, FactorEmissionModule } from "../emission
 
 export const WATER_EMISSION_MODULE_ID = "water_emission_module";
 
-export default class WaterEmissionModule extends FactorEmissionModule{
+export class WaterEmissionModule extends FactorEmissionModule{
     constructor(){
         super(WATER_EMISSION_MODULE_ID);
         super.factor = 0.4;

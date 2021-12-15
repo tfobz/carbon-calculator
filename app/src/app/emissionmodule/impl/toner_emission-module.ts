@@ -2,14 +2,14 @@ import { EmissionModule, EmissionUtils, FactorEmissionModule } from "../emission
 
 export const TONER_EMISSION_MODULE_ID = "toner_emission_module";
 
-export default class TonerEmissionModule extends FactorEmissionModule{
+export class TonerEmissionModule extends FactorEmissionModule{
     constructor(){
         super(TONER_EMISSION_MODULE_ID);
         super.factor = 5;
     }
 }
 
-class TonerEmissionUtils implements EmissionUtils{
+export class TonerEmissionUtils implements EmissionUtils{
     create(data: any): EmissionModule {
         let module = new TonerEmissionModule();
         if(data.number){
@@ -25,5 +25,3 @@ class TonerEmissionUtils implements EmissionUtils{
         return undefined;
     }
 }
-
-export { TonerEmissionUtils };

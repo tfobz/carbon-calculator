@@ -1,7 +1,7 @@
 import { FactorEmissionModule } from "../../emission-module";
-import CoffeeEmissionModule from "./coffee_emission-module";
-import Drinks500mlEmissionModule from "./drinks_500ml_emission-module";
-import PizzaEmissionModule from "./pizza_emission-module";
+import { CoffeeEmissionModule } from "./coffee_emission-module";
+import { Drinks500mlEmissionModule } from "./drinks_500ml_emission-module";
+import { PizzaEmissionModule } from "./pizza_emission-module";
 
 describe('coffee_emission-module', () => {
     it("factor should be 0.1", () => {

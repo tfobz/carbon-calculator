@@ -1,5 +1,5 @@
 import { FactorEmissionModule } from "../../emission-module";
-import SchoolCarEmissionModule from "./school_car_emission-module";
+import { SchoolCarEmissionModule } from "./school_car_emission-module";
 
 describe('school_car_emission-module', () => {
     it("factor should be 0.31", () => {

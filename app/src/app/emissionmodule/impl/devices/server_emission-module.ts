@@ -2,7 +2,7 @@ import { EmissionModule, EmissionUtils, FactorEmissionModule } from "../../emiss
 
 export const SERVER_EMISSION_MODULE_ID = "server_emission_module";
 
-export default class ServerEmissionModule extends FactorEmissionModule{
+export class ServerEmissionModule extends FactorEmissionModule{
     constructor(){
         super(SERVER_EMISSION_MODULE_ID);
         super.factor = 102.69;

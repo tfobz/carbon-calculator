@@ -1,6 +1,6 @@
 import { FactorEmissionModule } from "../emission-module";
-import TonerEmissionModule from "./toner_emission-module";
-import WaterEmissionModule from "./water_emission-module";
+import { TonerEmissionModule } from "./toner_emission-module";
+import { WaterEmissionModule } from "./water_emission-module";
 
 describe('water_emission-module', () => {
     it("factor should be 0.4", () => {

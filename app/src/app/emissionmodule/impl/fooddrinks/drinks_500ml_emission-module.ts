@@ -2,7 +2,7 @@ import { EmissionModule, EmissionUtils, FactorEmissionModule } from "../../emiss
 
 export const DRINKS_500ML_EMISSION_MODULE_ID = "drinks_500ml_emission_module";
 
-export default class Drinks500mlEmissionModule extends FactorEmissionModule{
+export class Drinks500mlEmissionModule extends FactorEmissionModule{
     constructor(){
         super(DRINKS_500ML_EMISSION_MODULE_ID);
         super.factor = 0.8; // Excel has * 300
