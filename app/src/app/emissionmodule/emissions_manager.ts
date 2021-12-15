@@ -54,4 +54,8 @@ export default class EmissionsManager{
             return utils.save(module);
         }
     }
+
+    static getModuleIDs(): string[] {
+        return Array.from(emissions.keys());
+    }
 }
