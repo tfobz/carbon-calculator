@@ -46,9 +46,6 @@ export default class EmissionsManager{
     }
     
     static save(module: EmissionModule): any{
-        if(module === undefined){
-            return undefined;
-        }
         let utils: EmissionUtils|undefined = emissions.get(module.id);
         if(utils){
             return utils.save(module);
