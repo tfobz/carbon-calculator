@@ -35,7 +35,7 @@ export default class EmissionsManager{
     /*
         Loads an object with unknown type
     */
-    static load(data: any): EmissionsManager|undefined{
+    static load(data: any): EmissionModule|undefined{
         if(data.type){
             let utils: EmissionUtils|undefined = emissions.get(data.type);
             if(utils){
@@ -50,6 +50,7 @@ export default class EmissionsManager{
         if(utils){
             return utils.save(module);
         }
+        return undefined;
     }
 
     static getModuleIDs(): string[] {
