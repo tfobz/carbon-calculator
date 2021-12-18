@@ -4,11 +4,11 @@ import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
-  selector: 'app-calculation',
-  templateUrl: './calculation.component.html',
-  styleUrls: ['./calculation.component.scss']
+  selector: 'app-calculation-list',
+  templateUrl: './calculation-list.component.html',
+  styleUrls: ['./calculation-list.component.scss']
 })
-export class CalculationComponent implements OnInit{
+export class CalculationListComponent implements OnInit{
 
   title!:string;
 

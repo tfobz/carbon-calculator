@@ -1,28 +1,29 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { EmissionCalculationComponent } from './emission/emission-calculation/emission-calculation.component';
-import { EmissionComponent } from './emission/emission.component';
+import { EmissionItemComponent } from './emission-list/emission-item/emission-item.component';
+import { EmissionListComponent } from './emission-list/emission-list.component';
 import { HeadComponent } from './head/head.component';
 import { ArrowComponent } from './head/arrow/arrow.component';
 import { CardComponent } from './card/card.component';
-import { CalculationComponent } from './calculation/calculation.component';
-import { CalculationCardComponent } from './calculation/calculation-card/calculation-card.component';
+import { CalculationListComponent } from './calculation-list/calculation-list.component';
+import { CalculationCardComponent } from './calculation-card/calculation-card.component';
 
 
 @NgModule({
   declarations: [
+
     AppComponent,
-    EmissionCalculationComponent,
-    EmissionComponent,
+    EmissionItemComponent,
+    EmissionListComponent,
     HeadComponent,
     ArrowComponent,
     CardComponent,
-    CalculationComponent,
-    CalculationCardComponent
+    CalculationListComponent,
+    CalculationCardComponent,
+
   ],
   imports: [
     BrowserModule,
