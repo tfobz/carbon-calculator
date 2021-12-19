@@ -10,6 +10,7 @@ import { ArrowComponent } from './head/arrow/arrow.component';
 import { CardComponent } from './card/card.component';
 import { CalculationListComponent } from './calculation-list/calculation-list.component';
 import { CalculationCardComponent } from './calculation-card/calculation-card.component';
+import { SpecificCalculationListComponent } from './specific-calculation-list/specific-calculation-list.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { CalculationCardComponent } from './calculation-card/calculation-card.co
     CardComponent,
     CalculationListComponent,
     CalculationCardComponent,
+    SpecificCalculationListComponent,
 
   ],
   imports: [
