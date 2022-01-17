@@ -26,7 +26,7 @@ export class CalculationService {
   
     const temp: Calculation[] = [];
     calculationsData.forEach((data: any) => {
-      temp.push(new Calculation().load(data));
+      temp.push(Calculation.load(data));
     });
     this._calculations = temp;
   }
