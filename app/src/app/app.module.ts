@@ -16,9 +16,15 @@ import { CalculationCardComponent } from './calculation-card/calculation-card.co
 import { SpecificCalculationListComponent } from './specific-calculation-list/specific-calculation-list.component';
 import { CalculationDiagramComponent } from './calculation-diagram/calculation-diagram.component';
 
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { NavigationService } from './shared/navigation.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CreateCalculationComponent } from './create-calculation/create-calculation.component';
 
 
 @NgModule({
@@ -32,7 +38,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CalculationListComponent,
     CalculationCardComponent,
     SpecificCalculationListComponent,
-	CalculationDiagramComponent
+	  CalculationDiagramComponent,
+    CreateCalculationComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,11 +47,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts')
     }),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatButtonModule,
+    MatInputModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
   ],
   providers: [
     NavigationService,
-    CalculationService
+    CalculationService,
   ],
   bootstrap: [AppComponent]
 })
