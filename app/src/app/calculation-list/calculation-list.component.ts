@@ -11,8 +11,6 @@ import { NavigationService } from '../shared/navigation.service';
 })
 export class CalculationListComponent implements OnInit{
 
-  title!:string;
-
   //TESTING
   names:string[]=["Heizung", "Elektrizität"];
   values: string[] = ["300 m2;2", "500 W;4", "700 KW;6"];
