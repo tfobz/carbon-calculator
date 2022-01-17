@@ -3,11 +3,13 @@
 	gdColumns.lt-md="1fr"
 	gdGap="25px"
 	style="margin: 25px">
-	<div class="button-groups">
-	  <button (click)="chartUpdateOptions.isLoading=!chartUpdateOptions.isLoading" nz-button nzType="default">Toggle Loading</button>
-	</div>
 	<mat-card>
 		<mat-card-title>diagram one</mat-card-title>
-		<div echarts [loading]="isLoading" (chartInit)="onChartInit()" [options]="chartOptions" [merge]="chartUpdateOptions"></div>
+		<div echarts [loading]="isLoading" (chartInit)="onChartInit()" [options]="barChartOptions" [merge]="chartUpdateOptions"></div>
+	</mat-card>
+
+	<mat-card>
+		<mat-card-title>diagram two</mat-card-title>
+		<div echarts [options]="pieChartOptions"></div>
 	</mat-card>
 </div>

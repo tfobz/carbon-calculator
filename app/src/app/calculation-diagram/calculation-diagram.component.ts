@@ -17,38 +17,101 @@ export class CalculationDiagramComponent implements OnInit {
 	isLoading = false;
 
 	//chartLoading: boolean = true;
-	chartOptions: EChartsOption = {
-			//TODO: read from stylesheet?
-			color: ['#3398DB'],
-			tooltip: {
-				trigger: 'axis',
-				axisPointer: {
-					type: 'shadow'
-				}
+	barChartOptions: EChartsOption = {
+		//TODO: read from stylesheet?
+		color: ['#3398DB'],
+		tooltip: {
+			trigger: 'axis',
+			axisPointer: {
+				type: 'shadow'
+			}
+		},
+		grid: {
+			left: '3%',
+			right: '4%',
+			bottom: '3%',
+			containLabel: true
+		},
+		xAxis: {
+			type: 'category',
+			data: [],
+			axisTick: {
+			  alignWithLabel: true
+			}
+		},
+		yAxis: {
+			type: 'value'
+		},
+		series: [{
+			name: 'Counters',
+			type: 'bar',
+			barWidth: '60%',
+			data: []
+		}]
+	};
+
+	pieChartOptions: EChartsOption = {
+		title: {
+			left: 'center',
+			top: 20,
+			textStyle: {
+				color: '#ccc',
 			},
-			grid: {
-				left: '3%',
-				right: '4%',
-				bottom: '3%',
-				containLabel: true
+		},
+		tooltip: {
+			trigger: 'item',
+			formatter: '{a} <br/>{b} : {c} ({d}%)',
+		},
+		visualMap: {
+			show: false,
+			min: 80,
+			max: 600,
+			inRange: {
+				colorLightness: [0, 1],
 			},
-			xAxis: {
-				type: 'category',
-				data: [],
-				axisTick: {
-				  alignWithLabel: true
-				}
-			},
-			yAxis: {
-				type: 'value'
-			},
-			series: [{
-				name: 'Counters',
-				type: 'bar',
-				barWidth: '60%',
-				data: []
-			}]
-		};
+		},
+		series: {
+			name: 'Counters',
+			type: 'pie',
+			radius: '55%',
+			center: ['50%', '50%'],
+			data: [
+				{ value: 335, name: 'C-1' },
+				{ value: 310, name: 'C-2' },
+				{ value: 274, name: 'C-3' },
+				{ value: 235, name: 'C-4' },
+				{ value: 400, name: 'C-5' },
+			].sort((a, b) => a.value - b.value),
+			roseType: 'radius',
+			/* label: {
+				normal: {
+					textStyle: {
+						color: 'rgba(255, 255, 255, 0.3)',
+					},
+				},
+			}, */
+			/* labelLine: {
+				normal: {
+					lineStyle: {
+						color: 'rgba(255, 255, 255, 0.3)',
+					},
+					smooth: 0.2,
+					length: 10,
+					length2: 20,
+				},
+			}, */
+			/* itemStyle: {
+				normal: {
+					color: '#c23531',
+					shadowBlur: 200,
+					shadowColor: 'rgba(0, 0, 0, 0.5)',
+				},
+			}, */
+			animationType: 'scale',
+			animationEasing: 'elasticOut',
+			animationDelay: () => Math.random() * 200,
+		},
+	};
 	
 	chartUpdateOptions: EChartsOption = {
 		isLoading: true,
