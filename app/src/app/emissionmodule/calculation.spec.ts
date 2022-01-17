@@ -88,7 +88,7 @@ describe('calculation', () => {
                 }
             ]
         };
-        const actual: Calculation = new Calculation().load(data);
+        const actual: Calculation = Calculation.load(data);
         expect(JSON.stringify(expected) === JSON.stringify(actual)).toBeTruthy();
     });
 });

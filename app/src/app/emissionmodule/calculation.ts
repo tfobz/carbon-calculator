@@ -2,12 +2,9 @@ import { EmissionModule } from "./emission-module";
 import EmissionsManager from "./emissions_manager";
 
 export class Calculation{
-    public name: string = "";
     public modules: EmissionModule[] = [];
 
-    constructor(name?: string){
-        if(name) this.name = name;
-    }
+    constructor(public name: string){}
 
     calculate(): number{
         let sum: number = 0;
@@ -28,19 +25,21 @@ export class Calculation{
         return { name: this.name, modules: modules_obj }
     }
 
-    load(data: any): Calculation{
-        if(data === undefined) return this;
-        if(data.name) this.name = data.name;
+    public static load(data: any): Calculation{
+        let ret: Calculation = new Calculation("");
+
+        if(data === undefined) throw new Error("Data is undefined");
+        if(data.name) ret.name = data.name;
         if(data.modules){
             if(data.modules instanceof Array){
                 data.modules.forEach((moduleData: any) => {
                     let module = EmissionsManager.load(moduleData);
                     if(module === undefined) return;
-                    this.modules.push(module);
+                    ret.modules.push(module);
                 });
             }
         }
-        return this;
+        return ret;
     }
 
 }
