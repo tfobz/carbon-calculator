@@ -18,6 +18,7 @@ import { CalculationDiagramComponent } from './calculation-diagram/calculation-d
 
 
 import { NavigationService } from './shared/navigation.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { NavigationService } from './shared/navigation.service';
     AppRoutingModule,
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts')
-    })
+    }),
+    BrowserAnimationsModule
   ],
   providers: [
     NavigationService,
