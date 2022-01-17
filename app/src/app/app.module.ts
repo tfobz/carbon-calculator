@@ -45,7 +45,7 @@ import { MatMenuModule } from '@angular/material/menu';
       echarts: () => import('echarts')
     }),
     BrowserAnimationsModule,
-	  FlexLayoutModule,
+	FlexLayoutModule,
     MatCardModule,
     MatTableModule,
     MatToolbarModule,
