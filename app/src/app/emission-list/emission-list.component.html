@@ -1,8 +1,9 @@
 
 
+
 <div class="content">
 
-    <app-emission-item *ngFor="let calcs of calculations" name = {{calcs}}></app-emission-item>
+    <app-emission-item *ngFor="let calcs of calculations" [name]="calcs.name" [emission]="calcs.calculate()"></app-emission-item>
 
 </div>
 

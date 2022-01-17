@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Calculation } from '../emissionmodule/calculation';
 import { NavigationService } from '../shared/navigation.service';
+import { CalculationService } from '../_services/calculation.service';
 
 
 @Component({
@@ -9,16 +11,19 @@ import { NavigationService } from '../shared/navigation.service';
 })
 export class EmissionListComponent implements OnInit{
 
-  //TESTING
-  calculations: string[] = ["Testing", "LOL", "xD"];
-
-
-  constructor(private navigation:NavigationService){}
+  constructor(
+    private navigation:NavigationService,
+    private calculationService: CalculationService
+    ){}
 
   ngOnInit(): void {
       
     this.navigation.changeMessage("Emission");
 
+  }
+
+  get calculations(): Calculation[] {
+    return this.calculationService.calculations;
   }
 
 

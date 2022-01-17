@@ -1,50 +1,38 @@
+@import '~@angular/material/theming';
 
-.box{
+// Define a custom mixin that takes in the current theme
+@mixin theme-color-grabber($theme) {
+  // Parse the theme and create variables for each color in the pallete
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  // Create theme specfic styles
+  .primaryColorBG {
+    background-color: mat-color($primary);
+  }
+  .accentColorBG {
+    background-color: mat-color($accent);
+  }
+  .warnColorBG {
+    background-color: mat-color($warn);
+  }
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.title {
 
     display: flex;
-    align-items: center;
-    margin-bottom: calc(2.5*var(--padding-in-calculation));
-    height: var(--title-box-height);
-    background-color: var(--green-background-color);
+    justify-content: space-around;
 
-    .title{
+}
+button{
 
-        margin-left: 5%;
-        font-weight: normal;
-        font-size: calc(1.25*var(--font-size));
-        color: var(--white-text-color);
-        transition: transform 0.2s;
-        
-        &:hover{
-
-            cursor: default;
-            transform: scale(1.02);
-
-        }
-
-    }
-
-    .dots{
-
-        margin-left: auto;
-        margin-right: 5%;
-        transition: transform 0.2s;
-
-        &:hover{
-
-            cursor: pointer;
-            
-
-        }
-
-    }
-
-    .dots::after{
-
-        color: var(--white-text-color);
-        content: '\2807';
-        font-size: calc(1.25*var(--font-size));
-
-    }
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
 
 }

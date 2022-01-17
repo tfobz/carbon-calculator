@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { NavigationService } from '../shared/navigation.service';
 
 @Component({
   selector: 'app-specific-calculation-list',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SpecificCalculationListComponent implements OnInit {
 
-  constructor() { }
+  names:string[]=["Wasserkraft", "Atomkraft"];
+  values: string[] = ["300 W;2", "500 W;4", "700 KW;6"];
+  
+
+  constructor(private route:ActivatedRoute,private navigation:NavigationService){}
 
   ngOnInit(): void {
-  }
 
+    this.route.params.subscribe(params=>{
+
+      this.navigation.changeMessage(params?.sptitel);
+
+    })
+  }
 }

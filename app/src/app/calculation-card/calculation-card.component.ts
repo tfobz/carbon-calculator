@@ -1,4 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { EmissionModule, FactorEmissionModule } from '../emissionmodule/emission-module';
+import { CalculationService } from '../_services/calculation.service';
+
+interface CalculationCardData{
+  number: string,
+  result: string
+}
 
 @Component({
   selector: 'app-calculation-card',
@@ -7,13 +14,19 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CalculationCardComponent implements OnInit {
 
-    @Input() 
-    title!:string;
+    @Input() module!: EmissionModule;
     
-    @Input()
-    values!:string[];
-    
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+    }
+
+    get data(): CalculationCardData[] {
+
+      let number: number = 0;
+      if(this.module instanceof FactorEmissionModule){
+        number = (this.module as FactorEmissionModule).number;
+      }
+
+      return [{ number: number as unknown as string, result: this.module.calculate() as unknown as string }];
+    }
 
 }
