@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgxEchartsModule } from 'ngx-echarts';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CalculationService } from './_services/calculation.service';
@@ -12,6 +14,7 @@ import { CardComponent } from './card/card.component';
 import { CalculationListComponent } from './calculation-list/calculation-list.component';
 import { CalculationCardComponent } from './calculation-card/calculation-card.component';
 import { SpecificCalculationListComponent } from './specific-calculation-list/specific-calculation-list.component';
+import { CalculationDiagramComponent } from './calculation-diagram/calculation-diagram.component';
 
 
 import { NavigationService } from './shared/navigation.service';
@@ -19,7 +22,6 @@ import { NavigationService } from './shared/navigation.service';
 
 @NgModule({
   declarations: [
-
     AppComponent,
     EmissionItemComponent,
     EmissionListComponent,
@@ -29,11 +31,14 @@ import { NavigationService } from './shared/navigation.service';
     CalculationListComponent,
     CalculationCardComponent,
     SpecificCalculationListComponent,
-
+	CalculationDiagramComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts')
+    })
   ],
   providers: [
     NavigationService,

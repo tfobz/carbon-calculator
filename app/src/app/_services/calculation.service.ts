@@ -12,6 +12,10 @@ export class CalculationService {
     return this._calculations;
   }
 
+	getByName(name: string): Calculation | undefined{
+		return this._calculations.find(c => c.name === name);
+	}
+
   load(){
     const calculations: string | null = localStorage.getItem("calculations");
     if(!calculations) return;
