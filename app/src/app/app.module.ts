@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CalculationService } from './_services/calculation.service';
 
 import { EmissionItemComponent } from './emission-list/emission-item/emission-item.component';
 import { EmissionListComponent } from './emission-list/emission-list.component';
@@ -35,9 +36,8 @@ import { NavigationService } from './shared/navigation.service';
     AppRoutingModule
   ],
   providers: [
-
-    NavigationService
-
+    NavigationService,
+    CalculationService
   ],
   bootstrap: [AppComponent]
 })
