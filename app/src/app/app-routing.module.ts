@@ -8,7 +8,7 @@ import { SpecificCalculationListComponent } from './specific-calculation-list/sp
 const routes: Routes = [
   { path: 'emission', component: EmissionListComponent },
   { path: 'emission/:title', component: CalculationListComponent },
-  { path: 'emission/:title:sptitel', component: SpecificCalculationListComponent },
+  { path: 'emission/:title/:sptitel', component: SpecificCalculationListComponent },
   { path : "**", redirectTo:'emission'}
 
 ];

@@ -13,6 +13,9 @@ import { CalculationCardComponent } from './calculation-card/calculation-card.co
 import { SpecificCalculationListComponent } from './specific-calculation-list/specific-calculation-list.component';
 
 
+import { NavigationService } from './shared/navigation.service';
+
+
 @NgModule({
   declarations: [
 
@@ -32,6 +35,8 @@ import { SpecificCalculationListComponent } from './specific-calculation-list/sp
     AppRoutingModule
   ],
   providers: [
+
+    NavigationService
 
   ],
   bootstrap: [AppComponent]

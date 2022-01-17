@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NavigationService } from '../shared/navigation.service';
 
 
 
@@ -17,29 +18,15 @@ export class CalculationListComponent implements OnInit{
   values: string[] = ["300 m2;2", "500 W;4", "700 KW;6"];
   
 
-  constructor(private route: ActivatedRoute){}
+  constructor(private route:ActivatedRoute,private navigation:NavigationService){}
 
   ngOnInit(): void {
 
-    let tilte;
+    this.route.params.subscribe(params=>{
 
-    this.route.paramMap.subscribe(params => {
+      this.navigation.changeMessage(params?.title);
 
-      tilte = params.get('title');
-
-      if(tilte!=null){
-
-        this.title = tilte;
-
-      }
-
-    });
-
-    console.log(this.title);
-
+    })
   }
-
- 
-
 
 }

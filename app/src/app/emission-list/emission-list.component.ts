@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { NavigationService } from '../shared/navigation.service';
 
 
 @Component({
@@ -6,11 +7,19 @@ import { Component } from '@angular/core';
   templateUrl: './emission-list.component.html',
   styleUrls: ['./emission-list.component.scss']
 })
-export class EmissionListComponent {
+export class EmissionListComponent implements OnInit{
 
   //TESTING
   calculations: string[] = ["Testing", "LOL", "xD"];
 
-  title : string = "Emissions"; 
+
+  constructor(private navigation:NavigationService){}
+
+  ngOnInit(): void {
+      
+    this.navigation.changeMessage("Emission");
+
+  }
+
 
 }
