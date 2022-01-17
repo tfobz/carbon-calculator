@@ -1,6 +1,13 @@
-<mat-card>
-	<mat-card-title>
-		SDLFJKLSDFJKLSDFDSJLFJSDLFJLKDSFJLSDLFK
-	</mat-card-title>
-	<echarts [initOpts]="initOpts" [options]="options"></echarts>
-</mat-card>
+<div	
+	gdColumns="1fr 1fr"
+	gdColumns.lt-md="1fr"
+	gdGap="25px"
+	style="margin: 25px">
+	<div class="button-groups">
+	  <button (click)="chartUpdateOptions.isLoading=!chartUpdateOptions.isLoading" nz-button nzType="default">Toggle Loading</button>
+	</div>
+	<mat-card>
+		<mat-card-title>diagram one</mat-card-title>
+		<div echarts [loading]="isLoading" (chartInit)="onChartInit()" [options]="chartOptions" [merge]="chartUpdateOptions"></div>
+	</mat-card>
+</div>

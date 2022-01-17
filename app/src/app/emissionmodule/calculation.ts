@@ -1,7 +1,12 @@
 import { EmissionModule } from "./emission-module";
 import EmissionsManager from "./emissions_manager";
 
+<<<<<<< HEAD
 export class Calculation{
+=======
+export class Calculation {
+    public name: string = "";
+>>>>>>> 2e58972 (wip: graph progress)
     public modules: EmissionModule[] = [];
 
     constructor(public name: string){}

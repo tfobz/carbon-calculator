@@ -14,57 +14,101 @@ export class CalculationDiagramComponent implements OnInit {
 
 	private calculation: Calculation | undefined;
 
-	initOpts = {
-		renderer: 'svg',
-		width: 300,
-		height: 300
-	};
+	isLoading = false;
 
-	options: EChartsOption = {
-		color: ['#3398DB'],
-		tooltip: {
-			trigger: 'axis',
-			axisPointer: {
-				type: 'shadow'
-			}
-		},
-		grid: {
-			left: '3%',
-			right: '4%',
-			bottom: '3%',
-			containLabel: true
-		},
-		xAxis: [
-			{
+	//chartLoading: boolean = true;
+	chartOptions: EChartsOption = {
+			//TODO: read from stylesheet?
+			color: ['#3398DB'],
+			tooltip: {
+				trigger: 'axis',
+				axisPointer: {
+					type: 'shadow'
+				}
+			},
+			grid: {
+				left: '3%',
+				right: '4%',
+				bottom: '3%',
+				containLabel: true
+			},
+			xAxis: {
 				type: 'category',
-				data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+				data: [],
 				axisTick: {
 				  alignWithLabel: true
 				}
-			}
-		],
-		yAxis: [{
-			type: 'value'
-		}],
-		series: [{
-			name: 'Counters',
-			type: 'bar',
-			barWidth: '60%',
-			data: [10, 52, 200, 334, 390, 330, 220]
-		}]
-	};
+			},
+			yAxis: {
+				type: 'value'
+			},
+			series: [{
+				name: 'Counters',
+				type: 'bar',
+				barWidth: '60%',
+				data: []
+			}]
+		};
+	
+	chartUpdateOptions: EChartsOption = {
+		isLoading: true,
+		xAxis: {
+			data: [],
+		},
+		series: {
+			data: [],
+		}
+	}
 
 	constructor(
 		private calculationService: CalculationService,
 		private activatedRoute: ActivatedRoute
-	) { }
+	) {
+	}
 
-	ngOnInit(): void {
-		//TODO: error if not found and loading indication
+	ngOnInit(): void {}
+
+	onChartInit() {
+		this.isLoading = true;
+
 		this.activatedRoute.params.subscribe(params => {
 			const title = params['title'] as unknown;
 			if (typeof title !== "string") throw new Error("Title not of type string (this should not occur)");
 			this.calculation = this.calculationService.getByName(title);
+			this.loadChart();
 		});
+	}
+
+	loadChart() {
+		if(this.calculation == null) {
+			this.isLoading = true;
+			this.chartUpdateOptions = {
+				xAxis: {
+					data: [],
+				},
+				series: {
+					data: [],
+				}
+			};
+			return;
+		}
+
+		//TODO: case for 0 len
+		let names = [];
+		let data = [];
+		for(let module of this.calculation.modules) {
+			names.push(module.id);
+			data.push(module.calculate());
+		}
+
+		this.isLoading = false;
+		this.chartUpdateOptions = {
+			xAxis: {
+				data: names,
+			},
+			series: {
+				data: data,
+			}
+		};
 	}
 }
