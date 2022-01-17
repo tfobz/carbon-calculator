@@ -2,11 +2,14 @@
 
   <span class="title">
   
-    <span><app-arrow [back]="back"></app-arrow></span>
-    <span>{{ title }}</span>
+    
     
   </span>
   
+  <button [routerLink]="back" mat-icon-button class="example-icon" aria-label="back">
+    <mat-icon>keyboard_backspace</mat-icon>
+  </button>
+  <span>{{ title }}</span>
 
   <span class="spacer"></span>
 
