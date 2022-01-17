@@ -8,6 +8,28 @@ export class CalculationService {
 
   private _calculations: Calculation[] = [];
 
+  constructor(){
+    const data = {
+        name: "Test",
+        modules: [
+            {
+                type: "pizza_emission_module",
+                number: 500
+            },
+            {
+                type: "water_emission_module",
+                number: 100
+            }
+        ]
+    };
+    const calculation: Calculation = Calculation.load(data);
+
+    for(let i = 0; i < 10; i++){
+      this._calculations.push(calculation);
+    }
+  
+  }
+
   get calculations(): Calculation[] {
     return this._calculations;
   }
