@@ -5,8 +5,8 @@ import { AppComponent } from './app.component';
 
 import { EmissionItemComponent } from './emission-list/emission-item/emission-item.component';
 import { EmissionListComponent } from './emission-list/emission-list.component';
-import { HeadComponent } from './head/head.component';
-import { ArrowComponent } from './head/arrow/arrow.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { ArrowComponent } from './navigation/arrow/arrow.component';
 import { CardComponent } from './card/card.component';
 import { CalculationListComponent } from './calculation-list/calculation-list.component';
 import { CalculationCardComponent } from './calculation-card/calculation-card.component';
@@ -19,7 +19,7 @@ import { SpecificCalculationListComponent } from './specific-calculation-list/sp
     AppComponent,
     EmissionItemComponent,
     EmissionListComponent,
-    HeadComponent,
+    NavigationComponent,
     ArrowComponent,
     CardComponent,
     CalculationListComponent,
