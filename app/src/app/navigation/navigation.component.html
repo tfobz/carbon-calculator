@@ -1,12 +1,35 @@
-<div class="box">
+<mat-toolbar color="primary">
 
-    <app-arrow [back]="back"></app-arrow>
+  <span class="title">
+  
+    <span><app-arrow [back]="back"></app-arrow></span>
+    <span>{{ title }}</span>
+    
+  </span>
+  
 
-    <h1 class="title"> {{ title }}</h1>
+  <span class="spacer"></span>
 
-    <div class="dots">
+  <span>
 
+    <button [matMenuTriggerFor]="menu" aria-label="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
 
-    </div>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>dialpad</mat-icon>
+        <span>Redial</span>
+      </button>
+      <button mat-menu-item disabled>
+        <mat-icon>voicemail</mat-icon>
+        <span>Check voice mail</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>notifications_off</mat-icon>
+        <span>Disable alerts</span>
+      </button>
+    </mat-menu>
+  </span>
 
-</div>
+</mat-toolbar>

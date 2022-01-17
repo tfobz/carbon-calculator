@@ -1,26 +1,31 @@
-<app-card>
+<mat-card> 
 
-    <div class ="head">
+  <mat-card-header>
+      
+      <mat-card-title>{{ title }}</mat-card-title>
+      <mat-icon routerLink="./{{ title }}"> border_color</mat-icon>
 
-        <p>{{ title }}</p>
-        
+  </mat-card-header>
 
-    </div>
+  <mat-card-content>
 
-    <hr>
-
-    <div class = "content">
-
-        <div class="valueGroups" *ngFor="let value of values">
-
-            <p>{{ value.split(";")[0] }}</p>
-            <p>{{ value.split(";")[1] }}</p>
-            
-
-        </div>
-
-    </div>
-
+    <table mat-table [dataSource]="values" class="mat-elevation-z8">
+          
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+          <td mat-cell *matCellDef="let element"> {{ element.split(";")[0] }} </td>
+        </ng-container>
     
+      <!-- Numbers Column -->
+      <ng-container matColumnDef="number">
+          <td class="numbers" mat-cell *matCellDef="let element"> {{ element.split(";")[1] }} </td>
+        </ng-container>
+    
+    
+      <tr mat-row *matRowDef="let row; columns: ['name','number'];"></tr>
+      
+    </table>
+        
+  </mat-card-content>
 
-</app-card>
+</mat-card> 
