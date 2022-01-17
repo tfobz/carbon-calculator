@@ -1,6 +1,6 @@
-<mat-card>
+<mat-card [routerLink]="['/emission', name]">
 
-    <div [routerLink]="['/emission', name]" class="content">
+    <div class="content">
 
         <p class="name">{{ name }}</p>
         <p class="emission">{{ emission }} CO²</p>

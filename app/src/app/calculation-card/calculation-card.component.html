@@ -1,6 +1,6 @@
 <mat-card> 
 
-  <mat-card-header>
+  <mat-card-header fxLayoutAlign="space-between center">
       
       <mat-card-title>{{ module.id }}</mat-card-title>
       <mat-icon routerLink="./{{ module.id }}"> border_color</mat-icon>
@@ -9,22 +9,13 @@
 
   <mat-card-content>
 
-    <table mat-table [dataSource]="data">
-          
-      <!-- Name Column -->
-      <ng-container matColumnDef="number">
-          <td mat-cell *matCellDef="let data"> {{ data.number }} </td>
-        </ng-container>
-    
-      <!-- Numbers Column -->
-      <ng-container matColumnDef="result">
-          <td class="numbers" mat-cell *matCellDef="let data"> {{ data.result }} </td>
-        </ng-container>
-    
-    
-      <tr mat-row *matRowDef="let row; columns: ['number','result'];"></tr>
-      
-    </table>
+    <div class= "valueGroup" *ngFor="let data of data" fxLayout="row" fxLayoutAlign="space-between center">
+
+      <p let >{{ data.number }}</p>
+      <p let >{{ data.result }}</p>
+
+    </div>
+   
         
   </mat-card-content>
 

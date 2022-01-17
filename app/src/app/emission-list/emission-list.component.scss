@@ -1,0 +1,23 @@
+.content{
+
+    padding: 10px;
+
+    app-emission-item{
+
+        cursor: pointer;
+    
+        transition: all .15s ease-in-out;
+
+        &:hover{
+
+            transform: scale(1.003);
+
+
+        }
+
+    }
+
+}
+
+
+
