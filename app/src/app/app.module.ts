@@ -15,15 +15,20 @@ import { CalculationListComponent } from './calculation-list/calculation-list.co
 import { CalculationCardComponent } from './calculation-card/calculation-card.component';
 import { SpecificCalculationListComponent } from './specific-calculation-list/specific-calculation-list.component';
 import { CalculationDiagramComponent } from './calculation-diagram/calculation-diagram.component';
-
+import { CreateCalculationComponent } from './create-calculation/create-calculation.component';
 
 import { NavigationService } from './shared/navigation.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -36,7 +41,8 @@ import { MatMenuModule } from '@angular/material/menu';
     CalculationListComponent,
     CalculationCardComponent,
     SpecificCalculationListComponent,
-	  CalculationDiagramComponent
+	  CalculationDiagramComponent,
+    CreateCalculationComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +51,10 @@ import { MatMenuModule } from '@angular/material/menu';
       echarts: () => import('echarts')
     }),
     BrowserAnimationsModule,
+    MatButtonModule,
+    MatInputModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
 	  FlexLayoutModule,
     MatCardModule,
     MatTableModule,
@@ -54,7 +64,7 @@ import { MatMenuModule } from '@angular/material/menu';
   ],
   providers: [
     NavigationService,
-    CalculationService
+    CalculationService,
   ],
   bootstrap: [AppComponent]
 })
