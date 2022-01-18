@@ -23,6 +23,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
+import { BarDiagramComponent } from './calculation-diagram/bar-diagram/bar-diagram.component';
+import { PieDiagramComponent } from './calculation-diagram/pie-diagram/pie-diagram.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
@@ -39,7 +41,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     CalculationListComponent,
     CalculationCardComponent,
     SpecificCalculationListComponent,
-	  CalculationDiagramComponent,
+	CalculationDiagramComponent,
+	BarDiagramComponent,
+	PieDiagramComponent,
     CreateCalculationComponent,
   ],
   imports: [
@@ -49,11 +53,11 @@ import { ReactiveFormsModule } from '@angular/forms';
       echarts: () => import('echarts')
     }),
     BrowserAnimationsModule,
+	FlexLayoutModule,
     MatButtonModule,
     MatInputModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-	  FlexLayoutModule,
     MatCardModule,
     MatTableModule,
     MatToolbarModule,

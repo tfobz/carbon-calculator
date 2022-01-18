@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import type { EChartsOption } from 'echarts';
 
 import { Calculation } from '../emissionmodule/calculation';
 import { CalculationService } from '../_services/calculation.service';
+import { DiagramData } from './shared';
 
 @Component({
   selector: 'app-calculation-diagram',
@@ -13,58 +13,35 @@ import { CalculationService } from '../_services/calculation.service';
 export class CalculationDiagramComponent implements OnInit {
 
 	private calculation: Calculation | undefined;
-
-	initOpts = {
-		renderer: 'svg',
-		width: 300,
-		height: 300
-	};
-
-	options: EChartsOption = {
-		color: ['#3398DB'],
-		tooltip: {
-			trigger: 'axis',
-			axisPointer: {
-				type: 'shadow'
-			}
-		},
-		grid: {
-			left: '3%',
-			right: '4%',
-			bottom: '3%',
-			containLabel: true
-		},
-		xAxis: [
-			{
-				type: 'category',
-				data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-				axisTick: {
-				  alignWithLabel: true
-				}
-			}
-		],
-		yAxis: [{
-			type: 'value'
-		}],
-		series: [{
-			name: 'Counters',
-			type: 'bar',
-			barWidth: '60%',
-			data: [10, 52, 200, 334, 390, 330, 220]
-		}]
-	};
+	isLoading = false;
+	data: DiagramData[] = [];
 
 	constructor(
 		private calculationService: CalculationService,
 		private activatedRoute: ActivatedRoute
-	) { }
+	) {
+	}
 
-	ngOnInit(): void {
-		//TODO: error if not found and loading indication
+	ngOnInit() {
+		this.isLoading = true;
+
 		this.activatedRoute.params.subscribe(params => {
 			const title = params['title'] as unknown;
 			if (typeof title !== "string") throw new Error("Title not of type string (this should not occur)");
 			this.calculation = this.calculationService.getByName(title);
+			this.loadChart();
 		});
+	}
+
+	loadChart() {
+		if(this.calculation == null) {
+			this.isLoading = true;
+			this.data = [];
+			return;
+		}
+
+		//TODO: case for 0 len
+		this.data = this.calculation.modules.map((mod) => ({ name: mod.id, value: mod.calculate() }));
+		this.isLoading = false;
 	}
 }

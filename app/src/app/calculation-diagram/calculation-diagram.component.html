@@ -1,1 +1,15 @@
-<echarts [initOpts]="initOpts" [options]="options"></echarts>
+<div	
+	gdColumns="1fr 1fr"
+	gdColumns.lt-md="1fr"
+	gdGap="25px"
+	style="margin: 25px">
+	<mat-card>
+		<mat-card-title>diagram one</mat-card-title>
+		<app-bar-diagram [data]="data"></app-bar-diagram>
+	</mat-card>
+
+	<mat-card>
+		<mat-card-title>diagram two</mat-card-title>
+		<app-pie-diagram [data]="data"></app-pie-diagram>
+	</mat-card>
+</div>
