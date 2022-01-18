@@ -17,7 +17,10 @@ export class NavigationComponent implements OnInit{
 
       if(e instanceof NavigationEnd ){
 
-        this.back = e.url.substring(0,e.url.lastIndexOf('/'));
+        if(e.url.split("/").length>2)
+          this.back = e.url.substring(0,e.url.lastIndexOf('/'));
+        else
+          this.back = "";
 
       }
     });

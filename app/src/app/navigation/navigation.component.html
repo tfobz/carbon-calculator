@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
 
-  <button [routerLink]="back" mat-icon-button class="example-icon" aria-label="back">
+  <button *ngIf="back" [routerLink]="back" mat-icon-button class="example-icon" aria-label="back">
     <mat-icon>keyboard_backspace</mat-icon>
   </button>
   
