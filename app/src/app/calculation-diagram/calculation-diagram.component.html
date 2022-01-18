@@ -5,11 +5,11 @@
 	style="margin: 25px">
 	<mat-card>
 		<mat-card-title>diagram one</mat-card-title>
-		<div echarts [loading]="isLoading" (chartInit)="onChartInit()" [options]="barChartOptions" [merge]="chartUpdateOptions"></div>
+		<app-bar-diagram [data]="data"></app-bar-diagram>
 	</mat-card>
 
 	<mat-card>
 		<mat-card-title>diagram two</mat-card-title>
-		<div echarts [options]="pieChartOptions"></div>
+		<app-pie-diagram [data]="data"></app-pie-diagram>
 	</mat-card>
 </div>
