@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Calculation } from '../emissionmodule/calculation';
 import { EmissionModule } from '../emissionmodule/emission-module';
+import { MenuService } from '../shared/menu.service';
 import { NavigationService } from '../shared/navigation.service';
 import { CalculationService } from '../_services/calculation.service';
 
@@ -17,7 +18,7 @@ export class CalculationListComponent implements OnInit{
   constructor(
     private route:ActivatedRoute,
     private navigation:NavigationService,
-    private calculationService: CalculationService
+    private calculationService: CalculationService,
     ){}
 
   get modules(): EmissionModule[] {
@@ -34,5 +35,4 @@ export class CalculationListComponent implements OnInit{
 
     })
   }
-
 }

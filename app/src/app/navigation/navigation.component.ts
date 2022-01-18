@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, Event, NavigationEnd } from '@angular/router';
+import { menuPoint, MenuService } from '../shared/menu.service';
 import { NavigationService } from '../shared/navigation.service';
 
 @Component({
@@ -11,8 +12,9 @@ export class NavigationComponent implements OnInit{
   
   title: string = "";
   back: string = "";
+  menuPoints!: menuPoint[];
 
-  constructor(private router: Router, private navigation:NavigationService) {
+  constructor(private router: Router, private navigation:NavigationService, private menuService:MenuService) {
     this.router.events.subscribe((e: Event) => {
 
       if(e instanceof NavigationEnd ){
@@ -34,5 +36,6 @@ export class NavigationComponent implements OnInit{
       this.title = params
 
     });
+    this.menuService.currentMenu.subscribe(menu => this.menuPoints = menu);
   }
 }

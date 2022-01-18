@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
 
-  <button *ngIf="back" [routerLink]="back" mat-icon-button class="example-icon" aria-label="back">
+  <button *ngIf="back" [routerLink]="back" mat-icon-button class="icon" aria-label="back">
     <mat-icon>keyboard_backspace</mat-icon>
   </button>
   
@@ -13,18 +13,10 @@
       <mat-icon>more_vert</mat-icon>
     </button>
 
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item>
-        <mat-icon>dialpad</mat-icon>
-        <span>Redial</span>
-      </button>
-      <button mat-menu-item disabled>
-        <mat-icon>voicemail</mat-icon>
-        <span>Check voice mail</span>
-      </button>
-      <button mat-menu-item>
-        <mat-icon>notifications_off</mat-icon>
-        <span>Disable alerts</span>
+    <mat-menu #menu="matMenu"> 
+      <button class="menuPoints" *ngFor="let menuPoint of menuPoints" mat-menu-item [routerLink]="menuPoint.link">
+        <mat-icon *ngIf="menuPoint.icon!=''">{{ menuPoint.icon }}</mat-icon>
+        <span>{{ menuPoint.menuPointName }}</span>
       </button>
     </mat-menu>
   </span>

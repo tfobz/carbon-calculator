@@ -21,7 +21,7 @@ export class SpecificCalculationListComponent implements OnInit {
     this.route.params.subscribe(params=>{
 
       this.navigation.changeMessage(params?.sptitle);
-
+      console.log(params.sptitle);
       let module = this.calculationService.getByName(params.title)?.modules.find(module => module.id == params.sptitle);
       if(module) this.module = module;
       if(this.module instanceof FactorEmissionModule)

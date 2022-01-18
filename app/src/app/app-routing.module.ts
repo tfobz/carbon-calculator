@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'emission/create', component: CreateCalculationComponent },
   { path: 'emission/:title', component: CalculationListComponent },
   { path: 'emission/:title/diagram', component: CalculationDiagramComponent },
-  { path: 'emission/:title/:sptitel', component: SpecificCalculationListComponent },
+  { path: 'emission/:title/:sptitle', component: SpecificCalculationListComponent },
   { path : "**", redirectTo:'emission'}
 
 ];

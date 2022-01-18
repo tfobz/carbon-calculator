@@ -1,5 +1,4 @@
 @import '~@angular/material/theming';
-
 // Define a custom mixin that takes in the current theme
 @mixin theme-color-grabber($theme) {
   // Parse the theme and create variables for each color in the pallete
@@ -32,5 +31,10 @@ button{
   background: none;
   border: none;
   cursor: pointer;
+
+}
+.menuPoints{
+
+  color: var(--text-accent-color);
 
 }
