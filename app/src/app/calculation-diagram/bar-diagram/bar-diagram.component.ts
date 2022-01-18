@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import type { EChartsOption } from 'echarts';
+import { TranslationManagerService } from 'src/app/_services/translation-manager.service';
 import type { DiagramData } from '../shared';
 
 @Component({
@@ -69,7 +71,10 @@ export class BarDiagramComponent implements OnInit {
 		}
 	}
 
-	constructor() { }
+	constructor(
+		private translateService: TranslateService,
+		private translationManager: TranslationManagerService
+	) { }
 
 	ngOnInit(): void {
 	}

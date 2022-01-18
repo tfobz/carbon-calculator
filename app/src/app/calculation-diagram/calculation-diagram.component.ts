@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 import { Calculation } from '../emissionmodule/calculation';
 import { CalculationService } from '../_services/calculation.service';
+import { TranslationManagerService } from '../_services/translation-manager.service';
 import { DiagramData } from './shared';
 
 @Component({
@@ -18,7 +20,9 @@ export class CalculationDiagramComponent implements OnInit {
 
 	constructor(
 		private calculationService: CalculationService,
-		private activatedRoute: ActivatedRoute
+		private activatedRoute: ActivatedRoute,
+		private translateService: TranslateService,
+		private translationManager: TranslationManagerService
 	) {
 	}
 
@@ -39,9 +43,12 @@ export class CalculationDiagramComponent implements OnInit {
 			this.data = [];
 			return;
 		}
-
-		//TODO: case for 0 len
-		this.data = this.calculation.modules.map((mod) => ({ name: mod.id, value: mod.calculate() }));
-		this.isLoading = false;
+		console.log(this.translationManager.lang);
+		this.translateService.getTranslation(this.translationManager.lang).subscribe(translations => {
+			//TODO: case for 0 len
+			if(this.calculation == null) return;
+			this.data = this.calculation.modules.map((mod) => ({ name: this.translationManager.getTranslation(translations, "modules." + mod.id), value: mod.calculate() }));
+			this.isLoading = false;
+		});
 	}
 }

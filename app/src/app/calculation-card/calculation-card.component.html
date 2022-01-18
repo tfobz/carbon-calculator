@@ -2,7 +2,7 @@
 
   <mat-card-header fxLayoutAlign="space-between center">
       
-      <mat-card-title>{{ module?.id }}</mat-card-title>
+      <mat-card-title>{{ "modules." + module?.id | translate }}</mat-card-title>
       <mat-icon routerLink="./{{ module?.id }}"> border_color</mat-icon>
 
   </mat-card-header>

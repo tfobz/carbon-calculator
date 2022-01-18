@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { Calculation } from '../emissionmodule/calculation';
 import { EmissionModule } from '../emissionmodule/emission-module';
 import { MenuService } from '../shared/menu.service';
@@ -21,6 +22,7 @@ export class CalculationListComponent implements OnInit{
     private navigation:NavigationService,
     private calculationService: CalculationService,
     private menuService:MenuService,
+    private translateService: TranslateService
     ){}
 
   get modules(): EmissionModule[] {
@@ -34,8 +36,10 @@ export class CalculationListComponent implements OnInit{
       if(calculation) this._calculation = calculation;
       this.navigation.changeMessage(params?.title);
       this.currentUrl="/emission/" + params.title;
-
     });
-    this.menuService.changeMenu([{icon:"bar_chart", menuPointName:"Diagrams", link:this.currentUrl+"/diagram"}]);
+
+    this.translateService.get("diagrams").subscribe(translation => {
+      this.menuService.changeMenu([{icon:"bar_chart", menuPointName: translation, link:this.currentUrl+"/diagram"}]);
+    });
   }
 }

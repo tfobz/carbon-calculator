@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -31,6 +31,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslationManagerService } from './_services/translation-manager.service';
 import { TreeDiagramComponent } from './calculation-diagram/tree-diagram/tree-diagram.component';
 
 
@@ -43,9 +47,9 @@ import { TreeDiagramComponent } from './calculation-diagram/tree-diagram/tree-di
     CalculationListComponent,
     CalculationCardComponent,
     SpecificCalculationListComponent,
-	CalculationDiagramComponent,
-	BarDiagramComponent,
-	PieDiagramComponent,
+	  CalculationDiagramComponent,
+	  BarDiagramComponent,
+	  PieDiagramComponent,
     CreateCalculationComponent,
     TreeDiagramComponent,
   ],
@@ -56,7 +60,7 @@ import { TreeDiagramComponent } from './calculation-diagram/tree-diagram/tree-di
       echarts: () => import('echarts')
     }),
     BrowserAnimationsModule,
-	FlexLayoutModule,
+	  FlexLayoutModule,
     MatButtonModule,
     MatInputModule,
     MatFormFieldModule,
@@ -66,12 +70,31 @@ import { TreeDiagramComponent } from './calculation-diagram/tree-diagram/tree-di
     MatToolbarModule,
     MatIconModule,
     MatMenuModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      defaultLanguage: "en",
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [ HttpClient ]
+      }
+    })
   ],
   providers: [
     NavigationService,
     CalculationService,
-    MenuService
+    MenuService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: (tms: TranslationManagerService) => () => tms.load(),
+      deps: [TranslationManagerService, TranslateService],
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
+
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+  return new TranslateHttpLoader(http);
+}
