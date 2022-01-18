@@ -17,6 +17,7 @@ import { CalculationDiagramComponent } from './calculation-diagram/calculation-d
 import { CreateCalculationComponent } from './create-calculation/create-calculation.component';
 
 import { NavigationService } from './shared/navigation.service';
+import { MenuService } from './shared/menu.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatCardModule } from '@angular/material/card';
@@ -69,6 +70,7 @@ import { TreeDiagramComponent } from './calculation-diagram/tree-diagram/tree-di
   providers: [
     NavigationService,
     CalculationService,
+    MenuService
   ],
   bootstrap: [AppComponent]
 })
