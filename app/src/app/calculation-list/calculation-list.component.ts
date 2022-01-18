@@ -14,11 +14,13 @@ import { CalculationService } from '../_services/calculation.service';
 export class CalculationListComponent implements OnInit{
   
   private _calculation!: Calculation;
+  private currentUrl!:string;
 
   constructor(
     private route:ActivatedRoute,
     private navigation:NavigationService,
     private calculationService: CalculationService,
+    private menuService:MenuService,
     ){}
 
   get modules(): EmissionModule[] {
@@ -30,9 +32,10 @@ export class CalculationListComponent implements OnInit{
     this.route.params.subscribe(params=>{
       let calculation = this.calculationService.getByName(params.title);
       if(calculation) this._calculation = calculation;
-      
       this.navigation.changeMessage(params?.title);
+      this.currentUrl="/emission/" + params.title;
 
-    })
+    });
+    this.menuService.changeMenu([{icon:"bar_chart", menuPointName:"Diagrams", link:this.currentUrl+"/diagram"}]);
   }
 }
