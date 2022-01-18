@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, Event, NavigationEnd } from '@angular/router';
 import { NavigationService } from '../shared/navigation.service';
 
 @Component({
@@ -9,20 +9,27 @@ import { NavigationService } from '../shared/navigation.service';
 })
 export class NavigationComponent implements OnInit{
   
-  title: String = "";
-  back: String = "/";
+  title: string = "";
+  back: string = "";
 
-  constructor(private route: ActivatedRoute, private navigation:NavigationService){}
+  constructor(private router: Router, private navigation:NavigationService) {
+    this.router.events.subscribe((e: Event) => {
 
-  ngOnInit(): void {
+      if(e instanceof NavigationEnd ){
 
-   this.navigation.currentMessage.subscribe(params=>{
+        this.back = e.url.substring(0,e.url.lastIndexOf('/'));
 
-    this.title = params
-
-  });
-
+      }
+    });
   }
 
 
+  ngOnInit(): void {
+
+    this.navigation.currentMessage.subscribe(params=>{
+
+      this.title = params
+
+    });
+  }
 }

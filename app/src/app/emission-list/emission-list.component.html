@@ -1,7 +1,4 @@
-
-
-
-<div class="content">
+<div class="content" fxLayout="column" fxLayoutGap="15px">
 
     <app-emission-item *ngFor="let calcs of calculations" [name]="calcs.name" [emission]="calcs.calculate()"></app-emission-item>
 

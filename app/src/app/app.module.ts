@@ -10,7 +10,6 @@ import { CalculationService } from './_services/calculation.service';
 import { EmissionItemComponent } from './emission-list/emission-item/emission-item.component';
 import { EmissionListComponent } from './emission-list/emission-list.component';
 import { NavigationComponent } from './navigation/navigation.component';
-import { ArrowComponent } from './navigation/arrow/arrow.component';
 import { CalculationListComponent } from './calculation-list/calculation-list.component';
 import { CalculationCardComponent } from './calculation-card/calculation-card.component';
 import { SpecificCalculationListComponent } from './specific-calculation-list/specific-calculation-list.component';
@@ -37,7 +36,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     EmissionItemComponent,
     EmissionListComponent,
     NavigationComponent,
-    ArrowComponent,
     CalculationListComponent,
     CalculationCardComponent,
     SpecificCalculationListComponent,
