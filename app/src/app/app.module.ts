@@ -30,6 +30,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TreeDiagramComponent } from './calculation-diagram/tree-diagram/tree-diagram.component';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 	BarDiagramComponent,
 	PieDiagramComponent,
     CreateCalculationComponent,
+    TreeDiagramComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,4 +72,4 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

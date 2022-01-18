@@ -1,15 +1,20 @@
 <div	
-	gdColumns="1fr 1fr"
+	gdColumns.gt-md="1fr 1fr"
 	gdColumns.lt-md="1fr"
 	gdGap="25px"
 	style="margin: 25px">
 	<mat-card>
-		<mat-card-title>diagram one</mat-card-title>
+		<mat-card-title>Bar</mat-card-title>
 		<app-bar-diagram [data]="data"></app-bar-diagram>
 	</mat-card>
 
 	<mat-card>
-		<mat-card-title>diagram two</mat-card-title>
+		<mat-card-title>Pie</mat-card-title>
 		<app-pie-diagram [data]="data"></app-pie-diagram>
+	</mat-card>
+
+	<mat-card gdColumn.gt-md="span 2">
+		<mat-card-title>Trees</mat-card-title>
+		<app-tree-diagram [data]="data"></app-tree-diagram>
 	</mat-card>
 </div>
