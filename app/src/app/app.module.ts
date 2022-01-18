@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -30,6 +30,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslationManagerService } from './_services/translation-manager.service';
 
 
 @NgModule({
@@ -41,9 +45,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     CalculationListComponent,
     CalculationCardComponent,
     SpecificCalculationListComponent,
-	CalculationDiagramComponent,
-	BarDiagramComponent,
-	PieDiagramComponent,
+	  CalculationDiagramComponent,
+	  BarDiagramComponent,
+	  PieDiagramComponent,
     CreateCalculationComponent,
   ],
   imports: [
@@ -53,7 +57,7 @@ import { ReactiveFormsModule } from '@angular/forms';
       echarts: () => import('echarts')
     }),
     BrowserAnimationsModule,
-	FlexLayoutModule,
+	  FlexLayoutModule,
     MatButtonModule,
     MatInputModule,
     MatFormFieldModule,
@@ -63,11 +67,30 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatToolbarModule,
     MatIconModule,
     MatMenuModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      defaultLanguage: "en",
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [ HttpClient ]
+      }
+    })
   ],
   providers: [
     NavigationService,
     CalculationService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: (tms: TranslationManagerService) => () => tms.load(),
+      deps: [TranslationManagerService, TranslateService],
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+  return new TranslateHttpLoader(http);
+}

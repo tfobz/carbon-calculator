@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { Calculation } from '../emissionmodule/calculation';
 import { NavigationService } from '../shared/navigation.service';
 import { CalculationService } from '../_services/calculation.service';
@@ -13,13 +14,14 @@ export class EmissionListComponent implements OnInit{
 
   constructor(
     private navigation:NavigationService,
-    private calculationService: CalculationService
+    private calculationService: CalculationService,
+    private translateService: TranslateService
   ){}
 
   ngOnInit(): void {
-      
-    this.navigation.changeMessage("Emission");
-
+    this.translateService.get("emission").subscribe(translation => {
+      this.navigation.changeMessage(translation);
+    });
   }
 
   get calculations(): Calculation[] {
