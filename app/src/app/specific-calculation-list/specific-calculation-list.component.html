@@ -1,17 +1,15 @@
 <!-- FactorModule -->
-<div *ngIf="factorEmissionModuleExists">
+<div class="factorEmissionModule" *ngIf="factorEmissionModuleExists">
 
     <mat-card>
 
-        <mat-card-header>
-            <input matInput type="number" [value]="getFactorModule().number">
-            <p>Unit</p>
-        </mat-card-header>
-
+        <input matInput type="number" [value]="getFactorModule().number">
+        <p>Unit</p>
+    
     </mat-card>
 
 
-    <div>
+    <div class="result">
 
         <p>{{ getFactorModule().calculate() }} kg CO²</p>
 
