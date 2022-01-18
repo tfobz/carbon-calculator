@@ -5,8 +5,6 @@ import { EmissionModule } from '../emissionmodule/emission-module';
 import { NavigationService } from '../shared/navigation.service';
 import { CalculationService } from '../_services/calculation.service';
 
-
-
 @Component({
   selector: 'app-calculation-list',
   templateUrl: './calculation-list.component.html',

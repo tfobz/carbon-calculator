@@ -14,19 +14,18 @@ interface CalculationCardData{
 })
 export class CalculationCardComponent implements OnInit {
 
-    @Input() module!: EmissionModule;
+  @Input() module!: EmissionModule;
+  
+  ngOnInit(): void {}
+
+  get data(): CalculationCardData[] {
+
+    let number: number = 0;
     
-    ngOnInit(): void {
+    if(this.module instanceof FactorEmissionModule){
+      number = (this.module as FactorEmissionModule).number;
     }
 
-    get data(): CalculationCardData[] {
-
-      let number: number = 0;
-      if(this.module instanceof FactorEmissionModule){
-        number = (this.module as FactorEmissionModule).number;
-      }
-
-      return [{ number: number as unknown as string, result: this.module?.calculate() as unknown as string }];
-    }
-
+    return [{ number: number as unknown as string, result: this.module?.calculate() as unknown as string }];
+  }
 }

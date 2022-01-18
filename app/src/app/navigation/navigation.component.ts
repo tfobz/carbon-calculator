@@ -26,16 +26,10 @@ export class NavigationComponent implements OnInit{
 
   ngOnInit(): void {
 
-   this.navigation.currentMessage.subscribe(params=>{
+    this.navigation.currentMessage.subscribe(params=>{
 
-    this.title = params
+      this.title = params
 
-  });
-
-  
-
-
+    });
   }
-
-
 }

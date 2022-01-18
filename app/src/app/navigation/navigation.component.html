@@ -1,20 +1,14 @@
 <mat-toolbar color="primary">
 
-  <span class="title">
-  
-    
-    
-  </span>
-  
   <button [routerLink]="back" mat-icon-button class="example-icon" aria-label="back">
     <mat-icon>keyboard_backspace</mat-icon>
   </button>
+  
   <span>{{ title }}</span>
 
   <span class="spacer"></span>
 
   <span>
-
     <button [matMenuTriggerFor]="menu" aria-label="menu">
       <mat-icon>more_vert</mat-icon>
     </button>

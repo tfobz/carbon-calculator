@@ -11,5 +11,4 @@ export class EmissionItemComponent{
   @Input() name!: string;  
   @Input() emission: number = 0;
 
-
 }
