@@ -10,22 +10,26 @@ import { CalculationService } from './_services/calculation.service';
 import { EmissionItemComponent } from './emission-list/emission-item/emission-item.component';
 import { EmissionListComponent } from './emission-list/emission-list.component';
 import { NavigationComponent } from './navigation/navigation.component';
-import { ArrowComponent } from './navigation/arrow/arrow.component';
 import { CalculationListComponent } from './calculation-list/calculation-list.component';
 import { CalculationCardComponent } from './calculation-card/calculation-card.component';
 import { SpecificCalculationListComponent } from './specific-calculation-list/specific-calculation-list.component';
 import { CalculationDiagramComponent } from './calculation-diagram/calculation-diagram.component';
-
+import { CreateCalculationComponent } from './create-calculation/create-calculation.component';
 
 import { NavigationService } from './shared/navigation.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { BarDiagramComponent } from './calculation-diagram/bar-diagram/bar-diagram.component';
 import { PieDiagramComponent } from './calculation-diagram/pie-diagram/pie-diagram.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -34,13 +38,13 @@ import { PieDiagramComponent } from './calculation-diagram/pie-diagram/pie-diagr
     EmissionItemComponent,
     EmissionListComponent,
     NavigationComponent,
-    ArrowComponent,
     CalculationListComponent,
     CalculationCardComponent,
     SpecificCalculationListComponent,
-	  CalculationDiagramComponent,
-   BarDiagramComponent,
-   PieDiagramComponent
+	CalculationDiagramComponent,
+	BarDiagramComponent,
+	PieDiagramComponent,
+    CreateCalculationComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +54,10 @@ import { PieDiagramComponent } from './calculation-diagram/pie-diagram/pie-diagr
     }),
     BrowserAnimationsModule,
 	FlexLayoutModule,
+    MatButtonModule,
+    MatInputModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
     MatCardModule,
     MatTableModule,
     MatToolbarModule,
@@ -58,7 +66,7 @@ import { PieDiagramComponent } from './calculation-diagram/pie-diagram/pie-diagr
   ],
   providers: [
     NavigationService,
-    CalculationService
+    CalculationService,
   ],
   bootstrap: [AppComponent]
 })

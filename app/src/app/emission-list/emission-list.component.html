@@ -1,10 +1,15 @@
-
-
-
-<div class="content">
+<div class="content" fxLayout="column" fxLayoutGap="15px">
 
     <app-emission-item *ngFor="let calcs of calculations" [name]="calcs.name" [emission]="calcs.calculate()"></app-emission-item>
 
 </div>
+
+<a 
+    routerLink="/emission/create"
+    id="add_button"
+    mat-fab color="primary"
+    aria-label="Add new calculation button">
+    <mat-icon>add</mat-icon>
+</a>
 
 <!-- create new -->

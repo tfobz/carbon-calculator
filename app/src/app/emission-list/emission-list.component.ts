@@ -14,7 +14,7 @@ export class EmissionListComponent implements OnInit{
   constructor(
     private navigation:NavigationService,
     private calculationService: CalculationService
-    ){}
+  ){}
 
   ngOnInit(): void {
       
@@ -25,6 +25,4 @@ export class EmissionListComponent implements OnInit{
   get calculations(): Calculation[] {
     return this.calculationService.calculations;
   }
-
-
 }
