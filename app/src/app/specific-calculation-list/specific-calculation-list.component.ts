@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { EmissionModule, FactorEmissionModule } from '../emissionmodule/emission-module';
 import { NavigationService } from '../shared/navigation.service';
+import { CalculationService } from '../_services/calculation.service';
 
 @Component({
   selector: 'app-specific-calculation-list',
@@ -10,20 +12,40 @@ import { NavigationService } from '../shared/navigation.service';
 })
 export class SpecificCalculationListComponent implements OnInit {
 
-  names:string[]=["Wasserkraft", "Atomkraft"];
-  values: string[] = ["300 W;2", "500 W;4", "700 KW;6"];
-  
+  private _module!: EmissionModule;
+  public factorEmissionModuleExists:boolean = false;
 
-  constructor(private route:ActivatedRoute,private navigation:NavigationService,private translateService: TranslateService){}
+  constructor(private route:ActivatedRoute,private navigation:NavigationService,private translateService: TranslateService, private calculationService:CalculationService){}
 
   ngOnInit(): void {
 
     this.route.params.subscribe(params=>{
 
-      this.translateService.get("modules." + params?.sptitel).subscribe(translation => {
+      this.translateService.get("modules." + params?.sptitle).subscribe(translation => {
         this.navigation.changeMessage(translation);
       });
 
+      let module = this.calculationService.getByName(params.title)?.modules.find(module => module.id == params.sptitle);
+      if(module) this.module = module;
+      if(this.module instanceof FactorEmissionModule)
+        this.factorEmissionModuleExists = true;
     })
+  }
+
+  get module() : EmissionModule {
+
+    return this._module;
+
+  }
+  set module(module:EmissionModule){
+
+    this._module = module;
+
+  }
+
+  getFactorModule() : FactorEmissionModule {
+
+    return this.module as FactorEmissionModule;
+
   }
 }

@@ -7,12 +7,14 @@
 
   </mat-card-header>
 
+  <hr>
+
   <mat-card-content>
 
     <div class= "valueGroup" *ngFor="let data of data" fxLayout="row" fxLayoutAlign="space-between center">
 
-      <p let >{{ data?.number }}</p>
-      <p let >{{ data?.result }}</p>
+      <p let >{{ data?.number }} Unit</p>
+      <p let >{{ data?.result }} kg CO²</p>
 
     </div>
      

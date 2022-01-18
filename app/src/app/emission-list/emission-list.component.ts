@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Calculation } from '../emissionmodule/calculation';
+import { MenuService } from '../shared/menu.service';
 import { NavigationService } from '../shared/navigation.service';
 import { CalculationService } from '../_services/calculation.service';
 
@@ -15,13 +16,16 @@ export class EmissionListComponent implements OnInit{
   constructor(
     private navigation:NavigationService,
     private calculationService: CalculationService,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private menuService:MenuService,
   ){}
 
   ngOnInit(): void {
     this.translateService.get("emission").subscribe(translation => {
       this.navigation.changeMessage(translation);
     });
+    //Menu 
+    this.menuService.changeMenu([])
   }
 
   get calculations(): Calculation[] {

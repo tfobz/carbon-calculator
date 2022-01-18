@@ -1,1 +1,40 @@
+mat-card{
 
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+    -khtml-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+     user-select: none; 
+
+    margin-left: auto;
+    margin-right: auto;
+    transition: all .15s ease-in-out;
+    width: 70%;
+    color: var(--text-primary-lighter-color);
+    margin-top: 15px;
+    padding: 15px;
+
+    &:hover{
+
+        transform: scale(1.007);
+
+    }
+    @media screen and (max-width: 800px) {
+        
+        width: 90%;
+
+    }
+
+    mat-card-content{
+
+        padding: 15px 15px 0px 15px;
+
+    }
+
+    mat-icon:hover{
+
+        cursor: pointer;
+
+    }
+}

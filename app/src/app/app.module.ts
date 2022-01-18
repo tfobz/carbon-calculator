@@ -17,6 +17,7 @@ import { CalculationDiagramComponent } from './calculation-diagram/calculation-d
 import { CreateCalculationComponent } from './create-calculation/create-calculation.component';
 
 import { NavigationService } from './shared/navigation.service';
+import { MenuService } from './shared/menu.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatCardModule } from '@angular/material/card';
@@ -34,6 +35,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslationManagerService } from './_services/translation-manager.service';
+import { TreeDiagramComponent } from './calculation-diagram/tree-diagram/tree-diagram.component';
 
 
 @NgModule({
@@ -49,6 +51,7 @@ import { TranslationManagerService } from './_services/translation-manager.servi
 	  BarDiagramComponent,
 	  PieDiagramComponent,
     CreateCalculationComponent,
+    TreeDiagramComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,6 +83,7 @@ import { TranslationManagerService } from './_services/translation-manager.servi
   providers: [
     NavigationService,
     CalculationService,
+    MenuService,
     {
       provide: APP_INITIALIZER,
       useFactory: (tms: TranslationManagerService) => () => tms.load(),
