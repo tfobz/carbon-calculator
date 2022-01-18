@@ -1,9 +1,6 @@
 .container{
     max-width: 500px;
     width: 80%;
-    margin: 0 auto;
-    form{
-        display: flex;
-        flex-direction: column;
-    }
+    margin: 25px auto;
+    button{ margin-top: 10px; }
 }

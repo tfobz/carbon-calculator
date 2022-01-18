@@ -9,6 +9,8 @@ export class CalculationService {
   private _calculations: Calculation[] = [];
 
   constructor(){
+
+    /*
     const data = {
         name: "Test",
         modules: [
@@ -27,11 +29,18 @@ export class CalculationService {
     for(let i = 0; i < 10; i++){
       this._calculations.push(calculation);
     }
+    */
   
+    this.load();
   }
 
   get calculations(): Calculation[] {
     return this._calculations;
+  }
+
+  addCalculation(calculation: Calculation){
+    this._calculations.push(calculation);
+    this.save();
   }
 
 	getByName(name: string): Calculation | undefined{
