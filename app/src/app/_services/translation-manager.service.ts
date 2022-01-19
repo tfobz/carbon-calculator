@@ -55,9 +55,6 @@ export class TranslationManagerService{
 
 	load(){
 		this.translateService.addLangs(availableLangs);
-
-		console.log(this.translateService.getBrowserLang());
-		console.log(this.translateService.getLangs());
 		const lang = localStorage.getItem("lang");
 		if(lang) {
 			this.lang = lang;

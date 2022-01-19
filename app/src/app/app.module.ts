@@ -19,6 +19,7 @@ import { CreateCalculationComponent } from './create-calculation/create-calculat
 import { NavigationService } from './shared/navigation.service';
 import { MenuService } from './shared/menu.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
@@ -71,6 +72,7 @@ import { TreeDiagramComponent } from './calculation-diagram/tree-diagram/tree-di
     MatIconModule,
     MatMenuModule,
     HttpClientModule,
+    FormsModule,
     TranslateModule.forRoot({
       defaultLanguage: "en",
       loader: {
