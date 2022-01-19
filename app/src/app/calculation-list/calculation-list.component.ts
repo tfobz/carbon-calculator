@@ -15,7 +15,7 @@ import { CalculationService } from '../_services/calculation.service';
 export class CalculationListComponent implements OnInit{
   
   private _calculation!: Calculation;
-  private currentUrl!:string;
+  public currentUrl!:string;
 
   constructor(
     private route:ActivatedRoute,
