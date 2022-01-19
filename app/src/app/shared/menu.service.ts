@@ -23,7 +23,13 @@ export class MenuService {
 
   private messageSource = new BehaviorSubject(this.editDataDetails);
 
-  currentMenu = this.messageSource.asObservable();
+  private _currentMenu = this.messageSource.asObservable();
+
+  get currentMenu(){
+
+    return this._currentMenu;
+
+  }
 
   changeMenu(message: menuPoint[]) {
 
