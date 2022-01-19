@@ -2,10 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Calculation } from '../emissionmodule/calculation';
-import { EmissionModule } from '../emissionmodule/emission-module';
 import EmissionsManager from '../emissionmodule/emissions_manager';
-import { CoffeeEmissionModule } from '../emissionmodule/impl/fooddrinks/coffee_emission-module';
-import { PizzaEmissionModule } from '../emissionmodule/impl/fooddrinks/pizza_emission-module';
 import { CalculationService } from '../_services/calculation.service';
 
 interface CalculationData{

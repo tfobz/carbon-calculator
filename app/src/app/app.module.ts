@@ -20,6 +20,7 @@ import { NavigationService } from './shared/navigation.service';
 import { MenuService } from './shared/menu.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularResizeEventModule } from 'angular-resize-event';
+import { FormsModule } from '@angular/forms';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
@@ -40,6 +41,7 @@ import { TreeDiagramComponent } from './calculation-diagram/tree-diagram/tree-di
 import { CalculationDiagramCompareComponent } from './calculation-diagram-compare/calculation-diagram-compare.component';
 import { BarDiagramCompareComponent } from './calculation-diagram-compare/bar-diagram-compare/bar-diagram-compare.component';
 import { BarDiagramBothComponent } from './calculation-diagram-compare/bar-diagram-both/bar-diagram-both.component';
+import { CreateModuleComponent } from './create-module/create-module.component';
 
 
 @NgModule({
@@ -51,14 +53,15 @@ import { BarDiagramBothComponent } from './calculation-diagram-compare/bar-diagr
     CalculationListComponent,
     CalculationCardComponent,
     SpecificCalculationListComponent,
-	  CalculationDiagramComponent,
-	  BarDiagramComponent,
-	  PieDiagramComponent,
+	CalculationDiagramComponent,
+	BarDiagramComponent,
+	PieDiagramComponent,
     CreateCalculationComponent,
     TreeDiagramComponent,
     CalculationDiagramCompareComponent,
     BarDiagramCompareComponent,
     BarDiagramBothComponent,
+    CreateModuleComponent,
   ],
   imports: [
     BrowserModule,
@@ -79,6 +82,7 @@ import { BarDiagramBothComponent } from './calculation-diagram-compare/bar-diagr
     MatIconModule,
     MatMenuModule,
     HttpClientModule,
+    FormsModule,
     TranslateModule.forRoot({
       defaultLanguage: "en",
       loader: {
