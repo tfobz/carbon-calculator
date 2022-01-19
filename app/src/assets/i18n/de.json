@@ -14,7 +14,10 @@
         "printer_emission_module": "Drucker",
         "plotter_emission_module": "Plotter",
         "laptop_emission_module": "Laptop",
-        "computer_emission_module": "Computer"
+        "computer_emission_module": "Computer",
+        "electricity_emission_module": "Elektrizität",
+        "heating_emission_module": "Heizung",
+        "mobility_emission_module": "Mobilität"
     },
     "add_button": "Hinzufügen",
     "name": "Name",

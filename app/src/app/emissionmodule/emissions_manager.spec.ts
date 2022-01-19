@@ -5,12 +5,15 @@ import { PlotterEmissionModule, PLOTTER_EMISSION_MODULE_ID } from "./impl/device
 import { Printer3DEmissionModule, PRINTER_3D_EMISSION_MODULE_ID } from "./impl/devices/printer_3d_emission-module";
 import { PrinterEmissionModule, PRINTER_EMISSION_MODULE_ID } from "./impl/devices/printer_emission-module";
 import { ServerEmissionModule, SERVER_EMISSION_MODULE_ID } from "./impl/devices/server_emission-module";
+import { ElectricityEmissionModule, ELECTRICITY_EMISSION_MODULE_ID } from "./impl/electricity/electricity_emission-module";
 import { CoffeeEmissionModule, COFFEE_EMISSION_MODULE_ID } from "./impl/fooddrinks/coffee_emission-module";
 import { Drinks500mlEmissionModule, DRINKS_500ML_EMISSION_MODULE_ID } from "./impl/fooddrinks/drinks_500ml_emission-module";
 import { PizzaEmissionModule, PIZZA_EMISSION_MODULE_ID } from "./impl/fooddrinks/pizza_emission-module";
+import { HeatingEmissionModule, HEATING_EMISSION_MODULE_ID } from "./impl/heating/heating_emission-module";
 import { DINA3EmissionModule, DINA3_EMISSION_MODULE_ID } from "./impl/paper/DINA3_emission-module";
 import { DINA4EmissionModule, DINA4_EMISSION_MODULE_ID } from "./impl/paper/DINA4_emission-module";
 import { TonerEmissionModule, TONER_EMISSION_MODULE_ID } from "./impl/toner_emission-module";
+import { MobilityEmissionModule, MOBILITY_EMISSION_MODULE_ID } from "./impl/transport/mobility/mobility_emission-module";
 import { SchoolCarEmissionModule, SCHOOL_CAR_EMISSION_MODULE_ID } from "./impl/transport/school_car_emission-module";
 import { WaterEmissionModule, WATER_EMISSION_MODULE_ID } from "./impl/water_emission-module";
 
@@ -27,6 +30,34 @@ describe('emissions_module', () => {
         expect(actual).toEqual(expected);
     });
 
+    it("should save electricity module to object", () => {
+        let expected = {
+            type: ELECTRICITY_EMISSION_MODULE_ID,
+            data: [
+                [ "WIND_ELECTRICITY_TYPE", 10 ]
+            ]
+        };
+
+        let module = new ElectricityEmissionModule();
+        module.addElectricityType("WIND_ELECTRICITY_TYPE", 10);
+
+        expect(EmissionsManager.save(module)).toEqual(expected);
+    });
+
+    it("should save mobility module to object", () => {
+        let expected = {
+            type: MOBILITY_EMISSION_MODULE_ID,
+            data: [
+                [ "PKW_MOBILITY_TYPE", 10 ]
+            ]
+        };
+
+        let module = new MobilityEmissionModule();
+        module.addMobilityType("PKW_MOBILITY_TYPE", 10);
+
+        expect(EmissionsManager.save(module)).toEqual(expected);
+    });
+
     it("should load module from object", () => {
         let expected = new SchoolCarEmissionModule();
         expected.number = 25;
@@ -36,6 +67,16 @@ describe('emissions_module', () => {
             number: 25
         });
         expect(actual).toEqual(expected);
+    });
+
+    it("should load module from type ElectricityEmissionModule", () => {
+        const actual = EmissionsManager.load({ type: ELECTRICITY_EMISSION_MODULE_ID });
+        expect(actual instanceof ElectricityEmissionModule).toBeTruthy();
+    });
+
+    it("should load module from type MobilityEmissionModule", () => {
+        const actual = EmissionsManager.load({ type: MOBILITY_EMISSION_MODULE_ID });
+        expect(actual instanceof MobilityEmissionModule).toBeTruthy();
     });
 
     it("should load module from type TonerEmissionModule", () => {
@@ -93,5 +134,9 @@ describe('emissions_module', () => {
     it("should load module from type ComputerEmissionModule", () => {
         let actual = EmissionsManager.load({ type: COMPUTER_EMISSION_MODULE_ID });
         expect(actual instanceof ComputerEmissionModule).toBeTruthy();
+    });
+    it("should load module from type HeatingEmissionModule", () => {
+        let actual = EmissionsManager.load({ type: HEATING_EMISSION_MODULE_ID });
+        expect(actual instanceof HeatingEmissionModule).toBeTruthy();
     });
 });
