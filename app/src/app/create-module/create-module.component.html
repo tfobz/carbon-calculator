@@ -1,0 +1,10 @@
+<mat-card *ngFor="let id of ids">
+
+    <mat-card-header>
+        <p fxFlex>{{ "modules." +id | translate }}</p>
+        <button (click)="create(id)" mat-icon-button class="icon" aria-label="addModule">
+            <mat-icon>add</mat-icon>
+        </button>
+    </mat-card-header>
+
+</mat-card>

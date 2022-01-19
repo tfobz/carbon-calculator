@@ -37,6 +37,7 @@ import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-transla
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslationManagerService } from './_services/translation-manager.service';
 import { TreeDiagramComponent } from './calculation-diagram/tree-diagram/tree-diagram.component';
+import { CreateModuleComponent } from './create-module/create-module.component';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { TreeDiagramComponent } from './calculation-diagram/tree-diagram/tree-di
 	  PieDiagramComponent,
     CreateCalculationComponent,
     TreeDiagramComponent,
+    CreateModuleComponent,
   ],
   imports: [
     BrowserModule,
