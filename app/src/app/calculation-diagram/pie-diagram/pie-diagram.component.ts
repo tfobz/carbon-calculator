@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import type { EChartsOption } from 'echarts';
-import type { DiagramData } from '../shared';
+import type { DiagramData } from '../../shared';
 
 @Component({
   selector: 'app-pie-diagram',

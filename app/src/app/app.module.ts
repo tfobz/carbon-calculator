@@ -19,6 +19,7 @@ import { CreateCalculationComponent } from './create-calculation/create-calculat
 import { NavigationService } from './shared/navigation.service';
 import { MenuService } from './shared/menu.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularResizeEventModule } from 'angular-resize-event';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
@@ -36,6 +37,9 @@ import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-transla
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslationManagerService } from './_services/translation-manager.service';
 import { TreeDiagramComponent } from './calculation-diagram/tree-diagram/tree-diagram.component';
+import { CalculationDiagramCompareComponent } from './calculation-diagram-compare/calculation-diagram-compare.component';
+import { BarDiagramCompareComponent } from './calculation-diagram-compare/bar-diagram-compare/bar-diagram-compare.component';
+import { BarDiagramBothComponent } from './calculation-diagram-compare/bar-diagram-both/bar-diagram-both.component';
 
 
 @NgModule({
@@ -52,6 +56,9 @@ import { TreeDiagramComponent } from './calculation-diagram/tree-diagram/tree-di
 	  PieDiagramComponent,
     CreateCalculationComponent,
     TreeDiagramComponent,
+    CalculationDiagramCompareComponent,
+    BarDiagramCompareComponent,
+    BarDiagramBothComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,7 +67,8 @@ import { TreeDiagramComponent } from './calculation-diagram/tree-diagram/tree-di
       echarts: () => import('echarts')
     }),
     BrowserAnimationsModule,
-	  FlexLayoutModule,
+	AngularResizeEventModule,
+	FlexLayoutModule,
     MatButtonModule,
     MatInputModule,
     MatFormFieldModule,

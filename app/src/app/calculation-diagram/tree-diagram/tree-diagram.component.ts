@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import type { DiagramData } from '../shared';
+import type { DiagramData } from '../../shared';
 
 interface Tree {
 	position: { x: number, y: number },
