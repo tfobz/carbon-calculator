@@ -5,7 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Calculation } from '../emissionmodule/calculation';
 import { CalculationService } from '../_services/calculation.service';
 import { TranslationManagerService } from '../_services/translation-manager.service';
-import { DiagramData } from '../shared';
+import { DiagramData, MenuService } from '../shared';
 
 @Component({
   selector: 'app-calculation-diagram',
@@ -21,13 +21,17 @@ export class CalculationDiagramComponent implements OnInit {
 		private calculationService: CalculationService,
 		private activatedRoute: ActivatedRoute,
 		private translateService: TranslateService,
-		private translationManager: TranslationManagerService
+		private translationManager: TranslationManagerService,
+		private menuService: MenuService
 	) {
 	}
 
 	ngOnInit() {
 		this.activatedRoute.params.subscribe(params => {
 			const title = params['title'] as unknown;
+			this.translateService.get("compare").subscribe(translation => {
+				this.menuService.changeMenu([{icon:"bar_chart", menuPointName: translation, link: `/emission/${title}/diagram/compare`}]);
+			});
 			if (typeof title !== "string") throw new Error("Title not of type string (this should not occur)");
 			this.calculation = this.calculationService.getByName(title);
 			this.loadChart();
