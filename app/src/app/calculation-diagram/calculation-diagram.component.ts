@@ -5,7 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Calculation } from '../emissionmodule/calculation';
 import { CalculationService } from '../_services/calculation.service';
 import { TranslationManagerService } from '../_services/translation-manager.service';
-import { DiagramData } from './shared';
+import { DiagramData, MenuService } from '../shared';
 
 @Component({
   selector: 'app-calculation-diagram',
@@ -15,22 +15,23 @@ import { DiagramData } from './shared';
 export class CalculationDiagramComponent implements OnInit {
 
 	private calculation: Calculation | undefined;
-	isLoading = false;
 	data: DiagramData[] = [];
 
 	constructor(
 		private calculationService: CalculationService,
 		private activatedRoute: ActivatedRoute,
 		private translateService: TranslateService,
-		private translationManager: TranslationManagerService
+		private translationManager: TranslationManagerService,
+		private menuService: MenuService
 	) {
 	}
 
 	ngOnInit() {
-		this.isLoading = true;
-
 		this.activatedRoute.params.subscribe(params => {
 			const title = params['title'] as unknown;
+			this.translateService.get("compare").subscribe(translation => {
+				this.menuService.changeMenu([{icon:"bar_chart", menuPointName: translation, link: `/emission/${title}/diagram/compare`}]);
+			});
 			if (typeof title !== "string") throw new Error("Title not of type string (this should not occur)");
 			this.calculation = this.calculationService.getByName(title);
 			this.loadChart();
@@ -39,16 +40,13 @@ export class CalculationDiagramComponent implements OnInit {
 
 	loadChart() {
 		if(this.calculation == null) {
-			this.isLoading = true;
 			this.data = [];
 			return;
 		}
-		console.log(this.translationManager.lang);
 		this.translateService.getTranslation(this.translationManager.lang).subscribe(translations => {
 			//TODO: case for 0 len
 			if(this.calculation == null) return;
-			this.data = this.calculation.modules.map((mod) => ({ name: this.translationManager.getTranslation(translations, "modules." + mod.id), value: mod.calculate() }));
-			this.isLoading = false;
+			this.data = this.calculation.modules.map((mod) => ({ name: this.translationManager.getTranslation(translations, "modules." + mod.id), value: Math.floor(mod.calculate() * 100) / 100 }));
 		});
 	}
 }

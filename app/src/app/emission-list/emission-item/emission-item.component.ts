@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 
 @Component({
@@ -7,8 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./emission-item.component.scss']
 })
 export class EmissionItemComponent{
-
+  @Input() link: string[] = [ "/emission" ];
   @Input() name!: string;  
   @Input() emission: number = 0;
-
 }

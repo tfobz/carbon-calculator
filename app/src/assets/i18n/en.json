@@ -35,5 +35,6 @@
         "BUS_MOBILITY_TYPE":"Bus",
         "TRAIN_MOBILITY_TYPE":"Train",
         "CITY_BUS_MOBILITY_TYPE":"City Bus"
-    }
+    },
+	"compare": "Compare"
 }

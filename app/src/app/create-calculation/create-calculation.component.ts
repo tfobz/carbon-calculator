@@ -39,12 +39,6 @@ export class CreateCalculationComponent implements OnInit {
     this._createForm.reset();
 
     const calculation = new Calculation(data.name);
-
-    let rand: number = 1 + Math.floor(Math.random() * 10);
-    for(let i = 0; i < rand; i++){
-      calculation.modules.push(EmissionsManager.randomModule());
-    }
-
     this._calculationService.addCalculation(calculation);
     this._calculationService.save();
     this._router.navigate(["emission"]);

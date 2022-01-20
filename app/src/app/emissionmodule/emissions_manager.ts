@@ -59,28 +59,6 @@ export default class EmissionsManager{
         return undefined;
     }
 
-    
-  /**
-   * Returns a random EmissionModule with random number (only for testing)
-   * 
-   * @returns Random EmissionModule
-   */
-  static randomModule(): EmissionModule{
-    const index: number = Math.floor(Math.random() * EmissionsManager.getModuleIDs().length);
-    const number: number = Math.floor(Math.random() * 1000);
-
-    const data = {
-      type: EmissionsManager.getModuleIDs()[index],
-      number: number
-    };
-
-    const module = EmissionsManager.load(data);
-    if(module == null){
-      throw new Error("Module couldn't be loaded");
-    }
-    return module;
-  }
-
     static getModuleIDs(): string[] {
         return Array.from(emissions.keys());
     }
