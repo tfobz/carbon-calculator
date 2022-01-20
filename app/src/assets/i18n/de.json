@@ -24,5 +24,7 @@
     "name_empty": "Der Name muss eingegeben werden",
     "name_length": "Der Name muss mind. 4 Zeichen lang sein",
     "diagrams": "Diagramme",
-	"compare": "Vergleichen"
+	"compare": "Vergleichen",
+	"create_module_error": "Keine weiteren Module vorhanden",
+	"diagram_compare_error": "Keine weiteren Rechnungen"
 }
