@@ -24,7 +24,26 @@
     "name_empty": "Der Name muss eingegeben werden",
     "name_length": "Der Name muss mind. 4 Zeichen lang sein",
     "diagrams": "Diagramme",
-	"compare": "Vergleichen",
 	"create_module_error": "Keine weiteren Module vorhanden",
-	"diagram_compare_error": "Keine weiteren Rechnungen"
+	"diagram_compare_error": "Keine weiteren Rechnungen",
+    "settings": "Einstellungen",
+    "language": "Sprache",
+    "languages": {
+        "de": "Deutsch",
+        "en": "Englisch"
+    },
+    "save": "Speichern",
+    "types": {
+        "WIND_ELECTRICITY_TYPE": "Windenergie",
+        "HYDRO_POWER_ELECTRICITY_TYPE": "Wasserkraft",
+        "NATURAL_GAS_ELECTRICITY_TYPE": "Natürliche Gase",
+        "OIL_ELECTRICITY_TYPE": "Öl",
+        "COAL_ELECTRICITY_TYPE": "Kohle",
+
+        "PKW_MOBILITY_TYPE":"Auto",
+        "BUS_MOBILITY_TYPE":"Bus",
+        "TRAIN_MOBILITY_TYPE":"Zug",
+        "CITY_BUS_MOBILITY_TYPE":"City Bus"
+    },
+	"compare": "Vergleichen"
 }

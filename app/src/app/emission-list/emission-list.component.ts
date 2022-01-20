@@ -24,10 +24,13 @@ export class EmissionListComponent implements OnInit{
       this.navigation.changeMessage(translation);
     });
     //Menu 
-    this.menuService.changeMenu([])
+    this.translateService.get("settings").subscribe(translation => {
+      this.menuService.changeMenu([{icon:"settings", menuPointName: translation, link: `/emission/settings`}])
+    });
   }
 
   get calculations(): Calculation[] {
+    this.calculationService.save()
     return this.calculationService.calculations;
   }
 }

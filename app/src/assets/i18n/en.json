@@ -24,8 +24,27 @@
     "name_empty": "A name must be entered",
     "name_length": "A name must be at least 4 characters long",
     "diagrams": "Diagrams",
-	"compare": "Compare",
 	"create_module_error": "No more modules available",
 	"diagram_compare_error": "No calculations to compare",
-	"diagram_compare_error": "No additional calculations"
+	"diagram_compare_error": "No additional calculations",
+    "settings": "Settings",
+    "language": "Language",
+    "languages": {
+        "de": "German",
+        "en": "English"
+    },
+    "save": "Save",
+    "types": {
+        "WIND_ELECTRICITY_TYPE": "Wind energy",
+        "HYDRO_POWER_ELECTRICITY_TYPE": "Hydro power",
+        "NATURAL_GAS_ELECTRICITY_TYPE": "Natural Gas",
+        "OIL_ELECTRICITY_TYPE": "Oil",
+        "COAL_ELECTRICITY_TYPE": "Coal",
+
+        "PKW_MOBILITY_TYPE":"Car",
+        "BUS_MOBILITY_TYPE":"Bus",
+        "TRAIN_MOBILITY_TYPE":"Train",
+        "CITY_BUS_MOBILITY_TYPE":"City Bus"
+    },
+	"compare": "Compare"
 }

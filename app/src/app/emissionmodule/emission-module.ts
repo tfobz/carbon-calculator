@@ -4,6 +4,11 @@ interface EmissionModule{
     calculate(): number;   
 }
 
+export interface ModuleType{
+    id: string,
+    factor: number
+}
+
 class FactorEmissionModule implements EmissionModule{
     private _id: string = "";
     private _factor: number = 0;
