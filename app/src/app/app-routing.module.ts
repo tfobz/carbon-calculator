@@ -8,9 +8,11 @@ import { CalculationDiagramCompareComponent } from './calculation-diagram-compar
 import { CreateCalculationComponent } from './create-calculation/create-calculation.component';
 import { CreateModuleComponent } from './create-module/create-module.component';
 import { CalculationSelectCompareComponent } from './calculation-select-compare/calculation-select-compare.component';
+import { SettingsComponent } from './settings/settings.component';
 
 const routes: Routes = [
   { path: 'emission', component: EmissionListComponent },
+  { path: 'emission/settings', component: SettingsComponent },
   { path: 'emission/create', component: CreateCalculationComponent },
   { path: 'emission/:title', component: CalculationListComponent },
   { path: 'emission/:title/create', component: CreateModuleComponent },

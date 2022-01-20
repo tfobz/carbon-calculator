@@ -24,5 +24,12 @@
     "name_empty": "Der Name muss eingegeben werden",
     "name_length": "Der Name muss mind. 4 Zeichen lang sein",
     "diagrams": "Diagramme",
-	"compare": "Vergleichen"
+	"compare": "Vergleichen",
+    "settings": "Einstellungen",
+    "language": "Sprache",
+    "languages": {
+        "de": "Deutsch",
+        "en": "Englisch"
+    },
+    "save": "Speichern"
 }

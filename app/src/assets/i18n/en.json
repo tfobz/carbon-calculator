@@ -24,5 +24,12 @@
     "name_empty": "A name must be entered",
     "name_length": "A name must be at least 4 characters long",
     "diagrams": "Diagrams",
-	"compare": "Compare"
+	"compare": "Compare",
+    "settings": "Settings",
+    "language": "Language",
+    "languages": {
+        "de": "German",
+        "en": "English"
+    },
+    "save": "Save"
 }
