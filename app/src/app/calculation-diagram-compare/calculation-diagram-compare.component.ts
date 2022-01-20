@@ -79,6 +79,10 @@ export class CalculationDiagramCompareComponent implements OnInit {
 		});
 	}
 
+	diff(one: number, two: number): number{
+		return Math.floor((one - two) * 100) / 100;
+	}
+
 	onResize(event: ResizedEvent){
 		if(event.newRect.width <= 500){
 			this.displayedColumns = ["name", "dataone", "datatwo"];
