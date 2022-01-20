@@ -21,7 +21,7 @@ export class TreeDiagramComponent implements OnInit {
 		this.requiredTrees = Math.ceil(co2sum / 31.5);
 		const requiredTrees = this.requiredTrees / 1000;
 
-		const size = Math.min(10 / Math.log10(requiredTrees), 10);
+		const size = Math.max(Math.min(10 / Math.log10(requiredTrees), 10), 15);
 
 		for(let i = 0; i < requiredTrees; i++) {
 			this.trees.push({
