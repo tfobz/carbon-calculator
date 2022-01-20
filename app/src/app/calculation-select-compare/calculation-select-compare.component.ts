@@ -14,6 +14,7 @@ import { CalculationService } from '../_services/calculation.service';
 export class CalculationSelectCompareComponent implements OnInit {
 
   title = "";
+  id = "";
 
   constructor(
     private navigation:NavigationService,
@@ -25,9 +26,12 @@ export class CalculationSelectCompareComponent implements OnInit {
 
   ngOnInit(): void {
 	  this.activatedRoute.params.subscribe((params) => {
-		let title = params["title"] as unknown;
-		if(typeof title !== "string") throw new Error("Title is no string");
-		this.title = title;
+      let id = params["id"] as unknown;
+      if(typeof id !== "string") throw new Error("Title is no string");
+      let calculation = this.calculationService.getById(id);
+      if(calculation == null){ this.title = ""; return; }
+      this.title = calculation.name;
+      this.id = calculation.id;
 	  });
 
     this.translateService.get("emission").subscribe(translation => {

@@ -17,14 +17,14 @@ const routes: Routes = [
   { path: 'emission', component: EmissionListComponent },
   { path: 'emission/settings', component: SettingsComponent },
   { path: 'emission/create', component: CreateCalculationComponent },
-  { path: 'emission/:title', component: CalculationListComponent },
-  { path: 'emission/:title/create', component: CreateModuleComponent },
-  { path: 'emission/:title/diagram', component: CalculationDiagramComponent },
-  { path: 'emission/:title/diagram/compare', component: CalculationSelectCompareComponent },
-  { path: 'emission/:titleone/diagram/:titletwo', component: CalculationDiagramCompareComponent },
-  { path: 'emission/:title/:sptitle', component: SpecificCalculationListComponent },
-  { path: 'emission/:title/:sptitle/create', component: CreateTypeComponent },
-  { path: 'emission/:title/:sptitle/:typeID', component: TypeInputComponent},
+  { path: 'emission/:id', component: CalculationListComponent },
+  { path: 'emission/:id/create', component: CreateModuleComponent },
+  { path: 'emission/:id/diagram', component: CalculationDiagramComponent },
+  { path: 'emission/:id/diagram/compare', component: CalculationSelectCompareComponent },
+  { path: 'emission/:idone/diagram/:idtwo', component: CalculationDiagramCompareComponent },
+  { path: 'emission/:id/:sptitle', component: SpecificCalculationListComponent },
+  { path: 'emission/:id/:sptitle/create', component: CreateTypeComponent },
+  { path: 'emission/:id/:sptitle/:typeID', component: TypeInputComponent},
   { path : "**", redirectTo:'emission'}
 
 ];

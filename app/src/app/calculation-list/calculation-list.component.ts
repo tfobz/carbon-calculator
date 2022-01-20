@@ -33,10 +33,10 @@ export class CalculationListComponent implements OnInit{
   ngOnInit(): void {
 
     this.route.params.subscribe(params=>{
-      let calculation = this.calculationService.getByName(params.title);
+      let calculation = this.calculationService.getById(params.id);
       if(calculation) this._calculation = calculation;
-      this.navigation.changeMessage(params?.title);
-      this.currentUrl="/emission/" + params.title;
+      this.navigation.changeMessage(calculation == null ? "" : calculation.name);
+      this.currentUrl="/emission/" + params.id;
     });
 
     this.translateService.get("diagrams").subscribe(translation => {

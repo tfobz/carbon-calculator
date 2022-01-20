@@ -40,14 +40,18 @@ export class CalculationDiagramCompareComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.activatedRoute.params.subscribe(params => {
-			const titleone = params['titleone'] as unknown;
-			const titletwo = params['titletwo'] as unknown;
-			if (typeof titleone !== "string" || typeof titletwo !== "string") throw new Error("Title not of type string (this should not occur)");
-			this.titleOne = titleone;
-			this.titleTwo = titletwo;
+			const idone = params['idone'] as unknown;
+			const idtwo = params['idtwo'] as unknown;
+			if (typeof idone !== "string" || typeof idtwo !== "string") throw new Error("Id not of type string (this should not occur)");
 
-			this.calculationOne = this.calculationService.getByName(titleone);
-			this.calculationTwo = this.calculationService.getByName(titletwo);
+			this.calculationOne = this.calculationService.getById(idone);
+			this.calculationTwo = this.calculationService.getById(idtwo);
+
+			if(this.calculationOne != null && this.calculationTwo != null){
+				this.titleOne = this.calculationOne.name;
+				this.titleTwo = this.calculationTwo.name;
+			}
+
 			this.loadChart();
 		});
 	}

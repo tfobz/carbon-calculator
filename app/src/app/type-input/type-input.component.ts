@@ -25,7 +25,7 @@ export class TypeInputComponent implements OnInit {
         this.navigation.changeMessage(translation);
       });
 
-      let module = this.calculationService.getByName(params.title)?.modules.find(module => module.id == params.sptitle);
+      let module = this.calculationService.getById(params.id)?.modules.find(module => module.id == params.sptitle);
       if(module){
         if(module instanceof MobilityEmissionModule) {
           this.module = module as MobilityEmissionModule;

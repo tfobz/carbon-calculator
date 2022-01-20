@@ -30,7 +30,7 @@ export class CreateModuleComponent implements OnInit {
     });
     
     this.route.params.subscribe(params=>{
-      let calculation = this.calculationService.getByName(params.title);
+      let calculation = this.calculationService.getById(params.id);
       if(calculation){
         this._calculation = calculation;
         this.ids = EmissionsManager.getModuleIDs().filter(ids => !calculation?.modules.find(module => module.id == ids));

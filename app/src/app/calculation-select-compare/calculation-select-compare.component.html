@@ -1,4 +1,4 @@
 <mat-card class="error_card" *ngIf="calculations.length === 0">{{ "diagram_compare_error" | translate }}</mat-card>
 <div *ngIf="calculations.length !== 0" class="content" fxLayout="column" fxLayoutGap="15px">
-    <app-emission-item *ngFor="let calcs of calculations" [name]="calcs.name" [link]="['/emission', title, 'diagram', calcs.name]" [emission]="calcs.calculate()"></app-emission-item>
+    <app-emission-item *ngFor="let calcs of calculations" [name]="calcs.name" [link]="['/emission', id, 'diagram', calcs.id]" [emission]="calcs.calculate()"></app-emission-item>
 </div>

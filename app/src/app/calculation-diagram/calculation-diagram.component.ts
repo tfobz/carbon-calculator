@@ -28,12 +28,12 @@ export class CalculationDiagramComponent implements OnInit {
 
 	ngOnInit() {
 		this.activatedRoute.params.subscribe(params => {
-			const title = params['title'] as unknown;
+			const id = params['id'] as unknown;
 			this.translateService.get("compare").subscribe(translation => {
-				this.menuService.changeMenu([{icon:"bar_chart", menuPointName: translation, link: `/emission/${title}/diagram/compare`}]);
+				this.menuService.changeMenu([{icon:"bar_chart", menuPointName: translation, link: `/emission/${id}/diagram/compare`}]);
 			});
-			if (typeof title !== "string") throw new Error("Title not of type string (this should not occur)");
-			this.calculation = this.calculationService.getByName(title);
+			if (typeof id !== "string") throw new Error("Id not of type string (this should not occur)");
+			this.calculation = this.calculationService.getById(id);
 			this.loadChart();
 		});
 	}

@@ -18,7 +18,7 @@ export class TypeEmissionModuleComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params=>{
-      this.currentUrl="/emission/" + params.title +"/"+params.sptitle;
+      this.currentUrl="/emission/" + params.id +"/"+params.sptitle;
     });
   }
 

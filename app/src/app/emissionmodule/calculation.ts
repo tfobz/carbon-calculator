@@ -1,10 +1,12 @@
+import { generateId } from "../shared/utils";
 import { EmissionModule } from "./emission-module";
 import EmissionsManager from "./emissions_manager";
 
 export class Calculation{
+    private _id: string = "";
     public modules: EmissionModule[] = [];
 
-    constructor(public name: string){}
+    constructor(public name: string){ this._id = generateId(); }
 
     calculate(): number{
         let sum: number = 0;
@@ -22,13 +24,14 @@ export class Calculation{
 
             modules_obj.push(obj);
         }
-        return { name: this.name, modules: modules_obj }
+        return { id: this.id, name: this.name, modules: modules_obj }
     }
 
     public static load(data: any): Calculation{
         let ret: Calculation = new Calculation("");
 
         if(data === undefined) throw new Error("Data is undefined");
+        ret._id = data.id != null ? data.id : generateId();
         if(data.name) ret.name = data.name;
         if(data.modules){
             if(data.modules instanceof Array){
@@ -40,6 +43,10 @@ export class Calculation{
             }
         }
         return ret;
+    }
+
+    get id(): string{
+        return this._id;
     }
 
 }

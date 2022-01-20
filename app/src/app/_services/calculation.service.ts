@@ -43,6 +43,10 @@ export class CalculationService {
     this.save();
   }
 
+  getById(id: string): Calculation | undefined{
+    return this._calculations.find(calc => calc.id == id);
+  }
+
 	getByName(name: string): Calculation | undefined{
 		return this._calculations.find(c => c.name === name);
 	}
