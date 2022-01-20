@@ -1,18 +1,13 @@
-import { EmissionModule, EmissionUtils } from "../../emission-module";
+import { EmissionModule, EmissionUtils, ModuleType } from "../../emission-module";
 import { ElectricityTypeFactory } from "./electricity_types";
 
 export const ELECTRICITY_EMISSION_MODULE_ID = "electricity_emission_module";
 
-export interface ElectricityType{
-    id: string,
-    factor: number
-}
-
 export class ElectricityEmissionModule implements EmissionModule{
     public id: string = ELECTRICITY_EMISSION_MODULE_ID;
-    public data: Map<ElectricityType, number> = new Map();
+    public data: Map<ModuleType, number> = new Map();
 
-    addElectricityType(electricityType: string, number: number){
+    addElectricityType(electricityType: string, number: number = 0){
         try{
             this.data.set(ElectricityTypeFactory.create(electricityType), number);
         }catch(ex){
@@ -25,6 +20,13 @@ export class ElectricityEmissionModule implements EmissionModule{
         for( const [ type, number ] of this.data){
             ret += type.factor * number;
         }
+        return ret;
+    }
+    getIDs():string[]{
+        let ret:string[] = [];
+        this.data.forEach((l, electricityType) => {
+            ret.push(electricityType.id);
+        })
         return ret;
     }
 }

@@ -38,6 +38,11 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslationManagerService } from './_services/translation-manager.service';
 import { TreeDiagramComponent } from './calculation-diagram/tree-diagram/tree-diagram.component';
 import { CreateModuleComponent } from './create-module/create-module.component';
+import { FactorEmissionModuleComponent } from './specific-calculation-list/factor-emission-module/factor-emission-module.component';
+import { TypeEmissionModuleComponent } from './specific-calculation-list/type-emission-module/type-emission-module.component';
+import { CreateTypeComponent } from './create-type/create-type.component';
+
+
 
 
 @NgModule({
@@ -55,6 +60,9 @@ import { CreateModuleComponent } from './create-module/create-module.component';
     CreateCalculationComponent,
     TreeDiagramComponent,
     CreateModuleComponent,
+    FactorEmissionModuleComponent,
+    TypeEmissionModuleComponent,
+    CreateTypeComponent,
   ],
   imports: [
     BrowserModule,

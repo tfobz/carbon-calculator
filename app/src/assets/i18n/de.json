@@ -23,5 +23,12 @@
     "name": "Name",
     "name_empty": "Der Name muss eingegeben werden",
     "name_length": "Der Name muss mind. 4 Zeichen lang sein",
-    "diagrams": "Diagramme"
+    "diagrams": "Diagramme",
+    "types": {
+        "WIND_ELECTRICITY_TYPE": "Windenergie",
+        "HYDRO_POWER_ELECTRICITY_TYPE": "Wasserkraft",
+        "NATURAL_GAS_ELECTRICITY_TYPE": "Natürliche Gase",
+        "OIL_ELECTRICITY_TYPE": "Öl",
+        "COAL_ELECTRICITY_TYPE": "Kohle"
+    }
 }

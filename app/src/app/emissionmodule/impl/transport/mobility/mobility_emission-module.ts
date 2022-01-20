@@ -1,18 +1,14 @@
-import { EmissionModule, EmissionUtils } from "src/app/emissionmodule/emission-module";
+import { EmissionModule, EmissionUtils, ModuleType } from "src/app/emissionmodule/emission-module";
 import { MobilityTypeFactory } from "./mobility_types";
 
 export const MOBILITY_EMISSION_MODULE_ID = "mobility_emission_module";
 
-export interface MobilityType{
-    id: string,
-    factor: number
-}
 
 export class MobilityEmissionModule implements EmissionModule{
     public id: string = MOBILITY_EMISSION_MODULE_ID;
-    public data: Map<MobilityType, number> = new Map();
+    public data: Map<ModuleType, number> = new Map();
 
-    addMobilityType(mobilityType: string, number: number){
+    addMobilityType(mobilityType: string, number: number = 0){
         try{
             this.data.set(MobilityTypeFactory.create(mobilityType), number);
         }catch(ex){
@@ -25,6 +21,13 @@ export class MobilityEmissionModule implements EmissionModule{
         for( const [ type, number ] of this.data){
             ret += type.factor * number;
         }
+        return ret;
+    }
+    getIDs():string[]{
+        let ret:string[] = [];
+        this.data.forEach((l, electricityType) => {
+            ret.push(electricityType.id);
+        })
         return ret;
     }
 }

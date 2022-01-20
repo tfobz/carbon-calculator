@@ -6,6 +6,7 @@ import { SpecificCalculationListComponent } from './specific-calculation-list/sp
 import { CalculationDiagramComponent } from './calculation-diagram/calculation-diagram.component';
 import { CreateCalculationComponent } from './create-calculation/create-calculation.component';
 import { CreateModuleComponent } from './create-module/create-module.component';
+import { CreateTypeComponent } from './create-type/create-type.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,8 @@ const routes: Routes = [
   { path: 'emission/:title/create', component: CreateModuleComponent },
   { path: 'emission/:title/diagram', component: CalculationDiagramComponent },
   { path: 'emission/:title/:sptitle', component: SpecificCalculationListComponent },
+  { path: 'emission/:title/:sptitle/create', component: CreateTypeComponent },
+  { path: 'emission/:title/:sptitle/:typeID', component: SpecificCalculationListComponent},
   { path : "**", redirectTo:'emission'}
 
 ];
