@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { NavigationStart, Router } from '@angular/router';
 import { BehaviorSubject, Subject } from 'rxjs';
 
 export interface MenuPoint{
@@ -14,7 +15,15 @@ export interface MenuPoint{
 })
 export class MenuService {
 
-  constructor(){}
+  constructor(
+    private _router: Router
+  ){
+    this._router.events.subscribe(event => {
+      if(event instanceof NavigationStart){
+        this.changeMenu([]);
+      }
+    });
+  }
   
   public editDataDetails: any = [];
 
