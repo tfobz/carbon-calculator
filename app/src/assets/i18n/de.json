@@ -24,7 +24,6 @@
     "name_empty": "Der Name muss eingegeben werden",
     "name_length": "Der Name muss mind. 4 Zeichen lang sein",
     "diagrams": "Diagramme",
-<<<<<<< HEAD
     "types": {
         "WIND_ELECTRICITY_TYPE": "Windenergie",
         "HYDRO_POWER_ELECTRICITY_TYPE": "Wasserkraft",
@@ -36,9 +35,6 @@
         "BUS_MOBILITY_TYPE":"Bus",
         "TRAIN_MOBILITY_TYPE":"Zug",
         "CITY_BUS_MOBILITY_TYPE":"City Bus"
-    }
-}
-=======
+    },
 	"compare": "Vergleichen"
 }
->>>>>>> 9d86d9a8bdab8ed30edf063021842fb6657cd734
