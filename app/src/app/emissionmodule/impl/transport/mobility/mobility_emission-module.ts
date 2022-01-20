@@ -6,6 +6,7 @@ export const MOBILITY_EMISSION_MODULE_ID = "mobility_emission_module";
 
 export class MobilityEmissionModule implements EmissionModule{
     public id: string = MOBILITY_EMISSION_MODULE_ID;
+    public unit: string = "km";
     public data: Map<ModuleType, number> = new Map();
 
     addMobilityType(mobilityType: string, number: number = 0){

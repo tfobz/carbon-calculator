@@ -1,6 +1,7 @@
 
 interface EmissionModule{
     id: string;
+    unit: string;
     calculate(): number;   
 }
 
@@ -11,6 +12,7 @@ export interface ModuleType{
 
 class FactorEmissionModule implements EmissionModule{
     private _id: string = "";
+    private _unit: string = "Unit";
     private _factor: number = 0;
     private _number: number = 0;
 
@@ -23,6 +25,9 @@ class FactorEmissionModule implements EmissionModule{
     }
 
     public get id(): string{ return this._id; }
+    
+    public get unit(): string { return this._unit; }
+    public set unit(unit: string){ this._unit = unit; }
 
     public get factor(){ return this._factor; }
     public set factor(factor: number){ this._factor = factor; }

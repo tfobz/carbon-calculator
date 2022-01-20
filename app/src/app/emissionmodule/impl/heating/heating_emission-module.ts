@@ -6,6 +6,7 @@ export class HeatingEmissionModule extends FactorEmissionModule{
     constructor(){
         super(HEATING_EMISSION_MODULE_ID);
         super.factor = 2.74;
+        super.unit = "m³"
     }
 }
 
