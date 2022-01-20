@@ -32,7 +32,7 @@
     },
     "save": "Save",
     "types": {
-        "WIND_ELECTRICITY_TYPE": "Windenergy",
+        "WIND_ELECTRICITY_TYPE": "Wind energy",
         "HYDRO_POWER_ELECTRICITY_TYPE": "Hydro power",
         "NATURAL_GAS_ELECTRICITY_TYPE": "Natural Gas",
         "OIL_ELECTRICITY_TYPE": "Oil",
