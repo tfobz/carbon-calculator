@@ -33,6 +33,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -49,7 +50,7 @@ import { TypeInputComponent } from './type-input/type-input.component';
 
 
 import { CalculationSelectCompareComponent } from './calculation-select-compare/calculation-select-compare.component';
-
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import { CalculationSelectCompareComponent } from './calculation-select-compare/
     CreateTypeComponent,
     TypeInputComponent,
     CalculationSelectCompareComponent,
+    SettingsComponent,
   ],
   imports: [
     BrowserModule,
@@ -82,8 +84,8 @@ import { CalculationSelectCompareComponent } from './calculation-select-compare/
       echarts: () => import('echarts')
     }),
     BrowserAnimationsModule,
-	AngularResizeEventModule,
-	FlexLayoutModule,
+	  AngularResizeEventModule,
+	  FlexLayoutModule,
     MatButtonModule,
     MatInputModule,
     MatFormFieldModule,
@@ -102,7 +104,8 @@ import { CalculationSelectCompareComponent } from './calculation-select-compare/
         useFactory: HttpLoaderFactory,
         deps: [ HttpClient ]
       }
-    })
+    }),
+    MatSelectModule
   ],
   providers: [
     NavigationService,
