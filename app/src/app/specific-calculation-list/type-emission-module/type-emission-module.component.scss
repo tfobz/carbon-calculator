@@ -5,23 +5,30 @@ mat-card{
     -moz-user-select: none; 
     -ms-user-select: none; 
      user-select: none; 
-     
+
     margin-left: auto;
     margin-right: auto;
     transition: all .15s ease-in-out;
-    width: 50%;
+    width: 70%;
     color: var(--text-primary-lighter-color);
     margin-top: 15px;
     padding: 15px;
 
-    p{
-        text-align: left;
-        margin: auto 0;
-    }
     &:hover{
         transform: scale(1.007);
     }
-    @media screen and (max-width: 800px) {    
+    @media screen and (max-width: 800px) {
         width: 90%;
     }
+    mat-card-content{
+        padding: 15px 15px 0px 15px;
+    }
+    mat-icon:hover{
+        cursor: pointer;
+    }
+}
+#add_button{
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
 }

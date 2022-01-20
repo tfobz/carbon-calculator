@@ -1,0 +1,15 @@
+<div class="factorEmissionModule">
+    <mat-card>
+
+        <input matInput type="number" (keypress)="save()" [(ngModel)]="module.number">
+        <p>Unit</p>
+
+    </mat-card>
+
+
+    <div class="result">
+
+        <p>{{ module?.calculate() }} kg CO²</p>
+
+    </div>
+</div>

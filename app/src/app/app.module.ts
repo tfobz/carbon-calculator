@@ -42,6 +42,12 @@ import { CalculationDiagramCompareComponent } from './calculation-diagram-compar
 import { BarDiagramCompareComponent } from './calculation-diagram-compare/bar-diagram-compare/bar-diagram-compare.component';
 import { BarDiagramBothComponent } from './calculation-diagram-compare/bar-diagram-both/bar-diagram-both.component';
 import { CreateModuleComponent } from './create-module/create-module.component';
+import { FactorEmissionModuleComponent } from './specific-calculation-list/factor-emission-module/factor-emission-module.component';
+import { TypeEmissionModuleComponent } from './specific-calculation-list/type-emission-module/type-emission-module.component';
+import { CreateTypeComponent } from './create-type/create-type.component';
+import { TypeInputComponent } from './type-input/type-input.component';
+
+
 import { CalculationSelectCompareComponent } from './calculation-select-compare/calculation-select-compare.component';
 
 
@@ -63,6 +69,10 @@ import { CalculationSelectCompareComponent } from './calculation-select-compare/
     BarDiagramCompareComponent,
     BarDiagramBothComponent,
     CreateModuleComponent,
+    FactorEmissionModuleComponent,
+    TypeEmissionModuleComponent,
+    CreateTypeComponent,
+    TypeInputComponent,
     CalculationSelectCompareComponent,
   ],
   imports: [

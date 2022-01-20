@@ -40,6 +40,7 @@ export class CreateCalculationComponent implements OnInit {
 
     const calculation = new Calculation(data.name);
     this._calculationService.addCalculation(calculation);
+    this._calculationService.save();
     this._router.navigate(["emission"]);
   }
 
