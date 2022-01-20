@@ -7,6 +7,9 @@ import { CalculationDiagramComponent } from './calculation-diagram/calculation-d
 import { CalculationDiagramCompareComponent } from './calculation-diagram-compare/calculation-diagram-compare.component';
 import { CreateCalculationComponent } from './create-calculation/create-calculation.component';
 import { CreateModuleComponent } from './create-module/create-module.component';
+import { CreateTypeComponent } from './create-type/create-type.component';
+import { TypeInputComponent } from './type-input/type-input.component';
+
 import { CalculationSelectCompareComponent } from './calculation-select-compare/calculation-select-compare.component';
 import { SettingsComponent } from './settings/settings.component';
 
@@ -20,6 +23,8 @@ const routes: Routes = [
   { path: 'emission/:title/diagram/compare', component: CalculationSelectCompareComponent },
   { path: 'emission/:titleone/diagram/:titletwo', component: CalculationDiagramCompareComponent },
   { path: 'emission/:title/:sptitle', component: SpecificCalculationListComponent },
+  { path: 'emission/:title/:sptitle/create', component: CreateTypeComponent },
+  { path: 'emission/:title/:sptitle/:typeID', component: TypeInputComponent},
   { path : "**", redirectTo:'emission'}
 
 ];

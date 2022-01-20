@@ -30,6 +30,7 @@ export class EmissionListComponent implements OnInit{
   }
 
   get calculations(): Calculation[] {
+    this.calculationService.save()
     return this.calculationService.calculations;
   }
 }
