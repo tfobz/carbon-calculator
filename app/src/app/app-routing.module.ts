@@ -7,6 +7,7 @@ import { CalculationDiagramComponent } from './calculation-diagram/calculation-d
 import { CalculationDiagramCompareComponent } from './calculation-diagram-compare/calculation-diagram-compare.component';
 import { CreateCalculationComponent } from './create-calculation/create-calculation.component';
 import { CreateModuleComponent } from './create-module/create-module.component';
+import { CalculationSelectCompareComponent } from './calculation-select-compare/calculation-select-compare.component';
 
 const routes: Routes = [
   { path: 'emission', component: EmissionListComponent },
@@ -14,7 +15,7 @@ const routes: Routes = [
   { path: 'emission/:title', component: CalculationListComponent },
   { path: 'emission/:title/create', component: CreateModuleComponent },
   { path: 'emission/:title/diagram', component: CalculationDiagramComponent },
-  //{ path: 'emission/:titleone/diagram/compare', component: /* HANNES wird dies implementieren */ },
+  { path: 'emission/:title/diagram/compare', component: CalculationSelectCompareComponent },
   { path: 'emission/:titleone/diagram/:titletwo', component: CalculationDiagramCompareComponent },
   { path: 'emission/:title/:sptitle', component: SpecificCalculationListComponent },
   { path : "**", redirectTo:'emission'}

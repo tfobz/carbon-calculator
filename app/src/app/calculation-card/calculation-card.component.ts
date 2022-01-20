@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { EmissionModule, FactorEmissionModule } from '../emissionmodule/emission-module';
-import { CalculationService } from '../_services/calculation.service';
 
 interface CalculationCardData{
   number: string,
@@ -13,6 +12,8 @@ interface CalculationCardData{
   styleUrls: ['./calculation-card.component.scss']
 })
 export class CalculationCardComponent implements OnInit {
+
+  @Input() edit: boolean = true;
 
   @Input() module!: EmissionModule;
   

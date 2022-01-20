@@ -42,6 +42,7 @@ import { CalculationDiagramCompareComponent } from './calculation-diagram-compar
 import { BarDiagramCompareComponent } from './calculation-diagram-compare/bar-diagram-compare/bar-diagram-compare.component';
 import { BarDiagramBothComponent } from './calculation-diagram-compare/bar-diagram-both/bar-diagram-both.component';
 import { CreateModuleComponent } from './create-module/create-module.component';
+import { CalculationSelectCompareComponent } from './calculation-select-compare/calculation-select-compare.component';
 
 
 @NgModule({
@@ -62,6 +63,7 @@ import { CreateModuleComponent } from './create-module/create-module.component';
     BarDiagramCompareComponent,
     BarDiagramBothComponent,
     CreateModuleComponent,
+    CalculationSelectCompareComponent,
   ],
   imports: [
     BrowserModule,
