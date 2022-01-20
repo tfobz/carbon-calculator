@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
 
-export interface menuPoint{
-
+export interface MenuPoint{
   //angular material icon name
   icon:string;
   menuPointName:string;
@@ -31,7 +30,7 @@ export class MenuService {
 
   }
 
-  changeMenu(message: menuPoint[]) {
+  changeMenu(message: MenuPoint[]) {
 
    this.messageSource.next(message)
 

@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: 'emission/:title', component: CalculationListComponent },
   { path: 'emission/:title/create', component: CreateModuleComponent },
   { path: 'emission/:title/diagram', component: CalculationDiagramComponent },
+  //{ path: 'emission/:titleone/diagram/compare', component: /* HANNES wird dies implementieren */ },
   { path: 'emission/:titleone/diagram/:titletwo', component: CalculationDiagramCompareComponent },
   { path: 'emission/:title/:sptitle', component: SpecificCalculationListComponent },
   { path : "**", redirectTo:'emission'}

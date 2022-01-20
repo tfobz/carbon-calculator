@@ -23,5 +23,6 @@
     "name": "Name",
     "name_empty": "Der Name muss eingegeben werden",
     "name_length": "Der Name muss mind. 4 Zeichen lang sein",
-    "diagrams": "Diagramme"
+    "diagrams": "Diagramme",
+	"compare": "Vergleichen"
 }
