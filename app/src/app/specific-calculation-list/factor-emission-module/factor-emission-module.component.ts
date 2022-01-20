@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FactorEmissionModule } from 'src/app/emissionmodule/emission-module';
+import { CalculationService } from 'src/app/_services/calculation.service';
 
 @Component({
   selector: 'app-factor-emission-module',
@@ -10,7 +11,7 @@ export class FactorEmissionModuleComponent implements OnInit {
 
   @Input() module!:FactorEmissionModule;
 
-  constructor() { }
+  constructor(private calculationService:CalculationService) { }
 
   ngOnInit(): void {
   }

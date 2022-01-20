@@ -41,6 +41,7 @@ import { CreateModuleComponent } from './create-module/create-module.component';
 import { FactorEmissionModuleComponent } from './specific-calculation-list/factor-emission-module/factor-emission-module.component';
 import { TypeEmissionModuleComponent } from './specific-calculation-list/type-emission-module/type-emission-module.component';
 import { CreateTypeComponent } from './create-type/create-type.component';
+import { TypeInputComponent } from './type-input/type-input.component';
 
 
 
@@ -63,6 +64,7 @@ import { CreateTypeComponent } from './create-type/create-type.component';
     FactorEmissionModuleComponent,
     TypeEmissionModuleComponent,
     CreateTypeComponent,
+    TypeInputComponent,
   ],
   imports: [
     BrowserModule,

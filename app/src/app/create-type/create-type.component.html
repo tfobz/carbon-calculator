@@ -1,7 +1,7 @@
 <mat-card *ngFor="let id of ids">
 
     <mat-card-header>
-        <p fxFlex>{{ "electricity_types." + id | translate }}</p>
+        <p fxFlex>{{ "types." + id | translate }}</p>
         <button (click)="create(id)" mat-icon-button class="icon" aria-label="addModule">
             <mat-icon>add</mat-icon>
         </button>

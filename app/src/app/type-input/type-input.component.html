@@ -1,0 +1,14 @@
+<div class="typeModule">
+    <mat-card>
+
+        <input matInput type="number" [(ngModel)]="type[1]">
+        <p>Unit</p>
+
+    </mat-card>
+
+    <div class="result">
+
+        <p>{{ type[1]*type[0].factor }} kg CO²</p>
+
+    </div>
+</div>

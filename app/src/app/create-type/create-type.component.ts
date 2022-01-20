@@ -28,7 +28,6 @@ export class CreateTypeComponent implements OnInit {
     this.translateService.get("add_button").subscribe(translation => {
       this.navigation.changeMessage(translation);
     });
-    
     this.route.params.subscribe(params=>{
       let calculation = this.calculationService.getByName(params.title);
       if(calculation){
@@ -53,5 +52,4 @@ export class CreateTypeComponent implements OnInit {
 
     this.router.navigate(['../'+id], {relativeTo: this.route});
   }
-
 }

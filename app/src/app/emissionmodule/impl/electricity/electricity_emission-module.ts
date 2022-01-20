@@ -29,6 +29,13 @@ export class ElectricityEmissionModule implements EmissionModule{
         })
         return ret;
     }
+    getType(id:string):[ModuleType, number] | undefined{
+        for(let cuple of this.data.entries()){
+            if(cuple[0].id == id)
+                return cuple; 
+        }
+        return undefined;
+    }
 }
 
 export class ElectricityEmissionUtils implements EmissionUtils{

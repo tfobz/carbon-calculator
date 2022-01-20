@@ -15,7 +15,6 @@ export class MobilityEmissionModule implements EmissionModule{
             console.log(ex)
         }
     }
-
     calculate(): number {
         let ret: number = 0;
         for( const [ type, number ] of this.data){
@@ -29,6 +28,13 @@ export class MobilityEmissionModule implements EmissionModule{
             ret.push(electricityType.id);
         })
         return ret;
+    }
+    getType(id:string):[ModuleType, number] | undefined{
+        for(let cuple of this.data){
+            if(cuple[0].id = id)
+                return cuple; 
+        }
+        return undefined;
     }
 }
 

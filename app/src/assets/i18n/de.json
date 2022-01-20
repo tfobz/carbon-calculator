@@ -29,6 +29,11 @@
         "HYDRO_POWER_ELECTRICITY_TYPE": "Wasserkraft",
         "NATURAL_GAS_ELECTRICITY_TYPE": "Natürliche Gase",
         "OIL_ELECTRICITY_TYPE": "Öl",
-        "COAL_ELECTRICITY_TYPE": "Kohle"
+        "COAL_ELECTRICITY_TYPE": "Kohle",
+
+        "PKW_MOBILITY_TYPE":"Auto",
+        "BUS_MOBILITY_TYPE":"Bus",
+        "TRAIN_MOBILITY_TYPE":"Zug",
+        "CITY_BUS_MOBILITY_TYPE":"City Bus"
     }
 }

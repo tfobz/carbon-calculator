@@ -4,11 +4,6 @@ import { ModuleType } from 'src/app/emissionmodule/emission-module';
 import { MobilityEmissionModule } from 'src/app/emissionmodule/impl/transport/mobility/mobility_emission-module';
 import { ElectricityEmissionModule } from '../../emissionmodule/impl/electricity/electricity_emission-module';
 
-interface TypeData{
-  type: ModuleType,
-  number: number
-}
-
 @Component({
   selector: 'app-type-emission-module',
   templateUrl: './type-emission-module.component.html',
@@ -27,13 +22,7 @@ export class TypeEmissionModuleComponent implements OnInit {
     });
   }
 
-  getData(): TypeData[]{
-    let ret: TypeData[] = [];
-    if(this.module)
-      for(const [type, number] of this.module.data){
-        ret.push({ type: type, number: number });
-      }
-    return ret;
+  getData(): Map<ModuleType, number> | undefined{
+    return this.module?.data;
   }
-
 }

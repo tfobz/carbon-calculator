@@ -41,9 +41,11 @@ export class SpecificCalculationListComponent implements OnInit {
   }
 
   getFactorModule() : FactorEmissionModule {
+    
     return this.module as FactorEmissionModule;
   }
   getTypeModule(): ElectricityEmissionModule | MobilityEmissionModule | undefined{
+    
     if(this.module instanceof ElectricityEmissionModule)
       return this.module as ElectricityEmissionModule;
     else 
