@@ -14,7 +14,8 @@ import { CalculationService } from '../_services/calculation.service';
 })
 export class TypeInputComponent implements OnInit {
 
-  type!:[ModuleType, number];
+  module!: ElectricityEmissionModule | MobilityEmissionModule;
+  type !: [ModuleType, number];
 
   constructor(private route:ActivatedRoute,private navigation:NavigationService,private translateService: TranslateService, private calculationService:CalculationService) { }
 
@@ -25,15 +26,22 @@ export class TypeInputComponent implements OnInit {
       });
 
       let module = this.calculationService.getByName(params.title)?.modules.find(module => module.id == params.sptitle);
-      if(module instanceof MobilityEmissionModule) {
-        let type = (module as MobilityEmissionModule).getType(params.typeID)
-        if(type)
-          this.type = type;
-      }else if(module instanceof ElectricityEmissionModule){
-        let type = (module as ElectricityEmissionModule).getType(params.typeID)
-        if(type)
-          this.type = type;
+      if(module){
+        if(module instanceof MobilityEmissionModule) {
+          this.module = module as MobilityEmissionModule;
+          let type = module.getType(params.typeID);
+          if(type) this.type = type;
+        }else if(module instanceof ElectricityEmissionModule){
+          this.module = module as ElectricityEmissionModule;
+          let type = module.getType(params.typeID);
+          if(type) this.type = type;
+        }
       }
     })
   }
+  save(){
+    this.module.changeTypeValue(this.type[0], this.type[1]);
+    this.calculationService.save();
+  }
+
 }

@@ -46,6 +46,7 @@ export class CreateCalculationComponent implements OnInit {
     }
 
     this._calculationService.addCalculation(calculation);
+    this._calculationService.save();
     this._router.navigate(["emission"]);
   }
 

@@ -1,7 +1,7 @@
 <div class="typeModule">
     <mat-card>
 
-        <input matInput type="number" [(ngModel)]="type[1]">
+        <input matInput type="number" (keyup)="save()" [(ngModel)]="type[1]">
         <p>Unit</p>
 
     </mat-card>

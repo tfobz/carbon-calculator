@@ -47,6 +47,7 @@ export class CreateModuleComponent implements OnInit {
         //Module already exists
       }else{
         this._calculation.modules.push(module);
+        this.calculationService.save();
         this.router.navigate(['../'+id], {relativeTo: this.route});
       }
     } 

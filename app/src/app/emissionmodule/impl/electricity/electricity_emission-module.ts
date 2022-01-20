@@ -14,7 +14,11 @@ export class ElectricityEmissionModule implements EmissionModule{
             console.log(ex)
         }
     }
-
+    changeTypeValue(type:ModuleType, value:number){
+        if(this.data.has(type))
+            this.data.delete(type);
+        this.data.set(type,value);
+    }
     calculate(): number {
         let ret: number = 0;
         for( const [ type, number ] of this.data){
@@ -30,7 +34,7 @@ export class ElectricityEmissionModule implements EmissionModule{
         return ret;
     }
     getType(id:string):[ModuleType, number] | undefined{
-        for(let cuple of this.data.entries()){
+        for(let cuple of this.data){
             if(cuple[0].id == id)
                 return cuple; 
         }

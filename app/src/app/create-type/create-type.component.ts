@@ -50,6 +50,8 @@ export class CreateTypeComponent implements OnInit {
     if(this.module instanceof MobilityEmissionModule)
       (this.module as MobilityEmissionModule).addMobilityType(id);
 
+    this.calculationService.save();
+
     this.router.navigate(['../'+id], {relativeTo: this.route});
   }
 }

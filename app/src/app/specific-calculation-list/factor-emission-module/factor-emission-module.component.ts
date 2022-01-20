@@ -15,5 +15,7 @@ export class FactorEmissionModuleComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  save(){
+    this.calculationService.save();
+  }
 }

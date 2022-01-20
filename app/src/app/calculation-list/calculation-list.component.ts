@@ -26,6 +26,7 @@ export class CalculationListComponent implements OnInit{
     ){}
 
   get modules(): EmissionModule[] {
+    this.calculationService.save()
     return this._calculation?.modules;
   }
 

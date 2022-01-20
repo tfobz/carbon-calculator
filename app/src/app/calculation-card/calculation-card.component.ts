@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { EmissionModule, FactorEmissionModule } from '../emissionmodule/emission-module';
+import { MobilityEmissionModule } from '../emissionmodule/impl/transport/mobility/mobility_emission-module';
 import { CalculationService } from '../_services/calculation.service';
 
 interface CalculationCardData{
@@ -24,6 +25,8 @@ export class CalculationCardComponent implements OnInit {
     
     if(this.module instanceof FactorEmissionModule){
       number = (this.module as FactorEmissionModule).number;
+    }else{
+      number = (this.module as MobilityEmissionModule).calculate();
     }
 
     return [{ number: number as unknown as string, result: this.module?.calculate() as unknown as string }];
