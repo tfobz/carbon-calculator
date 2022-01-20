@@ -27,6 +27,6 @@ export class CalculationCardComponent implements OnInit {
       number = (this.module as FactorEmissionModule).number;
     }
 
-    return [{ number: number as unknown as string, result: this.module?.calculate() as unknown as string }];
+    return [{ number: number as unknown as string, result: this.module?.calculate().toFixed(2) as unknown as string }];
   }
 }
