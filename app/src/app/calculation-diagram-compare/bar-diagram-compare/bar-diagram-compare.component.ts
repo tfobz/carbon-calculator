@@ -16,7 +16,7 @@ export class BarDiagramCompareComponent implements OnInit {
 		for(let d1 of diagramData.one) {
 			for(let d2 of diagramData.two) {
 				if(d1.name !== d2.name) continue;
-				data.push({value: d1.value - d2.value, label: { position: "right" }});
+				data.push({value: Math.floor((d1.value - d2.value) * 100) / 100, label: { position: "right" }});
 				names.push(d1.name);
 				break;
 			}
