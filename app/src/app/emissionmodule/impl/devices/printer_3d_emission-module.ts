@@ -6,6 +6,7 @@ export class Printer3DEmissionModule extends FactorEmissionModule{
     constructor(){
         super(PRINTER_3D_EMISSION_MODULE_ID);
         super.factor = 102.69;
+        super.unit="piece";
     }
 }
 

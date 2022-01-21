@@ -6,6 +6,7 @@ export class Drinks500mlEmissionModule extends FactorEmissionModule{
     constructor(){
         super(DRINKS_500ML_EMISSION_MODULE_ID);
         super.factor = 0.8; // Excel has * 300
+        super.unit="glass";
     }
 }
 

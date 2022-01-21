@@ -6,6 +6,7 @@ export class ServerEmissionModule extends FactorEmissionModule{
     constructor(){
         super(SERVER_EMISSION_MODULE_ID);
         super.factor = 102.69;
+        super.unit="piece";
     }
 }
 
