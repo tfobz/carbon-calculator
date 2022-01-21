@@ -5,11 +5,11 @@
 	style="margin: 25px"
 	(resized)="onResize($event)">
 	<mat-card>
-		<app-bar-diagram-compare [data]="data"></app-bar-diagram-compare>
+		<app-bar-diagram-compare [data]="data" (click)="openDialog('bar-compare')" ></app-bar-diagram-compare>
 	</mat-card>
 
 	<mat-card>
-		<app-bar-diagram-both [data]="data"></app-bar-diagram-both>
+		<app-bar-diagram-both [data]="data" (click)="openDialog('bar-both')"></app-bar-diagram-both>
 	</mat-card>
 
 	<mat-card gdColumn.gt-md="span 2">

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -8,6 +8,7 @@ import { TranslationManagerService } from '../_services/translation-manager.serv
 import { DiagramDataCompare } from '../shared';
 
 import { ResizedEvent } from 'angular-resize-event'; 
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 interface TableData {
 	name: string,
@@ -35,7 +36,8 @@ export class CalculationDiagramCompareComponent implements OnInit {
 		private calculationService: CalculationService,
 		private activatedRoute: ActivatedRoute,
 		private translateService: TranslateService,
-		private translationManager: TranslationManagerService
+		private translationManager: TranslationManagerService,
+		private dialog: MatDialog
 	) { }
 
 	ngOnInit(): void {
@@ -94,4 +96,33 @@ export class CalculationDiagramCompareComponent implements OnInit {
 			this.displayedColumns = ["name", "dataone", "datatwo", "diff"];
 		}
 	}
+
+	openDialog(type: DialogDataType) {
+		this.dialog.open(DiagramCompareDialogComponent, { width: "95%", data: { type, data: this.data } });
+	}
+}
+
+
+type DialogDataType = 'bar-both'|'bar-compare';
+
+interface DialogData{
+	type: DialogDataType,
+	data: DiagramDataCompare
+}
+
+@Component({
+	selector: 'app-diagram-dialog',
+	template: `
+	<div [ngSwitch]="data.type">
+		<div *ngSwitchCase="'bar-both'"> <app-bar-diagram-both [data]="data.data"></app-bar-diagram-both> </div>
+		<div *ngSwitchCase="'bar-compare'"> <app-bar-diagram-compare [data]="data.data"></app-bar-diagram-compare> </div>
+	</div>
+	`,
+	styleUrls: []
+  })
+export class DiagramCompareDialogComponent{
+	constructor(
+		public dialogRef: MatDialogRef<DiagramCompareDialogComponent>,
+		@Inject(MAT_DIALOG_DATA) public data: DialogData
+	){}
 }

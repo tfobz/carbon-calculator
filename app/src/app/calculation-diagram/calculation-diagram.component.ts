@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { Calculation } from '../emissionmodule/calculation';
 import { CalculationService } from '../_services/calculation.service';
@@ -53,15 +53,32 @@ export class CalculationDiagramComponent implements OnInit {
 		});
 	}
 
-	openBarDialog() {
-		this.dialog.open(BarDiagramComponent, { data: this.data });
-	}
-
-	openPieDialog() {
-
-	}
-	
-	openTreeDialog() {
-
+	openDialog(type: DialogDataType) {
+		this.dialog.open(DiagramDialogComponent, { width: "95%", data: { type, data: this.data } });
 	}
 }
+
+type DialogDataType = 'bar'|'pie';
+
+interface DialogData{
+	type: DialogDataType,
+	data: DiagramData[]
+}
+
+@Component({
+	selector: 'app-diagram-dialog',
+	template: `
+	<div [ngSwitch]="data.type">
+		<div *ngSwitchCase="'bar'"> <app-bar-diagram [data]="data.data"></app-bar-diagram> </div>
+		<div *ngSwitchCase="'pie'"> <app-pie-diagram [data]="data.data"></app-pie-diagram> </div>
+	</div>
+	`,
+	styleUrls: []
+  })
+export class DiagramDialogComponent{
+	constructor(
+		public dialogRef: MatDialogRef<DiagramDialogComponent>,
+		@Inject(MAT_DIALOG_DATA) public data: DialogData
+	){}
+}
+  
