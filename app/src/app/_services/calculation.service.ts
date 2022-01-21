@@ -43,6 +43,12 @@ export class CalculationService {
     this.save();
   }
 
+  removeCalculation(calculation: Calculation){
+    const index: number = this._calculations.indexOf(calculation);
+    if(index === -1) return;
+    this._calculations = this._calculations.slice(index, 1);
+  }
+
   getById(id: string): Calculation | undefined{
     return this._calculations.find(calc => calc.id == id);
   }

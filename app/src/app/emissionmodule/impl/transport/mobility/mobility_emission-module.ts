@@ -16,6 +16,15 @@ export class MobilityEmissionModule implements EmissionModule{
             console.log(ex)
         }
     }
+
+    removeMobilityType(mobilityType: string){
+        try{
+            this.data.delete(MobilityTypeFactory.create(mobilityType));
+        }catch(ex){
+            console.log(ex)
+        }
+    }
+
     changeTypeValue(type:ModuleType, value:number){
         if(this.data.has(type))
             this.data.delete(type);
