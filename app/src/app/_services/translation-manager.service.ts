@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
-const availableLangs = [ "de", "en", "it" ];
+const availableLangs = [ "de", "en", "it", "ru" ];
 
 @Injectable({
   providedIn: 'root'

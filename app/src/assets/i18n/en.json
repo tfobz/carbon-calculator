@@ -31,7 +31,8 @@
     "languages": {
         "de": "German",
         "en": "English",
-        "it": "Italian"
+        "it": "Italian",
+        "ru": "Russian"
     },
     "save": "Save",
     "types": {
