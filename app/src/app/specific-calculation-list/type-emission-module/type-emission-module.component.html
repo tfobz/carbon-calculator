@@ -15,7 +15,7 @@
   
       <div class= "valueGroup" fxLayout="row" fxLayoutAlign="space-between center">
   
-        <p let >{{ value.value }} Unit</p>
+        <p let >{{ value.value }} {{ module?.unit }}</p>
         <p let >{{ value.value*value.key.factor }} kg CO²</p>
   
       </div>

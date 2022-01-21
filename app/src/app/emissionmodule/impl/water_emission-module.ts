@@ -6,6 +6,7 @@ export class WaterEmissionModule extends FactorEmissionModule{
     constructor(){
         super(WATER_EMISSION_MODULE_ID);
         super.factor = 0.4;
+        super.unit = "m³";
     }
 }
 

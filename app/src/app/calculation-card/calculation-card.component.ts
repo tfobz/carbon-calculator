@@ -4,6 +4,7 @@ import { MobilityEmissionModule } from '../emissionmodule/impl/transport/mobilit
 
 interface CalculationCardData{
   number: string,
+  unit: string,
   result: string
 }
 
@@ -30,6 +31,6 @@ export class CalculationCardComponent implements OnInit {
       number = (this.module as MobilityEmissionModule).calculate();
     }
 
-    return [{ number: number as unknown as string, result: this.module?.calculate().toFixed(2) as unknown as string }];
+    return [{ number: number as unknown as string, unit: this.module?.unit, result: this.module?.calculate().toFixed(2) as unknown as string }];
   }
 }
