@@ -6,6 +6,7 @@ export const MOBILITY_EMISSION_MODULE_ID = "mobility_emission_module";
 
 export class MobilityEmissionModule implements EmissionModule{
     public id: string = MOBILITY_EMISSION_MODULE_ID;
+    public unit: string = "km";
     public data: Map<ModuleType, number> = new Map();
 
     addMobilityType(mobilityType: string, number: number = 0){
@@ -15,6 +16,15 @@ export class MobilityEmissionModule implements EmissionModule{
             console.log(ex)
         }
     }
+
+    removeMobilityType(mobilityType: string){
+        try{
+            this.data.delete(MobilityTypeFactory.create(mobilityType));
+        }catch(ex){
+            console.log(ex)
+        }
+    }
+
     changeTypeValue(type:ModuleType, value:number){
         if(this.data.has(type))
             this.data.delete(type);

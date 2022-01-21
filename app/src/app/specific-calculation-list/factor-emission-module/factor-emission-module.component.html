@@ -2,7 +2,7 @@
     <mat-card>
 
         <input matInput type="number" (keypress)="save()" [(ngModel)]="module.number">
-        <p>Unit</p>
+        <p>{{ module?.unit }}</p>
 
     </mat-card>
 

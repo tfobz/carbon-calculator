@@ -6,6 +6,7 @@ export class SchoolCarEmissionModule extends FactorEmissionModule{
     constructor(){
         super(SCHOOL_CAR_EMISSION_MODULE_ID);
         super.factor = 0.31;
+        super.unit = "km";
     }
 }
 

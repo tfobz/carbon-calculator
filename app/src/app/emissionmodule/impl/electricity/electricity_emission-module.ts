@@ -5,11 +5,19 @@ export const ELECTRICITY_EMISSION_MODULE_ID = "electricity_emission_module";
 
 export class ElectricityEmissionModule implements EmissionModule{
     public id: string = ELECTRICITY_EMISSION_MODULE_ID;
+    public unit: string = "kWh";
     public data: Map<ModuleType, number> = new Map();
 
     addElectricityType(electricityType: string, number: number = 0){
         try{
             this.data.set(ElectricityTypeFactory.create(electricityType), number);
+        }catch(ex){
+            console.log(ex)
+        }
+    }
+    removeMobilityType(electricityType: string){
+        try{
+            this.data.delete(ElectricityTypeFactory.create(electricityType));
         }catch(ex){
             console.log(ex)
         }

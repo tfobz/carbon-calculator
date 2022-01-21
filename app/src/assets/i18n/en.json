@@ -25,14 +25,13 @@
     "name_length": "A name must be at least 4 characters long",
     "diagrams": "Diagrams",
 	"create_module_error": "No more modules available",
-	"diagram_compare_error": "No calculations to compare",
 	"diagram_compare_error": "No additional calculations",
     "settings": "Settings",
     "language": "Language",
     "languages": {
         "de": "German",
         "en": "English",
-        "it": "Italian",
+        "it": "Italian"
     },
     "save": "Save",
     "types": {

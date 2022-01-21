@@ -29,7 +29,7 @@ export class CreateTypeComponent implements OnInit {
       this.navigation.changeMessage(translation);
     });
     this.route.params.subscribe(params=>{
-      let calculation = this.calculationService.getByName(params.title);
+      let calculation = this.calculationService.getById(params.id);
       if(calculation){
         let module = calculation.modules.find(module => module.id == params.sptitle)
         if(module){
