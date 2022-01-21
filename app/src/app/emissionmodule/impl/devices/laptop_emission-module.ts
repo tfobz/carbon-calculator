@@ -6,6 +6,7 @@ export class LaptopEmissionModule extends FactorEmissionModule{
     constructor(){
         super(LAPTOP_EMISSION_MODULE_ID);
         super.factor = 320/3;
+        super.unit="piece";
     }
 }
 

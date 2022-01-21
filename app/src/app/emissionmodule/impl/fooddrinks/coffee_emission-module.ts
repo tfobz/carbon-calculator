@@ -6,6 +6,7 @@ export class CoffeeEmissionModule extends FactorEmissionModule{
     constructor(){
         super(COFFEE_EMISSION_MODULE_ID);
         super.factor = 0.1;
+        super.unit="cup";
     }
 }
 

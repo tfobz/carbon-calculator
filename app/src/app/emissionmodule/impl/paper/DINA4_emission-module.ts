@@ -6,6 +6,7 @@ export class DINA4EmissionModule extends FactorEmissionModule{
     constructor(){
         super(DINA4_EMISSION_MODULE_ID);
         super.factor = 0.0044;
+        super.unit="piece";
     }
 }
 

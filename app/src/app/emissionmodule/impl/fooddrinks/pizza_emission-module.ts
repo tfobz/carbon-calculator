@@ -6,6 +6,7 @@ export class PizzaEmissionModule extends FactorEmissionModule{
     constructor(){
         super(PIZZA_EMISSION_MODULE_ID);
         super.factor = 1.5; // Excel has * 200
+        super.unit="piece";
     }
 }
 

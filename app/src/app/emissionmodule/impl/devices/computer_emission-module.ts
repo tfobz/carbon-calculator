@@ -6,6 +6,7 @@ export class ComputerEmissionModule extends FactorEmissionModule{
     constructor(){
         super(COMPUTER_EMISSION_MODULE_ID);
         super.factor = 102.69;
+        super.unit = "piece";
     }
 }
 

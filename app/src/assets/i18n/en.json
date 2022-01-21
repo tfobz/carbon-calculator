@@ -48,5 +48,8 @@
         "CITY_BUS_MOBILITY_TYPE":"City Bus"
     },
 	"compare": "Compare",
-    "delete": "Delete"
+    "delete": "Delete",
+    "piece": "pieces",
+    "glass":"glasses",
+    "cup":"cups"
 }
