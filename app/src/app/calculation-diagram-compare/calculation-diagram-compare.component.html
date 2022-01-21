@@ -5,17 +5,14 @@
 	style="margin: 25px"
 	(resized)="onResize($event)">
 	<mat-card>
-		<mat-card-title>Diff</mat-card-title>
 		<app-bar-diagram-compare [data]="data"></app-bar-diagram-compare>
 	</mat-card>
 
 	<mat-card>
-		<mat-card-title>Bar</mat-card-title>
 		<app-bar-diagram-both [data]="data"></app-bar-diagram-both>
 	</mat-card>
 
 	<mat-card gdColumn.gt-md="span 2">
-		<mat-card-title>Table</mat-card-title>
 		<table mat-table [dataSource]="tableData">
 		  <ng-container matColumnDef="name">
 			<th mat-header-cell *matHeaderCellDef>Name</th>

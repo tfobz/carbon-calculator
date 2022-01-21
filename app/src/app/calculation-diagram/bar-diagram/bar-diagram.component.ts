@@ -13,6 +13,7 @@ export class BarDiagramComponent implements OnInit {
 
 	@Input()
 	public set data(diagramData: DiagramData[]) {
+		console.log(diagramData);
 		let name = [];
 		let val = [];
 		for(let pair of diagramData) {
@@ -73,7 +74,7 @@ export class BarDiagramComponent implements OnInit {
 
 	constructor(
 		private translateService: TranslateService,
-		private translationManager: TranslationManagerService
+		private translationManager: TranslationManagerService,
 	) { }
 
 	ngOnInit(): void {

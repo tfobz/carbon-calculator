@@ -47,7 +47,7 @@ import { FactorEmissionModuleComponent } from './specific-calculation-list/facto
 import { TypeEmissionModuleComponent } from './specific-calculation-list/type-emission-module/type-emission-module.component';
 import { CreateTypeComponent } from './create-type/create-type.component';
 import { TypeInputComponent } from './type-input/type-input.component';
-
+import { MatDialogModule } from '@angular/material/dialog'; 
 
 import { CalculationSelectCompareComponent } from './calculation-select-compare/calculation-select-compare.component';
 import { SettingsComponent } from './settings/settings.component';
@@ -105,7 +105,8 @@ import { SettingsComponent } from './settings/settings.component';
         deps: [ HttpClient ]
       }
     }),
-    MatSelectModule
+    MatSelectModule,
+	MatDialogModule
   ],
   providers: [
     NavigationService,

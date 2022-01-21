@@ -3,18 +3,15 @@
 	gdColumns.lt-md="1fr"
 	gdGap="25px"
 	style="margin: 25px">
-	<mat-card>
-		<mat-card-title>Bar</mat-card-title>
+	<mat-card (click)="openBarDialog()">
 		<app-bar-diagram [data]="data"></app-bar-diagram>
 	</mat-card>
 
-	<mat-card>
-		<mat-card-title>Pie</mat-card-title>
+	<mat-card (click)="openPieDialog()">
 		<app-pie-diagram [data]="data"></app-pie-diagram>
 	</mat-card>
 
-	<mat-card gdColumn.gt-md="span 2">
-		<mat-card-title>Trees</mat-card-title>
+	<mat-card gdColumn.gt-md="span 2" (click)="openTreeDialog()">
 		<app-tree-diagram [data]="data"></app-tree-diagram>
 	</mat-card>
 </div>

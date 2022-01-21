@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { MatDialog } from '@angular/material/dialog';
 
 import { Calculation } from '../emissionmodule/calculation';
 import { CalculationService } from '../_services/calculation.service';
 import { TranslationManagerService } from '../_services/translation-manager.service';
 import { DiagramData, MenuService } from '../shared';
+import { BarDiagramComponent } from './bar-diagram/bar-diagram.component';
 
 @Component({
   selector: 'app-calculation-diagram',
@@ -22,7 +24,8 @@ export class CalculationDiagramComponent implements OnInit {
 		private activatedRoute: ActivatedRoute,
 		private translateService: TranslateService,
 		private translationManager: TranslationManagerService,
-		private menuService: MenuService
+		private menuService: MenuService,
+		private dialog: MatDialog
 	) {
 	}
 
@@ -48,5 +51,17 @@ export class CalculationDiagramComponent implements OnInit {
 			if(this.calculation == null) return;
 			this.data = this.calculation.modules.map((mod) => ({ name: this.translationManager.getTranslation(translations, "modules." + mod.id), value: Math.floor(mod.calculate() * 100) / 100 }));
 		});
+	}
+
+	openBarDialog() {
+		this.dialog.open(BarDiagramComponent, { data: this.data });
+	}
+
+	openPieDialog() {
+
+	}
+	
+	openTreeDialog() {
+
 	}
 }
