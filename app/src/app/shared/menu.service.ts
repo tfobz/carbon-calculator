@@ -7,7 +7,7 @@ export interface MenuPoint{
   icon:string;
   menuPointName:string;
   link:string;
-
+  onClick?: () => void ;
 }
 
 @Injectable({
@@ -40,8 +40,6 @@ export class MenuService {
   }
 
   changeMenu(message: MenuPoint[]) {
-
    this.messageSource.next(message)
-
   }
 }

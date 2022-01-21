@@ -17,9 +17,11 @@ export class MobilityEmissionModule implements EmissionModule{
         }
     }
 
-    removeMobilityType(mobilityType: string){
+    removeType(mobilityType: string){
         try{
-            this.data.delete(MobilityTypeFactory.create(mobilityType));
+            const asd = this.getType(mobilityType);
+            if(asd == null) return;
+            this.data.delete(asd[0]);
         }catch(ex){
             console.log(ex)
         }

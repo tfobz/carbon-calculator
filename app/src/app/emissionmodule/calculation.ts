@@ -30,7 +30,7 @@ export class Calculation{
     removeModule(module: EmissionModule){
         const index = this.modules.indexOf(module);
         if(index === -1) return;
-        this.modules.slice(index, 1);
+        this.modules.splice(index, 1);
     }
 
     public static load(data: any): Calculation{

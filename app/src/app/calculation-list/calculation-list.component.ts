@@ -6,6 +6,7 @@ import { EmissionModule } from '../emissionmodule/emission-module';
 import { MenuService } from '../shared/menu.service';
 import { NavigationService } from '../shared/navigation.service';
 import { CalculationService } from '../_services/calculation.service';
+import { TranslationManagerService } from '../_services/translation-manager.service';
 
 @Component({
   selector: 'app-calculation-list',
@@ -22,6 +23,7 @@ export class CalculationListComponent implements OnInit{
     private navigation:NavigationService,
     private calculationService: CalculationService,
     private menuService:MenuService,
+    private translationManagerService: TranslationManagerService,
     private translateService: TranslateService
     ){}
 
@@ -39,8 +41,15 @@ export class CalculationListComponent implements OnInit{
       this.currentUrl="/emission/" + params.id;
     });
 
-    this.translateService.get("diagrams").subscribe(translation => {
-      this.menuService.changeMenu([{icon:"bar_chart", menuPointName: translation, link:this.currentUrl+"/diagram"}]);
+    this.translateService.getTranslation(this.translationManagerService.lang).subscribe(translations => {
+      this.menuService.changeMenu([
+        {icon:"bar_chart", menuPointName: this.translationManagerService.getTranslation(translations, "diagrams"), link:this.currentUrl+"/diagram"},
+        {icon:"delete", menuPointName: this.translationManagerService.getTranslation(translations, "delete"), link:"/emission/", onClick: () => this.delete()}]);
     });
+  }
+
+  
+  delete(){
+    this.calculationService.removeCalculation(this._calculation);
   }
 }

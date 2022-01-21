@@ -28,13 +28,14 @@ export class NavigationComponent implements OnInit{
     });
   }
 
+  click(func: (() => void) | undefined){
+    if(func != null) func();
+  }
 
   ngOnInit(): void {
 
     this.navigation.currentMessage.subscribe(params=>{
-
       this.title = params
-
     });
     this.menuService.currentMenu.subscribe(menu => this.menuPoints = menu);
   }

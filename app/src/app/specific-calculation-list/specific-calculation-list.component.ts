@@ -15,6 +15,7 @@ import { CalculationService } from '../_services/calculation.service';
 export class SpecificCalculationListComponent implements OnInit {
 
   _module!: EmissionModule;
+  _calculationID!:string;
 
   constructor(private route:ActivatedRoute,private navigation:NavigationService,private translateService: TranslateService, private calculationService:CalculationService){}
 
@@ -24,7 +25,7 @@ export class SpecificCalculationListComponent implements OnInit {
       this.translateService.get("modules." + params?.sptitle).subscribe(translation => {
         this.navigation.changeMessage(translation);
       });
-
+      this._calculationID = params.id;
       let module = this.calculationService.getById(params.id)?.modules.find(module => module.id == params.sptitle);
       if(module) this.module = module;
     })

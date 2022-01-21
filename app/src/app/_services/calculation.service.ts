@@ -46,7 +46,7 @@ export class CalculationService {
   removeCalculation(calculation: Calculation){
     const index: number = this._calculations.indexOf(calculation);
     if(index === -1) return;
-    this._calculations = this._calculations.slice(index, 1);
+    this._calculations.splice(index, 1);
   }
 
   getById(id: string): Calculation | undefined{

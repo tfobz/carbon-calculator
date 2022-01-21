@@ -46,5 +46,6 @@
         "TRAIN_MOBILITY_TYPE":"Zug",
         "CITY_BUS_MOBILITY_TYPE":"City Bus"
     },
-	"compare": "Vergleichen"
+	"compare": "Vergleichen",
+    "delete": "Löschen"
 }

@@ -15,9 +15,11 @@ export class ElectricityEmissionModule implements EmissionModule{
             console.log(ex)
         }
     }
-    removeMobilityType(electricityType: string){
+    removeType(electricityType: string){
         try{
-            this.data.delete(ElectricityTypeFactory.create(electricityType));
+            const asd = this.getType(electricityType);
+            if(asd == null) return;
+            this.data.delete(asd[0]);
         }catch(ex){
             console.log(ex)
         }

@@ -4,6 +4,7 @@ import { Calculation } from '../emissionmodule/calculation';
 import { MenuService } from '../shared/menu.service';
 import { NavigationService } from '../shared/navigation.service';
 import { CalculationService } from '../_services/calculation.service';
+import { TranslationManagerService } from '../_services/translation-manager.service';
 
 
 @Component({
@@ -16,6 +17,7 @@ export class EmissionListComponent implements OnInit{
     private navigation:NavigationService,
     private calculationService: CalculationService,
     private translateService: TranslateService,
+    private translationManagerService: TranslationManagerService,
     private menuService:MenuService,
   ){}
 
@@ -24,8 +26,8 @@ export class EmissionListComponent implements OnInit{
       this.navigation.changeMessage(translation);
     });
     //Menu 
-    this.translateService.get("settings").subscribe(translation => {
-      this.menuService.changeMenu([{icon:"settings", menuPointName: translation, link: `/emission/settings`}])
+    this.translateService.getTranslation(this.translationManagerService.lang).subscribe(translations => {
+      this.menuService.changeMenu([{icon:"settings", menuPointName: this.translationManagerService.getTranslation(translations, "settings"), link: `/emission/settings`}])
     });
   }
 
