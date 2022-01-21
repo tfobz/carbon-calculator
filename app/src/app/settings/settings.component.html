@@ -1,0 +1,15 @@
+<div class="container" fxLayout="column">
+
+  <mat-form-field appearance="fill">
+    <mat-label>{{ "language" | translate }}</mat-label>
+    <mat-select [(ngModel)]="selectedLanguage">
+      <mat-option *ngFor="let language of languages" [value]="language">
+        {{ language.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-flat-button color="primary" (click)="save()">{{ "save" | translate}}</button>
+
+</div>
+

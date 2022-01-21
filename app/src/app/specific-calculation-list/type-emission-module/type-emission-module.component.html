@@ -1,0 +1,34 @@
+<div class="typeEmissionModule">  
+
+  <mat-card *ngFor="let value of getData() | keyvalue"> 
+
+    <mat-card-header fxLayoutAlign="space-between center">
+        
+        <mat-card-title>{{ "types." + value.key.id | translate }}</mat-card-title>
+        <mat-icon routerLink="./{{ value.key.id }}"> border_color</mat-icon>
+  
+    </mat-card-header>
+  
+    <hr>
+  
+    <mat-card-content>
+  
+      <div class= "valueGroup" fxLayout="row" fxLayoutAlign="space-between center">
+  
+        <p let >{{ value.value }} {{ module?.unit }}</p>
+        <p let >{{ value.value*value.key.factor }} kg CO²</p>
+  
+      </div>
+        
+    </mat-card-content>
+    
+  </mat-card> 
+
+  <a 
+    routerLink="{{this.currentUrl}}/create"
+    id="add_button"
+    mat-fab color="primary"
+    aria-label="Add new calculation button">
+    <mat-icon>add</mat-icon>
+  </a>
+</div>

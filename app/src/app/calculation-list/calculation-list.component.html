@@ -1,0 +1,10 @@
+<div class="content" fxLayout="column" fxLayoutGap="15px">
+    <app-calculation-card *ngFor="let module of modules" [module]="module"></app-calculation-card>
+</div>
+<a 
+    routerLink="{{this.currentUrl}}/create"
+    id="add_button"
+    mat-fab color="primary"
+    aria-label="Add new calculation button">
+    <mat-icon>add</mat-icon>
+</a>

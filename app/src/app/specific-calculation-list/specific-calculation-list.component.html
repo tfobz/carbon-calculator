@@ -1,0 +1,5 @@
+<!-- FactorModule -->
+<app-factor-emission-module *ngIf="isFactorModule" [module]="getFactorModule()" [calculationID]="_calculationID"></app-factor-emission-module>
+
+<!-- Other Modules -->
+<app-type-emission-module *ngIf="!isFactorModule" [module]="getTypeModule()" [calculationID]="_calculationID"></app-type-emission-module>
