@@ -13,7 +13,6 @@ export class BarDiagramComponent implements OnInit {
 
 	@Input()
 	public set data(diagramData: DiagramData[]) {
-		console.log(diagramData);
 		let name = [];
 		let val = [];
 		for(let pair of diagramData) {
