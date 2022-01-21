@@ -56,6 +56,10 @@ export class CalculationDiagramComponent implements OnInit {
 	openDialog(type: DialogDataType) {
 		this.dialog.open(DiagramDialogComponent, { width: "95%", data: { type, data: this.data } });
 	}
+
+	openKonami() {
+		this.dialog.open(KonamiDialogComponent, { width: "95%" });
+	}
 }
 
 type DialogDataType = 'bar'|'pie';
@@ -80,5 +84,15 @@ export class DiagramDialogComponent{
 		public dialogRef: MatDialogRef<DiagramDialogComponent>,
 		@Inject(MAT_DIALOG_DATA) public data: DialogData
 	){}
+}
+  
+@Component({
+	selector: 'app-konami-dialog',
+	template: `<img src="/assets/oxygen-carbon.gif"/>`,
+	styles: ["img { width: 100%; height: auto; }"],
+	styleUrls: []
+  })
+export class KonamiDialogComponent{
+	constructor(){}
 }
   

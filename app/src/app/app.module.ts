@@ -13,7 +13,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { CalculationListComponent } from './calculation-list/calculation-list.component';
 import { CalculationCardComponent } from './calculation-card/calculation-card.component';
 import { SpecificCalculationListComponent } from './specific-calculation-list/specific-calculation-list.component';
-import { CalculationDiagramComponent, DiagramDialogComponent } from './calculation-diagram/calculation-diagram.component';
+import { CalculationDiagramComponent, DiagramDialogComponent, KonamiDialogComponent } from './calculation-diagram/calculation-diagram.component';
 import { CreateCalculationComponent } from './create-calculation/create-calculation.component';
 
 import { NavigationService } from './shared/navigation.service';
@@ -21,6 +21,7 @@ import { MenuService } from './shared/menu.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularResizeEventModule } from 'angular-resize-event';
 import { FormsModule } from '@angular/forms';
+import { KonamiModule } from 'ngx-konami';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
@@ -78,6 +79,7 @@ import { SettingsComponent } from './settings/settings.component';
     SettingsComponent,
     DiagramDialogComponent,
     DiagramCompareDialogComponent,
+	KonamiDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -108,7 +110,8 @@ import { SettingsComponent } from './settings/settings.component';
       }
     }),
     MatSelectModule,
-	MatDialogModule
+	MatDialogModule,
+	KonamiModule
   ],
   providers: [
     NavigationService,
