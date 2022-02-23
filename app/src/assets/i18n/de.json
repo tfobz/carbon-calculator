@@ -29,10 +29,10 @@
     "settings": "Einstellungen",
     "language": "Sprache",
     "languages": {
-        "it": "Italienisch",
+        "it": "Italiano",
         "de": "Deutsch",
-        "en": "Englisch",
-        "ru": "Russisch"
+        "en": "English",
+        "ru": "Русский"
     },
     "save": "Speichern",
     "types": {

@@ -30,9 +30,9 @@
     "language": "Lingua",
     "languages": {
         "it": "Italiano",
-        "de": "Tedesco",
-        "en": "Inglese",
-        "ru": "Russo"
+        "de": "Deutsch",
+        "en": "English",
+        "ru": "Русский"
     },
     "save": "Salva",
     "types": {

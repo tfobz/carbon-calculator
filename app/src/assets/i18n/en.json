@@ -29,10 +29,10 @@
     "settings": "Settings",
     "language": "Language",
     "languages": {
-        "de": "German",
+        "it": "Italiano",
+        "de": "Deutsch",
         "en": "English",
-        "it": "Italian",
-        "ru": "Russian"
+        "ru": "Русский"
     },
     "save": "Save",
     "types": {

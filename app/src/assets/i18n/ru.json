@@ -29,9 +29,9 @@
     "settings": "Настройки",
     "language": "Язык",
     "languages": {
-        "it": "Итальянский",
-        "de": "Немецкий",
-        "en": "Английский",
+        "it": "Italiano",
+        "de": "Deutsch",
+        "en": "English",
         "ru": "Русский"
     },
     "save": "Сохранить",
