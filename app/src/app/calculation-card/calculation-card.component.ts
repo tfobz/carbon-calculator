@@ -22,15 +22,6 @@ export class CalculationCardComponent implements OnInit {
   ngOnInit(): void {}
 
   get data(): CalculationCardData[] {
-
-    let number: number = 0;
-    
-    if(this.module instanceof FactorEmissionModule){
-      number = (this.module as FactorEmissionModule).number;
-    }else{
-      number = (this.module as MobilityEmissionModule).calculate();
-    }
-
-    return [{ number: number as unknown as string, unit: this.module?.unit, result: this.module?.calculate().toFixed(2) as unknown as string }];
+    return [{ number: this.module?.number as unknown as string, unit: this.module?.unit, result: this.module?.calculate().toFixed(2) as unknown as string }];
   }
 }

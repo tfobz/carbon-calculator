@@ -2,6 +2,7 @@
 interface EmissionModule{
     id: string;
     unit: string;
+    number: number;
     calculate(): number;   
 }
 
