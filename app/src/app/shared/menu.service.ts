@@ -6,7 +6,7 @@ export interface MenuPoint{
   //angular material icon name
   icon:string;
   menuPointName:string;
-  link:string;
+  link?:string;
   onClick?: () => void ;
 }
 

@@ -14,7 +14,7 @@
     </button>
 
     <mat-menu #menu="matMenu"> 
-      <button class="menuPoints" *ngFor="let menuPoint of menuPoints" mat-menu-item [routerLink]="menuPoint.link" (click)="click(menuPoint.onClick)" >
+      <button class="menuPoints" *ngFor="let menuPoint of menuPoints" mat-menu-item (click)="handleClick(menuPoint)" >
         <mat-icon *ngIf="menuPoint.icon!=''">{{ menuPoint.icon }}</mat-icon>
         <span>{{ menuPoint.menuPointName }}</span>
       </button>

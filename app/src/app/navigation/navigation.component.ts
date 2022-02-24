@@ -28,8 +28,13 @@ export class NavigationComponent implements OnInit{
     });
   }
 
-  click(func: (() => void) | undefined){
-    if(func != null) func();
+  handleClick(menuPoint: MenuPoint){
+  	if(menuPoint.onClick != null){
+		menuPoint.onClick();
+	}
+	if(menuPoint.link != null){
+		this.router.navigate([ menuPoint.link ]);
+	}
   }
 
   ngOnInit(): void {
