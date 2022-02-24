@@ -29,9 +29,10 @@
     "settings": "Settings",
     "language": "Language",
     "languages": {
-        "de": "German",
+        "it": "Italiano",
+        "de": "Deutsch",
         "en": "English",
-        "it": "Italian"
+        "ru": "Русский"
     },
     "save": "Save",
     "types": {
@@ -47,5 +48,8 @@
         "CITY_BUS_MOBILITY_TYPE":"City Bus"
     },
 	"compare": "Compare",
-    "delete": "Delete"
+    "delete": "Delete",
+    "piece": "pieces",
+    "glass":"glasses",
+    "cup":"cups"
 }

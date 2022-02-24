@@ -1,6 +1,6 @@
 <mat-card class="error_card" *ngIf="ids.length === 0">{{ "create_module_error" | translate }}</mat-card>
 <ng-container *ngIf="ids.length !== 0">
-	<mat-card *ngFor="let id of ids">
+	<mat-card *ngFor="let id of ids" class="module_card">
 		<mat-card-header>
 			<p fxFlex>{{ "modules." +id | translate }}</p>
 			<button (click)="create(id)" mat-icon-button class="icon" aria-label="addModule">

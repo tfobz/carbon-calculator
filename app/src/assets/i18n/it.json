@@ -30,8 +30,9 @@
     "language": "Lingua",
     "languages": {
         "it": "Italiano",
-        "de": "Tedesco",
-        "en": "Inglese"
+        "de": "Deutsch",
+        "en": "English",
+        "ru": "Русский"
     },
     "save": "Salva",
     "types": {
@@ -47,5 +48,8 @@
         "CITY_BUS_MOBILITY_TYPE":"Bus Città"
     },
 	"compare": "Comparare",
-    "delete": "Removere"
+    "delete": "Removere",
+    "piece": "pezzi",
+    "glass":"bicchieri",
+    "cup":"tazze"
 }

@@ -19,19 +19,16 @@ export class TreeDiagramComponent implements OnInit {
 	public set data(diagramData: DiagramData[]) {
 		const co2sum = diagramData.reduce((sum, current) => sum + current.value, 0);
 		this.requiredTrees = Math.ceil(co2sum / 31.5);
-		//this.requiredTrees = 1000000;
-		const requiredTrees = Math.min(Math.max(this.requiredTrees / 1000, 0), 500);
+		//this.requiredTrees = 10000;
+		const requiredTrees = Math.min(Math.max(this.requiredTrees / 100, 0), 500);
 		
-
-		const size = Math.min(Math.max(10 / Math.log10(requiredTrees), 3), 8);
-		//const size = Math.min(10 / Math.log10(requiredTrees), 10);;
-
 		this.trees = [];
 		for(let i = 0; i < requiredTrees; i++) {
+			const size = Math.min(Math.max(19 / Math.log10(requiredTrees) + (Math.random() * 3 - 1.5), 3), 8);
 			this.trees.push({
 				position: {
 					x: Math.round(Math.random() * 90 + 5),
-					y: Math.round(Math.random() * 90 + 5) 
+					y: Math.round(Math.random() * 85 + 10) 
 				},
 				size
 			});

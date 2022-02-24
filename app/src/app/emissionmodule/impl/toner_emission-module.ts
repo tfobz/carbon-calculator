@@ -6,6 +6,7 @@ export class TonerEmissionModule extends FactorEmissionModule{
     constructor(){
         super(TONER_EMISSION_MODULE_ID);
         super.factor = 5;
+        super.unit="piece";
     }
 }
 

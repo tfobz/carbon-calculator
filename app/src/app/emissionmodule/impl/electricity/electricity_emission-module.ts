@@ -50,6 +50,14 @@ export class ElectricityEmissionModule implements EmissionModule{
         }
         return undefined;
     }
+
+    get number(): number{
+        let ret = 0;
+        for( const [ _, number ] of this.data){
+            ret += number;
+        }
+        return ret;
+    }
 }
 
 export class ElectricityEmissionUtils implements EmissionUtils{
