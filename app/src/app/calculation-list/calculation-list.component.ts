@@ -7,7 +7,10 @@ import { MenuService } from '../shared/menu.service';
 import { NavigationService } from '../shared/navigation.service';
 import { CalculationService } from '../_services/calculation.service';
 import { TranslationManagerService } from '../_services/translation-manager.service';
+import { MatDialog } from '@angular/material/dialog'; 
 import { saveAs } from 'file-saver';
+import { ImportData, ImportFileDialogComponent } from './import-file-dialog/import-file-dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-calculation-list',
@@ -25,7 +28,9 @@ export class CalculationListComponent implements OnInit{
     private calculationService: CalculationService,
     private menuService:MenuService,
     private translationManagerService: TranslationManagerService,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+	private _dialog: MatDialog,
+	private _snackbar: MatSnackBar
     ){}
 
   get modules(): EmissionModule[] {
@@ -46,6 +51,7 @@ export class CalculationListComponent implements OnInit{
       this.menuService.changeMenu([
         {icon:"bar_chart", menuPointName: this.translationManagerService.getTranslation(translations, "diagrams"), link:this.currentUrl+"/diagram"},
 		{ icon: "file_download", menuPointName: "Export", link: undefined, onClick: () => { this.saveCalculation(); } },
+		{ icon: "file_upload", menuPointName: "Import", link: undefined, onClick: () => { this.loadCalculation(); } },
         {icon:"delete", menuPointName: this.translationManagerService.getTranslation(translations, "delete"), link:"/emission/", onClick: () => this.delete()}]);
     });
   }
@@ -62,6 +68,32 @@ export class CalculationListComponent implements OnInit{
 	const blob = new Blob([jsonString]);
 	const filename = this._calculation.name;
 	saveAs(blob, filename + ".json");
+  }
+
+  loadCalculation(){
+  	const dialogRef = this._dialog.open(ImportFileDialogComponent, {
+		minWidth: "30%",
+	});
+
+	dialogRef.afterClosed().subscribe(result => {
+		if(result == null || result == "") return;
+		const importData: ImportData = result as ImportData;
+
+		importData.modules.forEach(module => {
+			// CHECK IF MODULE ALREADY REGISTERED
+			if(this._calculation.getModule(module.id) != null) return;
+
+			this._calculation.modules.push(module);
+		});
+
+		// SAVE CALCULATION
+		this.calculationService.save();
+
+		this._snackbar.open("Imported file", "Close", {
+			duration: 2000,
+			panelClass: [ 'snackbar-custom' ]
+		});
+	});
   }
 
   delete(){

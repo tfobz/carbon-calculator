@@ -52,6 +52,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 import { CalculationSelectCompareComponent } from './calculation-select-compare/calculation-select-compare.component';
 import { SettingsComponent } from './settings/settings.component';
+import { FileUploadComponent } from './file-upload/file-upload.component';
+import { ImportFileDialogComponent } from './calculation-list/import-file-dialog/import-file-dialog.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -79,7 +82,9 @@ import { SettingsComponent } from './settings/settings.component';
     SettingsComponent,
     DiagramDialogComponent,
     DiagramCompareDialogComponent,
-	KonamiDialogComponent,
+    KonamiDialogComponent,
+    FileUploadComponent,
+	ImportFileDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -111,6 +116,7 @@ import { SettingsComponent } from './settings/settings.component';
     }),
     MatSelectModule,
 	MatDialogModule,
+	MatSnackBarModule,
 	KonamiModule
   ],
   providers: [

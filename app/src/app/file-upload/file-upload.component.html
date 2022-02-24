@@ -1,0 +1,8 @@
+<div class="file-upload" (click)="fileUpload.click()">
+	<input type="file" #fileUpload class="upload-element" (change)="handleFileSelected($event)" />
+	
+	<div class="file-upload-content">
+		<p>{{ filename != "" ? filename : "No file selected" }}</p>
+		<button mat-flat-button color="primary">Browse</button>
+	</div>
+</div>

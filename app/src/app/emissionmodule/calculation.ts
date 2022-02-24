@@ -27,6 +27,10 @@ export class Calculation{
         return { id: this.id, name: this.name, modules: modules_obj }
     }
 
+	getModule(id: string): EmissionModule | undefined{
+		return this.modules.find(module => module.id == id);
+	}
+
     removeModule(module: EmissionModule){
         const index = this.modules.indexOf(module);
         if(index === -1) return;
