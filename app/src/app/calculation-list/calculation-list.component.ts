@@ -7,6 +7,7 @@ import { MenuService } from '../shared/menu.service';
 import { NavigationService } from '../shared/navigation.service';
 import { CalculationService } from '../_services/calculation.service';
 import { TranslationManagerService } from '../_services/translation-manager.service';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-calculation-list',
@@ -44,11 +45,25 @@ export class CalculationListComponent implements OnInit{
     this.translateService.getTranslation(this.translationManagerService.lang).subscribe(translations => {
       this.menuService.changeMenu([
         {icon:"bar_chart", menuPointName: this.translationManagerService.getTranslation(translations, "diagrams"), link:this.currentUrl+"/diagram"},
+		{ icon: "file_download", menuPointName: "Export", link: undefined, onClick: () => { this.saveCalculation(); } },
         {icon:"delete", menuPointName: this.translationManagerService.getTranslation(translations, "delete"), link:"/emission/", onClick: () => this.delete()}]);
     });
   }
 
-  
+  saveCalculation(){
+	const saveData = this._calculation.save();
+
+	// We don't want these properties
+	delete saveData.id;
+	delete saveData.name;
+
+	let jsonString = JSON.stringify(saveData, null, 2);
+
+	const blob = new Blob([jsonString]);
+	const filename = this._calculation.name;
+	saveAs(blob, filename + ".json");
+  }
+
   delete(){
     this.calculationService.removeCalculation(this._calculation);
   }
