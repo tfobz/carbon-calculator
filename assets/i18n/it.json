@@ -1,0 +1,55 @@
+{
+    "emission": "Emissioni",
+    "modules":{
+        "toner_emission_module": "Toner",
+        "water_emission_module": "Aqua",
+        "school_car_emission_module": "Auto scolastiche",
+        "dina4_emission_module": "DIN A4",
+        "dina3_emission_module": "DIN A3",
+        "pizza_emission_module": "Pizza",
+        "drinks_500ml_emission_module": "Bevande 500ml",
+        "coffee_emission_module": "Caffè",
+        "server_emission_module": "Server",
+        "printer_3d_emission_module": "3D Stampante",
+        "printer_emission_module": "Stampante",
+        "plotter_emission_module": "Plotter",
+        "laptop_emission_module": "Laptop",
+        "computer_emission_module": "Computer",
+        "electricity_emission_module": "Elettricità",
+        "heating_emission_module": "Riscaldamento",
+        "mobility_emission_module": "Mobilità"
+    },
+    "add_button": "Aggiungere",
+    "name": "Nome",
+    "name_empty": "Il nome deve essere inserito",
+    "name_length": "Il nome deve contenere almeno 4 caratteri",
+    "diagrams": "Diagrammi",
+	"create_module_error": "Nessun altro modulo disponibile",
+	"diagram_compare_error": "Nessun ulteriore calcoli",
+    "settings": "Impostazioni",
+    "language": "Lingua",
+    "languages": {
+        "it": "Italiano",
+        "de": "Deutsch",
+        "en": "English",
+        "ru": "Русский"
+    },
+    "save": "Salva",
+    "types": {
+        "WIND_ELECTRICITY_TYPE": "Energia eolica",
+        "HYDRO_POWER_ELECTRICITY_TYPE": "Energia idroelettrica",
+        "NATURAL_GAS_ELECTRICITY_TYPE": "Gas naturali",
+        "OIL_ELECTRICITY_TYPE": "Olio",
+        "COAL_ELECTRICITY_TYPE": "Carbone",
+
+        "PKW_MOBILITY_TYPE":"Auto",
+        "BUS_MOBILITY_TYPE":"Bus",
+        "TRAIN_MOBILITY_TYPE":"Treno",
+        "CITY_BUS_MOBILITY_TYPE":"Bus Città"
+    },
+	"compare": "Comparare",
+    "delete": "Rimuovere",
+    "piece": "pezzi",
+    "glass":"bicchieri",
+    "cup":"tazze"
+}
