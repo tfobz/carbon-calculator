@@ -88,7 +88,7 @@ export class DiagramDialogComponent{
   
 @Component({
 	selector: 'app-konami-dialog',
-	template: `<img src="/assets/oxygen-carbon.gif"/>`,
+	template: `<img src="assets/oxygen-carbon.gif"/>`,
 	styles: ["img { width: 100%; height: auto; }"],
 	styleUrls: []
   })
