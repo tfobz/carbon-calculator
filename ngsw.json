@@ -1,0 +1,97 @@
+{
+  "configVersion": 1,
+  "timestamp": 1648556953553,
+  "index": "/carbon-calculator/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/carbon-calculator/181.3973e6081d0394b46e3d.js",
+        "/carbon-calculator/assets/i18n/de.json",
+        "/carbon-calculator/assets/i18n/en.json",
+        "/carbon-calculator/assets/i18n/it.json",
+        "/carbon-calculator/assets/i18n/ru.json",
+        "/carbon-calculator/assets/icons/icon-128x128.png",
+        "/carbon-calculator/assets/icons/icon-144x144.png",
+        "/carbon-calculator/assets/icons/icon-152x152.png",
+        "/carbon-calculator/assets/icons/icon-192x192.png",
+        "/carbon-calculator/assets/icons/icon-384x384.png",
+        "/carbon-calculator/assets/icons/icon-512x512.png",
+        "/carbon-calculator/assets/icons/icon-72x72.png",
+        "/carbon-calculator/assets/icons/icon-96x96.png",
+        "/carbon-calculator/assets/oxygen-carbon.gif",
+        "/carbon-calculator/assets/tree.png",
+        "/carbon-calculator/favicon.ico",
+        "/carbon-calculator/index.html",
+        "/carbon-calculator/main.128917a45337bedceb3b.js",
+        "/carbon-calculator/manifest.webmanifest",
+        "/carbon-calculator/polyfills.c37d31d8c182d336e327.js",
+        "/carbon-calculator/runtime.ab60734e779b9a70581f.js",
+        "/carbon-calculator/styles.1210ca57e4a88865828b.css"
+      ],
+      "patterns": [
+        "https:\\/\\/fonts\\.googleapis\\.com\\/.*",
+        "https:\\/\\/fonts\\.gstatic\\.com\\/.*"
+      ]
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/carbon-calculator/181.3973e6081d0394b46e3d.js": "7b8b70302a544500122c763123dbbf3245588653",
+    "/carbon-calculator/assets/i18n/de.json": "c07dc0b9c29cd240e1eb56fab1091194e64b4379",
+    "/carbon-calculator/assets/i18n/en.json": "7602ee2c7b9b98ba33fa32588f505dd59acc1d22",
+    "/carbon-calculator/assets/i18n/it.json": "238919ba7c966b8791a35d5808284d10011cbc2f",
+    "/carbon-calculator/assets/i18n/ru.json": "c62caafb1d68a0a604571331dc48720184f87f2d",
+    "/carbon-calculator/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "/carbon-calculator/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "/carbon-calculator/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "/carbon-calculator/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "/carbon-calculator/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/carbon-calculator/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/carbon-calculator/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "/carbon-calculator/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/carbon-calculator/assets/oxygen-carbon.gif": "9cdc90916b47477daf69b03ca82a4847536214e8",
+    "/carbon-calculator/assets/tree.png": "e4ddd12209878134277a78d5cc1eb835d9f5573f",
+    "/carbon-calculator/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "/carbon-calculator/index.html": "3b441b81e328e8f7162ee925ed70f54913c25eee",
+    "/carbon-calculator/main.128917a45337bedceb3b.js": "415fb6ec42bd374f720e56c9031100c06e692fdd",
+    "/carbon-calculator/manifest.webmanifest": "95e4a2230849900886471d765fd6a020bce1e30e",
+    "/carbon-calculator/polyfills.c37d31d8c182d336e327.js": "62c8e3b5bfd80e7889a45f37e52a8d20cb6d83d1",
+    "/carbon-calculator/runtime.ab60734e779b9a70581f.js": "e0039af47d8a4128e7114d1240c3bce3bdfc5d5e",
+    "/carbon-calculator/styles.1210ca57e4a88865828b.css": "ebe33ff0d3f136dd3335db51c78f49c71fef4621"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
