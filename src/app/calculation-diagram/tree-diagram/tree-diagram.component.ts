@@ -28,7 +28,7 @@ export class TreeDiagramComponent implements OnInit {
 			this.trees.push({
 				position: {
 					x: Math.round(Math.random() * 90 + 5),
-					y: Math.round(Math.random() * 85 + 10) 
+					y: Math.min(Math.max(Math.round(Math.random() * 85), 30), 100 )
 				},
 				size
 			});
