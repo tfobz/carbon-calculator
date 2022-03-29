@@ -12,7 +12,8 @@
           "/manifest.webmanifest",
           "/*.css",
           "/*.js",
-          "/assets/**"
+          "/assets/**",
+          "/assets/i18n/*.json"
         ],
         "urls": [
           "https://fonts.googleapis.com/**",
