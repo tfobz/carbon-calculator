@@ -2,7 +2,7 @@
 	<input type="file" #fileUpload class="upload-element" (change)="handleFileSelected($event)" />
 	
 	<div class="file-upload-content">
-		<p>{{ filename != "" ? filename : "No file selected" }}</p>
-		<button mat-flat-button color="primary">Browse</button>
+		<p>{{ filename != "" ? filename : ("no_file_selected" | translate) }}</p>
+		<button mat-flat-button color="primary">{{ "browse" | translate }}</button>
 	</div>
 </div>

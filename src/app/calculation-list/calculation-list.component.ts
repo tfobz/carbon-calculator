@@ -48,12 +48,16 @@ export class CalculationListComponent implements OnInit{
     });
 
     this.translateService.getTranslation(this.translationManagerService.lang).subscribe(translations => {
-      this.menuService.changeMenu([
-        {icon:"bar_chart", menuPointName: this.translationManagerService.getTranslation(translations, "diagrams"), link:this.currentUrl+"/diagram"},
-		{ icon: "file_download", menuPointName: "Export", link: undefined, onClick: () => { this.saveCalculation(); } },
-		{ icon: "file_upload", menuPointName: "Import", link: undefined, onClick: () => { this.loadCalculation(); } },
-        {icon:"delete", menuPointName: this.translationManagerService.getTranslation(translations, "delete"), link:"/emission/", onClick: () => this.delete()}]);
-    });
+		const translationManager = this.translationManagerService;
+		const translate = function(name: string){
+			return translationManager.getTranslation(translations, name);
+		}
+		this.menuService.changeMenu([
+			{icon:"bar_chart", menuPointName: translate("diagrams"), link:this.currentUrl+"/diagram"},
+			{ icon: "file_download", menuPointName: translate("export"), link: undefined, onClick: () => { this.saveCalculation(); } },
+			{ icon: "file_upload", menuPointName: translate("import"), link: undefined, onClick: () => { this.loadCalculation(); } },
+			{icon:"delete", menuPointName: this.translationManagerService.getTranslation(translations, "delete"), link:"/emission/", onClick: () => this.delete()}]);
+		});
   }
 
   saveCalculation(){

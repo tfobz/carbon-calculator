@@ -1,9 +1,9 @@
-<h2 mat-dialog-title>Import</h2>
+<h2 mat-dialog-title>{{ "import" | translate }}</h2>
 <div mat-dialog-content>
 	<app-file-upload (file)="handleFileUpload($event)"></app-file-upload>
 
 	<div class="modules-check" *ngIf="loadedModules.length > 0">
-		<p>These modules will get added:</p>
+		<p>{{ "import_modules_added" | translate }}</p>
 		<div class="modules-list">
 			<div *ngFor="let module of loadedModules">
 				{{"modules." + module.id | translate}}
@@ -12,6 +12,6 @@
 	</div>
 </div>
 <div mat-dialog-actions align="end">
-	<button mat-button cdkFocusInitial mat-dialog-close>Close</button>	
-	<button mat-flat-button color="primary" [mat-dialog-close]="importData" [disabled]="importData == null">Import</button>
+	<button mat-button cdkFocusInitial mat-dialog-close>{{ "close" | translate }}</button>	
+	<button mat-flat-button color="primary" [mat-dialog-close]="importData" [disabled]="importData == null">{{ "import" | translate }}</button>
 </div>
