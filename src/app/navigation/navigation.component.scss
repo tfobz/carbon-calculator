@@ -38,3 +38,9 @@ button{
   color: var(--text-accent-color);
 
 }
+
+.logo{
+  height: calc(100% - 20px);
+  width: auto;
+  margin-right: 10px;
+}
