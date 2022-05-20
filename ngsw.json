@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1648666255372,
+  "timestamp": 1653039183519,
   "index": "/carbon-calculator/index.html",
   "assetGroups": [
     {
@@ -11,7 +11,8 @@
         "ignoreVary": true
       },
       "urls": [
-        "/carbon-calculator/181.8bcb47eb51295a57a480.js",
+        "/carbon-calculator/181.3973e6081d0394b46e3d.js",
+        "/carbon-calculator/assets/BlattBild.png",
         "/carbon-calculator/assets/i18n/de.json",
         "/carbon-calculator/assets/i18n/en.json",
         "/carbon-calculator/assets/i18n/it.json",
@@ -24,14 +25,15 @@
         "/carbon-calculator/assets/icons/icon-512x512.png",
         "/carbon-calculator/assets/icons/icon-72x72.png",
         "/carbon-calculator/assets/icons/icon-96x96.png",
+        "/carbon-calculator/assets/logo.png",
         "/carbon-calculator/assets/oxygen-carbon.gif",
         "/carbon-calculator/assets/tree.png",
         "/carbon-calculator/favicon.ico",
         "/carbon-calculator/index.html",
-        "/carbon-calculator/main.8524d1016a1a17f673c2.js",
+        "/carbon-calculator/main.1a79c77fd0d0a9295e02.js",
         "/carbon-calculator/manifest.webmanifest",
-        "/carbon-calculator/polyfills.dbc6e4a321a53262ede3.js",
-        "/carbon-calculator/runtime.9d3299f2c05853c5d77b.js",
+        "/carbon-calculator/polyfills.c37d31d8c182d336e327.js",
+        "/carbon-calculator/runtime.ab60734e779b9a70581f.js",
         "/carbon-calculator/styles.1210ca57e4a88865828b.css"
       ],
       "patterns": [
@@ -52,11 +54,12 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "/carbon-calculator/181.8bcb47eb51295a57a480.js": "7b8b70302a544500122c763123dbbf3245588653",
-    "/carbon-calculator/assets/i18n/de.json": "9eeab86940b7d5730b721d696c2ca6c3252abadd",
-    "/carbon-calculator/assets/i18n/en.json": "150d51f41dbe7576dd9e5a1df77d4f54ee6c60ac",
-    "/carbon-calculator/assets/i18n/it.json": "f38b98cde5b5b815762b1bb11588530d46afc419",
-    "/carbon-calculator/assets/i18n/ru.json": "401b3a3dba2c9e08ac46bcf724ae38a0cbe566e5",
+    "/carbon-calculator/181.3973e6081d0394b46e3d.js": "7b8b70302a544500122c763123dbbf3245588653",
+    "/carbon-calculator/assets/BlattBild.png": "d9e6800598ca3b577aa197186306ebb967472825",
+    "/carbon-calculator/assets/i18n/de.json": "1136772563c7dfe32bd492fe5e43f6ff364220de",
+    "/carbon-calculator/assets/i18n/en.json": "98a26f27446c515c4e9f618a6d396a1d37aa4f3c",
+    "/carbon-calculator/assets/i18n/it.json": "dff42bd67bf6d610f3c4a5d080d6cadc3c346a92",
+    "/carbon-calculator/assets/i18n/ru.json": "8b141b4a12461ebdfb9725135564317aa7ea2330",
     "/carbon-calculator/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
     "/carbon-calculator/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
     "/carbon-calculator/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
@@ -65,14 +68,15 @@
     "/carbon-calculator/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
     "/carbon-calculator/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
     "/carbon-calculator/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/carbon-calculator/assets/logo.png": "028f29855fdef737896534c59c35195b3811e6e7",
     "/carbon-calculator/assets/oxygen-carbon.gif": "9cdc90916b47477daf69b03ca82a4847536214e8",
     "/carbon-calculator/assets/tree.png": "e4ddd12209878134277a78d5cc1eb835d9f5573f",
     "/carbon-calculator/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/carbon-calculator/index.html": "cdf2157c1c62aaab91236e08b5de3de8e9551adb",
-    "/carbon-calculator/main.8524d1016a1a17f673c2.js": "0181bad5bec3a28c10fe33c438603d17f9dac3f3",
+    "/carbon-calculator/index.html": "d0fabad3a288784128f2ee72cebc68ecad84bd0a",
+    "/carbon-calculator/main.1a79c77fd0d0a9295e02.js": "cb50d0b19988793d0ef5755a6249f46ca55c4b78",
     "/carbon-calculator/manifest.webmanifest": "95e4a2230849900886471d765fd6a020bce1e30e",
-    "/carbon-calculator/polyfills.dbc6e4a321a53262ede3.js": "62c8e3b5bfd80e7889a45f37e52a8d20cb6d83d1",
-    "/carbon-calculator/runtime.9d3299f2c05853c5d77b.js": "01fd494e5f7e1e53cb5bcf52c3127c9c8e7ff3c7",
+    "/carbon-calculator/polyfills.c37d31d8c182d336e327.js": "62c8e3b5bfd80e7889a45f37e52a8d20cb6d83d1",
+    "/carbon-calculator/runtime.ab60734e779b9a70581f.js": "e0039af47d8a4128e7114d1240c3bce3bdfc5d5e",
     "/carbon-calculator/styles.1210ca57e4a88865828b.css": "ebe33ff0d3f136dd3335db51c78f49c71fef4621"
   },
   "navigationUrls": [
