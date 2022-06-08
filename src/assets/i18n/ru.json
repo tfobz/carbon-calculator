@@ -29,6 +29,7 @@
    	"export": "Export",
 	"import": "Import",
 	"import_modules_added": "These modules will get added:",
+    "import_success": "Imported file",
 	"close": "Close",
 	"no_file_selected": "No file selected",
 	"browse": "Browse",

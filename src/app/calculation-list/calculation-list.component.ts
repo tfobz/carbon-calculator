@@ -56,8 +56,9 @@ export class CalculationListComponent implements OnInit{
 			{icon:"bar_chart", menuPointName: translate("diagrams"), link:this.currentUrl+"/diagram"},
 			{ icon: "file_download", menuPointName: translate("export"), link: undefined, onClick: () => { this.saveCalculation(); } },
 			{ icon: "file_upload", menuPointName: translate("import"), link: undefined, onClick: () => { this.loadCalculation(); } },
-			{icon:"delete", menuPointName: this.translationManagerService.getTranslation(translations, "delete"), link:"/emission/", onClick: () => this.delete()}]);
-		});
+			{icon:"delete", menuPointName: this.translationManagerService.getTranslation(translations, "delete"), link:"/emission/", onClick: () => this.delete() }
+		]);
+	});
   }
 
   saveCalculation(){
@@ -93,9 +94,17 @@ export class CalculationListComponent implements OnInit{
 		// SAVE CALCULATION
 		this.calculationService.save();
 
-		this._snackbar.open("Imported file", "Close", {
-			duration: 2000,
-			panelClass: [ 'snackbar-custom' ]
+
+		this.translateService.getTranslation(this.translationManagerService.lang).subscribe(translations => {
+			const translationManager = this.translationManagerService;
+			const translate = function(name: string){
+				return translationManager.getTranslation(translations, name);
+			}
+
+			this._snackbar.open(translate("import_success"), translate("close"), {
+				duration: 2000,
+				panelClass: [ 'snackbar-custom' ]
+			});
 		});
 	});
   }

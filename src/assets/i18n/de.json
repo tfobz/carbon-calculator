@@ -29,6 +29,7 @@
     "export": "Exportieren",
 	"import": "Importieren",
 	"import_modules_added": "Diese Module werden importiert:",
+    "import_success": "Datei importiert",
 	"close": "Schließen",
 	"settings": "Einstellungen",
 	"no_file_selected": "Keine Datei ausgewählt",
