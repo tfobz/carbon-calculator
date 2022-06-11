@@ -1,17 +1,20 @@
 import { generateId } from "../shared/utils";
 import { EmissionModule } from "./emission-module";
 import EmissionsManager from "./emissions_manager";
+import { FactorManager } from "./factor-manager";
+import { FactorProvider, PRESET_FACTORS_LIST } from "./factor_provider";
 
 export class Calculation{
     private _id: string = "";
     public modules: EmissionModule[] = [];
+    public factorManager: FactorManager = new FactorManager();
 
     constructor(public name: string){ this._id = generateId(); }
 
     calculate(): number{
         let sum: number = 0;
         for(let module of this.modules){
-            sum += module.calculate();
+            sum += module.calculate(this.factorManager);
         }
         return sum;
     }
@@ -24,7 +27,8 @@ export class Calculation{
 
             modules_obj.push(obj);
         }
-        return { id: this.id, name: this.name, modules: modules_obj }
+        let factors_obj = this.factorManager.save();
+        return { id: this.id, name: this.name, modules: modules_obj, factors: factors_obj }
     }
 
 	getModule(id: string): EmissionModule | undefined{
@@ -51,6 +55,11 @@ export class Calculation{
                     ret.modules.push(module);
                 });
             }
+        }
+        if(data.factors){
+            ret.factorManager = FactorManager.load(data.factors);
+        }else{
+            ret.factorManager = FactorProvider.get(PRESET_FACTORS_LIST[0]);
         }
         return ret;
     }

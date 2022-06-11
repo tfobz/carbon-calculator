@@ -1,11 +1,11 @@
-<div class="typeEmissionModule">  
+<div class="typeEmissionModule" *ngIf="module != null">  
 
-  <mat-card *ngFor="let value of getData() | keyvalue"> 
+  <mat-card *ngFor="let subModule of getData()"> 
 
     <mat-card-header fxLayoutAlign="space-between center">
         
-        <mat-card-title>{{ "types." + value.key.id | translate }}</mat-card-title>
-        <mat-icon routerLink="./{{ value.key.id }}"> border_color</mat-icon>
+        <mat-card-title>{{ "types." + subModule.id | translate }}</mat-card-title>
+        <mat-icon routerLink="./{{ subModule.id }}"> border_color</mat-icon>
   
     </mat-card-header>
   
@@ -15,8 +15,8 @@
   
       <div class= "valueGroup" fxLayout="row" fxLayoutAlign="space-between center">
   
-        <p let >{{ value.value }} {{ module == undefined ? "" : module.unit | translate}}</p>
-        <p let >{{ value.value*value.key.factor }} kg CO²</p>
+        <p let >{{ subModule.number }} {{ module.unit | translate}}</p>
+        <p let >{{ subModule.number * factorManager.get(module.id + "_" + subModule.id) }} kg CO²</p>
   
       </div>
         

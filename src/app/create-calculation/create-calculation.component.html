@@ -10,6 +10,12 @@
                 {{ "name_length" | translate }}
             </mat-error>
         </mat-form-field>    
+        <mat-form-field appearance="fill">
+            <mat-label>{{ "factors" | translate }}</mat-label>
+            <mat-select formControlName="factors">
+              <mat-option *ngFor="let factor_preset of PRESET_FACTORS_LIST" [value]="factor_preset">{{"factor_preset." + factor_preset | translate}}</mat-option>
+            </mat-select>
+        </mat-form-field>
         <button mat-flat-button color="primary" type="submit" [disabled]="!createForm.valid">{{ "add_button" | translate }}</button>
     </form>
 </div>

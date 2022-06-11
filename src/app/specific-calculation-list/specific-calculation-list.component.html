@@ -1,7 +1,7 @@
 <div style="padding: 5px 30px;">
     <!-- FactorModule -->
-    <app-factor-emission-module *ngIf="isFactorModule" [module]="getFactorModule()" [calculationID]="_calculationID"></app-factor-emission-module>
+    <app-factor-emission-module *ngIf="isFactorModule" [module]="getFactorModule()" [calculationID]="calculationId" [factorManager]="factorManager"></app-factor-emission-module>
 
     <!-- Other Modules -->
-    <app-type-emission-module *ngIf="!isFactorModule" [module]="getTypeModule()" [calculationID]="_calculationID"></app-type-emission-module>
+    <app-type-emission-module *ngIf="!isFactorModule" [module]="getTypeModule()" [calculationID]="calculationId" [factorManager]="factorManager"></app-type-emission-module>
 </div>

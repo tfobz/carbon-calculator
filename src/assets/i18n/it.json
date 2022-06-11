@@ -58,5 +58,9 @@
     "delete": "Rimuovere",
     "piece": "pezzi",
     "glass":"bicchieri",
-    "cup":"tazze"
+    "cup":"tazze",
+    "factors": "Fattori",
+    "factor_preset": {
+        "italy": "Italia"
+    }
 }

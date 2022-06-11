@@ -7,7 +7,6 @@ import { Calculation } from '../emissionmodule/calculation';
 import { CalculationService } from '../_services/calculation.service';
 import { TranslationManagerService } from '../_services/translation-manager.service';
 import { DiagramData, MenuService } from '../shared';
-import { BarDiagramComponent } from './bar-diagram/bar-diagram.component';
 
 @Component({
   selector: 'app-calculation-diagram',
@@ -49,7 +48,8 @@ export class CalculationDiagramComponent implements OnInit {
 		this.translateService.getTranslation(this.translationManager.lang).subscribe(translations => {
 			//TODO: case for 0 len
 			if(this.calculation == null) return;
-			this.data = this.calculation.modules.map((mod) => ({ name: this.translationManager.getTranslation(translations, "modules." + mod.id), value: Math.floor(mod.calculate() * 100) / 100 }));
+			const factorManager = this.calculation.factorManager;
+			this.data = this.calculation.modules.map((mod) => ({ name: this.translationManager.getTranslation(translations, "modules." + mod.id), value: Math.floor(mod.calculate(factorManager) * 100) / 100 }));
 		});
 	}
 

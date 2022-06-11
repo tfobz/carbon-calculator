@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ModuleType } from '../emissionmodule/emission-module';
-import { ElectricityEmissionModule } from '../emissionmodule/impl/electricity/electricity_emission-module';
-import { MobilityEmissionModule } from '../emissionmodule/impl/transport/mobility/mobility_emission-module';
+import { FactorManager } from '../emissionmodule/factor-manager';
+import { AdvancedEmissionModule, AdvancedSubModule, ELECTRICITY_MODULE_ID, MOBILITY_MODULE_ID } from '../emissionmodule/modules/advanced-module';
 import { MenuService } from '../shared';
 import { NavigationService } from '../shared/navigation.service';
 import { CalculationService } from '../_services/calculation.service';
@@ -16,8 +16,10 @@ import { TranslationManagerService } from '../_services/translation-manager.serv
 })
 export class TypeInputComponent implements OnInit {
 
-  module!: ElectricityEmissionModule | MobilityEmissionModule;
-  type !: [ModuleType, number];
+  private _factorManager: FactorManager = new FactorManager();
+
+  module!: AdvancedEmissionModule;
+  type !: AdvancedSubModule;
 
   constructor(private route:ActivatedRoute,private navigation:NavigationService, private calculationService:CalculationService, private menuService: MenuService, private translateService:TranslateService, private translationManagerService:TranslationManagerService) { }
 
@@ -32,14 +34,17 @@ export class TypeInputComponent implements OnInit {
           {icon:"delete", menuPointName: this.translationManagerService.getTranslation(translations, "delete"), link:"/emission/" + params.id + "/" + module?.id, onClick: () => this.delete()}]);
       });
 
-      let module = this.calculationService.getById(params.id)?.modules.find(module => module.id == params.sptitle);
+      const calculation = this.calculationService.getById(params.id);
+      if(calculation == null) return;
+      this._factorManager = calculation.factorManager;
+      let module = calculation?.modules.find(module => module.id == params.sptitle) as AdvancedEmissionModule;
       if(module){
-        if(module instanceof MobilityEmissionModule) {
-          this.module = module as MobilityEmissionModule;
+        if(module.id == MOBILITY_MODULE_ID) {
+          this.module = module as AdvancedEmissionModule;
           let type = module.getType(params.typeID);
           if(type) this.type = type;
-        }else if(module instanceof ElectricityEmissionModule){
-          this.module = module as ElectricityEmissionModule;
+        }else if(module.id == ELECTRICITY_MODULE_ID){
+          this.module = module as AdvancedEmissionModule;
           let type = module.getType(params.typeID);
           if(type) this.type = type;
         }
@@ -47,11 +52,15 @@ export class TypeInputComponent implements OnInit {
     })
   }
   save(){
-    this.module.changeTypeValue(this.type[0], this.type[1]);
+    this.module.changeTypeValue(this.type.id, this.type.number);
     this.calculationService.save();
   }
   delete(){
-    this.module.removeType(this.type[0].id);
+    this.module.removeType(this.type.id);
+  }
+
+  get factorManager(): FactorManager{
+    return this._factorManager;
   }
 
 }

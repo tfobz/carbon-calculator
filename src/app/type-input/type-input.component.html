@@ -1,14 +1,13 @@
 <div class="typeModule">
     <mat-card>
 
-        <input matInput type="number" (keyup)="save()" [(ngModel)]="type[1]">
+        <input matInput type="number" (keyup)="save()" [(ngModel)]="type.number">
         <p>{{ module == undefined ? "" : module.unit | translate }}</p>
 
     </mat-card>
 
     <div class="result">
-
-        <p>{{ type[1]*type[0].factor }} kg CO²</p>
+        <p>{{ type.number*factorManager.get(module.id + "_" + type.id) }} kg CO²</p>
 
     </div>
 </div>

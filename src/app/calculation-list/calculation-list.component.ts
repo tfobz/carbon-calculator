@@ -11,6 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { saveAs } from 'file-saver';
 import { ImportData, ImportFileDialogComponent } from './import-file-dialog/import-file-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { FactorManager } from '../emissionmodule/factor-manager';
 
 @Component({
   selector: 'app-calculation-list',
@@ -36,6 +37,10 @@ export class CalculationListComponent implements OnInit{
   get modules(): EmissionModule[] {
     this.calculationService.save()
     return this._calculation?.modules;
+  }
+
+  get factorManager(): FactorManager {
+	  return this._calculation.factorManager;
   }
 
   ngOnInit(): void {

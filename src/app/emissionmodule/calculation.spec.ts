@@ -1,94 +1,61 @@
 import { Calculation } from "./calculation";
-import { FactorEmissionModule } from "./emission-module";
-import { PizzaEmissionModule } from "./impl/fooddrinks/pizza_emission-module";
-import { TonerEmissionModule } from "./impl/toner_emission-module";
-import { WaterEmissionModule } from "./impl/water_emission-module";
+import { FactorEmissionModule } from "./modules/factor-module";
 
 describe('calculation', () => {
     it('should return 0 there are no modules', () => {
         const calc: Calculation = new Calculation("Test");
         expect(calc.calculate() == 0).toBeTruthy();
     });
-    it('should return 400 from calculation', () => {
-        const calc: Calculation = new Calculation("Test");
-        
-        // 150
-        const module1: FactorEmissionModule = new PizzaEmissionModule();
-        module1.number = 100;
 
-        // 250
-        const module2: FactorEmissionModule = new TonerEmissionModule();
-        module2.number = 50;
-        
-        calc.modules.push(module1);
-        calc.modules.push(module2);
+    it("should load calculation", ()=> {
+        const expected: Calculation = new Calculation("test");
+        expected.factorManager.register("school_car_emission_module", 10);
+        const module = new FactorEmissionModule("school_car_emission_module");
+        module.number = 1555;
+        module.unit = "km";
+        expected.modules.push(module);
 
-        expect(calc.calculate() === 400).toBeTruthy();
+        let data = {
+            id: expected.id,
+            name: "test",
+            modules: [
+              {
+                type: "school_car_emission_module",
+                number: 1555
+              }
+            ],
+            factors: [
+                [ "school_car_emission_module", 10 ]
+            ]
+        }
+
+        const calc = Calculation.load(data);
+        expect(calc).toEqual(expected);
     });
-    it('check save for calculation without modules', () => {
-        const calc: Calculation = new Calculation("Test");
-        
+
+    it("should save calculation", ()=> {
+        const calculation: Calculation = new Calculation("test");
         const expected = {
-            name: "Test",
-            modules: []
-        };
-
-        expect(JSON.stringify(calc.save()) === JSON.stringify(expected)).toBeTruthy();
-    });
-    it('check save for calculation with two modules', () => {
-        const calc: Calculation = new Calculation("Test");
-
-        let pizzaModule: FactorEmissionModule = new PizzaEmissionModule();
-        pizzaModule.number = 500;
-
-        let waterModule: FactorEmissionModule = new WaterEmissionModule();
-        waterModule.number = 100;
-
-        calc.modules.push(pizzaModule);
-        calc.modules.push(waterModule);
-
-        const expected = {
-            name: "Test",
+            id: calculation.id,
+            name: calculation.name,
             modules: [
                 {
-                    type: "pizza_emission_module",
-                    number: 500
-                },
-                {
-                    type: "water_emission_module",
-                    number: 100
+                    type: "school_car_emission_module",
+                    number: 1555
                 }
+            ],
+            factors: [
+                [ "school_car_emission_module", 10 ]
             ]
-        };
+        }
 
-        expect(JSON.stringify(calc.save()) === JSON.stringify(expected)).toBeTruthy();
-    });
-    it('check if calculation loads correctly', () => {
-        const expected: Calculation = new Calculation("Test");
+        const module = new FactorEmissionModule("school_car_emission_module");
+        module.number = 1555;
 
-        const pizzaModule: FactorEmissionModule = new PizzaEmissionModule();
-        pizzaModule.number = 500;
+        calculation.modules.push(module);
+        calculation.factorManager.register("school_car_emission_module", 10);
 
-        const waterModule: FactorEmissionModule = new WaterEmissionModule();
-        waterModule.number = 100;
-
-        expected.modules.push(pizzaModule);
-        expected.modules.push(waterModule);
-
-        const data = {
-            name: "Test",
-            modules: [
-                {
-                    type: "pizza_emission_module",
-                    number: 500
-                },
-                {
-                    type: "water_emission_module",
-                    number: 100
-                }
-            ]
-        };
-        const actual: Calculation = Calculation.load(data);
-        expect(JSON.stringify(expected) === JSON.stringify(actual)).toBeTruthy();
-    });
+        const actual = calculation.save();
+        expect(actual).toEqual(expected);
+    }); 
 });

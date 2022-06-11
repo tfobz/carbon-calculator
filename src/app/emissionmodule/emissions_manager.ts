@@ -1,41 +1,30 @@
-import { EmissionModule, EmissionUtils } from "./emission-module";
-import { ComputerEmissionUtil, COMPUTER_EMISSION_MODULE_ID } from "./impl/devices/computer_emission-module";
-import { LaptopEmissionUtil, LAPTOP_EMISSION_MODULE_ID } from "./impl/devices/laptop_emission-module";
-import { PlotterEmissionUtil, PLOTTER_EMISSION_MODULE_ID } from "./impl/devices/plotter_emission-module";
-import { Printer3DEmissionUtil, PRINTER_3D_EMISSION_MODULE_ID } from "./impl/devices/printer_3d_emission-module";
-import { PrinterEmissionUtil, PRINTER_EMISSION_MODULE_ID } from "./impl/devices/printer_emission-module";
-import { ServerEmissionUtil, SERVER_EMISSION_MODULE_ID } from "./impl/devices/server_emission-module";
-import { ElectricityEmissionUtils, ELECTRICITY_EMISSION_MODULE_ID } from "./impl/electricity/electricity_emission-module";
-import { CoffeeEmissionUtil, COFFEE_EMISSION_MODULE_ID } from "./impl/fooddrinks/coffee_emission-module";
-import { Drinks500mlEmissionUtil, DRINKS_500ML_EMISSION_MODULE_ID } from "./impl/fooddrinks/drinks_500ml_emission-module";
-import { PizzaEmissionUtil, PIZZA_EMISSION_MODULE_ID } from "./impl/fooddrinks/pizza_emission-module";
-import { HeatingEmissionUtils, HEATING_EMISSION_MODULE_ID } from "./impl/heating/heating_emission-module";
-import { DINA3EmissionUtil, DINA3_EMISSION_MODULE_ID } from "./impl/paper/DINA3_emission-module";
-import { DINA4EmissionUtil, DINA4_EMISSION_MODULE_ID } from "./impl/paper/DINA4_emission-module";
-import { TonerEmissionUtils, TONER_EMISSION_MODULE_ID } from "./impl/toner_emission-module";
-import { MobilityEmissionUtils, MOBILITY_EMISSION_MODULE_ID } from "./impl/transport/mobility/mobility_emission-module";
-import { SchoolCarEmissionUtils, SCHOOL_CAR_EMISSION_MODULE_ID } from "./impl/transport/school_car_emission-module";
-import { WaterEmissionUtil, WATER_EMISSION_MODULE_ID } from "./impl/water_emission-module";
+import { EmissionModule } from "./emission-module";
+import { advancedSerializer } from "./serializer/advanced-serializer";
+import { factorSerializer } from "./serializer/factor-serializer";
 
-const emissions: Map<string, EmissionUtils> = new Map([
-    [TONER_EMISSION_MODULE_ID, new TonerEmissionUtils()],
-    [WATER_EMISSION_MODULE_ID, new WaterEmissionUtil()],
-    [SCHOOL_CAR_EMISSION_MODULE_ID, new SchoolCarEmissionUtils()],
-    [DINA4_EMISSION_MODULE_ID, new DINA4EmissionUtil()],
-    [DINA3_EMISSION_MODULE_ID, new DINA3EmissionUtil()],
-    [PIZZA_EMISSION_MODULE_ID, new PizzaEmissionUtil()],
-    [DRINKS_500ML_EMISSION_MODULE_ID, new Drinks500mlEmissionUtil()],
-    [COFFEE_EMISSION_MODULE_ID, new CoffeeEmissionUtil()],
-    [SERVER_EMISSION_MODULE_ID, new ServerEmissionUtil()],
-    [PRINTER_EMISSION_MODULE_ID, new PrinterEmissionUtil()],
-    [PRINTER_3D_EMISSION_MODULE_ID, new Printer3DEmissionUtil()],
-    [PLOTTER_EMISSION_MODULE_ID, new PlotterEmissionUtil()],
-    [LAPTOP_EMISSION_MODULE_ID, new LaptopEmissionUtil()],
-    [COMPUTER_EMISSION_MODULE_ID, new ComputerEmissionUtil()],
-    [ELECTRICITY_EMISSION_MODULE_ID, new ElectricityEmissionUtils()],
-    [MOBILITY_EMISSION_MODULE_ID, new MobilityEmissionUtils()],
-    [HEATING_EMISSION_MODULE_ID, new HeatingEmissionUtils()]
-]);
+export interface Serializer {
+    save(module: EmissionModule): any, 
+    load(data: any): EmissionModule
+}
+
+const emissions: Map<string, Serializer> = new Map();
+emissions.set("school_car_emission_module", factorSerializer);
+emissions.set("heating_emission_module", factorSerializer);
+emissions.set("dina4_emission_module", factorSerializer);
+emissions.set("toner_emission_module", factorSerializer);
+emissions.set("water_emission_module", factorSerializer);
+emissions.set("computer_emission_module", factorSerializer);
+emissions.set("laptop_emission_module", factorSerializer);
+emissions.set("server_emission_module", factorSerializer);
+emissions.set("printer_emission_module", factorSerializer);
+emissions.set("plotter_emission_module", factorSerializer);
+emissions.set("printer_3d_emission_module", factorSerializer);
+emissions.set("pizza_emission_module", factorSerializer);
+emissions.set("drinks_500ml_emission_module", factorSerializer);
+emissions.set("coffee_emission_module", factorSerializer);
+
+emissions.set("electricity_emission_module", advancedSerializer);
+emissions.set("mobility_emission_module", advancedSerializer);
 
 export default class EmissionsManager{
     /*
@@ -43,16 +32,21 @@ export default class EmissionsManager{
     */
     static load(data: any): EmissionModule|undefined{
         if(data.type){
-            let utils: EmissionUtils|undefined = emissions.get(data.type);
+            let utils: Serializer|undefined = emissions.get(data.type);
             if(utils){
-                return utils.create(data);
+                const ret = utils.load(data);
+                if(units.has(ret.id)){
+                    const unit = units.get(ret.id);
+                    if(unit) ret.unit = unit;
+                }
+                return ret;
             }
         }
         return undefined;
     }
     
     static save(module: EmissionModule): any{
-        let utils: EmissionUtils|undefined = emissions.get(module.id);
+        let utils: Serializer|undefined = emissions.get(module.id);
         if(utils){
             return utils.save(module);
         }
@@ -63,3 +57,27 @@ export default class EmissionsManager{
         return Array.from(emissions.keys());
     }
 }
+
+const units: Map<string, string> = new Map();
+units.set("water_emission_module", "m³");
+units.set("heating_emission_module", "m³");
+
+units.set("toner_emission_module", "piece");
+units.set("computer_emission_module", "piece");
+units.set("laptop_emission_module", "piece");
+units.set("plotter_emission_module", "piece");
+units.set("printer_3d_emission_module", "piece");
+units.set("printer_emission_module", "piece");
+units.set("server_emission_module", "piece");
+units.set("pizza_emission_module", "piece");
+units.set("dina3_emission_module", "piece");
+units.set("dina4_emission_module", "piece");
+
+units.set("coffee_emission_module", "cup");
+
+units.set("drinks_500ml_emission_module", "glass");
+
+units.set("school_car_emission_module", "km");
+units.set("mobility_emission_module", "km");
+
+units.set("electricity_emission_module", "kWh");

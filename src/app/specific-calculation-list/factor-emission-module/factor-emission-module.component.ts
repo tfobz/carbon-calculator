@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { Calculation } from 'src/app/emissionmodule/calculation';
-import { FactorEmissionModule } from 'src/app/emissionmodule/emission-module';
+import { FactorManager } from 'src/app/emissionmodule/factor-manager';
+import { FactorEmissionModule } from 'src/app/emissionmodule/modules/factor-module';
 import { MenuService } from 'src/app/shared';
 import { CalculationService } from 'src/app/_services/calculation.service';
 import { TranslationManagerService } from 'src/app/_services/translation-manager.service';
@@ -14,7 +14,8 @@ import { TranslationManagerService } from 'src/app/_services/translation-manager
 export class FactorEmissionModuleComponent implements OnInit {
 
   @Input() calculationID!: string;
-  @Input() module!:FactorEmissionModule;
+  @Input() factorManager!: FactorManager;
+  @Input() module!: FactorEmissionModule;
 
   constructor(private calculationService:CalculationService, private menuService: MenuService, private translateService:TranslateService, private translationManagerService:TranslationManagerService) { }
 

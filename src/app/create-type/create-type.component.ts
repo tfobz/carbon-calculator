@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { ElectricityEmissionModule } from '../emissionmodule/impl/electricity/electricity_emission-module';
-import { ElectricityTypeFactory } from '../emissionmodule/impl/electricity/electricity_types';
-import { MobilityEmissionModule } from '../emissionmodule/impl/transport/mobility/mobility_emission-module';
-import { MobilityTypeFactory } from '../emissionmodule/impl/transport/mobility/mobility_types';
+import { AdvancedEmissionModule, ELECTRICITY_MODULE_ID, ELECTRICITY_TYPES, MOBILITY_MODULE_ID, MOBILITY_TYPES } from '../emissionmodule/modules/advanced-module';
 import { NavigationService } from '../shared/navigation.service';
 import { CalculationService } from '../_services/calculation.service';
 
@@ -15,7 +12,7 @@ import { CalculationService } from '../_services/calculation.service';
 })
 export class CreateTypeComponent implements OnInit {
   
-  private module!:ElectricityEmissionModule | MobilityEmissionModule;
+  private module!:AdvancedEmissionModule;
   ids:string[] = [];
 
   constructor(private navigation:NavigationService, 
@@ -33,23 +30,19 @@ export class CreateTypeComponent implements OnInit {
       if(calculation){
         let module = calculation.modules.find(module => module.id == params.sptitle)
         if(module){
-          if(module instanceof ElectricityEmissionModule){
-            this.module = module as ElectricityEmissionModule;
-            this.ids = ElectricityTypeFactory.getAllIDs().filter(id => !this.module.getIDs().includes(id))
-          }else if(module instanceof MobilityEmissionModule){
-            this.module = module as MobilityEmissionModule;
-            this.ids = MobilityTypeFactory.getAllIDs().filter(id => !this.module.getIDs().includes(id))
+          if(module.id == ELECTRICITY_MODULE_ID){
+            this.module = module as AdvancedEmissionModule;
+            this.ids = ELECTRICITY_TYPES.filter(id => !this.module.getTypes().includes(id))
+          }else if(module.id == MOBILITY_MODULE_ID){
+            this.module = module as AdvancedEmissionModule;
+            this.ids = MOBILITY_TYPES.filter(id => !this.module.getTypes().includes(id))
           }
         }
       }
     });
   }
   create(id:string){
-    if(this.module instanceof ElectricityEmissionModule)
-      (this.module as ElectricityEmissionModule).addElectricityType(id);
-    if(this.module instanceof MobilityEmissionModule)
-      (this.module as MobilityEmissionModule).addMobilityType(id);
-
+    this.module.add({ id: id, number: 0 });
     this.calculationService.save();
 
     this.router.navigate(['../'+id], {relativeTo: this.route});
