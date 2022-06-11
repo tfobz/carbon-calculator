@@ -2,11 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ModuleType } from 'src/app/emissionmodule/emission-module';
-import { MobilityEmissionModule } from 'src/app/emissionmodule/impl/transport/mobility/mobility_emission-module';
+import { FactorManager } from 'src/app/emissionmodule/factor-manager';
+import { AdvancedEmissionModule, AdvancedSubModule } from 'src/app/emissionmodule/modules/advanced-module';
 import { MenuService } from 'src/app/shared';
 import { CalculationService } from 'src/app/_services/calculation.service';
 import { TranslationManagerService } from 'src/app/_services/translation-manager.service';
-import { ElectricityEmissionModule } from '../../emissionmodule/impl/electricity/electricity_emission-module';
 
 @Component({
   selector: 'app-type-emission-module',
@@ -15,7 +15,8 @@ import { ElectricityEmissionModule } from '../../emissionmodule/impl/electricity
 })
 export class TypeEmissionModuleComponent implements OnInit {
 
-  @Input() module!: ElectricityEmissionModule | MobilityEmissionModule | undefined;
+  @Input() factorManager!: FactorManager;
+  @Input() module!: AdvancedEmissionModule | undefined;
   @Input() calculationID!: string;
   public currentUrl!:string;
 
@@ -30,8 +31,8 @@ export class TypeEmissionModuleComponent implements OnInit {
       this.currentUrl="/emission/" + params.id +"/"+params.sptitle;
     });
   }
-  getData(): Map<ModuleType, number> | undefined{
-    return this.module?.data;
+  getData(): AdvancedSubModule[] | undefined{
+    return this.module?.list;
   }
   delete(){
     if(this.module) this.calculationService.getById(this.calculationID)?.removeModule(this.module);
