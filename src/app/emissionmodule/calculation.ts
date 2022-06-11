@@ -2,6 +2,7 @@ import { generateId } from "../shared/utils";
 import { EmissionModule } from "./emission-module";
 import EmissionsManager from "./emissions_manager";
 import { FactorManager } from "./factor-manager";
+import { FactorProvider, PRESET_FACTORS_LIST } from "./factor_provider";
 
 export class Calculation{
     private _id: string = "";
@@ -57,6 +58,8 @@ export class Calculation{
         }
         if(data.factors){
             ret.factorManager = FactorManager.load(data.factors);
+        }else{
+            ret.factorManager = FactorProvider.get(PRESET_FACTORS_LIST[0]);
         }
         return ret;
     }

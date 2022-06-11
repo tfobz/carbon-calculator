@@ -26,7 +26,7 @@ export const MOBILITY_TYPES: string[] = [
 
 export class AdvancedEmissionModule implements EmissionModule {
     private _id: string = "";
-    private _unit: string = "";
+    private _unit: string = "Unit";
 
     private _list: AdvancedSubModule[] = [];
 

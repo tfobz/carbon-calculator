@@ -12,6 +12,7 @@ describe('calculation', () => {
         expected.factorManager.register("school_car_emission_module", 10);
         const module = new FactorEmissionModule("school_car_emission_module");
         module.number = 1555;
+        module.unit = "km";
         expected.modules.push(module);
 
         let data = {

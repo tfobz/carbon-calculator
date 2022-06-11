@@ -34,7 +34,12 @@ export default class EmissionsManager{
         if(data.type){
             let utils: Serializer|undefined = emissions.get(data.type);
             if(utils){
-                return utils.load(data);
+                const ret = utils.load(data);
+                if(units.has(ret.id)){
+                    const unit = units.get(ret.id);
+                    if(unit) ret.unit = unit;
+                }
+                return ret;
             }
         }
         return undefined;
@@ -52,3 +57,27 @@ export default class EmissionsManager{
         return Array.from(emissions.keys());
     }
 }
+
+const units: Map<string, string> = new Map();
+units.set("water_emission_module", "m³");
+units.set("heating_emission_module", "m³");
+
+units.set("toner_emission_module", "piece");
+units.set("computer_emission_module", "piece");
+units.set("laptop_emission_module", "piece");
+units.set("plotter_emission_module", "piece");
+units.set("printer_3d_emission_module", "piece");
+units.set("printer_emission_module", "piece");
+units.set("server_emission_module", "piece");
+units.set("pizza_emission_module", "piece");
+units.set("dina3_emission_module", "piece");
+units.set("dina4_emission_module", "piece");
+
+units.set("coffee_emission_module", "cup");
+
+units.set("drinks_500ml_emission_module", "glass");
+
+units.set("school_car_emission_module", "km");
+units.set("mobility_emission_module", "km");
+
+units.set("electricity_emission_module", "kWh");
