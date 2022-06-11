@@ -78,8 +78,9 @@ export class AdvancedEmissionModule implements EmissionModule {
     }
 
     get number(): number {
-        //TODO: Implement
-        return 0;
+        let sum = 0;
+        this._list.forEach(subModule => sum += subModule.number);
+        return sum;
     }
 
     set number(value: number){

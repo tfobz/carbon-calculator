@@ -1,8 +1,8 @@
-import { AdvancedModule } from "../modules/advanced-module";
+import { AdvancedEmissionModule } from "../modules/advanced-module";
 import { advancedSerializer } from "./advanced-serializer";
 describe("advanced-serializer", () => {
     it("should save module", () => {
-        const module = new AdvancedModule("test");
+        const module = new AdvancedEmissionModule("test");
         module.add({ id: "WIND_ELECTRICITY_TYPE", number: 26510 })
 
         const expected = {
@@ -29,7 +29,7 @@ describe("advanced-serializer", () => {
             ]
         };
 
-        const expected = new AdvancedModule("test");
+        const expected = new AdvancedEmissionModule("test");
         expected.add({ id: "WIND_ELECTRICITY_TYPE", number: 26510 })
 
         const serializer = advancedSerializer;

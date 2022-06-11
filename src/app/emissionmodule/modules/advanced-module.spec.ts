@@ -23,4 +23,13 @@ describe("advanced-module", () => {
 
         expect(module.calculate(factorManager)).toBe(52);
     })
+
+    it("should return sum", () => {
+        const expected = 40;
+        const module = new AdvancedEmissionModule("test");
+        module.add({ id: "test", number: 15 });
+        module.add({ id: "test2", number: 25 });
+
+        expect(module.number).toEqual(expected);
+    })
 });

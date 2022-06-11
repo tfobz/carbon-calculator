@@ -1,5 +1,5 @@
 import EmissionsManager from "./emissions_manager";
-import { AdvancedModule } from "./modules/advanced-module";
+import { AdvancedEmissionModule } from "./modules/advanced-module";
 import { FactorEmissionModule } from "./modules/factor-module";
 
 describe('emissions_module', () => {
@@ -30,7 +30,7 @@ describe('emissions_module', () => {
             ]
         }
 
-        const expected = new AdvancedModule("electricity_emission_module");
+        const expected = new AdvancedEmissionModule("electricity_emission_module");
         expected.add({ id: "WIND_ELECTRICITY_TYPE", number: 26510 });
         expected.add({ id: "HYDRO_POWER_ELECTRICITY_TYPE", number: 248712 });
 
