@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { EmissionModule, FactorEmissionModule } from '../emissionmodule/emission-module';
-import { ElectricityEmissionModule } from '../emissionmodule/impl/electricity/electricity_emission-module';
-import { MobilityEmissionModule } from '../emissionmodule/impl/transport/mobility/mobility_emission-module';
+import { Calculation } from '../emissionmodule/calculation';
+import { EmissionModule } from '../emissionmodule/emission-module';
+import { FactorManager } from '../emissionmodule/factor-manager';
+import { AdvancedEmissionModule } from '../emissionmodule/modules/advanced-module';
+import { FactorEmissionModule } from '../emissionmodule/modules/factor-module';
+import { AdvancedSerializer } from '../emissionmodule/serializer/advanced-serializer';
 import { NavigationService } from '../shared/navigation.service';
 import { CalculationService } from '../_services/calculation.service';
 
@@ -14,8 +17,9 @@ import { CalculationService } from '../_services/calculation.service';
 })
 export class SpecificCalculationListComponent implements OnInit {
 
-  _module!: EmissionModule;
-  _calculationID!:string;
+  private _module!: EmissionModule;
+  private _factorManager!: FactorManager;
+  private _calculationID!:string;
 
   constructor(private route:ActivatedRoute,private navigation:NavigationService,private translateService: TranslateService, private calculationService:CalculationService){}
 
@@ -26,7 +30,10 @@ export class SpecificCalculationListComponent implements OnInit {
         this.navigation.changeMessage(translation);
       });
       this._calculationID = params.id;
-      let module = this.calculationService.getById(params.id)?.modules.find(module => module.id == params.sptitle);
+      const calculation = this.calculationService.getById(params.id);
+      if(calculation == null) return;
+      this._factorManager = calculation.factorManager;
+      let module = calculation.modules.find(module => module.id == params.sptitle);
       if(module) this.module = module;
     })
   }
@@ -41,18 +48,19 @@ export class SpecificCalculationListComponent implements OnInit {
     this._module = module;
   }
 
+  get factorManager(): FactorManager {
+    return this._factorManager;
+  }
+
+  get calculationId(): string {
+    return this._calculationID;
+  }
+
   getFactorModule() : FactorEmissionModule {
-    
     return this.module as FactorEmissionModule;
   }
-  getTypeModule(): ElectricityEmissionModule | MobilityEmissionModule | undefined{
-    
-    if(this.module instanceof ElectricityEmissionModule)
-      return this.module as ElectricityEmissionModule;
-    else 
-    if(this.module instanceof MobilityEmissionModule)
-      return this.module as MobilityEmissionModule;
-    
+  getTypeModule(): AdvancedEmissionModule | undefined{
+    if(this.module instanceof AdvancedEmissionModule) return this.module as AdvancedEmissionModule;
     return undefined;
   }
 }

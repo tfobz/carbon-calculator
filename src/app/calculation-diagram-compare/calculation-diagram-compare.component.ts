@@ -9,6 +9,7 @@ import { DiagramDataCompare } from '../shared';
 
 import { ResizedEvent } from 'angular-resize-event'; 
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { FactorManager } from '../emissionmodule/factor-manager';
 
 interface TableData {
 	name: string,
@@ -66,8 +67,10 @@ export class CalculationDiagramCompareComponent implements OnInit {
 		this.translateService.getTranslation(this.translationManager.lang).subscribe(translations => {
 			//TODO: case for 0 len
 			if(this.calculationOne == null || this.calculationTwo == null) return;
-			const dataOne = this.calculationOne.modules.map((mod) => ({ name: this.translationManager.getTranslation(translations, "modules." + mod.id), value: Math.floor(mod.calculate() * 100) / 100 }));
-			const dataTwo = this.calculationTwo.modules.map((mod) => ({ name: this.translationManager.getTranslation(translations, "modules." + mod.id), value: Math.floor(mod.calculate() * 100) / 100 }));
+			const factorManagerOne: FactorManager = this.calculationOne.factorManager;
+			const factorManagerTwo: FactorManager = this.calculationTwo.factorManager;
+			const dataOne = this.calculationOne.modules.map((mod) => ({ name: this.translationManager.getTranslation(translations, "modules." + mod.id), value: Math.floor(mod.calculate(factorManagerOne) * 100) / 100 }));
+			const dataTwo = this.calculationTwo.modules.map((mod) => ({ name: this.translationManager.getTranslation(translations, "modules." + mod.id), value: Math.floor(mod.calculate(factorManagerTwo) * 100) / 100 }));
 
 			this.data = { one: dataOne, two: dataTwo };
 

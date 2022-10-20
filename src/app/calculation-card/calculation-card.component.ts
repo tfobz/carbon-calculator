@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { EmissionModule, FactorEmissionModule } from '../emissionmodule/emission-module';
-import { MobilityEmissionModule } from '../emissionmodule/impl/transport/mobility/mobility_emission-module';
+import { Calculation } from '../emissionmodule/calculation';
+import { EmissionModule } from '../emissionmodule/emission-module';
+import { FactorManager } from '../emissionmodule/factor-manager';
 
 interface CalculationCardData{
   number: string,
@@ -17,11 +18,12 @@ export class CalculationCardComponent implements OnInit {
 
   @Input() edit: boolean = true;
 
+  @Input() factorManager!: FactorManager;
   @Input() module!: EmissionModule;
   
   ngOnInit(): void {}
 
   get data(): CalculationCardData[] {
-    return [{ number: this.module?.number as unknown as string, unit: this.module?.unit, result: this.module?.calculate().toFixed(2) as unknown as string }];
+    return [{ number: this.module?.number as unknown as string, unit: this.module?.unit, result: this.module?.calculate(this.factorManager).toFixed(2) as unknown as string }];
   }
 }

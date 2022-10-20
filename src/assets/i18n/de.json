@@ -58,5 +58,9 @@
     "delete": "Löschen",
     "piece": "Stück",
     "glass":"Glas",
-    "cup":"Tasse"
+    "cup":"Tasse",
+    "factors": "Faktoren",
+    "factor_preset": {
+        "italy": "Italien"
+    }
 }
