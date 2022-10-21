@@ -2,7 +2,7 @@
 
 <!-- This div mainly creates an empty gap between the navigation bar and the content-->
 <div class="content" fxLayout="column" fxLayoutGap="15px">
-    <p *ngIf="empty_hint == true">No Emission Item created, click on the "+" Button below to start</p>
+    <p *ngIf="empty_hint_status == true">{{ empty_hint_msg }}</p>
     <app-emission-item *ngFor="let calcs of calculations" [link]="['/emission', calcs.id]" [name]="calcs.name" [emission]="calcs.calculate()"></app-emission-item>
 </div>
 

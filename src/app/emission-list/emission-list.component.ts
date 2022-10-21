@@ -17,7 +17,8 @@ import { TranslationManagerService } from '../_services/translation-manager.serv
 // in the HTML file
 export class EmissionListComponent implements OnInit {
   // Custom variable to make Hints disappear once an entry got created
-  empty_hint = true;
+  empty_hint_status = true;
+  empty_hint_msg = "";
   constructor(
     private navigation:NavigationService,
     private calculationService: CalculationService,
@@ -32,10 +33,14 @@ export class EmissionListComponent implements OnInit {
       this.navigation.changeMessage(translation);
     });
 
+    this.translateService.get("main_page_starting_hint").subscribe(translation => {
+      this.empty_hint_msg = translation;
+    })
+
     // Check if there is an emission item and change the visibility of the hints accordingly
     // calculationService.calculations will retrieve nothing if there is no calculation, and something else if there is
     if (this.calculationService.calculations.toString() && this.calculationService.calculations.toString().trim()) {
-      this.empty_hint = false;
+      this.empty_hint_status = false;
     }
 
     // Defines the menu of the website
