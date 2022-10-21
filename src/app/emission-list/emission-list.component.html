@@ -1,7 +1,13 @@
+<!-- This is the main window that opens when yyou first open the app-->
+
+<!-- This div mainly creates an empty gap between the navigation bar and the content-->
 <div class="content" fxLayout="column" fxLayoutGap="15px">
+    <p *ngIf="empty_hint == true">No Emission Item created, click on the "+" Button below to start</p>
     <app-emission-item *ngFor="let calcs of calculations" [link]="['/emission', calcs.id]" [name]="calcs.name" [emission]="calcs.calculate()"></app-emission-item>
 </div>
 
+<!-- This is the "+" Button in the bottom right corner of the app
+    The routerLink defines its action -->
 <a 
     routerLink="/emission/create"
     id="add_button"
