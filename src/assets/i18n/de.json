@@ -61,6 +61,10 @@
     "cup":"Tasse",
     "factors": "Faktoren",
     "factor_preset": {
-        "italy": "Italien"
-    }
+        "italy": "Italien",
+        "austria": "Österreich",
+        "sweden": "Schweden",
+        "spain": "Spanien"
+    },
+    "main_page_starting_hint": "Keine Einträge erstellt, klicke auf dem '+' Knopf um zu starten"
 }
