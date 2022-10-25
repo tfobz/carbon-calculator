@@ -32,18 +32,18 @@ module.exports = function (config) {
         { type: 'text-summary' }
       ]
     },
+    reporters: ['progress', 'kjhtml'],
+    port: 9876,
+    colors: true,
+    logLevel: config.LOG_INFO,
+    autoWatch: true,
+    browsers: ['Chrome', 'ChromeHeadless', 'ChromeHeadlessCI'],
     customLaunchers: {
       ChromeHeadlessNoSandbox: {
         base: "ChromeHeadless",
         flags: ["--no-sandbox"]
       }
     },
-    reporters: ['progress', 'kjhtml'],
-    port: 9876,
-    colors: true,
-    logLevel: config.LOG_INFO,
-    autoWatch: true,
-    browsers: ["ChromeHeadlessNoSandbox"],
     singleRun: false,
     restartOnFileChange: true
   });
