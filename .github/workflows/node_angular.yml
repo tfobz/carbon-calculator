@@ -21,7 +21,7 @@ jobs:
 
     steps:
     - name: Install Angular 14.2.6
-      uses: actions/angular-github-actions@v1.1.0
+      uses: mayurrawte/github-angular-actions@v1.1.0
       with:
         version: 14.2.6
         cache: 'ng'
