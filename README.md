@@ -1,30 +1,46 @@
 # Carbon Calculator
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.5.
-- 20.10.2022: Updated to [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6.
 
-## Development server
+## Setup this project:
+
+### - Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+### - Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+### - Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+### - Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+### - Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Deploy github-pages
+### - Deploy github-pages
 Run `npm run deploy` to execute the deploy for Github-pages.
+
+
+## Documentation:
+
+The documentation has been created using [Compodoc](https://compodoc.app/), a powerful open-source tool to automatically generate
+html documentation from comments in the Angular project.
+
+## Features added since the last version:
+
+- Function to choose factors for a specific country
+- Documentation of the code with comments
+- Automatic documentation with compodoc
+- Updated Angular from version 12.2.5 to 14.2.6 (20.10.2022)
+- Merged unused branches into main
+- Added helping messages on empty pages
 
 ## Further help
 
