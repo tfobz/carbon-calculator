@@ -10,7 +10,7 @@
     "test:ci": "ng test --watch=false --browsers=ChromeHeadlessCustom",
     "deploy": "ng deploy --base-href=/carbon-calculator/",
     "extract-translations": "ngx-translate-extract --input ./src --output ./src/assets/i18n/*.json --clean --sort --format namespaced-json --marker _",
-    "compodoc": "npx compodoc -p tsconfig.doc.json"
+    "compodoc": "./node_modules/.bin/compodoc -p tsconfig.doc.json"
   },
   "private": true,
   "dependencies": {
@@ -30,7 +30,6 @@
     "@ngx-translate/http-loader": "^7.0.0",
     "@types/file-saver": "^2.0.5",
     "angular-resize-event": "^3.2.0",
-    "compodoc": "./node_modules/.bin/compodoc -p tsconfig.json",
     "echarts": "^5.2.2",
     "file-saver": "^2.0.5",
     "install": "^0.13.0",
@@ -49,7 +48,6 @@
     "@types/jasmine": "~3.8.0",
     "@types/node": "^12.11.1",
     "angular-cli-ghpages": "^1.0.0",
-    "compodoc": "./node_modules/.bin/compodoc -p tsconfig.json",
     "jasmine-core": "~3.8.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
