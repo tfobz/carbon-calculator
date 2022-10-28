@@ -30,7 +30,7 @@
     "@ngx-translate/http-loader": "^7.0.0",
     "@types/file-saver": "^2.0.5",
     "angular-resize-event": "^3.2.0",
-    "compodoc": "./node_modules/.bin/compodoc -p tsconfig.app.json -s",
+    "compodoc": "./node_modules/.bin/compodoc -p tsconfig.json",
     "echarts": "^5.2.2",
     "file-saver": "^2.0.5",
     "install": "^0.13.0",
