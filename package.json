@@ -44,6 +44,7 @@
     "@angular/cli": "^14.2.7",
     "@angular/compiler-cli": "^14.2.8",
     "@biesbjerg/ngx-translate-extract": "^7.0.4",
+    "@compodoc/compodoc": "^1.1.19",
     "@types/jasmine": "~3.8.0",
     "@types/node": "^12.11.1",
     "angular-cli-ghpages": "^1.0.0",
