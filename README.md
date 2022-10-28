@@ -31,7 +31,8 @@ Run `npm run deploy` to execute the deploy for Github-pages.
 ## Documentation:
 
 The documentation has been created using [Compodoc](https://compodoc.app/), a powerful open-source tool to automatically generate
-html documentation from comments in the Angular project.
+html documentation from comments in the Angular project. \
+You can create your own HTML documentation using the command `npm run compodoc` and you will find the index.html file in the documentation folder.
 
 ## Features added since the last version:
 
