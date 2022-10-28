@@ -33,6 +33,8 @@ jobs:
             ${{ runner.OS }}-
       - name: Install Dependencies
         run: npm ci --legacy-peer-deps
+      - name: Install Compodoc
+        run: npm install --save-dev @compodoc/compodoc --legacy-peer-deps
       - name: Build doc
         run: npm run compodoc
       - name: Archive www Artifact
