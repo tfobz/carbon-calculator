@@ -1,6 +1,4 @@
 {
-    // Path to the directory for which we want to generate the documentation
     "include": ["src/**/*.ts"],
-    // Path to files to exclude from documentation
-    "exclude": []
+    "exclude": [""]
 }
