@@ -1,5 +1,5 @@
 # Carbon Calculator
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6.
+![Documentation Coverage](https://raw.githubusercontent.com/Benji377/carbon-calculator/angular-docu/images/coverage-badge-documentation.svg)
 
 # Table of contents
 
@@ -57,5 +57,5 @@ WARNING! Here on Github the documentation is auto-generated on every commit and 
 - Added helping messages on empty pages
 
 ## Further help
-
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6. \
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
