@@ -1,6 +1,18 @@
 # Carbon Calculator
-
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6.
+
+# Table of contents
+
+- [Setup this project:](#setup-this-project)
+  - [- Development server](#--development-server)
+  - [- Code scaffolding](#--code-scaffolding)
+  - [- Build](#--build)
+  - [- Running unit tests](#--running-unit-tests)
+  - [- Running end-to-end tests](#--running-end-to-end-tests)
+  - [- Deploy github-pages](#--deploy-github-pages)
+- [Documentation](#documentation)
+- [Features added since the last version:](#features-added-since-the-last-version)
+- [Further help](#further-help)
 
 ## Setup this project:
 
@@ -28,11 +40,12 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 Run `npm run deploy` to execute the deploy for Github-pages.
 
 
-## Documentation:
+## Documentation
 
 The documentation has been created using [Compodoc](https://compodoc.app/), a powerful open-source tool to automatically generate
 html documentation from comments in the Angular project. \
-You can create your own HTML documentation using the command `npm run compodoc` and you will find the index.html file in the documentation folder.
+You can create your own HTML documentation using the command `npm run compodoc` and you will find the index.html file in the documentation folder. \
+WARNING! Here on Github the documentation is auto-generated on every commit and has its [own branch](https://github.com/Benji377/carbon-calculator/tree/angular-docu)
 
 ## Features added since the last version:
 
