@@ -168,3 +168,6 @@ Anchors are supported : [Todo]{@link Todo#myproperty}
  * </mwl-calendar-day-view>
  */
 ```
+
+## More Information:
+- [Official Compodocs website](https://compodoc.app/guides/comments.html)
