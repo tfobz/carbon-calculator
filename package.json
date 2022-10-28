@@ -30,6 +30,7 @@
     "@ngx-translate/http-loader": "^7.0.0",
     "@types/file-saver": "^2.0.5",
     "angular-resize-event": "^3.2.0",
+    "compodoc": "./node_modules/.bin/compodoc -p src/tsconfig.app.json -s",
     "echarts": "^5.2.2",
     "file-saver": "^2.0.5",
     "install": "^0.13.0",
@@ -37,15 +38,14 @@
     "ngx-konami": "^1.7.1",
     "rxjs": "^6.6.7",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4",
-    "compodoc": "./node_modules/.bin/compodoc -p src/tsconfig.app.json -s"
+    "zone.js": "~0.11.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^14.2.7",
     "@angular/cli": "^14.2.7",
     "@angular/compiler-cli": "^14.2.8",
     "@biesbjerg/ngx-translate-extract": "^7.0.4",
-    "@compodoc/compodoc": "^1.1.18",
+    "@compodoc/compodoc": "^1.1.19",
     "@types/jasmine": "~3.8.0",
     "@types/node": "^12.11.1",
     "angular-cli-ghpages": "^1.0.0",
