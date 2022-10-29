@@ -7,8 +7,17 @@ import type { DiagramData } from '../../shared';
   templateUrl: './pie-diagram.component.html',
   styleUrls: ['./pie-diagram.component.scss']
 })
+
+/**
+ * Defines the Pie diagramm. This diagram showcases the amount of CO2 each entry produces, but in a pie
+ * form. It is especially useful to showcase which entry produces more or less CO2 compared to all others.
+ */
 export class PieDiagramComponent implements OnInit {
 
+	/**
+	 * Imports data for the diagram from somewhere
+	 * @param {DiagramData} diagramData The data to import
+	 */
 	@Input()
 	public set data(diagramData: DiagramData[]) {
 		this.merge = {
@@ -18,6 +27,10 @@ export class PieDiagramComponent implements OnInit {
 		};
 	}
 
+	/**
+	 * Same as the bar-diagramm, this showcases styling options for the diagramm,
+	 * this could also be set in an external styling file, like CSS
+	 */
 	options: EChartsOption = {
 	  tooltip: {
 		trigger: 'item'

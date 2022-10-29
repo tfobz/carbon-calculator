@@ -9,8 +9,17 @@ import type { DiagramData } from '../../shared';
   templateUrl: './bar-diagram.component.html',
   styleUrls: ['./bar-diagram.component.scss']
 })
+
+/**
+ * Defines the bar-diagramm and its purpose is to showcase how much CO2 each module creates.
+ * It especially also shows the value on the y-axis and each bar has a specific place on the x-axis
+ */
 export class BarDiagramComponent implements OnInit {
 
+	/**
+	 * A function to import data from somewhere and display it on the diagram
+	 * @param {DiagramData} diagramData Data to be set on the diagramm
+	 */
 	@Input()
 	public set data(diagramData: DiagramData[]) {
 		let name = [];
@@ -29,8 +38,10 @@ export class BarDiagramComponent implements OnInit {
 		};
 	}
 
+	// This defines important styling options for the diagramm, something like CSS for webpages
 	options: EChartsOption = {
-		//TODO: read from stylesheet?
+		// One could also save this in an external stylesheet
+		// TODO: Test reading the values below from a stylesheet
 		color: ['#3398DB'],
 		tooltip: {
 			trigger: 'axis',
@@ -76,6 +87,10 @@ export class BarDiagramComponent implements OnInit {
 		private translationManager: TranslationManagerService,
 	) { }
 
+	/**
+	 * DEfines what happens on creation of this component, in this case nothing happens
+	 * @returns void
+	 */
 	ngOnInit(): void {
 	}
 }
