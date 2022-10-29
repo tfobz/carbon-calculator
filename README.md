@@ -55,6 +55,7 @@ WARNING! Here on Github the documentation is auto-generated on every commit and 
 - Updated Angular from version 12.2.5 to 14.2.6 (20.10.2022)
 - Merged unused branches into main
 - Added helping messages on empty pages
+- Dependabot will automatically keep this repository and its dependencies up to date with weekly pull requests
 
 ## Further help
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6. \
