@@ -13,7 +13,9 @@ interface CalculationCardData{
   unit: string,
   result: string
 }
-
+/**
+ * @ignore
+ */
 @Component({
   selector: 'app-calculation-card',
   templateUrl: './calculation-card.component.html',
