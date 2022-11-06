@@ -48,16 +48,6 @@ You can create your own HTML documentation using the command `npm run compodoc` 
 WARNING! Here on Github the documentation is auto-generated on every commit and has its [own branch](https://github.com/Benji377/carbon-calculator/tree/angular-docu) \
 Also, make sure you follow the [Guidelines](DOCUMENTING.md)!
 
-## Features added since the last version:
-
-- Function to choose factors for a specific country
-- Documentation of the code with comments
-- Automatic documentation with compodoc
-- Updated Angular from version 12.2.5 to 14.2.6 (20.10.2022)
-- Merged unused branches into main
-- Added helping messages on empty pages
-- Dependabot will automatically keep this repository and its dependencies up to date with weekly pull requests
-
 ## Further help
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6. \
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
