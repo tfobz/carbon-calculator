@@ -42,7 +42,7 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "^14.2.7",
     "@angular/cli": "^14.2.7",
-    "@angular/compiler-cli": "^14.2.8",
+    "@angular/compiler-cli": "^14.2.9",
     "@biesbjerg/ngx-translate-extract": "^7.0.4",
     "@compodoc/compodoc": "^1.1.19",
     "@types/jasmine": "~4.3.0",
