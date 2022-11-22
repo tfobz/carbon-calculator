@@ -13,7 +13,6 @@
   - [- Running end-to-end tests](#--running-end-to-end-tests)
   - [- Deploy github-pages](#--deploy-github-pages)
 - [Documentation](#documentation)
-- [Features added since the last version:](#features-added-since-the-last-version)
 - [Further help](#further-help)
 
 ## Setup this project:
