@@ -1,5 +1,5 @@
 <div class="content" fxLayout="column" fxLayoutGap="15px" style="padding: 5px 30px;">
-    <app-calculation-card *ngFor="let module of modules" [module]="module"></app-calculation-card>
+    <app-calculation-card *ngFor="let module of modules" [module]="module" [factorManager]="factorManager"></app-calculation-card>
 </div>
 <a 
     routerLink="{{this.currentUrl}}/create"
