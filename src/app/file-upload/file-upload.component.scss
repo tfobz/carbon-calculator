@@ -1,0 +1,24 @@
+.file-upload{
+	cursor: pointer;
+	.upload-element{ display: none; }
+	.file-upload-content{
+		box-sizing: border-box;
+		display: flex;
+		width: 100%;
+
+		padding-left: 10px;
+
+		align-items: center;
+
+		border: 1px gray solid;
+		border-radius: 5px;
+		p{
+			flex: 1 1 0%;
+			height: fit-content;
+			box-sizing: border-box;
+		}
+		button{
+			border-radius: 0;
+		}
+	}
+}
