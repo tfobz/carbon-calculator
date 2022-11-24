@@ -61,6 +61,10 @@
     "cup":"чашки",
     "factors": "Factors",
     "factor_preset": {
-        "italy": "Italy"
-    }
+        "italy": "Italy",
+        "austria": "Austria",
+        "sweden": "Sweden",
+        "spain": "Spain"
+    },
+    "main_page_starting_hint": "No Emission Item created, click on the '+' Button below to start"
 }

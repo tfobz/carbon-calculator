@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Calculation } from '../emissionmodule/calculation';
 import { FactorManager } from '../emissionmodule/factor-manager';
@@ -18,10 +18,10 @@ interface CalculationData{
 })
 export class CreateCalculationComponent implements OnInit {
 
-  private _createForm!: FormGroup;
+  private _createForm!: UntypedFormGroup;
 
   constructor(
-    private _fb: FormBuilder,
+    private _fb: UntypedFormBuilder,
     private _calculationService: CalculationService,
     private _router: Router
     ) { }
@@ -50,7 +50,7 @@ export class CreateCalculationComponent implements OnInit {
     this._router.navigate(["emission"]);
   }
 
-  get createForm(): FormGroup{
+  get createForm(): UntypedFormGroup{
     return this._createForm;
   }
 

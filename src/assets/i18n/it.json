@@ -61,6 +61,10 @@
     "cup":"tazze",
     "factors": "Fattori",
     "factor_preset": {
-        "italy": "Italia"
-    }
+        "italy": "Italia",
+        "austria": "Austria",
+        "sweden": "Svezia",
+        "spain": "Spagna"
+    },
+    "main_page_starting_hint": "Nessuna emissione creata, clicca sul pulsante '+' per iniziare"
 }
