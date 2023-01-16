@@ -30,7 +30,7 @@
     "@ngx-translate/http-loader": "^7.0.0",
     "@types/file-saver": "^2.0.5",
     "angular-resize-event": "^3.2.0",
-    "echarts": "^5.2.2",
+    "echarts": "^5.4.1",
     "file-saver": "^2.0.5",
     "install": "^0.13.0",
     "ngx-echarts": "^14.0.0",
