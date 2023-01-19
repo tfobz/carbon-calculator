@@ -1,7 +1,7 @@
 # Carbon Calculator
-![Documentation Coverage](https://raw.githubusercontent.com/Benji377/carbon-calculator/angular-docu/images/coverage-badge-documentation.svg)
-![Checks](https://badgen.net/github/checks/benji377/carbon-calculator/master)
-![Dependabot](https://badgen.net/github/dependabot/benji377/carbon-calculator)
+![Documentation Coverage](https://raw.githubusercontent.com/tfobz/carbon-calculator/angular-docu/images/coverage-badge-documentation.svg)
+![Checks](https://badgen.net/github/checks/tfobz/carbon-calculator/master)
+![Dependabot](https://badgen.net/github/dependabot/tfobz/carbon-calculator)
 
 # Table of contents
 
