@@ -29,6 +29,7 @@
   	"export": "Esportare",
 	"import": "Importare",
 	"import_modules_added": "Questi moduli saranno aggiunti:",
+    "import_success": "File importato",
 	"close": "Chiudere",
 	"no_file_selected": "Nessun file selezionato",
 	"browse": "Browse",
@@ -57,5 +58,51 @@
     "delete": "Rimuovere",
     "piece": "pezzi",
     "glass":"bicchieri",
-    "cup":"tazze"
+    "cup":"tazze",
+    "factors": "Fattori",
+    "factor_preset": {
+        "italy": "Italia",
+        "austria": "Austria",
+        "sweden": "Svezia",
+        "spain": "Spagna"
+    },
+    "main_page_starting_hint": "Nessuna emissione creata, clicca sul pulsante '+' per iniziare",
+    "year":"Anno",
+    "organisationname":"Nome dell'organizzatione",
+    "country":"Paese",
+    "hints":{
+      "toner_emission_module": "Please insert the amount of toner cartridges used a year",
+      "water_emission_module": "Please insert the amount of water used a year",
+      "school_car_emission_module": "Please insert the amount of driven kilometers a year for all the school vehicles",
+      "dina4_emission_module": "Please insert the amount of printed DIN A4 pages a year",
+      "dina3_emission_module": "Please insert the amount of printed DIN A3 pages a year",
+      "pizza_emission_module": "Please insert the amount in kg of pizzas sold a year",
+      "drinks_500ml_emission_module": "Please insert the amount of drinks of 500ml sold a year",
+      "coffee_emission_module": "Please insert the amount of cups of coffee sold a year",
+      "server_emission_module": "Please insert the amount of server in use",
+      "printer_3d_emission_module": "Please insert the amount of 3D Printer in use",
+      "printer_emission_module": "Please insert the amount of Printer in use ",
+      "plotter_emission_module": "Please insert the amount of Plotter in use",
+      "laptop_emission_module": "Please insert the amount of Laptop in use",
+      "computer_emission_module": "Please insert the amount of Computer in use",
+      "electricity_emission_module": {
+        "hint": "No Electricity Item created, click on the '+' Button below to start",
+        "WIND_ELECTRICITY_TYPE": "Please insert the amount of wind energy used a year",
+        "HYDRO_POWER_ELECTRICITY_TYPE": "Please insert the amount of hydro power used a year",
+        "NATURAL_GAS_ELECTRICITY_TYPE": "Please insert the amount of natural gas used a year",
+        "OIL_ELECTRICITY_TYPE": "Please insert the amount of oil used a year",
+        "COAL_ELECTRICITY_TYPE": "Please insert the amount of coal used a year"
+      },
+      "heating_emission_module": "Heating",
+      "mobility_emission_module": {
+        "hint": "No Mobility Item created, click on the '+' Button below to start",
+        "PKW_MOBILITY_TYPE":"Please insert the amount of driven kilometers a year for all the cars",
+        "BUS_MOBILITY_TYPE":"Please insert the amount of driven kilometers a year for all the buses",
+        "TRAIN_MOBILITY_TYPE":"Please insert the amount of driven kilometers a year for all the trains",
+        "CITY_BUS_MOBILITY_TYPE":"Please insert the amount of driven kilometers a year for all the city buses"
+      }
+  }
+
+
+
 }

@@ -1,0 +1,28 @@
+[
+    [ "toner_emission_module", 5 ],
+    [ "water_emission_module", 0.4 ],
+    [ "computer_emission_module", 102.69 ],
+    [ "laptop_emission_module", 106.6666 ],
+    [ "plotter_emission_module", 102.69 ],
+    [ "printer_3d_emission_module", 102.69 ],
+    [ "printer_emission_module", 60 ],
+    [ "server_emission_module", 102.69 ],
+    [ "coffee_emission_module", 0.1 ],
+    [ "drinks_500ml_emission_module", 0.8 ],
+    [ "pizza_emission_module", 1.5 ],
+    [ "heating_emission_module", 2.74 ],
+    [ "dina3_emission_module", 0.0088 ],
+    [ "dina4_emission_module", 0.0044 ],
+    [ "school_car_emission_module", 0.31 ],
+
+    [ "mobility_emission_module_PKW_MOBILITY_TYPE", 0.22 ],
+    [ "mobility_emission_module_BUS_MOBILITY_TYPE", 0.055 ],
+    [ "mobility_emission_module_TRAIN_MOBILITY_TYPE", 0.008 ],
+    [ "mobility_emission_module_CITY_BUS_MOBILITY_TYPE", 0.037 ],
+
+    [ "electricity_emission_module_WIND_ELECTRICITY_TYPE", 0.02 ],
+    [ "electricity_emission_module_HYDRO_POWER_ELECTRICITY_TYPE", 0.02 ],
+    [ "electricity_emission_module_NATURAL_GAS_ELECTRICITY_TYPE", 0.33 ],
+    [ "electricity_emission_module_OIL_ELECTRICITY_TYPE", 0.65 ],
+    [ "electricity_emission_module_COAL_ELECTRICITY_TYPE", 0.85 ]
+]
