@@ -2,6 +2,7 @@
     <mat-card *ngFor="let id of ids">
         <mat-card-header>
             <p fxFlex>{{ "types." + id | translate }}</p>
+            <p fxFlex style = "font-weight: bold;">[{{module.id == "electricity_emission_module" ?"kWh":"km"}}/{{"year"|translate}}]</p>
             <button (click)="create(id)" mat-icon-button class="icon" aria-label="addModule">
                 <mat-icon>add</mat-icon>
             </button>
