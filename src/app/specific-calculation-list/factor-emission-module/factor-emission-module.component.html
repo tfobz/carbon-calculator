@@ -1,12 +1,12 @@
+
 <div class="factorEmissionModule">
+  <p class="hint">{{"hints."+module.id|translate}}</p>
     <mat-card>
 
-        <input matInput type="number" (keypress)="save()" [(ngModel)]="module.number">
-        <p>{{ module == undefined ? "" : module.unit | translate }}</p>
-
+        <input matInput type="number" min="0" (keypress)="save()" [(ngModel)]="module.number"
+        onkeypress="return event.charCode >= 48">
+        <p>{{ module == undefined ? "" : module.unit | translate }}/{{"year"|translate}}</p>
     </mat-card>
-
-
     <div class="result">
 
         <p>{{ module.calculate(factorManager) }} kg CO²</p>

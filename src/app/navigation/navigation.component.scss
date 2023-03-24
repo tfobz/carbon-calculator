@@ -20,7 +20,6 @@
     flex: 1 1 auto;
 }
 .title {
-
     display: flex;
     justify-content: space-around;
 
@@ -43,4 +42,20 @@ button{
   height: calc(100% - 20px);
   width: auto;
   margin-right: 10px;
+}
+img
+{
+  width: auto;
+  height: 100%;
+}
+mat-toolbar
+{
+  height: 100px;
+
+}
+.title{
+  display: flex;
+  margin-left: 5px;
+  align-items: center;
+  font-size: 1.5em;
 }

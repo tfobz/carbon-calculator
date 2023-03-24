@@ -1,12 +1,12 @@
 .content{
 
-    -webkit-touch-callout: none; 
-    -webkit-user-select: none; 
-    -khtml-user-select: none; 
-    -moz-user-select: none; 
-    -ms-user-select: none; 
-     user-select: none; 
-    
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+
     padding: 15px;
 
     app-emission-item{
@@ -23,7 +23,7 @@
 
         }
         @media screen and (max-width: 800px) {
-            
+
             width: 90%;
 
         }
@@ -33,4 +33,9 @@
     position: fixed;
     bottom: 25px;
     right: 25px;
+}
+h2
+{
+    text-align: center;
+    margin-top: 20%;
 }

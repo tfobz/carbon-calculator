@@ -2,16 +2,16 @@ import { Component, OnInit, Input } from '@angular/core';
 import type { EChartsOption } from 'echarts';
 import type { DiagramData } from '../../shared';
 
+/**
+ * Defines the Pie diagramm. This diagram showcases the amount of CO2 each entry produces, but in a pie
+ * form. It is especially useful to showcase which entry produces more or less CO2 compared to all others.
+ */
 @Component({
   selector: 'app-pie-diagram',
   templateUrl: './pie-diagram.component.html',
   styleUrls: ['./pie-diagram.component.scss']
 })
 
-/**
- * Defines the Pie diagramm. This diagram showcases the amount of CO2 each entry produces, but in a pie
- * form. It is especially useful to showcase which entry produces more or less CO2 compared to all others.
- */
 export class PieDiagramComponent implements OnInit {
 
 	/**
@@ -65,15 +65,17 @@ export class PieDiagramComponent implements OnInit {
 		  data: []
 		}
 	};
-
+  /**
+   * specifies the data to be displayed in the pie chart.
+   */
 	merge: EChartsOption = {
 		series: {
 			data: [],
 		}
 	}
-
+  /** @ignore */
 	constructor() { }
-
+  /** @ignore */
 	ngOnInit(): void {
 	}
 }
