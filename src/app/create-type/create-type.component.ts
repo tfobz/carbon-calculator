@@ -11,13 +11,14 @@ import { CalculationService } from '../_services/calculation.service';
   styleUrls: ['./create-type.component.scss']
 })
 export class CreateTypeComponent implements OnInit {
-  
-  private module!:AdvancedEmissionModule;
-  ids:string[] = [];
 
-  constructor(private navigation:NavigationService, 
-    private route:ActivatedRoute, 
-    private calculationService:CalculationService, 
+  module!:AdvancedEmissionModule;
+  ids:string[] = [];
+  modules!:string[];
+
+  constructor(private navigation:NavigationService,
+    private route:ActivatedRoute,
+    private calculationService:CalculationService,
     private translateService:TranslateService,
     private router:Router) { }
 
@@ -33,6 +34,7 @@ export class CreateTypeComponent implements OnInit {
           if(module.id == ELECTRICITY_MODULE_ID){
             this.module = module as AdvancedEmissionModule;
             this.ids = ELECTRICITY_TYPES.filter(id => !this.module.getTypes().includes(id))
+            this.modules = this.module.getTypes();
           }else if(module.id == MOBILITY_MODULE_ID){
             this.module = module as AdvancedEmissionModule;
             this.ids = MOBILITY_TYPES.filter(id => !this.module.getTypes().includes(id))
