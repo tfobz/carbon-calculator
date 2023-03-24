@@ -2,10 +2,13 @@
 <div class="factorEmissionModule">
   <p class="hint">{{"hints."+module.id|translate}}</p>
     <mat-card>
-
         <input matInput type="number" min="0" (keypress)="save()" [(ngModel)]="module.number"
         onkeypress="return event.charCode >= 48">
-        <p>{{ module == undefined ? "" : module.unit | translate }}/{{"year"|translate}}</p>
+        <p>
+          {{ module.id == "server_emission_module" || module.id == "printer_3d_emission_module" || module.id == "printer_emission_module" || module.id == "plotter_emission_module" || module.id == "laptop_emission_module" || module.id == "computer_emission_module"
+          ? (module.unit | translate)
+          : (module.unit | translate) + '/' + ('year' | translate) }}
+        </p>
     </mat-card>
     <div class="result">
 

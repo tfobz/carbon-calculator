@@ -1,11 +1,16 @@
 <div style="padding: 10px 30px;">
-  <h1 class="title">Factors:</h1>
+  <h1 class="title">{{"factors"|translate}}:</h1>
 	<mat-card class="error_card" *ngIf="ids.length === 0">{{ "create_module_error" | translate }}</mat-card>
 	<ng-container *ngIf="ids.length !== 0">
 		<mat-card *ngFor="let id of ids; let i = index; "  class="module_card">
 			<mat-card-header>
 				<p fxFlex>{{ "modules." +id | translate }}</p>
-        <p fxFlex style = "font-weight: bold;">[{{ modules[i] == undefined ? "" : modules[i] | translate }}/{{"year"|translate}}]</p>
+        <p fxFlex style = "font-weight: bold;">[{{ id == "server_emission_module" || id == "printer_3d_emission_module" || id == "printer_emission_module" || id == "plotter_emission_module" || id == "laptop_emission_module" || id == "computer_emission_module"
+          ? (modules[i] | translate)
+          : (modules[i] | translate) + '/' + ('year' | translate) }}]</p>
+        <p>
+
+        </p>
 				<button (click)="create(id)" mat-icon-button class="icon" aria-label="addModule">
 					<mat-icon>add</mat-icon>
 				</button>

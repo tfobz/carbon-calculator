@@ -93,7 +93,7 @@
         "OIL_ELECTRICITY_TYPE": "Please insert the amount of oil used a year",
         "COAL_ELECTRICITY_TYPE": "Please insert the amount of coal used a year"
       },
-      "heating_emission_module": "Heating",
+      "heating_emission_module": "Please insert the amount of gas used a year for heating",
       "mobility_emission_module": {
         "hint": "No Mobility Item created, click on the '+' Button below to start",
         "PKW_MOBILITY_TYPE":"Please insert the amount of driven kilometers a year for all the cars",
