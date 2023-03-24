@@ -9,12 +9,17 @@ import { FactorManager } from '../emissionmodule/factor-manager';
  * The result is the calculated number from all modules in the card
  */
 interface CalculationCardData{
+  /** number of CalculationCard */
   number: string,
+  /** unit of CalculationCard @example m^3*/
   unit: string,
+  /** result is the calculated number from all modules in the card */
   result: string
 }
 /**
- * @ignore
+ * A Calculation card is the component that holds the amount of CO2 condumed by paper for example
+ * It always has a title, an amount and the result, whoch would be the amount of CO2 consumed
+ * To see one you need to do the following:
  */
 @Component({
   selector: 'app-calculation-card',
@@ -22,21 +27,27 @@ interface CalculationCardData{
   styleUrls: ['./calculation-card.component.scss']
 })
 
-/**
- * Defines the CalculationCard component.
- * A Calculation card is the component that holds the amount of CO2 condumed by paper for example
- * It always has a title, an amount and the result, whoch would be the amount of CO2 consumed
- * To see one you need to do the following:
- * 
- * Create a new entry > click on it > click on the plus > add an entry > CalculationCard
- */
+
 export class CalculationCardComponent implements OnInit {
-
+  /**
+   * is a property of the component that is passed in from its parent component.
+   * It determines whether the card can be edited or not.
+   */
   @Input() edit: boolean = true;
-
+  /**
+   * is also a property that is passed in from the parent component. It is an instance of the
+   * FactorManager class, which is responsible for managing the factors used in the calculation
+   * of emissions.
+   */
   @Input() factorManager!: FactorManager;
+  /**
+   * is another property that is passed in from the parent component. It is an instance of the
+   * EmissionModule class, which is responsible for calculating the emissions for a specific module.
+   */
   @Input() module!: EmissionModule;
-  
+  /**
+   * @ignore
+  */
   ngOnInit(): void {}
 
   /**

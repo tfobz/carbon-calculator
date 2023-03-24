@@ -23,7 +23,7 @@ export class CalculationSelectCompareComponent implements OnInit {
     private menuService:MenuService,
 	private activatedRoute: ActivatedRoute,
   ){}
-
+   
   ngOnInit(): void {
 	  this.activatedRoute.params.subscribe((params) => {
       let id = params["id"] as unknown;
@@ -37,7 +37,7 @@ export class CalculationSelectCompareComponent implements OnInit {
     this.translateService.get("emission").subscribe(translation => {
       this.navigation.changeMessage(translation);
     });
-    //Menu 
+    //Menu
     this.menuService.changeMenu([])
   }
 

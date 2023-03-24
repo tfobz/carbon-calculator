@@ -4,23 +4,27 @@ import type { DiagramData } from '../../shared';
 /**
  * Defines a simple "tree" which will then be duplicated in the diagramm
  */
-interface Tree {
-	position: { x: number, y: number },
-	size: number
-}
+  interface Tree {
+    /** is an object that has two properties, x and y, which represent the x and y coordinates of the tree in a 2D space. */
+    position: { x: number, y: number },
+    /** size of tree */
+    size: number
+  }
 
+/**
+ * This diagramm showcses how many trees one should plant to equivalent the amount of CO2 produced
+ * The amount is then showcased graphically with trees and a big black number over it
+ */
 @Component({
   selector: 'app-tree-diagram',
   templateUrl: './tree-diagram.component.html',
   styleUrls: ['./tree-diagram.component.scss']
 })
 
-/**
- * This diagramm showcses how many trees one should plant to equivalent the amount of CO2 produced
- * The amount is then showcased graphically with trees and a big black number over it
- */
 export class TreeDiagramComponent implements OnInit {
+  /** array of trees */
 	public trees: Tree[] = [];
+  /** Defines how many trees are required */
 	public requiredTrees: number = 0;
 
 	/**
@@ -34,7 +38,7 @@ export class TreeDiagramComponent implements OnInit {
 		// Calculates the amount of required trees
 		this.requiredTrees = Math.ceil(co2sum / 31.5);
 		const requiredTrees = Math.min(Math.max(this.requiredTrees / 100, 0), 500);
-		
+
 		// Adds the trees to the diagramm
 		this.trees = [];
 		for(let i = 0; i < requiredTrees; i++) {
@@ -49,9 +53,9 @@ export class TreeDiagramComponent implements OnInit {
 			});
 		}
 	}
-
+  /** @ignore */
 	constructor() { }
-
+  /** @ignore */
 	ngOnInit(): void {
 	}
 

@@ -48,7 +48,7 @@ import { FactorEmissionModuleComponent } from './specific-calculation-list/facto
 import { TypeEmissionModuleComponent } from './specific-calculation-list/type-emission-module/type-emission-module.component';
 import { CreateTypeComponent } from './create-type/create-type.component';
 import { TypeInputComponent } from './type-input/type-input.component';
-import { MatDialogModule } from '@angular/material/dialog'; 
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { CalculationSelectCompareComponent } from './calculation-select-compare/calculation-select-compare.component';
 import { SettingsComponent } from './settings/settings.component';
@@ -57,6 +57,7 @@ import { ImportFileDialogComponent } from './calculation-list/import-file-dialog
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -141,7 +142,15 @@ import { environment } from '../environments/environment';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
+/**
+ * The HttpLoaderFactory is a function that is used to create an instance of the TranslateHttpLoader
+ * The TranslateHttpLoader is used to load translations from a remote server using an HttpClient.
+ * The factory function takes an HttpClient as an argument and returns an instance of
+ * TranslateHttpLoader which is configured to load translations from the './assets/i18n/' directory
+ * using the provided HttpClient.
+ * @param http
+ * @returns
+ */
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/');
 }

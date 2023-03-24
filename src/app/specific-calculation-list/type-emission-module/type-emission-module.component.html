@@ -1,30 +1,30 @@
-<div class="typeEmissionModule" *ngIf="module != null">  
-
-  <mat-card *ngFor="let subModule of getData()"> 
+<div class="typeEmissionModule" *ngIf="module != null">
+  <h2 *ngIf="!submodules.length">{{"hints."+this.module.id+".hint"|translate}}</h2>
+  <mat-card *ngFor="let subModule of submodules">
 
     <mat-card-header fxLayoutAlign="space-between center">
-        
+
         <mat-card-title>{{ "types." + subModule.id | translate }}</mat-card-title>
         <mat-icon routerLink="./{{ subModule.id }}"> border_color</mat-icon>
-  
+
     </mat-card-header>
-  
+
     <hr>
-  
+
     <mat-card-content>
-  
+
       <div class= "valueGroup" fxLayout="row" fxLayoutAlign="space-between center">
-  
+
         <p let >{{ subModule.number }} {{ module.unit | translate}}</p>
         <p let >{{ subModule.number * factorManager.get(module.id + "_" + subModule.id) }} kg CO²</p>
-  
-      </div>
-        
-    </mat-card-content>
-    
-  </mat-card> 
 
-  <a 
+      </div>
+
+    </mat-card-content>
+
+  </mat-card>
+
+  <a
     routerLink="{{this.currentUrl}}/create"
     id="add_button"
     mat-fab color="primary"

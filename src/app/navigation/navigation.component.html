@@ -3,24 +3,36 @@
   <button *ngIf="back" [routerLink]="back" mat-icon-button class="icon" aria-label="back">
     <mat-icon>keyboard_backspace</mat-icon>
   </button>
+  <a mat-button [routerLink]="['/emission']"class="logo" >
+    <img src="assets/logo.png"  alt="Logo" />
+  </a>
 
-  <img src="assets/logo.png" class="logo" alt="Logo" />
-  
-  <span>{{ title }}</span>
+
+  <span>{{ maintitle }}</span>
+  <span class="title"> {{title}}</span>
+
 
   <span class="spacer"></span>
 
-  <span *ngIf="menuPoints.length>0">
-    <button [matMenuTriggerFor]="menu" aria-label="menu">
+  <span *ngIf="menuPoints.length>1; else settings">
+    <button [matMenuTriggerFor]="menu" aria-label="menu" style="display: flex;">
+      <span style="margin-right: 5px; margin-top: 5%; font-size: medium;">Menu</span>
       <mat-icon>more_vert</mat-icon>
     </button>
 
-    <mat-menu #menu="matMenu"> 
+    <mat-menu #menu="matMenu">
       <button class="menuPoints" *ngFor="let menuPoint of menuPoints" mat-menu-item (click)="handleClick(menuPoint)" >
         <mat-icon *ngIf="menuPoint.icon!=''">{{ menuPoint.icon }}</mat-icon>
         <span>{{ menuPoint.menuPointName }}</span>
       </button>
     </mat-menu>
   </span>
+  <ng-template #settings>
+    <button *ngIf="menuPoints.length >0" aria-label="menu" class="menuPoints" mat-icon-button (click)="handleClick(menuPoints[0])" >
+      <mat-icon> {{menuPoints[0].icon}}</mat-icon>
+    </button>
+  </ng-template>
+
+
 
 </mat-toolbar>

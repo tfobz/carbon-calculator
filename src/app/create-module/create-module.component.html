@@ -1,9 +1,11 @@
 <div style="padding: 10px 30px;">
+  <h1 class="title">Factors:</h1>
 	<mat-card class="error_card" *ngIf="ids.length === 0">{{ "create_module_error" | translate }}</mat-card>
 	<ng-container *ngIf="ids.length !== 0">
-		<mat-card *ngFor="let id of ids" class="module_card">
+		<mat-card *ngFor="let id of ids; let i = index; "  class="module_card">
 			<mat-card-header>
 				<p fxFlex>{{ "modules." +id | translate }}</p>
+        <p fxFlex style = "font-weight: bold;">[{{ modules[i] == undefined ? "" : modules[i] | translate }}/{{"year"|translate}}]</p>
 				<button (click)="create(id)" mat-icon-button class="icon" aria-label="addModule">
 					<mat-icon>add</mat-icon>
 				</button>

@@ -19,6 +19,7 @@ export class TypeEmissionModuleComponent implements OnInit {
   @Input() module!: AdvancedEmissionModule | undefined;
   @Input() calculationID!: string;
   public currentUrl!:string;
+  submodules!: AdvancedSubModule[];
 
   constructor(private route:ActivatedRoute,private calculationService:CalculationService, private menuService: MenuService, private translateService:TranslateService, private translationManagerService:TranslationManagerService) { }
 
@@ -30,11 +31,13 @@ export class TypeEmissionModuleComponent implements OnInit {
     this.route.params.subscribe(params=>{
       this.currentUrl="/emission/" + params.id +"/"+params.sptitle;
     });
+    this.submodules = this.getData() || [];
   }
   getData(): AdvancedSubModule[] | undefined{
     return this.module?.list;
   }
   delete(){
     if(this.module) this.calculationService.getById(this.calculationID)?.removeModule(this.module);
+    console.log("delete");
   }
 }

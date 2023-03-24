@@ -13,7 +13,7 @@
         justify-content: center;
 
         input{
-            padding: 10px 10px 0px 10px; 
+            padding: 10px 10px 0px 10px;
             border-width: 0 0 2px;
             width: 80%;
         }
@@ -33,7 +33,7 @@
             margin-top: auto;
         }
     }
-    @media screen and (max-width: 800px) { 
+    @media screen and (max-width: 800px) {
         width: 90%;
     }
     .result{
@@ -45,4 +45,10 @@
         border: solid 2px;
         border-width: 0px 0px 2px;
     }
+}
+.hint
+{
+    display: flex;
+    margin-bottom: 20px;
+    margin-left: 20px;
 }

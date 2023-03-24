@@ -7,23 +7,34 @@ import { Calculation } from '../emissionmodule/calculation';
 import { CalculationService } from '../_services/calculation.service';
 import { TranslationManagerService } from '../_services/translation-manager.service';
 import { DiagramData, MenuService } from '../shared';
-
+/**
+* This class is the base class for each diagramm. It is actually the base site, where then every diagramm
+* is located on. To view this site you first need to select an entry and then in the top right corner
+* you will find the option "Diagrams" where you can look at this.
+*/
 @Component({
   selector: 'app-calculation-diagram',
   templateUrl: './calculation-diagram.component.html',
   styleUrls: ['./calculation-diagram.component.scss']
 })
 
-/**
- * This class is the base class for each diagramm. It is actually the base site, where then every diagramm
- * is located on. To view this site you first need to select an entry and then in the top right corner
- * you will find the option "Diagrams" where you can look at this.
- */
 export class CalculationDiagramComponent implements OnInit {
-
+  /**
+   * This is a private variable that holds the Calculation object for the current route.
+   */
 	private calculation: Calculation | undefined;
+  /** This variable is an array of DiagramData objects. Each object contains the name and value of a calculation. */
 	data: DiagramData[] = [];
 
+  /**
+   *  It is the constructor of the class that injects the required services.
+   * @param calculationService
+   * @param activatedRoute
+   * @param translateService
+   * @param translationManager
+   * @param menuService
+   * @param dialog
+   */
 	constructor(
 		private calculationService: CalculationService,
 		private activatedRoute: ActivatedRoute,
@@ -35,7 +46,11 @@ export class CalculationDiagramComponent implements OnInit {
 	}
 
 	/**
-	 * Defines what happens when this page is opened, or more precisely when this component is started/initialized
+	 * In this method, the component subscribes to the params property of the ActivatedRoute object,
+   * which is used to extract the id parameter from the current route. It uses this id to fetch
+   * the corresponding Calculation object from the CalculationService and sets it to the calculation
+   * variable. It also changes the menu entry when someone clicks on "compare" in the menu and
+   * loads the chart.
 	 * @returns void
 	 */
 	ngOnInit() {
@@ -73,7 +88,7 @@ export class CalculationDiagramComponent implements OnInit {
 		});
 	}
 	/**
-	 * Opens the diagramm when clicking on it to display it in bigger size
+	 * This method is used to open the dialog when clicking on it to display it in bigger size.
 	 * @param {DialogDataType} type Defines which diagram to open
 	 */
 	openDialog(type: DialogDataType) {
@@ -81,22 +96,36 @@ export class CalculationDiagramComponent implements OnInit {
 	}
 
 	/**
-	 * Unknown
-	 * 
-	 * Maybe a secret function? It is unclear what this should be
+   * @ignore
 	 */
 	openKonami() {
 		this.dialog.open(KonamiDialogComponent, { width: "95%" });
 	}
 }
-
+/**
+ * This is a type alias for a string. It is used to define the type of the dialog that
+ * should be opened.
+ */
 type DialogDataType = 'bar'|'pie';
-
+/**
+ * This is an interface that defines the data that is passed to the DiagramDialogComponent when
+ * it is opened by the openDialog method of the CalculationDiagramComponent class
+ */
 interface DialogData{
+  /** It is of the type DialogDataType, which is an enumeration used to define the type of
+   * diagram that should be displayed in the dialog. */
 	type: DialogDataType,
+  /**
+   * It is an array of DiagramData, which is an interface that contains the data that needs
+   * to be displayed in the diagram. It has two properties name and value
+   */
 	data: DiagramData[]
 }
 
+/**
+ * Defines the class which holds the bigger window for when you click on a diagram
+ * It should just show a modal with diagram in a bigger size
+ */
 @Component({
 	selector: 'app-diagram-dialog',
 	template: `
@@ -108,17 +137,26 @@ interface DialogData{
 	styleUrls: []
   })
 
-/**
- * Defines the class which holds the bigger window for when you click on a diagram
- * It should just show a modal with diagram in a bigger size
- */
+
 export class DiagramDialogComponent{
+  /**
+   * It is the constructor of the class that receives the data that is passed to the dialog when it is opened.
+   * @param dialogRef  is a property of type MatDialogRef<DiagramDialogComponent>. It is used to
+   * interact with the dialog that is currently open. It can be used to close the dialog,
+   * access the data that was passed to it when it was opened, and to receive events when the
+   * dialog is closed.
+   * @param data s an input variable of type DialogData. It is passed to the dialog when it is opened
+   * and it contains the type of the diagram and the data that will be displayed on the diagram.
+   */
 	constructor(
 		public dialogRef: MatDialogRef<DiagramDialogComponent>,
 		@Inject(MAT_DIALOG_DATA) public data: DialogData
 	){}
 }
-  
+
+/**
+ * @ignore
+ */
 @Component({
 	selector: 'app-konami-dialog',
 	template: `<img src="assets/oxygen-carbon.gif"/>`,
@@ -126,12 +164,7 @@ export class DiagramDialogComponent{
 	styleUrls: []
   })
 
-/**
- * Unknown
- * 
- *  Maybe a secret class? It is unclear what this should be
- */
 export class KonamiDialogComponent{
 	constructor(){}
 }
-  
+
