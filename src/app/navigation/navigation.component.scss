@@ -37,6 +37,9 @@ button{
   color: var(--text-accent-color);
 
 }
+.fixmenu{
+  top: 8% !important;
+}
 
 .logo{
   height: calc(100% - 20px);
@@ -59,3 +62,7 @@ mat-toolbar
   align-items: center;
   font-size: 1.5em;
 }
+.mat-toolbar-row, .mat-toolbar-single-row {
+  white-space: normal;
+}
+
