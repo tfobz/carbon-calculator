@@ -13,7 +13,8 @@
 
 // Fonts
 @import 'https://fonts.googleapis.com/css?family=Material+Icons+Outlined';
-     
+
+// $fontConfig:();
 $fontConfig: (
   display-4: mat-typography-level(112px, 112px, 300, 'Roboto', -0.0134em),
   display-3: mat-typography-level(56px, 56px, 400, 'Roboto', -0.0089em),
@@ -27,9 +28,12 @@ $fontConfig: (
   body-1: mat-typography-level(14px, 20px, 400, 'Roboto', 0.0179em),
   button: mat-typography-level(14px, 14px, 500, 'Roboto', 0.0893em),
   caption: mat-typography-level(12px, 20px, 400, 'Roboto', 0.0333em),
-  input: mat-typography-level(inherit, 1.125, 400, 'Roboto', 1.5px)
+  input: mat-typography-level(inherit, 1, 400, 'Roboto', 1.5px)
 );
-
+html, body {
+  display: block !important;
+  min-width: 100vh !important;
+}
 // Foreground Elements
 
 // Light Theme Text
@@ -156,7 +160,7 @@ body {
   --text-primary-color: #{$light-primary-text};
   --text-primary-lighter-color: #{$dark-primary-text};
   --text-primary-darker-color: #{$light-primary-text};
-}   
+}
 $mat-primary: (
   main: #59981a,
   lighter: #cde0ba,
@@ -178,7 +182,7 @@ body {
   --text-accent-color: #{$dark-primary-text};
   --text-accent-lighter-color: #{$dark-primary-text};
   --text-accent-darker-color: #{$light-primary-text};
-}   
+}
 $mat-accent: (
   main: #81b622,
   lighter: #d9e9bd,
@@ -200,7 +204,7 @@ body {
   --text-warn-color: #{$dark-primary-text};
   --text-warn-lighter-color: #{$dark-primary-text};
   --text-warn-darker-color: #{$light-primary-text};
-}   
+}
 $mat-warn: (
   main: #ed5d4c,
   lighter: #facec9,
@@ -242,7 +246,7 @@ $altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
 
 .material-icons {
   font-size: 24px;
-  font-family: 'Material Icons Outlined', 'Material Icons';  
+  font-family: 'Material Icons Outlined', 'Material Icons';
   .mat-badge-content {
     font-family: 'Roboto';
   }

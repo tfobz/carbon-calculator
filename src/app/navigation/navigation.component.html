@@ -8,8 +8,8 @@
   </a>
 
 
-  <span>{{ maintitle }}</span>
-  <span class="title"> {{title}}</span>
+  <span>{{ maintitle }} <span class="title"> {{title}}</span></span>
+
 
 
   <span class="spacer"></span>
@@ -20,7 +20,7 @@
       <mat-icon>more_vert</mat-icon>
     </button>
 
-    <mat-menu #menu="matMenu">
+    <mat-menu #menu="matMenu" class="fixmenu">
       <button class="menuPoints" *ngFor="let menuPoint of menuPoints" mat-menu-item (click)="handleClick(menuPoint)" >
         <mat-icon *ngIf="menuPoint.icon!=''">{{ menuPoint.icon }}</mat-icon>
         <span>{{ menuPoint.menuPointName }}</span>
