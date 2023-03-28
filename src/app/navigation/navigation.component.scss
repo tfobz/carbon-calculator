@@ -16,14 +16,8 @@
     background-color: mat-color($warn);
   }
 }
-.spacer {
-    flex: 1 1 auto;
-}
-.title {
-    display: flex;
-    justify-content: space-around;
 
-}
+
 button{
 
   color: white;
@@ -53,13 +47,12 @@ img
 }
 mat-toolbar
 {
-  height: 100px;
+  height: 12vh;
 
 }
 .title{
   display: flex;
   margin-left: 5px;
-  align-items: center;
   font-size: 1.5em;
 }
 .mat-toolbar-row, .mat-toolbar-single-row {
