@@ -25,7 +25,6 @@ interface CalculationData{
   styleUrls: ['./create-calculation.component.scss']
 })
 export class CreateCalculationComponent implements OnInit {
-  private calculation!: Calculation;
   /**
    * This is a private class property of the "CreateCalculationComponent" class. It's an
    * instance of the "UntypedFormGroup" class. It's used to hold the instance of the form

@@ -69,6 +69,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>The interface AdvancedSubModule defines a structure for a submodule of an AdvancedEmissionModule
+with properties id and number.</p>
+
+            </p>
 
 
         <section>
@@ -137,6 +145,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>ID of a submodule</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -170,6 +184,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>number of a submodule</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -179,16 +199,26 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EmissionModule } from &quot;../emission-module&quot;;
 import { FactorManager } from &quot;../factor-manager&quot;;
-
+/**
+ * The interface AdvancedSubModule defines a structure for a submodule of an AdvancedEmissionModule
+ * with properties id and number.
+ */
 export interface AdvancedSubModule{
+   /** ID of a submodule */
     id: string,
+    /** number of a submodule */
     number: number
 }
-
+/**
+ * id of the electricity module
+ */
 export const ELECTRICITY_MODULE_ID: string &#x3D; &quot;electricity_emission_module&quot;;
+/**
+ * id of the mobility module
+ */
 export const MOBILITY_MODULE_ID: string &#x3D; &quot;mobility_emission_module&quot;;
 /**
- *
+ * array of strings that represent the different types of electricity
  */
 export const ELECTRICITY_TYPES: string[] &#x3D; [
     &quot;WIND_ELECTRICITY_TYPE&quot;,
@@ -197,7 +227,9 @@ export const ELECTRICITY_TYPES: string[] &#x3D; [
     &quot;OIL_ELECTRICITY_TYPE&quot;,
     &quot;COAL_ELECTRICITY_TYPE&quot;
 ];
-
+/**
+ * array of strings that represent the different types of mobility
+ */
 export const MOBILITY_TYPES: string[] &#x3D; [
     &quot;PKW_MOBILITY_TYPE&quot;,
     &quot;BUS_MOBILITY_TYPE&quot;,
@@ -231,8 +263,8 @@ export class AdvancedEmissionModule implements EmissionModule {
     /**
      *  takes in a FactorManager as an argument and calculates the emissions by multiplying the
      *  number of each submodule by the corresponding factor in the FactorManager
-     * @param factorManager
-     * @returns
+     * @param factorManager FactorManager
+     * @returns number
      */
     calculate(factorManager: FactorManager): number {
         let sum &#x3D; 0;
@@ -250,9 +282,9 @@ export class AdvancedEmissionModule implements EmissionModule {
         this._list.push(subModule);
     }
     /**
-     * 
+     * get a specific submodule by id from the list of submodules
      * @param id
-     * @returns
+     * @returns AdvancedSubModule
      */
     getType(id: string): AdvancedSubModule | undefined{
         return this._list.find(subModule &#x3D;&gt; subModule.id.toLowerCase() &#x3D;&#x3D; id.toLowerCase());
@@ -267,11 +299,18 @@ export class AdvancedEmissionModule implements EmissionModule {
         if(subModule &#x3D;&#x3D; null) return;
         subModule.number &#x3D; value;
     }
-
+    /**
+     * remove a specific submodule from the list of submodules
+     * @param id
+     * @returns void
+    */
     removeType(id: string){
         this._list &#x3D; this._list.filter(subModule &#x3D;&gt; subModule.id !&#x3D; id);
     }
-
+    /**
+     * get a list of all of the ID of submodules
+     * @returns string[] of IDs
+     * */
     getTypes(): string[]{
         let list: string[] &#x3D; [];
         this._list.forEach(subModule &#x3D;&gt; {
@@ -279,28 +318,49 @@ export class AdvancedEmissionModule implements EmissionModule {
         })
         return list;
     }
-
+    /**
+     * get the list of submodules
+     * @returns AdvancedSubModule[]
+     * */
     get list(): AdvancedSubModule[] {
         return this._list;
     }
-
+    /**
+     * set the list of submodules
+     * @param list
+     * */
     set list(list: AdvancedSubModule[]){
         this._list &#x3D; list;
     }
-
+    /**
+     * get the sum of the number of all submodules
+     * @returns number
+     * */
     get number(): number {
         let sum &#x3D; 0;
         this._list.forEach(subModule &#x3D;&gt; sum +&#x3D; subModule.number);
         return sum;
     }
-
+    /**
+     * @ignore
+     * */
     set number(value: number){
         return;
     }
-
+    /**
+     * get the ID of the module
+     * @returns id
+     * */
     get id(): string { return this._id; }
-
+    /**
+     * get the unit of the module
+     * @returns unit
+     * */
     get unit(): string { return this._unit; }
+    /**
+     * set the unit of the module
+     * @param unit
+     * */
     public set unit(unit: string){ this._unit &#x3D; unit; }
 
 }

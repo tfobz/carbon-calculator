@@ -147,6 +147,9 @@
                             <li>
                                 <a href="#ids" >ids</a>
                             </li>
+                            <li>
+                                <a href="#modules" >modules</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -188,7 +191,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/create-module/create-module.component.ts:28</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/create-module/create-module.component.ts:34</a></div>
                             </td>
                         </tr>
 
@@ -306,8 +309,8 @@ ActivatedRoute, CalculationService, TranslateService, and Router.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="72"
-                            class="link-to-prism">src/app/create-module/create-module.component.ts:72</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="80"
+                            class="link-to-prism">src/app/create-module/create-module.component.ts:80</a></div>
                 </td>
             </tr>
 
@@ -386,8 +389,8 @@ and navigate to the newly added module&#39;s page.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="51"
-                            class="link-to-prism">src/app/create-module/create-module.component.ts:51</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">src/app/create-module/create-module.component.ts:57</a></div>
                 </td>
             </tr>
 
@@ -435,7 +438,7 @@ to the ids property.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/create-module/create-module.component.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/create-module/create-module.component.ts:24</a></div>
                         </td>
                     </tr>
 
@@ -467,7 +470,7 @@ to the ids property.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/create-module/create-module.component.ts:28</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/create-module/create-module.component.ts:29</a></div>
                         </td>
                     </tr>
 
@@ -481,13 +484,47 @@ to be added to the calculation.</p>
 
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="modules"></a>
+                    <span class="name">
+                        <span ><b>modules</b></span>
+                        <a href="#modules"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/create-module/create-module.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>modules is a variable of type EmissionModule[] that will store the list of modules that are
+already added to the calculation.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
 </section>
 
 </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { FactorEmissionModule } from &#x27;src/app/emissionmodule/modules/factor-module&#x27;;
+import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { ActivatedRoute, Router } from &#x27;@angular/router&#x27;;
 import { TranslateService } from &#x27;@ngx-translate/core&#x27;;
 import { Calculation } from &#x27;../emissionmodule/calculation&#x27;;
@@ -515,6 +552,11 @@ export class CreateModuleComponent implements OnInit {
    * to be added to the calculation.
    */
   ids!:string[];
+  /**
+   * modules is a variable of type EmissionModule[] that will store the list of modules that are
+   * already added to the calculation.
+  */
+  modules!:string[];
   /**
    * Inside the constructor, several services are being injected, such as NavigationService,
    * ActivatedRoute, CalculationService, TranslateService, and Router.
@@ -547,6 +589,8 @@ export class CreateModuleComponent implements OnInit {
       if(calculation){
         this._calculation &#x3D; calculation;
         this.ids &#x3D; EmissionsManager.getModuleIDs().filter(ids &#x3D;&gt; !calculation?.modules.find(module &#x3D;&gt; module.id &#x3D;&#x3D; ids));
+        this.modules &#x3D; EmissionsManager.getModuleUnits(this.ids);
+        console.log(this.modules);
       }
     });
   }
@@ -579,18 +623,26 @@ export class CreateModuleComponent implements OnInit {
 
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div style&#x3D;&quot;padding: 10px 30px;&quot;&gt;
+  &lt;h1 class&#x3D;&quot;title&quot;&gt;{{&quot;factors&quot;|translate}}:&lt;/h1&gt;
 	&lt;mat-card class&#x3D;&quot;error_card&quot; *ngIf&#x3D;&quot;ids.length &#x3D;&#x3D;&#x3D; 0&quot;&gt;{{ &quot;create_module_error&quot; | translate }}&lt;/mat-card&gt;
 	&lt;ng-container *ngIf&#x3D;&quot;ids.length !&#x3D;&#x3D; 0&quot;&gt;
-		&lt;mat-card *ngFor&#x3D;&quot;let id of ids&quot; class&#x3D;&quot;module_card&quot;&gt;
+		&lt;mat-card *ngFor&#x3D;&quot;let id of ids; let i &#x3D; index; &quot;  class&#x3D;&quot;module_card&quot;&gt;
 			&lt;mat-card-header&gt;
 				&lt;p fxFlex&gt;{{ &quot;modules.&quot; +id | translate }}&lt;/p&gt;
+        &lt;p fxFlex style &#x3D; &quot;font-weight: bold;&quot;&gt;[{{ id &#x3D;&#x3D; &quot;server_emission_module&quot; || id &#x3D;&#x3D; &quot;printer_3d_emission_module&quot; || id &#x3D;&#x3D; &quot;printer_emission_module&quot; || id &#x3D;&#x3D; &quot;plotter_emission_module&quot; || id &#x3D;&#x3D; &quot;laptop_emission_module&quot; || id &#x3D;&#x3D; &quot;computer_emission_module&quot;
+          ? (modules[i] | translate)
+          : (modules[i] | translate) + &#x27;/&#x27; + (&#x27;year&#x27; | translate) }}]&lt;/p&gt;
+        &lt;p&gt;
+
+        &lt;/p&gt;
 				&lt;button (click)&#x3D;&quot;create(id)&quot; mat-icon-button class&#x3D;&quot;icon&quot; aria-label&#x3D;&quot;addModule&quot;&gt;
 					&lt;mat-icon&gt;add&lt;/mat-icon&gt;
 				&lt;/button&gt;
 			&lt;/mat-card-header&gt;
 		&lt;/mat-card&gt;
 	&lt;/ng-container&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-styleData">
@@ -598,13 +650,13 @@ export class CreateModuleComponent implements OnInit {
                     <code>./create-module.component.scss</code>
                 </p>
                 <pre class="line-numbers"><code class="language-scss">mat-card.module_card{
-    -webkit-touch-callout: none; 
-    -webkit-user-select: none; 
-    -khtml-user-select: none; 
-    -moz-user-select: none; 
-    -ms-user-select: none; 
-     user-select: none; 
-     
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+
     margin-left: auto;
     margin-right: auto;
     transition: all .15s ease-in-out;
@@ -620,10 +672,16 @@ export class CreateModuleComponent implements OnInit {
     &amp;:hover{
         transform: scale(1.007);
     }
-    @media screen and (max-width: 800px) {    
+    @media screen and (max-width: 800px) {
         width: 90%;
     }
-}</code></pre>
+
+}
+.title{
+    text-align: center;
+    margin-bottom: 15px;
+}
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -651,7 +709,7 @@ export class CreateModuleComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div style="padding: 10px 30px;">	<mat-card class="error_card" *ngIf="ids.length === 0">{{ "create_module_error" | translate }}</mat-card>	<ng-container *ngIf="ids.length !== 0">		<mat-card *ngFor="let id of ids" class="module_card">			<mat-card-header>				<p fxFlex>{{ "modules." +id | translate }}</p>				<button (click)="create(id)" mat-icon-button class="icon" aria-label="addModule">					<mat-icon>add</mat-icon>				</button>			</mat-card-header>		</mat-card>	</ng-container></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div style="padding: 10px 30px;">  <h1 class="title">{{"factors"|translate}}:</h1>	<mat-card class="error_card" *ngIf="ids.length === 0">{{ "create_module_error" | translate }}</mat-card>	<ng-container *ngIf="ids.length !== 0">		<mat-card *ngFor="let id of ids; let i = index; "  class="module_card">			<mat-card-header>				<p fxFlex>{{ "modules." +id | translate }}</p>        <p fxFlex style = "font-weight: bold;">[{{ id == "server_emission_module" || id == "printer_3d_emission_module" || id == "printer_emission_module" || id == "plotter_emission_module" || id == "laptop_emission_module" || id == "computer_emission_module"          ? (modules[i] | translate)          : (modules[i] | translate) + \'/\' + (\'year\' | translate) }}]</p>        <p>        </p>				<button (click)="create(id)" mat-icon-button class="icon" aria-label="addModule">					<mat-icon>add</mat-icon>				</button>			</mat-card-header>		</mat-card>	</ng-container></div></div>'
     var COMPONENTS = [{'name': 'BarDiagramBothComponent', 'selector': 'app-bar-diagram-both'},{'name': 'BarDiagramCompareComponent', 'selector': 'app-bar-diagram-compare'},{'name': 'BarDiagramComponent', 'selector': 'app-bar-diagram'},{'name': 'CalculationCardComponent', 'selector': 'app-calculation-card'},{'name': 'CalculationDiagramCompareComponent', 'selector': 'app-calculation-diagram-compare'},{'name': 'CalculationDiagramComponent', 'selector': 'app-calculation-diagram'},{'name': 'CalculationListComponent', 'selector': 'app-calculation-list'},{'name': 'CalculationSelectCompareComponent', 'selector': 'app-calculation-select-compare'},{'name': 'CreateCalculationComponent', 'selector': 'app-create-calculation'},{'name': 'CreateModuleComponent', 'selector': 'app-create-module'},{'name': 'CreateTypeComponent', 'selector': 'app-create-type'},{'name': 'DiagramCompareDialogComponent', 'selector': 'app-diagram-dialog'},{'name': 'DiagramDialogComponent', 'selector': 'app-diagram-dialog'},{'name': 'EmissionItemComponent', 'selector': 'app-emission-item'},{'name': 'EmissionListComponent', 'selector': 'app-emission-list'},{'name': 'FactorEmissionModuleComponent', 'selector': 'app-factor-emission-module'},{'name': 'FileUploadComponent', 'selector': 'app-file-upload'},{'name': 'ImportFileDialogComponent', 'selector': 'app-import-file-dialog'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'PieDiagramComponent', 'selector': 'app-pie-diagram'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SpecificCalculationListComponent', 'selector': 'app-specific-calculation-list'},{'name': 'TreeDiagramComponent', 'selector': 'app-tree-diagram'},{'name': 'TypeEmissionModuleComponent', 'selector': 'app-type-emission-module'},{'name': 'TypeInputComponent', 'selector': 'app-type-input'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'CreateModuleComponent'};

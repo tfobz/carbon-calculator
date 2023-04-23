@@ -68,6 +68,15 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>This component is used in the Settings page of the application.
+It is responsible for displaying the available languages, allowing the user
+to select a language and saving the selected language.</p>
+
+    </p>
 
 
     <p class="comment">
@@ -196,12 +205,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/settings/settings.component.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/settings/settings.component.ts:29</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>The constructor assigns these services to private variables with the same name,</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -210,6 +221,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -224,6 +236,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>A service that manages the navigation of the application.</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>_router</td>
@@ -236,6 +252,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>A service that manages the routing of the application.</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>_translateService</td>
@@ -248,6 +268,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>A service that provides internationalization (i18n) support.</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>_translationManagerService</td>
@@ -260,6 +284,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>A service that manages the translation of the application.</p>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -299,14 +327,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">src/app/settings/settings.component.ts:29</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="47"
+                            class="link-to-prism">src/app/settings/settings.component.ts:47</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>A method that is called when the component is initialized. It sets the translation for the title of the page,
+retrieves the available languages, sets the default language and sets the selected language.</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -336,17 +367,25 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="47"
-                            class="link-to-prism">src/app/settings/settings.component.ts:47</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="68"
+                            class="link-to-prism">src/app/settings/settings.component.ts:68</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p> A method that saves the selected language and navigates to the emission page. It checks if a language is selected before saving.</p>
+</div>
 
+                    <div>
+                    </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>void</p>
 
                     </div>
                 </td>
@@ -384,10 +423,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/settings/settings.component.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/settings/settings.component.ts:29</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>A private variable of type Language[] that stores the available languages.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -416,10 +461,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/settings/settings.component.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/settings/settings.component.ts:27</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>A variable of type Language that stores the currently selected language. It is initialized as undefined.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -445,9 +496,20 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/settings/settings.component.ts:53</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">src/app/settings/settings.component.ts:76</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>A getter method that returns the available languages.</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="../interfaces/Language.html" target="_self" >Language[]</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -461,29 +523,47 @@ import { Router } from &#x27;@angular/router&#x27;;
 import { TranslateService } from &#x27;@ngx-translate/core&#x27;;
 import { NavigationService } from &#x27;../shared/navigation.service&#x27;;
 import { TranslationManagerService } from &#x27;../_services/translation-manager.service&#x27;;
-
+/**
+ * This interface is used to represent a language.
+ */
 interface Language{
+  /** The name of the language. */
   name: string,
+  /** The code of the language. */
   code: string
 }
-
+/**
+ * This component is used in the Settings page of the application.
+ * It is responsible for displaying the available languages, allowing the user
+ * to select a language and saving the selected language.
+ */
 @Component({
   selector: &#x27;app-settings&#x27;,
   templateUrl: &#x27;./settings.component.html&#x27;,
   styleUrls: [&#x27;./settings.component.scss&#x27;]
 })
 export class SettingsComponent implements OnInit {
-  
+  /** A variable of type Language that stores the currently selected language. It is initialized as undefined. */
   public selectedLanguage: Language | undefined &#x3D; undefined;
+  /** A private variable of type Language[] that stores the available languages. */
   private _languages: Language[] &#x3D; [];
-
+  /**
+   * The constructor assigns these services to private variables with the same name,
+   * @param _ns A service that manages the navigation of the application.
+   * @param _router A service that manages the routing of the application.
+   * @param _translateService A service that provides internationalization (i18n) support.
+   * @param _translationManagerService A service that manages the translation of the application.
+   */
   constructor(
     private _ns: NavigationService,
     private _router: Router,
     private _translateService: TranslateService,
     private _translationManagerService: TranslationManagerService
   ) {}
-
+  /**
+   * A method that is called when the component is initialized. It sets the translation for the title of the page,
+   * retrieves the available languages, sets the default language and sets the selected language.
+   */
   ngOnInit(): void {
     this._translateService.get(&quot;settings&quot;).subscribe(translation &#x3D;&gt; {
       this._ns.changeMessage(translation);
@@ -501,13 +581,18 @@ export class SettingsComponent implements OnInit {
     });
 
   }
-
+  /**
+   *  A method that saves the selected language and navigates to the emission page. It checks if a language is selected before saving.
+   * @returns void
+   */
   save(){
     if(this.selectedLanguage &#x3D;&#x3D; null) return;
     this._translationManagerService.lang &#x3D; this.selectedLanguage.code;
     this._router.navigate([&quot;emission&quot;]);
   }
-
+  /**
+   * A getter method that returns the available languages.
+   */
   get languages(): Language[] {
     return this._languages;
   }

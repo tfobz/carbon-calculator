@@ -222,6 +222,8 @@
                                                     </td>
                                                     
                                                         <td>
+                                                                <p>country of the CalculationObject</p>
+
                                                         </td>
                                                 </tr>
                                         </tbody>
@@ -300,6 +302,11 @@
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description">country of the CalculationObject</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -797,7 +804,7 @@ export class Calculation{
     /**
      * Constructs this module
      * @param name name of the CalculationObject
-     * @param country country of the CalculationObject
+     * @param factor_preset country of the CalculationObject
      */
     constructor(public name: string, public factor_preset:string){ this._id &#x3D; generateId(); }
 

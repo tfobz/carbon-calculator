@@ -340,14 +340,16 @@ so that they can be used throughout the component.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="81"
-                            class="link-to-prism">src/app/emission-list/emission-list.component.ts:81</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="85"
+                            class="link-to-prism">src/app/emission-list/emission-list.component.ts:85</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>The method is called when the user clicks on the delete button of a calculation.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -358,6 +360,7 @@ so that they can be used throughout the component.</p>
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -372,6 +375,10 @@ so that they can be used throughout the component.</p>
                                     </td>
 
 
+                                    <td>
+                                        <p>is the name of the calculation that will be deleted</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -537,7 +544,7 @@ menu items.</li>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">src/app/emission-list/emission-list.component.ts:88</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">src/app/emission-list/emission-list.component.ts:92</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -639,6 +646,10 @@ export class EmissionListComponent implements OnInit {
     });
 
   }
+  /**
+   * The method is called when the user clicks on the delete button of a calculation.
+   * @param $event is the name of the calculation that will be deleted
+   */
   deleteCalculation($event:string){
     console.log($event);
     this.calculationService.removeCalculation(this.calculationService.getByName($event));
@@ -659,7 +670,7 @@ export class EmissionListComponent implements OnInit {
 
 &lt;!-- This div mainly creates an empty gap between the navigation bar and the content--&gt;
 &lt;div class&#x3D;&quot;content&quot; fxLayout&#x3D;&quot;column&quot; fxLayoutGap&#x3D;&quot;15px&quot;&gt;
-    &lt;p *ngIf&#x3D;&quot;empty_hint_status &#x3D;&#x3D; true&quot;&gt;{{ empty_hint_msg }}&lt;/p&gt;
+    &lt;h2 *ngIf&#x3D;&quot;empty_hint_status &#x3D;&#x3D; true&quot;&gt;{{ empty_hint_msg }}&lt;/h2&gt;
     &lt;app-emission-item *ngFor&#x3D;&quot;let calcs of calculations&quot; [link]&#x3D;&quot;[&#x27;/emission&#x27;, calcs.id]&quot;
     [name]&#x3D;&quot;calcs.name&quot; [factor_preset]&#x3D;&quot;calcs.factor_preset&quot;  [emission]&#x3D;&quot;calcs.calculate()&quot;
     (deleteItself)&#x3D;&quot;deleteCalculation($event)&quot;&gt;&lt;/app-emission-item&gt;
@@ -684,13 +695,13 @@ export class EmissionListComponent implements OnInit {
                 </p>
                 <pre class="line-numbers"><code class="language-scss">.content{
 
-    -webkit-touch-callout: none; 
-    -webkit-user-select: none; 
-    -khtml-user-select: none; 
-    -moz-user-select: none; 
-    -ms-user-select: none; 
-     user-select: none; 
-    
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+
     padding: 15px;
 
     app-emission-item{
@@ -707,7 +718,7 @@ export class EmissionListComponent implements OnInit {
 
         }
         @media screen and (max-width: 800px) {
-            
+
             width: 90%;
 
         }
@@ -717,7 +728,13 @@ export class EmissionListComponent implements OnInit {
     position: fixed;
     bottom: 25px;
     right: 25px;
-}</code></pre>
+}
+h2
+{
+    text-align: center;
+    margin-top: 20%;
+}
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -745,7 +762,7 @@ export class EmissionListComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><!-- This is the main window that opens when you first open the app--><!-- This div mainly creates an empty gap between the navigation bar and the content--><div class="content" fxLayout="column" fxLayoutGap="15px">    <p *ngIf="empty_hint_status == true">{{ empty_hint_msg }}</p>    <app-emission-item *ngFor="let calcs of calculations" [link]="[\'/emission\', calcs.id]"    [name]="calcs.name" [factor_preset]="calcs.factor_preset"  [emission]="calcs.calculate()"    (deleteItself)="deleteCalculation($event)"></app-emission-item>  </div><!-- This is the "+" Button in the bottom right corner of the app    The routerLink defines its action --><a    routerLink="/emission/create"    id="add_button"    mat-fab color="primary"    aria-label="Add new calculation button">    <mat-icon>add</mat-icon></a></div>'
+        var COMPONENT_TEMPLATE = '<div><!-- This is the main window that opens when you first open the app--><!-- This div mainly creates an empty gap between the navigation bar and the content--><div class="content" fxLayout="column" fxLayoutGap="15px">    <h2 *ngIf="empty_hint_status == true">{{ empty_hint_msg }}</h2>    <app-emission-item *ngFor="let calcs of calculations" [link]="[\'/emission\', calcs.id]"    [name]="calcs.name" [factor_preset]="calcs.factor_preset"  [emission]="calcs.calculate()"    (deleteItself)="deleteCalculation($event)"></app-emission-item>  </div><!-- This is the "+" Button in the bottom right corner of the app    The routerLink defines its action --><a    routerLink="/emission/create"    id="add_button"    mat-fab color="primary"    aria-label="Add new calculation button">    <mat-icon>add</mat-icon></a></div>'
     var COMPONENTS = [{'name': 'BarDiagramBothComponent', 'selector': 'app-bar-diagram-both'},{'name': 'BarDiagramCompareComponent', 'selector': 'app-bar-diagram-compare'},{'name': 'BarDiagramComponent', 'selector': 'app-bar-diagram'},{'name': 'CalculationCardComponent', 'selector': 'app-calculation-card'},{'name': 'CalculationDiagramCompareComponent', 'selector': 'app-calculation-diagram-compare'},{'name': 'CalculationDiagramComponent', 'selector': 'app-calculation-diagram'},{'name': 'CalculationListComponent', 'selector': 'app-calculation-list'},{'name': 'CalculationSelectCompareComponent', 'selector': 'app-calculation-select-compare'},{'name': 'CreateCalculationComponent', 'selector': 'app-create-calculation'},{'name': 'CreateModuleComponent', 'selector': 'app-create-module'},{'name': 'CreateTypeComponent', 'selector': 'app-create-type'},{'name': 'DiagramCompareDialogComponent', 'selector': 'app-diagram-dialog'},{'name': 'DiagramDialogComponent', 'selector': 'app-diagram-dialog'},{'name': 'EmissionItemComponent', 'selector': 'app-emission-item'},{'name': 'EmissionListComponent', 'selector': 'app-emission-list'},{'name': 'FactorEmissionModuleComponent', 'selector': 'app-factor-emission-module'},{'name': 'FileUploadComponent', 'selector': 'app-file-upload'},{'name': 'ImportFileDialogComponent', 'selector': 'app-import-file-dialog'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'PieDiagramComponent', 'selector': 'app-pie-diagram'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SpecificCalculationListComponent', 'selector': 'app-specific-calculation-list'},{'name': 'TreeDiagramComponent', 'selector': 'app-tree-diagram'},{'name': 'TypeEmissionModuleComponent', 'selector': 'app-type-emission-module'},{'name': 'TypeInputComponent', 'selector': 'app-type-input'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'EmissionListComponent'};
