@@ -1,4 +1,7 @@
-
+/**
+ * Generates a random id
+ * @returns id
+ */
 export function generateId(): string{
     const OPTIONS: string = "QWERTZUIOPASDFGHJKLYXCVBNMqwertzuiopasdfghjklyxcvbnm";
     const LENGTH: number = 10;

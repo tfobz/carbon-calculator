@@ -1,6 +1,4 @@
 import { Component, Input, OnInit, Output,EventEmitter } from '@angular/core';
-import { CalculationService } from '../../_services/calculation.service';
-
 
 
 
@@ -13,7 +11,6 @@ import { CalculationService } from '../../_services/calculation.service';
   styleUrls: ['./emission-item.component.scss']
 })
 export class EmissionItemComponent {
-  constructor(private calculationService: CalculationService){}
 
   /**
    * "link" is an array of strings that represents the link of the item. It's marked as Input,
@@ -32,14 +29,23 @@ export class EmissionItemComponent {
    * so if it's not passed from the parent component it will take this default value
    */
   @Input() emission: number = 0;
-
+  /**
+   * "deleteItself" is an EventEmitter that emits a string. It's marked as Output,
+   * which means it can be passed from the parent component as output.
+   * It's used in the selfdestroy() method.
+   * It emits the name of the item that should be deleted.
+   */
   @Output() deleteItself = new EventEmitter<string>();
 
-
+  /**
+   * It inports the country name from the parent component.
+   */
   @Input() factor_preset: string = "";
 
 
-
+  /**
+   * It emits the name of the item that should be deleted.
+   */
   selfdestroy() {
     this.deleteItself.emit(this.name);
   }

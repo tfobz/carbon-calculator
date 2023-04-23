@@ -97,6 +97,10 @@ which are used to calculate emissions</p>
                             </li>
                             <li>
                                     <span class="modifier">Static</span>
+                                <a href="#getModuleUnits" >getModuleUnits</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
                                 <a href="#load" >load</a>
                             </li>
                             <li>
@@ -163,6 +167,88 @@ which are used to calculate emissions</p>
                     </div>
                     <div class="io-description">
                         <p>array of strings representing the ids of all available emission module types</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getModuleUnits"></a>
+                    <span class="name">
+                        <span class="modifier">Static</span>
+                        <span ><b>getModuleUnits</b></span>
+                        <a href="#getModuleUnits"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getModuleUnits(ids: string[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="89"
+                            class="link-to-prism">src/app/emissionmodule/emissions_manager.ts:89</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>returns an array of strings representing the units of measurement for all available
+emission module types.
+emission module types</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ids</td>
+                                    <td>
+                                            <code>string[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>array of strings representing the ids of all available emission module types</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>string[]</code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>array of strings representing the units of measurement for all available
+emission module types</p>
 
                     </div>
                 </td>
@@ -406,6 +492,22 @@ export default class EmissionsManager{
      */
     static getModuleIDs(): string[] {
         return Array.from(emissions.keys());
+    }
+    /**
+     * returns an array of strings representing the units of measurement for all available
+     * emission module types.
+     * @returns array of strings representing the units of measurement for all available
+     * emission module types
+     * @param ids array of strings representing the ids of all available emission module types
+     */
+    static getModuleUnits(ids:string[]): string[] {
+        let ret: string[] &#x3D; [];
+        for(let id of ids){
+            if(units.has(id)){
+                ret.push(units.get(id) as string);
+            }
+        }
+        return ret;
     }
 }
 /**

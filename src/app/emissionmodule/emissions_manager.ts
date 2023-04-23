@@ -79,6 +79,13 @@ export default class EmissionsManager{
     static getModuleIDs(): string[] {
         return Array.from(emissions.keys());
     }
+    /**
+     * returns an array of strings representing the units of measurement for all available
+     * emission module types.
+     * @returns array of strings representing the units of measurement for all available
+     * emission module types
+     * @param ids array of strings representing the ids of all available emission module types
+     */
     static getModuleUnits(ids:string[]): string[] {
         let ret: string[] = [];
         for(let id of ids){

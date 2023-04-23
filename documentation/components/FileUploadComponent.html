@@ -68,6 +68,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>The FileUploadComponent class is responsible for providing a file upload functionality in the Angular application. Here&#39;s the documentation:</p>
+
+    </p>
 
 
 
@@ -206,9 +213,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/file-upload/file-upload.component.ts:10</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/file-upload/file-upload.component.ts:14</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Emits the selected file to the parent component.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -239,14 +252,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="14"
-                            class="link-to-prism">src/app/file-upload/file-upload.component.ts:14</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">src/app/file-upload/file-upload.component.ts:24</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Handles the selection of a file by the user.
+It retrieves the selected file and emits it to the parent component via fileEmitter.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -257,6 +273,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -271,6 +288,12 @@
                                     </td>
 
 
+                                    <td>
+                                        <ul>
+<li>The event object containing the selected file.</li>
+</ul>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -319,10 +342,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/file-upload/file-upload.component.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/file-upload/file-upload.component.ts:18</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The name of the selected file.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -348,9 +377,20 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/file-upload/file-upload.component.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/file-upload/file-upload.component.ts:36</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Returns the name of the selected file.</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -360,28 +400,40 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, EventEmitter, Output } from &#x27;@angular/core&#x27;;
-
+/**
+ * The FileUploadComponent class is responsible for providing a file upload functionality in the Angular application. Here&#x27;s the documentation:
+ */
 @Component({
   selector: &#x27;app-file-upload&#x27;,
   templateUrl: &#x27;./file-upload.component.html&#x27;,
   styleUrls: [&#x27;./file-upload.component.scss&#x27;]
 })
 export class FileUploadComponent{
-
+  /**
+   * Emits the selected file to the parent component.
+   */
 	@Output(&quot;file&quot;) public fileEmitter &#x3D; new EventEmitter&lt;File&gt;();
-
+ /**
+   * The name of the selected file.
+   */
 	private _filename: string &#x3D; &quot;&quot;;
-
+ /**
+   * Handles the selection of a file by the user.
+   * It retrieves the selected file and emits it to the parent component via fileEmitter.
+   * @param event - The event object containing the selected file.
+   */
 	handleFileSelected(event: any){
 		const files &#x3D; event.target.files;
 		if(files.length &#x3D;&#x3D; 0) return;
 		const file &#x3D; files[0];
-		
+
 		this._filename &#x3D; file.name;
 
 		this.fileEmitter.emit(file);
 	}
-
+   /**
+   * Returns the name of the selected file.
+   */
 	get filename(): string{
 		return this._filename;
 	}

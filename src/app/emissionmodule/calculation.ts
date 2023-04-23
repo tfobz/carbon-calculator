@@ -18,7 +18,7 @@ export class Calculation{
     /**
      * Constructs this module
      * @param name name of the CalculationObject
-     * @param country country of the CalculationObject
+     * @param factor_preset country of the CalculationObject
      */
     constructor(public name: string, public factor_preset:string){ this._id = generateId(); }
 

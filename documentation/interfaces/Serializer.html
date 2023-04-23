@@ -345,6 +345,22 @@ export default class EmissionsManager{
     static getModuleIDs(): string[] {
         return Array.from(emissions.keys());
     }
+    /**
+     * returns an array of strings representing the units of measurement for all available
+     * emission module types.
+     * @returns array of strings representing the units of measurement for all available
+     * emission module types
+     * @param ids array of strings representing the ids of all available emission module types
+     */
+    static getModuleUnits(ids:string[]): string[] {
+        let ret: string[] &#x3D; [];
+        for(let id of ids){
+            if(units.has(id)){
+                ret.push(units.get(id) as string);
+            }
+        }
+        return ret;
+    }
 }
 /**
  * The units variable is a map that associates each EmissionModule type with a string

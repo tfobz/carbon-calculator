@@ -13,8 +13,9 @@ import { NavigationService } from '../shared/navigation.service';
 })
 
 export class NavigationComponent implements OnInit{
-  /** title property is used to display the title of the current page   */
+  /** maintitle property is used to display the  title of the programm */
   maintitle: string = "CF Train in VET - Carbon Footprint Calculator";
+  /**title property is uused to display the current page title */
   title: string = "";
   /** back property is used to determine whether the back button should be displayed or not */
   back: string = "";
