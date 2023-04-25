@@ -22,9 +22,9 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      
+
       - name: Cache node modules
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: node_modules
           key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
@@ -39,7 +39,7 @@ jobs:
       - name: Build doc
         run: npm run compodoc
       - name: Archive www Artifact
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: documentation
           path: documentation
@@ -51,13 +51,15 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@master
+         with:
+          ref: ${{ github.head_ref }}
       - name: Download Artifact
-        uses: actions/download-artifact@master
+        uses: actions/download-artifact@v2
         with:
           name: documentation
           path: documentation
       - name: Deploy to github pages
-        uses: JamesIves/github-pages-deploy-action@3.6.2
+        uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
           GITHUB_TOKEN: ${{ secrets.COMPODOC_GITHUB_PAGES_TOKEN }}
           BRANCH: angular-docu # The branch the action should deploy to.
