@@ -183,16 +183,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? 'id="components-links"' : 'id="xs-components-links"' }>
                             <li class="link">
-                                <a href="components/CreateTypeComponent.html" data-type="entity-link" >CreateTypeComponent</a>
+                                <a href="components/BarDiagramBothComponent.html" data-type="entity-link" >BarDiagramBothComponent</a>
                             </li>
                             <li class="link">
-                                <a href="components/FileUploadComponent.html" data-type="entity-link" >FileUploadComponent</a>
+                                <a href="components/BarDiagramCompareComponent.html" data-type="entity-link" >BarDiagramCompareComponent</a>
                             </li>
                             <li class="link">
-                                <a href="components/SettingsComponent.html" data-type="entity-link" >SettingsComponent</a>
-                            </li>
-                            <li class="link">
-                                <a href="components/TypeEmissionModuleComponent.html" data-type="entity-link" >TypeEmissionModuleComponent</a>
+                                <a href="components/CalculationSelectCompareComponent.html" data-type="entity-link" >CalculationSelectCompareComponent</a>
                             </li>
                         </ul>
                     </li>

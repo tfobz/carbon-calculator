@@ -1,13 +1,20 @@
 import { Component, OnInit, Input } from '@angular/core';
 import type { EChartsOption } from 'echarts';
 import type { DiagramDataCompare } from '../../shared';
-
+/**
+ * This angular component is used to create a bar chart for comparing data from two sources
+ */
 @Component({
   selector: 'app-bar-diagram-both',
   templateUrl: './bar-diagram-both.component.html',
   styleUrls: ['./bar-diagram-both.component.scss']
 })
-export class BarDiagramBothComponent implements OnInit {
+export class BarDiagramBothComponent {
+  /**
+   * The set data() method processes the input data and prepares it for display.
+   * It extracts the names and values of the data points for each set, and creates
+   * a data object containing two arrays (one and two) with the respective values. The names of the data points are stored in the names array.
+   */
 	@Input()
 	public set data(diagramData: DiagramDataCompare) {
 		let names = [];
@@ -34,7 +41,9 @@ export class BarDiagramBothComponent implements OnInit {
 			}]
 		};
 	}
-
+  /**
+   * The options property defines the default configuration for the chart.
+   */
 	options: EChartsOption = {
 	  tooltip: {
 		trigger: 'axis'
@@ -69,7 +78,10 @@ export class BarDiagramBothComponent implements OnInit {
 		}
 	  ]
 	};
-
+  /**
+   * The merge property is used to merge the default options with the input data.
+   * It is initialized with an empty object.
+   */
 	merge: EChartsOption = {
 		xAxis: {
 			data: []
@@ -79,8 +91,5 @@ export class BarDiagramBothComponent implements OnInit {
 		}]
 	};
 
-	constructor() { }
 
-	ngOnInit(): void {
-	}
 }

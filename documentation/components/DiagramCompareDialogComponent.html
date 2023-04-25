@@ -62,6 +62,15 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p> A component that displays a dialog box containing a diagram.
+ If data.type is &#39;bar-both&#39;, then the app-bar-diagram-both component will be displayed,
+ and if data.type is &#39;bar-compare&#39;, then the app-bar-diagram-compare component will be displayed.</p>
+
+    </p>
 
 
 
@@ -153,12 +162,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="126" class="link-to-prism">src/app/calculation-diagram-compare/calculation-diagram-compare.component.ts:126</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="172" class="link-to-prism">src/app/calculation-diagram-compare/calculation-diagram-compare.component.ts:172</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>The DialogData containing the data to be displayed in the dialog box</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -167,6 +178,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -181,6 +193,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>The MatDialogRef used to close the dialog box</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>data</td>
@@ -193,6 +209,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>The DialogData containing the data to be displayed in the dialog box</p>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -242,10 +262,15 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="129" class="link-to-prism">src/app/calculation-diagram-compare/calculation-diagram-compare.component.ts:129</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="180" class="link-to-prism">src/app/calculation-diagram-compare/calculation-diagram-compare.component.ts:180</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description">The DialogData containing the data to be displayed in the dialog box</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -269,10 +294,15 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="128" class="link-to-prism">src/app/calculation-diagram-compare/calculation-diagram-compare.component.ts:128</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="179" class="link-to-prism">src/app/calculation-diagram-compare/calculation-diagram-compare.component.ts:179</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description">The MatDialogRef used to close the dialog box</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -291,32 +321,54 @@ import { CalculationService } from &#x27;../_services/calculation.service&#x27;;
 import { TranslationManagerService } from &#x27;../_services/translation-manager.service&#x27;;
 import { DiagramDataCompare } from &#x27;../shared&#x27;;
 
-import { ResizedEvent } from &#x27;angular-resize-event&#x27;; 
+import { ResizedEvent } from &#x27;angular-resize-event&#x27;;
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from &#x27;@angular/material/dialog&#x27;;
 import { FactorManager } from &#x27;../emissionmodule/factor-manager&#x27;;
-
+/**
+ * It defines the structure of the data that will be displayed in a comparison table.
+ */
 interface TableData {
+  /** a string representing the name of the item being compared. */
 	name: string,
+  /**  a number representing the value of the first item being compared. */
 	one: number,
+  /** a number representing the value of the second item being compared */
 	two: number
 }
-
+/**
+ * CalculationDiagramCompareComponent is a component that displays a comparison between two emissions calculations in a diagram form.
+ * The component loads the data of the two calculations from a calculation service, and displays the data as two columns in a bar chart,
+ * with an option to open a larger diagram in a dialog box.
+ * The component also displays a table that lists the difference in emissions of each module between the two calculations.
+ */
 @Component({
   selector: &#x27;app-calculation-diagram-compare&#x27;,
   templateUrl: &#x27;./calculation-diagram-compare.component.html&#x27;,
   styleUrls: [&#x27;./calculation-diagram-compare.component.scss&#x27;]
 })
 export class CalculationDiagramCompareComponent implements OnInit {
-
+  /** An object containing the data for the two calculations to be compared */
 	data: DiagramDataCompare &#x3D; { one: [], two: [] };
+  /** An array of objects containing the data for each module of the two calculations to be displayed in a table */
 	tableData: TableData[] &#x3D; [];
+  /**  An array of strings containing the names of the columns in the table */
 	displayedColumns &#x3D; [&quot;name&quot;, &quot;dataone&quot;, &quot;datatwo&quot;, &quot;diff&quot;];
+  /** The title of the first calculation to be displayed in the chart */
 	titleOne &#x3D; &quot;Loading...&quot;;
+  /** The title of the second calculation to be displayed in the chart */
 	titleTwo &#x3D; &quot;Loading...&quot;;
-
+  /** The Calculation object for the first calculation to be compared */
 	private calculationOne: Calculation | undefined;
+  /** The Calculation object for the second calculation to be compared */
 	private calculationTwo: Calculation | undefined;
-
+  /**
+   *  Constructs a new CalculationDiagramCompareComponent.
+   * @param calculationService The CalculationService used to load the data for the two calculations to be compared
+   * @param activatedRoute The ActivatedRoute used to retrieve the parameters of the URL to identify the two calculations to be compared
+   * @param translateService  The TranslateService used to translate the names of the modules in the table
+   * @param translationManager The TranslationManagerService used to manage the translations of the application
+   * @param dialog The MatDialog used to open the dialog box containing the larger chart
+   */
 	constructor(
 		private calculationService: CalculationService,
 		private activatedRoute: ActivatedRoute,
@@ -324,25 +376,31 @@ export class CalculationDiagramCompareComponent implements OnInit {
 		private translationManager: TranslationManagerService,
 		private dialog: MatDialog
 	) { }
-
+  /**
+   * Called when the component is initialized.
+   * Loads the data for the two calculations to be compared, and initializes the chart and the table with the data.
+   */
 	ngOnInit(): void {
+     // Retrieves the IDs of the two calculations to be compared from the parameters of the URL
 		this.activatedRoute.params.subscribe(params &#x3D;&gt; {
 			const idone &#x3D; params[&#x27;idone&#x27;] as unknown;
 			const idtwo &#x3D; params[&#x27;idtwo&#x27;] as unknown;
 			if (typeof idone !&#x3D;&#x3D; &quot;string&quot; || typeof idtwo !&#x3D;&#x3D; &quot;string&quot;) throw new Error(&quot;Id not of type string (this should not occur)&quot;);
-
+      // Loads the Calculation objects for the two calculations from the CalculationService
 			this.calculationOne &#x3D; this.calculationService.getById(idone);
 			this.calculationTwo &#x3D; this.calculationService.getById(idtwo);
-
+      // Updates the titles of the chart with the names of the calculations
 			if(this.calculationOne !&#x3D; null &amp;&amp; this.calculationTwo !&#x3D; null){
 				this.titleOne &#x3D; this.calculationOne.name;
 				this.titleTwo &#x3D; this.calculationTwo.name;
 			}
-
+      // Initializes the chart and the table with the data of the two calculations
 			this.loadChart();
 		});
 	}
-
+/**
+ * A method that loads the chart with data from the two calculations.
+ */
 	loadChart() {
 		if(this.calculationOne &#x3D;&#x3D; null || this.calculationTwo &#x3D;&#x3D; null) {
 			this.data &#x3D; { one: [], two: [] };
@@ -371,11 +429,18 @@ export class CalculationDiagramCompareComponent implements OnInit {
 			}
 		});
 	}
-
+  /**
+   *  A method that calculates the difference between two numbers.
+   * @param one The first number
+   * @param two The second number
+   */
 	diff(one: number, two: number): number{
 		return Math.floor((one - two) * 100) / 100;
 	}
-
+  /**
+   *  A method that runs when the diagram is resized. It adjusts the columns displayed in the table based on the new width of the diagram.
+   * @param event The ResizedEvent containing the new width of the diagram
+   */
 	onResize(event: ResizedEvent){
 		if(event.newRect.width &lt;&#x3D; 500){
 			this.displayedColumns &#x3D; [&quot;name&quot;, &quot;dataone&quot;, &quot;datatwo&quot;];
@@ -383,20 +448,31 @@ export class CalculationDiagramCompareComponent implements OnInit {
 			this.displayedColumns &#x3D; [&quot;name&quot;, &quot;dataone&quot;, &quot;datatwo&quot;, &quot;diff&quot;];
 		}
 	}
-
+  /**
+   * A method that opens a dialog displaying a different type of diagram.
+   * @param type
+   */
 	openDialog(type: DialogDataType) {
 		this.dialog.open(DiagramCompareDialogComponent, { width: &quot;95%&quot;, data: { type, data: this.data } });
 	}
 }
 
-
+/** Dialog data type defined */
 type DialogDataType &#x3D; &#x27;bar-both&#x27;|&#x27;bar-compare&#x27;;
-
+/**
+ * The data to be passed to the dialog box containing the diagram.
+ */
 interface DialogData{
+  /** type of dialog */
 	type: DialogDataType,
+  /** data to be displayed in the diagram */
 	data: DiagramDataCompare
 }
-
+/**
+ *  A component that displays a dialog box containing a diagram.
+ *  If data.type is &#x27;bar-both&#x27;, then the app-bar-diagram-both component will be displayed,
+ *  and if data.type is &#x27;bar-compare&#x27;, then the app-bar-diagram-compare component will be displayed.
+ */
 @Component({
 	selector: &#x27;app-diagram-dialog&#x27;,
 	template: &#x60;
@@ -408,6 +484,11 @@ interface DialogData{
 	styleUrls: []
   })
 export class DiagramCompareDialogComponent{
+  /**
+   * The DialogData containing the data to be displayed in the dialog box
+   * @param dialogRef The MatDialogRef used to close the dialog box
+   * @param data The DialogData containing the data to be displayed in the dialog box
+   */
 	constructor(
 		public dialogRef: MatDialogRef&lt;DiagramCompareDialogComponent&gt;,
 		@Inject(MAT_DIALOG_DATA) public data: DialogData
