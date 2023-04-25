@@ -1,14 +1,27 @@
 import { Component, OnInit, Input } from '@angular/core';
 import type { EChartsOption } from 'echarts';
 import type { DiagramDataCompare } from '../../shared';
-
+/**
+ * This angular component is used to create a bar chart for comparing data from two sources
+ */
 @Component({
   selector: 'app-bar-diagram-compare',
   templateUrl: './bar-diagram-compare.component.html',
   styleUrls: ['./bar-diagram-compare.component.scss']
 })
-export class BarDiagramCompareComponent implements OnInit {
+export class BarDiagramCompareComponent {
+  /**using @Input() decorator it takes in a property called data of type DiagramDataCompare */
 	@Input()
+  /**
+   * In the set data() method, it first initializes two arrays, names and data.
+   * Then it loops through diagramData.one and diagramData.two, and if the name property of the
+   * two objects is not the same, it continues to the next iteration of the loop. Otherwise, it
+   * calculates the difference between the value properties of the two objects, formats the value
+   *  to two decimal places using Math.floor((d1.value - d2.value) * 100) / 100, and pushes the
+   * result object into the data array. It also adds the name to the names array. Finally, it sets
+   * the merge property to an object containing the yAxis and series properties of an EChartsOption
+   * object. The yAxis property is set to an array of the names, and the series property is set to an array of the data.
+   */
 	public set data(diagramData: DiagramDataCompare) {
 		let names = [];
 		let data = [];
@@ -31,7 +44,9 @@ export class BarDiagramCompareComponent implements OnInit {
 			}
 		};
 	}
-
+/**
+   * It initializes an EChartsOption object called options with default options for the bar chart.
+   */
 	options: EChartsOption = {
 	  tooltip: {
 		trigger: 'axis',
@@ -71,7 +86,9 @@ export class BarDiagramCompareComponent implements OnInit {
 		  data: []
 		}
 	};
-
+  /**
+   * It initializes an EChartsOption object called merge, it will be used to merge with the default options when the data property is set.
+   */
 	merge: EChartsOption = {
 		yAxis: {
 			data: []
@@ -81,8 +98,4 @@ export class BarDiagramCompareComponent implements OnInit {
 		}
 	};
 
-	constructor() { }
-
-	ngOnInit(): void {
-	}
 }
