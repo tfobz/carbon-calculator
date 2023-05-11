@@ -66,6 +66,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>The FactorSerializer class is used to handle the serialization and deserialization
+of EmissionModule objects</p>
+
+            </p>
 
 
             <p class="comment">
@@ -134,14 +142,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="13"
-                            class="link-to-prism">src/app/emissionmodule/serializer/factor-serializer.ts:13</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">src/app/emissionmodule/serializer/factor-serializer.ts:28</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>takes a JavaScript object and converts it back into an EmissionModule object</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -203,14 +213,18 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="6"
-                            class="link-to-prism">src/app/emissionmodule/serializer/factor-serializer.ts:6</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="16"
+                            class="link-to-prism">src/app/emissionmodule/serializer/factor-serializer.ts:16</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>takes an EmissionModule object and converts it into a JavaScript object that can be
+easily stored in a file or database. In this case, it only stores the type and number
+properties of the module.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -221,6 +235,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -235,6 +250,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>EmissionModule</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -246,7 +265,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>Javascript object</p>
+
                     </div>
                 </td>
             </tr>
@@ -265,8 +285,18 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EmissionModule } from &quot;../emission-module&quot;;
 import { Serializer } from &quot;../emissions_manager&quot;;
 import { FactorEmissionModule } from &quot;../modules/factor-module&quot;;
-
+/**
+ * The FactorSerializer class is used to handle the serialization and deserialization
+ * of EmissionModule objects
+ */
 export class FactorSerializer implements Serializer {
+  /**
+   * takes an EmissionModule object and converts it into a JavaScript object that can be
+   * easily stored in a file or database. In this case, it only stores the type and number
+   * properties of the module.
+   * @param module EmissionModule
+   * @returns Javascript object
+   */
     save(module: EmissionModule) {
         const data &#x3D; {
             type: module.id,
@@ -274,14 +304,22 @@ export class FactorSerializer implements Serializer {
         };
         return data;
     }
+    /**
+     * takes a JavaScript object and converts it back into an EmissionModule object
+     * @param data
+     * @returns
+     */
     load(data: any): EmissionModule {
         const module &#x3D; new FactorEmissionModule(data.type);
         if(data.number) module.number &#x3D; data.number;
         return module;
     }
 }
-
-export const factorSerializer &#x3D; new FactorSerializer();</code></pre>
+/**
+ *  It is an instance of FactorSerializer class.
+ */
+export const factorSerializer &#x3D; new FactorSerializer();
+</code></pre>
     </div>
 </div>
 

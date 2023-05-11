@@ -62,6 +62,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>This is a service class that is used to manage translations in the application.
+ It provides methods to translate keys and get the current language.</p>
+
+            </p>
 
 
 
@@ -140,12 +148,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/_services/translation-manager.service.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/_services/translation-manager.service.ts:17</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>it initializes the translateService object, which is an instance of TranslateService class</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -205,14 +215,21 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">src/app/_services/translation-manager.service.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="55"
+                            class="link-to-prism">src/app/_services/translation-manager.service.ts:55</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>The getObjectProperty() method is a helper method used to search for a specific property
+in a JavaScript object. It takes two arguments, an object and a search key. It iterates
+through the object using the Object.entries() method which returns an array of key-value
+pairs. It then checks if the current key matches the search key, if it does it returns the
+value of that property, if not it continues iterating until it finds the key or until it
+has checked all the properties. If it doesn&#39;t find the key it returns the search key.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -260,7 +277,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>value if the key matches, if not it returns the searchkey</p>
+
                     </div>
                 </td>
             </tr>
@@ -286,14 +304,18 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">src/app/_services/translation-manager.service.ts:17</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">src/app/_services/translation-manager.service.ts:32</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>The getTranslation method takes in a translations object and a key. The method
+then uses the key to traverse the translations object and returns the translated string
+for the key.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -304,6 +326,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -318,6 +341,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Object that contains all translations</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>key</td>
@@ -330,6 +357,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>for specific translacion fro example en, de</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -367,14 +398,18 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="56"
-                            class="link-to-prism">src/app/_services/translation-manager.service.ts:56</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="94"
+                            class="link-to-prism">src/app/_services/translation-manager.service.ts:94</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>The load() method is used to load the current language on application startup. It will check
+the local storage for a previously set language, if not found it will check the browser
+language, if not found it will use the default language.</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -415,10 +450,17 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/_services/translation-manager.service.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/_services/translation-manager.service.ts:17</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>private property &quot;_lang&quot;  stores the current language. If it&#39;s not set,
+it will try to get the browser language or use the default language from the TranslateService.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -444,9 +486,23 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/_services/translation-manager.service.ts:39</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/app/_services/translation-manager.service.ts:68</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>The lang property getter, returns the current language or the browser language or
+the default language</p>
+</div>
+
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -455,11 +511,16 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/_services/translation-manager.service.ts:50</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">src/app/_services/translation-manager.service.ts:84</a></div>
                                 </td>
                             </tr>
                     <tr>
                         <td class="col-md-4">
+                                <div class="io-description"><p>The setter method lang sets the current language to use in the application. It sets the
+private variable _lang to the passed in language, sets the language to be used in the
+TranslateService and also stores the language in the local storage of the browser so it can
+be retrieved later.</p>
+</div>
 
                                 <div class="io-description">
                                         <b>Parameters :</b>
@@ -504,23 +565,38 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import { TranslateService } from &#x27;@ngx-translate/core&#x27;;
-
+/** supported language translations */
 const availableLangs &#x3D; [ &quot;de&quot;, &quot;en&quot;, &quot;it&quot;, &quot;ru&quot; ];
 
+/** This is a service class that is used to manage translations in the application.
+ *  It provides methods to translate keys and get the current language.
+ */
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
 export class TranslationManagerService{
-
+  /**
+   * private property &quot;_lang&quot;  stores the current language. If it&#x27;s not set,
+   * it will try to get the browser language or use the default language from the TranslateService.
+   */
 	private _lang: string | undefined &#x3D; undefined;
-
+  /**
+   * it initializes the translateService object, which is an instance of TranslateService class
+   * @param translateService
+   */
 	constructor(
 		private translateService: TranslateService
 	) {}
-
+    /**
+     * The getTranslation method takes in a translations object and a key. The method
+     * then uses the key to traverse the translations object and returns the translated string
+     * for the key.
+     * @param translations Object that contains all translations
+     * @param key for specific translacion fro example en, de
+     */
 	getTranslation(translations: Object, key: string): string{
 		let aKey &#x3D; key.split(&quot;.&quot;);
-		
+
 		let usedKey &#x3D; aKey[0];
 		if(aKey.length &#x3D;&#x3D; 1){
 			return this.getObjectProperty(translations, usedKey);
@@ -530,7 +606,17 @@ export class TranslationManagerService{
 		if(!newKey) throw new Error(&quot;Array for new key is empty&quot;);
 		return this.getTranslation(this.getObjectProperty(translations, usedKey), newKey);
 	}
-
+  /**
+   * The getObjectProperty() method is a helper method used to search for a specific property
+   * in a JavaScript object. It takes two arguments, an object and a search key. It iterates
+   * through the object using the Object.entries() method which returns an array of key-value
+   * pairs. It then checks if the current key matches the search key, if it does it returns the
+   * value of that property, if not it continues iterating until it finds the key or until it
+   * has checked all the properties. If it doesn&#x27;t find the key it returns the search key.
+   * @param object
+   * @param searchKey
+   * @returns value if the key matches, if not it returns the searchkey
+   */
 	private getObjectProperty(object: Object, searchKey: string): any{
 		for (const [key, value] of Object.entries(object)) {
 			if(key &#x3D;&#x3D;&#x3D; searchKey){
@@ -539,7 +625,11 @@ export class TranslationManagerService{
 		}
 		return searchKey;
 	}
-
+  /**
+   * The lang property getter, returns the current language or the browser language or
+   * the default language
+   * @returns the current language or the browser language or the default language
+   */
 	get lang(): string{
 		if(this._lang &#x3D;&#x3D; null){
 			let browserLang &#x3D; this.translateService.getBrowserLang();
@@ -550,13 +640,22 @@ export class TranslationManagerService{
 		}
 		return this._lang;
 	}
-
+  /**
+   * The setter method lang sets the current language to use in the application. It sets the
+   * private variable _lang to the passed in language, sets the language to be used in the
+   * TranslateService and also stores the language in the local storage of the browser so it can
+   * be retrieved later.
+   */
 	set lang(lang: string){
 		this._lang &#x3D; lang;
 		this.translateService.use(lang);
 		localStorage.setItem(&quot;lang&quot;, lang);
 	}
-
+  /**
+   * The load() method is used to load the current language on application startup. It will check
+   * the local storage for a previously set language, if not found it will check the browser
+   * language, if not found it will use the default language.
+   */
 	load(){
 		this.translateService.addLangs(availableLangs);
 		const lang &#x3D; localStorage.getItem(&quot;lang&quot;);

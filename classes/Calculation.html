@@ -66,6 +66,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Defines the summed up calculated value. It&#39;s displayed as a list item once created on the front page</p>
+
+            </p>
 
 
 
@@ -85,6 +92,10 @@
                             <li>
                                     <span class="modifier">Private</span>
                                 <a href="#_id" >_id</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#factor_preset" >factor_preset</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -158,17 +169,19 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>constructor(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, factor_preset: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/emissionmodule/calculation.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/emissionmodule/calculation.ts:16</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Constructs this module</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -177,6 +190,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -191,6 +205,26 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>name of the CalculationObject</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>factor_preset</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>country of the CalculationObject</p>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -231,10 +265,48 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/emissionmodule/calculation.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/emissionmodule/calculation.ts:12</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>ID of the Calculation</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="factor_preset"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>factor_preset</b></span>
+                        <a href="#factor_preset"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/emissionmodule/calculation.ts:23</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description">country of the CalculationObject</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -263,10 +335,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/emissionmodule/calculation.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/emissionmodule/calculation.ts:16</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>it is an instance of FactorManager class that is used to store and manage factors</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -295,10 +373,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/emissionmodule/calculation.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/emissionmodule/calculation.ts:14</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>an array of EmissionModule objects that are used to store all the emission modules</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -322,10 +406,15 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/emissionmodule/calculation.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/emissionmodule/calculation.ts:23</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description">name of the CalculationObject</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -356,14 +445,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">src/app/emissionmodule/calculation.ts:17</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">src/app/emissionmodule/calculation.ts:28</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p> Sums together all individual calculated emissions into one</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
@@ -393,14 +484,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="39"
-                            class="link-to-prism">src/app/emissionmodule/calculation.ts:39</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">src/app/emissionmodule/calculation.ts:58</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Can retrieve a module by its id</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -411,6 +504,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -425,6 +519,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>ModuleID</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -436,7 +534,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>module</p>
+
                     </div>
                 </td>
             </tr>
@@ -464,14 +563,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="51"
-                            class="link-to-prism">src/app/emissionmodule/calculation.ts:51</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="78"
+                            class="link-to-prism">src/app/emissionmodule/calculation.ts:78</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>The load function is used to load data from an object and create a new instance
+of the Calculation class</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -482,6 +584,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -496,6 +599,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>is an object containing the data for the calculation</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -507,7 +614,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>the newly created calculation object</p>
+
                     </div>
                 </td>
             </tr>
@@ -533,14 +641,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="44"
-                            class="link-to-prism">src/app/emissionmodule/calculation.ts:44</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">src/app/emissionmodule/calculation.ts:66</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Removes a specific module</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -602,18 +712,25 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">src/app/emissionmodule/calculation.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">src/app/emissionmodule/calculation.ts:40</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Saves the whole Item even after leaving the website</p>
+</div>
 
+                    <div>
+                    </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -645,9 +762,20 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">src/app/emissionmodule/calculation.ts:75</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="106" class="link-to-prism">src/app/emissionmodule/calculation.ts:106</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Returns the ID of this Calculation</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -662,16 +790,27 @@ import EmissionsManager from &quot;./emissions_manager&quot;;
 import { FactorManager } from &quot;./factor-manager&quot;;
 import { FactorProvider, PRESET_FACTORS_LIST } from &quot;./factor_provider&quot;;
 
-// Defines the summed up calculated value. Is displayed as a list item once created on the front page
+/**
+ * Defines the summed up calculated value. It&#x27;s displayed as a list item once created on the front page
+*/
 export class Calculation{
+  /** ID of the Calculation */
     private _id: string &#x3D; &quot;&quot;;
+    /** an array of EmissionModule objects that are used to store all the emission modules */
     public modules: EmissionModule[] &#x3D; [];
+    /** it is an instance of FactorManager class that is used to store and manage factors */
     public factorManager: FactorManager &#x3D; new FactorManager();
 
-    // Constructs this module
-    constructor(public name: string){ this._id &#x3D; generateId(); }
+    /**
+     * Constructs this module
+     * @param name name of the CalculationObject
+     * @param factor_preset country of the CalculationObject
+     */
+    constructor(public name: string, public factor_preset:string){ this._id &#x3D; generateId(); }
 
-    // Sums together all individual calculated emissions into one
+    /**
+     *  Sums together all individual calculated emissions into one
+    */
     calculate(): number{
         let sum: number &#x3D; 0;
         for(let module of this.modules){
@@ -680,7 +819,10 @@ export class Calculation{
         return sum;
     }
 
-    // Saves the whole Item even after leaving the website
+    /**
+     * Saves the whole Item even after leaving the website
+     * @returns
+     */
     save(): any{
         let modules_obj &#x3D; [];
         for(let module of this.modules){
@@ -690,28 +832,42 @@ export class Calculation{
             modules_obj.push(obj);
         }
         let factors_obj &#x3D; this.factorManager.save();
-        return { id: this.id, name: this.name, modules: modules_obj, factors: factors_obj }
+        return { id: this.id, name: this.name, factor_preset:this.factor_preset, modules: modules_obj, factors: factors_obj }
     }
 
-    // Can retrieve a module by its id
-	getModule(id: string): EmissionModule | undefined{
-		return this.modules.find(module &#x3D;&gt; module.id &#x3D;&#x3D; id);
-	}
 
-    // Removes a specific module
+    /**
+     * Can retrieve a module by its id
+     * @param id ModuleID
+     * @returns module
+     */
+    getModule(id: string): EmissionModule | undefined{
+      return this.modules.find(module &#x3D;&gt; module.id &#x3D;&#x3D; id);
+    }
+
+    /**
+     * Removes a specific module
+     * @param module
+     */
     removeModule(module: EmissionModule){
         const index &#x3D; this.modules.indexOf(module);
         if(index &#x3D;&#x3D;&#x3D; -1) return;
         this.modules.splice(index, 1);
     }
 
-    // Loads all data from an calculation (?)
+    /**
+     * The load function is used to load data from an object and create a new instance
+     * of the Calculation class
+     * @param data  is an object containing the data for the calculation
+     * @returns  the newly created calculation object
+     */
     public static load(data: any): Calculation{
-        let ret: Calculation &#x3D; new Calculation(&quot;&quot;);
+        let ret: Calculation &#x3D; new Calculation(&quot;&quot;,&quot;&quot;);
 
         if(data &#x3D;&#x3D;&#x3D; undefined) throw new Error(&quot;Data is undefined&quot;);
         ret._id &#x3D; data.id !&#x3D; null ? data.id : generateId();
         if(data.name) ret.name &#x3D; data.name;
+        if(data.factor_preset){ ret.factor_preset &#x3D; data.factor_preset}
         if(data.modules){
             if(data.modules instanceof Array){
                 data.modules.forEach((moduleData: any) &#x3D;&gt; {
@@ -729,7 +885,10 @@ export class Calculation{
         return ret;
     }
 
-    // Returns the ID of this Calculation
+
+    /**
+     * Returns the ID of this Calculation
+     */
     get id(): string{
         return this._id;
     }

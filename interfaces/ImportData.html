@@ -69,6 +69,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>This is an interface that defines the structure of the data that will be imported.
+It specifies that there is an array of EmissionModule called modules.</p>
+
+            </p>
 
 
         <section>
@@ -131,6 +139,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>array of EmissionModule</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -141,11 +155,17 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
 import { Calculation } from &#x27;src/app/emissionmodule/calculation&#x27;;
 import { EmissionModule } from &#x27;src/app/emissionmodule/emission-module&#x27;;
-
+/**
+ * This is an interface that defines the structure of the data that will be imported.
+ * It specifies that there is an array of EmissionModule called modules.
+ */
 export interface ImportData{
+  /** array of EmissionModule  */
 	modules: EmissionModule[]
 }
-
+/**
+ * This is a component class for an import file dialog in an Angular application
+ */
 @Component({
   selector: &#x27;app-import-file-dialog&#x27;,
   templateUrl: &#x27;./import-file-dialog.component.html&#x27;,
@@ -153,31 +173,50 @@ export interface ImportData{
 })
 export class ImportFileDialogComponent {
 
+  /**
+   * This is a private property of the component that holds the data that is imported from
+   * the file. It is initialized as undefined.
+   */
   private _importData: ImportData | undefined &#x3D; undefined;
-
+  /**
+   * This method reads the contents of the passed file using the FileReader API and converts it
+   * to a binary string. Once the file is read and loaded, it calls the
+   * loadStringToData(dataString: string) method and passes the binary string as an argument.
+   * @param file
+   */
   handleFileUpload(file: File){
-	let reader &#x3D; new FileReader();
-	reader.readAsBinaryString(file);
-	reader.onloadend &#x3D; () &#x3D;&gt; {
-		if(reader.result &#x3D;&#x3D; null) return;
-		if(typeof reader.result &#x3D;&#x3D; &quot;string&quot;) this.loadStringToData(reader.result);
-	}
+    let reader &#x3D; new FileReader();
+    reader.readAsBinaryString(file);
+    reader.onloadend &#x3D; () &#x3D;&gt; {
+      if(reader.result &#x3D;&#x3D; null) return;
+      if(typeof reader.result &#x3D;&#x3D; &quot;string&quot;) this.loadStringToData(reader.result);
+    }
   }
-
+  /**
+   * This method takes in a binary string as an argument and converts it to a JSON object using
+   * the JSON.parse() method. It then assigns the modules property of the JSON object to a new
+   * property _importData of the component.
+   * @param dataString
+   */
   loadStringToData(dataString: string){
-	const data &#x3D; Calculation.load(JSON.parse(dataString)) as any;
+    const data &#x3D; Calculation.load(JSON.parse(dataString)) as any;
 
-	// We don&#x27;t want these properties
-	delete data._id;
-	delete data.name;
+    // We don&#x27;t want these properties
+    delete data._id;
+    delete data.name;
 
-	this._importData &#x3D; { modules: data.modules };
+    this._importData &#x3D; { modules: data.modules };
   }
-
+  /**
+   * This getter method returns the _importData property.
+   */
   get importData(): ImportData | undefined{
   	return this._importData;
   }
-
+  /**
+   *  This getter method returns the modules property of the _importData object.
+   *  If _importData is null, an empty array is returned.
+   */
   get loadedModules(): EmissionModule[]{
 	if(this._importData &#x3D;&#x3D; null) return [];
 	return this._importData.modules;

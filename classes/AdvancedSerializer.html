@@ -66,6 +66,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>The AdvancedSerializer class is an implementation of the Serializer interface, which is
+used to save and load instances of the AdvancedEmissionModule class.</p>
+
+            </p>
 
 
             <p class="comment">
@@ -134,14 +142,19 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">src/app/emissionmodule/serializer/advanced-serializer.ts:19</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">src/app/emissionmodule/serializer/advanced-serializer.ts:37</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>This method takes a plain JavaScript object as an input and converts it back into an
+instance of the AdvancedEmissionModule class. The method creates a new instance of
+the AdvancedEmissionModule class, and then loops through the data property of the
+input object and creates an array of AdvancedSubModule objects.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -203,14 +216,18 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="6"
-                            class="link-to-prism">src/app/emissionmodule/serializer/advanced-serializer.ts:6</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="16"
+                            class="link-to-prism">src/app/emissionmodule/serializer/advanced-serializer.ts:16</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>This method takes an instance of the EmissionModule class as an input, and converts it
+into a JavaScript object. The method loops through the list of submodules in the advanced
+module and converts it into an array of arrays containing the id and number of each submodule.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -246,7 +263,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>JavaScript object</p>
+
                     </div>
                 </td>
             </tr>
@@ -265,11 +283,21 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EmissionModule } from &quot;../emission-module&quot;;
 import { Serializer } from &quot;../emissions_manager&quot;;
 import { AdvancedEmissionModule, AdvancedSubModule } from &quot;../modules/advanced-module&quot;;
-
+/**
+ * The AdvancedSerializer class is an implementation of the Serializer interface, which is
+ * used to save and load instances of the AdvancedEmissionModule class.
+ */
 export class AdvancedSerializer implements Serializer {
+   /**
+   * This method takes an instance of the EmissionModule class as an input, and converts it
+   * into a JavaScript object. The method loops through the list of submodules in the advanced
+   * module and converts it into an array of arrays containing the id and number of each submodule.
+   * @param module
+   * @returns JavaScript object
+   */
     save(module: EmissionModule) {
         const amodule &#x3D; module as AdvancedEmissionModule;
-        
+
         let list: any[] &#x3D; [];
         amodule.list.forEach(subModule &#x3D;&gt; {
             list.push([ subModule.id, subModule.number ]);
@@ -280,6 +308,14 @@ export class AdvancedSerializer implements Serializer {
         };
         return data;
     }
+    /**
+     * This method takes a plain JavaScript object as an input and converts it back into an
+     * instance of the AdvancedEmissionModule class. The method creates a new instance of
+     * the AdvancedEmissionModule class, and then loops through the data property of the
+     * input object and creates an array of AdvancedSubModule objects.
+     * @param data
+     * @returns
+     */
     load(data: any): EmissionModule {
         const module &#x3D; new AdvancedEmissionModule(data.type);
 
@@ -290,13 +326,14 @@ export class AdvancedSerializer implements Serializer {
                 list.push({ id: subModule[0], number: subModule[1] });
             })
         }
-        
+
         module.list &#x3D; list;
         return module;
     }
 }
-
-export const advancedSerializer &#x3D; new AdvancedSerializer();</code></pre>
+/** Instance of the AdvancedSerializer class. */
+export const advancedSerializer &#x3D; new AdvancedSerializer();
+</code></pre>
     </div>
 </div>
 

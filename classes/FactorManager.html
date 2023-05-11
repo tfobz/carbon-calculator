@@ -66,6 +66,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>The FactorManager class is a utility class that allows for the registration and retrieval of
+factors for certain emissions types</p>
+
+            </p>
 
 
 
@@ -168,10 +176,17 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="2" class="link-to-prism">src/app/emissionmodule/factor-manager.ts:2</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/emissionmodule/factor-manager.ts:10</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>is used to store the factors. Each factor is a key-value pair, where the key is a string
+and the value is a number. The Map object is a simple key-value map where keys are unique</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -202,14 +217,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="8"
-                            class="link-to-prism">src/app/emissionmodule/factor-manager.ts:8</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">src/app/emissionmodule/factor-manager.ts:25</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Retrieves the factor for a specific type</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -220,6 +237,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -234,6 +252,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>key</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -245,7 +267,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>specific factor</p>
+
                     </div>
                 </td>
             </tr>
@@ -273,14 +296,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">src/app/emissionmodule/factor-manager.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">src/app/emissionmodule/factor-manager.ts:53</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>converts the array back into a map, and creates a new instance of the FactorManager class.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -291,6 +316,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -305,6 +331,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>factors</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -316,7 +346,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>new instance of FactorManager</p>
+
                     </div>
                 </td>
             </tr>
@@ -342,14 +373,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="4"
-                            class="link-to-prism">src/app/emissionmodule/factor-manager.ts:4</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="17"
+                            class="link-to-prism">src/app/emissionmodule/factor-manager.ts:17</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Allows for the addition of a new factor to the manager</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -360,6 +393,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -374,6 +408,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>key</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>factor</td>
@@ -386,6 +424,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>value</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -423,17 +465,26 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">src/app/emissionmodule/factor-manager.ts:18</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">src/app/emissionmodule/factor-manager.ts:41</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>converts the map of factors into an array of arrays, where each inner array
+contains the type and factor</p>
+</div>
 
+                    <div>
+                    </div>
                     <div class="io-description">
                         <b>Returns : </b>    <code>any[]</code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>array of Factors</p>
 
                     </div>
                 </td>
@@ -466,9 +517,20 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/emissionmodule/factor-manager.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/emissionmodule/factor-manager.ts:33</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>returns the whole map of Factors</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>Map&lt;string, number&gt;</code>
+
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -478,22 +540,41 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class FactorManager {
+    /**
+    * is used to store the factors. Each factor is a key-value pair, where the key is a string
+    * and the value is a number. The Map object is a simple key-value map where keys are unique
+    */
     private _factors: Map&lt;string, number&gt; &#x3D; new Map();
 
+    /**
+     * Allows for the addition of a new factor to the manager
+     * @param type key
+     * @param factor value
+     */
     register(type: string, factor: number): void{
         this._factors.set(type, factor);
     }
-
+    /**
+     * Retrieves the factor for a specific type
+     * @param type key
+     * @returns specific factor
+     */
     get(type: string): number{
         if(!this._factors.has(type)) return 0;
         const factor &#x3D; this._factors.get(type);
         return factor ? factor : 0;
     }
-
+    /**
+     * returns the whole map of Factors
+     */
     get factors(): Map&lt;string, number&gt;{
         return this._factors;
     }
-
+    /**
+     * converts the map of factors into an array of arrays, where each inner array
+     * contains the type and factor
+     * @returns array of Factors
+     */
     save(): any[]{
         let list: any[] &#x3D; [];
         this._factors.forEach((value: number, key: string) &#x3D;&gt; {
@@ -501,7 +582,11 @@
         });
         return list;
     }
-
+    /**
+     * converts the array back into a map, and creates a new instance of the FactorManager class.
+     * @param data factors
+     * @returns new instance of FactorManager
+     */
     static load(data: any): FactorManager{
         const factorManager &#x3D; new FactorManager();
         data.forEach((row: any) &#x3D;&gt; {
@@ -509,7 +594,8 @@
         })
         return factorManager;
     }
-}</code></pre>
+}
+</code></pre>
     </div>
 </div>
 

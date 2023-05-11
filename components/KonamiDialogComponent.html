@@ -65,6 +65,14 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Unknown</p>
+<p> Maybe a secret class? It is unclear what this should be</p>
+
+    </p>
 
 
 
@@ -124,7 +132,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="134" class="link-to-prism">src/app/calculation-diagram/calculation-diagram.component.ts:134</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="143" class="link-to-prism">src/app/calculation-diagram/calculation-diagram.component.ts:143</a></div>
                             </td>
                         </tr>
 
@@ -151,21 +159,23 @@ import { Calculation } from &#x27;../emissionmodule/calculation&#x27;;
 import { CalculationService } from &#x27;../_services/calculation.service&#x27;;
 import { TranslationManagerService } from &#x27;../_services/translation-manager.service&#x27;;
 import { DiagramData, MenuService } from &#x27;../shared&#x27;;
-
+/**
+* This class is the base class for each diagramm. It is actually the base site, where then every diagramm
+* is located on. To view this site you first need to select an entry and then in the top right corner
+* you will find the option &quot;Diagrams&quot; where you can look at this.
+*/
 @Component({
   selector: &#x27;app-calculation-diagram&#x27;,
   templateUrl: &#x27;./calculation-diagram.component.html&#x27;,
   styleUrls: [&#x27;./calculation-diagram.component.scss&#x27;]
 })
 
-/**
- * This class is the base class for each diagramm. It is actually the base site, where then every diagramm
- * is located on. To view this site you first need to select an entry and then in the top right corner
- * you will find the option &quot;Diagrams&quot; where you can look at this.
- */
 export class CalculationDiagramComponent implements OnInit {
-
+  /**
+   * This is a private variable that holds the Calculation object for the current route.
+   */
 	private calculation: Calculation | undefined;
+  /** This variable is an array of DiagramData objects. Each object contains the name and value of a calculation. */
 	data: DiagramData[] &#x3D; [];
 
 	constructor(
@@ -179,7 +189,11 @@ export class CalculationDiagramComponent implements OnInit {
 	}
 
 	/**
-	 * Defines what happens when this page is opened, or more precisely when this component is started/initialized
+	 * In this method, the component subscribes to the params property of the ActivatedRoute object,
+   * which is used to extract the id parameter from the current route. It uses this id to fetch
+   * the corresponding Calculation object from the CalculationService and sets it to the calculation
+   * variable. It also changes the menu entry when someone clicks on &quot;compare&quot; in the menu and
+   * loads the chart.
 	 * @returns void
 	 */
 	ngOnInit() {
@@ -217,7 +231,7 @@ export class CalculationDiagramComponent implements OnInit {
 		});
 	}
 	/**
-	 * Opens the diagramm when clicking on it to display it in bigger size
+	 * This method is used to open the dialog when clicking on it to display it in bigger size.
 	 * @param {DialogDataType} type Defines which diagram to open
 	 */
 	openDialog(type: DialogDataType) {
@@ -225,15 +239,17 @@ export class CalculationDiagramComponent implements OnInit {
 	}
 
 	/**
-	 * Unknown
-	 * 
-	 * Maybe a secret function? It is unclear what this should be
+   * Unknown
+   * Maybe a secret class? It is unclear what this should be
 	 */
 	openKonami() {
 		this.dialog.open(KonamiDialogComponent, { width: &quot;95%&quot; });
 	}
 }
-
+/**
+ * his is a type alias for a string. It is used to define the type of the dialog that
+ * should be opened.
+ */
 type DialogDataType &#x3D; &#x27;bar&#x27;|&#x27;pie&#x27;;
 
 interface DialogData{
@@ -241,6 +257,10 @@ interface DialogData{
 	data: DiagramData[]
 }
 
+/**
+ * Defines the class which holds the bigger window for when you click on a diagram
+ * It should just show a modal with diagram in a bigger size
+ */
 @Component({
 	selector: &#x27;app-diagram-dialog&#x27;,
 	template: &#x60;
@@ -252,17 +272,19 @@ interface DialogData{
 	styleUrls: []
   })
 
-/**
- * Defines the class which holds the bigger window for when you click on a diagram
- * It should just show a modal with diagram in a bigger size
- */
+
 export class DiagramDialogComponent{
 	constructor(
 		public dialogRef: MatDialogRef&lt;DiagramDialogComponent&gt;,
 		@Inject(MAT_DIALOG_DATA) public data: DialogData
 	){}
 }
-  
+
+/**
+ * Unknown
+ *
+ *  Maybe a secret class? It is unclear what this should be
+ */
 @Component({
 	selector: &#x27;app-konami-dialog&#x27;,
 	template: &#x60;&lt;img src&#x3D;&quot;assets/oxygen-carbon.gif&quot;/&gt;&#x60;,
@@ -270,15 +292,10 @@ export class DiagramDialogComponent{
 	styleUrls: []
   })
 
-/**
- * Unknown
- * 
- *  Maybe a secret class? It is unclear what this should be
- */
 export class KonamiDialogComponent{
 	constructor(){}
 }
-  
+
 </code></pre>
     </div>
 
@@ -314,7 +331,7 @@ export class KonamiDialogComponent{
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><img src="assets/oxygen-carbon.gif"/></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BarDiagramBothComponent', 'selector': 'app-bar-diagram-both'},{'name': 'BarDiagramCompareComponent', 'selector': 'app-bar-diagram-compare'},{'name': 'BarDiagramComponent', 'selector': 'app-bar-diagram'},{'name': 'CalculationDiagramCompareComponent', 'selector': 'app-calculation-diagram-compare'},{'name': 'CalculationDiagramComponent', 'selector': 'app-calculation-diagram'},{'name': 'CalculationListComponent', 'selector': 'app-calculation-list'},{'name': 'CalculationSelectCompareComponent', 'selector': 'app-calculation-select-compare'},{'name': 'CreateCalculationComponent', 'selector': 'app-create-calculation'},{'name': 'CreateModuleComponent', 'selector': 'app-create-module'},{'name': 'CreateTypeComponent', 'selector': 'app-create-type'},{'name': 'DiagramCompareDialogComponent', 'selector': 'app-diagram-dialog'},{'name': 'DiagramDialogComponent', 'selector': 'app-diagram-dialog'},{'name': 'EmissionItemComponent', 'selector': 'app-emission-item'},{'name': 'EmissionListComponent', 'selector': 'app-emission-list'},{'name': 'FactorEmissionModuleComponent', 'selector': 'app-factor-emission-module'},{'name': 'FileUploadComponent', 'selector': 'app-file-upload'},{'name': 'ImportFileDialogComponent', 'selector': 'app-import-file-dialog'},{'name': 'KonamiDialogComponent', 'selector': 'app-konami-dialog'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'PieDiagramComponent', 'selector': 'app-pie-diagram'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SpecificCalculationListComponent', 'selector': 'app-specific-calculation-list'},{'name': 'TreeDiagramComponent', 'selector': 'app-tree-diagram'},{'name': 'TypeEmissionModuleComponent', 'selector': 'app-type-emission-module'},{'name': 'TypeInputComponent', 'selector': 'app-type-input'}];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BarDiagramBothComponent', 'selector': 'app-bar-diagram-both'},{'name': 'BarDiagramCompareComponent', 'selector': 'app-bar-diagram-compare'},{'name': 'BarDiagramComponent', 'selector': 'app-bar-diagram'},{'name': 'CalculationCardComponent', 'selector': 'app-calculation-card'},{'name': 'CalculationDiagramCompareComponent', 'selector': 'app-calculation-diagram-compare'},{'name': 'CalculationDiagramComponent', 'selector': 'app-calculation-diagram'},{'name': 'CalculationListComponent', 'selector': 'app-calculation-list'},{'name': 'CalculationSelectCompareComponent', 'selector': 'app-calculation-select-compare'},{'name': 'CreateCalculationComponent', 'selector': 'app-create-calculation'},{'name': 'CreateModuleComponent', 'selector': 'app-create-module'},{'name': 'CreateTypeComponent', 'selector': 'app-create-type'},{'name': 'DiagramCompareDialogComponent', 'selector': 'app-diagram-dialog'},{'name': 'DiagramDialogComponent', 'selector': 'app-diagram-dialog'},{'name': 'EmissionItemComponent', 'selector': 'app-emission-item'},{'name': 'EmissionListComponent', 'selector': 'app-emission-list'},{'name': 'FactorEmissionModuleComponent', 'selector': 'app-factor-emission-module'},{'name': 'FileUploadComponent', 'selector': 'app-file-upload'},{'name': 'ImportFileDialogComponent', 'selector': 'app-import-file-dialog'},{'name': 'KonamiDialogComponent', 'selector': 'app-konami-dialog'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'PieDiagramComponent', 'selector': 'app-pie-diagram'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SpecificCalculationListComponent', 'selector': 'app-specific-calculation-list'},{'name': 'TreeDiagramComponent', 'selector': 'app-tree-diagram'},{'name': 'TypeEmissionModuleComponent', 'selector': 'app-type-emission-module'},{'name': 'TypeInputComponent', 'selector': 'app-type-input'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'KonamiDialogComponent'};
 </script>

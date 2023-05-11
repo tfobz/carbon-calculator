@@ -69,6 +69,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>This interface is used to represent a language.</p>
+
+            </p>
 
 
         <section>
@@ -137,6 +144,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>The code of the language.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -170,6 +183,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>The name of the language.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -182,29 +201,47 @@ import { Router } from &#x27;@angular/router&#x27;;
 import { TranslateService } from &#x27;@ngx-translate/core&#x27;;
 import { NavigationService } from &#x27;../shared/navigation.service&#x27;;
 import { TranslationManagerService } from &#x27;../_services/translation-manager.service&#x27;;
-
+/**
+ * This interface is used to represent a language.
+ */
 interface Language{
+  /** The name of the language. */
   name: string,
+  /** The code of the language. */
   code: string
 }
-
+/**
+ * This component is used in the Settings page of the application.
+ * It is responsible for displaying the available languages, allowing the user
+ * to select a language and saving the selected language.
+ */
 @Component({
   selector: &#x27;app-settings&#x27;,
   templateUrl: &#x27;./settings.component.html&#x27;,
   styleUrls: [&#x27;./settings.component.scss&#x27;]
 })
 export class SettingsComponent implements OnInit {
-  
+  /** A variable of type Language that stores the currently selected language. It is initialized as undefined. */
   public selectedLanguage: Language | undefined &#x3D; undefined;
+  /** A private variable of type Language[] that stores the available languages. */
   private _languages: Language[] &#x3D; [];
-
+  /**
+   * The constructor assigns these services to private variables with the same name,
+   * @param _ns A service that manages the navigation of the application.
+   * @param _router A service that manages the routing of the application.
+   * @param _translateService A service that provides internationalization (i18n) support.
+   * @param _translationManagerService A service that manages the translation of the application.
+   */
   constructor(
     private _ns: NavigationService,
     private _router: Router,
     private _translateService: TranslateService,
     private _translationManagerService: TranslationManagerService
   ) {}
-
+  /**
+   * A method that is called when the component is initialized. It sets the translation for the title of the page,
+   * retrieves the available languages, sets the default language and sets the selected language.
+   */
   ngOnInit(): void {
     this._translateService.get(&quot;settings&quot;).subscribe(translation &#x3D;&gt; {
       this._ns.changeMessage(translation);
@@ -222,13 +259,18 @@ export class SettingsComponent implements OnInit {
     });
 
   }
-
+  /**
+   *  A method that saves the selected language and navigates to the emission page. It checks if a language is selected before saving.
+   * @returns void
+   */
   save(){
     if(this.selectedLanguage &#x3D;&#x3D; null) return;
     this._translationManagerService.lang &#x3D; this.selectedLanguage.code;
     this._router.navigate([&quot;emission&quot;]);
   }
-
+  /**
+   * A getter method that returns the available languages.
+   */
   get languages(): Language[] {
     return this._languages;
   }

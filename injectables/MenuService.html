@@ -62,6 +62,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>This is an Angular service that is used to manage the menu of the application</p>
+
+            </p>
 
 
 
@@ -145,12 +152,16 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/shared/menu.service.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/shared/menu.service.ts:24</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>The constructor of the class injects the Router service and subscribes to the router events
+in order to listen for NavigationStart events, when NavigationStart event is fired the method
+changeMenu is called with an empty array as the parameter.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -208,14 +219,20 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="42"
-                            class="link-to-prism">src/app/shared/menu.service.ts:42</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="78"
+                            class="link-to-prism">src/app/shared/menu.service.ts:78</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>The method takes in a single parameter &quot;message&quot; which is an array of &quot;MenuPoint&quot; interface.
+Inside the method, the &quot;next&quot; method of the &quot;messageSource&quot; property is called and passed the
+&quot;message&quot; parameter. This updates the value of &quot;messageSource&quot; to the new &quot;message&quot; value and
+emits the new value to any subscribers of the &quot;currentMenu&quot; observable. This allows other parts
+of the application to be notified of changes to the menu and respond accordingly.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -282,10 +299,17 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/shared/menu.service.ts:34</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/shared/menu.service.ts:61</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>&quot;_currentMenu&quot; is a private property that is an observable of the &quot;messageSource&quot; property.
+It can be subscribed to in order to receive updates when the value of &quot;messageSource&quot; changes.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -314,10 +338,17 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/shared/menu.service.ts:28</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/shared/menu.service.ts:43</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>&quot;editDataDetails&quot; is a public property that is initialized as an empty array.
+ It holds data that can be used for editing.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -340,10 +371,17 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/shared/menu.service.ts:32</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/shared/menu.service.ts:55</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>&quot;messageSource&quot; is a private property that is initialized as a new BehaviorSubject.
+ It is passed the value of &quot;editDataDetails&quot; as an initial value.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -366,10 +404,17 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/shared/menu.service.ts:30</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/shared/menu.service.ts:49</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>&quot;subject&quot; is a public property that is initialized as a new Subject object.
+ It is used to emit events.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -395,9 +440,18 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/shared/menu.service.ts:36</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/app/shared/menu.service.ts:67</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>get method that returns the property currentMenu</p>
+</div>
+
+                                <div>
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -409,44 +463,80 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import { NavigationStart, Router } from &#x27;@angular/router&#x27;;
 import { BehaviorSubject, Subject } from &#x27;rxjs&#x27;;
-
+/**
+ * The &quot;MenuPoint&quot; interface defines the structure of the menu items.
+ * Each menu point has an icon, a name and an optional link and onClick function.
+ */
 export interface MenuPoint{
-  //angular material icon name
+  /** &quot;icon&quot; is a string that represents the name of the icon. */
   icon:string;
+  /** &quot;menuPointName&quot; is a string that represents the name of the menu point. */
   menuPointName:string;
+  /** &quot;link&quot; is an optional string that represents the link of the menu point. */
   link?:string;
+  /** &quot;onClick&quot; is an optional function that will be executed when the menu point is clicked. */
   onClick?: () &#x3D;&gt; void ;
 }
-
+/**
+ * This is an Angular service that is used to manage the menu of the application
+ */
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
 export class MenuService {
 
-  constructor(
-    private _router: Router
-  ){
+  /**
+   * The constructor of the class injects the Router service and subscribes to the router events
+   * in order to listen for NavigationStart events, when NavigationStart event is fired the method
+   * changeMenu is called with an empty array as the parameter.
+   * @param _router
+   */
+  constructor(private _router: Router ){
     this._router.events.subscribe(event &#x3D;&gt; {
       if(event instanceof NavigationStart){
         this.changeMenu([]);
       }
     });
   }
-  
+  /**
+   * &quot;editDataDetails&quot; is a public property that is initialized as an empty array.
+   *  It holds data that can be used for editing.
+   */
   public editDataDetails: any &#x3D; [];
 
+  /**
+   * &quot;subject&quot; is a public property that is initialized as a new Subject object.
+   *  It is used to emit events.
+   */
   public subject &#x3D; new Subject&lt;any&gt;();
 
+  /**
+   * &quot;messageSource&quot; is a private property that is initialized as a new BehaviorSubject.
+   *  It is passed the value of &quot;editDataDetails&quot; as an initial value.
+   */
   private messageSource &#x3D; new BehaviorSubject(this.editDataDetails);
 
+  /**
+   * &quot;_currentMenu&quot; is a private property that is an observable of the &quot;messageSource&quot; property.
+   * It can be subscribed to in order to receive updates when the value of &quot;messageSource&quot; changes.
+   */
   private _currentMenu &#x3D; this.messageSource.asObservable();
 
+  /**
+   * get method that returns the property currentMenu
+   * @return currentMenu
+   */
   get currentMenu(){
-
     return this._currentMenu;
-
   }
-
+  /**
+   *The method takes in a single parameter &quot;message&quot; which is an array of &quot;MenuPoint&quot; interface.
+    Inside the method, the &quot;next&quot; method of the &quot;messageSource&quot; property is called and passed the
+   &quot;message&quot; parameter. This updates the value of &quot;messageSource&quot; to the new &quot;message&quot; value and
+    emits the new value to any subscribers of the &quot;currentMenu&quot; observable. This allows other parts
+    of the application to be notified of changes to the menu and respond accordingly.
+   * @param message
+   */
   changeMenu(message: MenuPoint[]) {
    this.messageSource.next(message)
   }

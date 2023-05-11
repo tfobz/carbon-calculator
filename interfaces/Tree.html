@@ -144,6 +144,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>is an object that has two properties, x and y, which represent the x and y coordinates of the tree in a 2D space.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -177,6 +183,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>size of tree</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -190,23 +202,27 @@ import type { DiagramData } from &#x27;../../shared&#x27;;
 /**
  * Defines a simple &quot;tree&quot; which will then be duplicated in the diagramm
  */
-interface Tree {
-	position: { x: number, y: number },
-	size: number
-}
+  interface Tree {
+    /** is an object that has two properties, x and y, which represent the x and y coordinates of the tree in a 2D space. */
+    position: { x: number, y: number },
+    /** size of tree */
+    size: number
+  }
 
+/**
+ * This diagramm showcses how many trees one should plant to equivalent the amount of CO2 produced
+ * The amount is then showcased graphically with trees and a big black number over it
+ */
 @Component({
   selector: &#x27;app-tree-diagram&#x27;,
   templateUrl: &#x27;./tree-diagram.component.html&#x27;,
   styleUrls: [&#x27;./tree-diagram.component.scss&#x27;]
 })
 
-/**
- * This diagramm showcses how many trees one should plant to equivalent the amount of CO2 produced
- * The amount is then showcased graphically with trees and a big black number over it
- */
 export class TreeDiagramComponent implements OnInit {
+  /** array of trees */
 	public trees: Tree[] &#x3D; [];
+  /** Defines how many trees are required */
 	public requiredTrees: number &#x3D; 0;
 
 	/**
@@ -220,7 +236,7 @@ export class TreeDiagramComponent implements OnInit {
 		// Calculates the amount of required trees
 		this.requiredTrees &#x3D; Math.ceil(co2sum / 31.5);
 		const requiredTrees &#x3D; Math.min(Math.max(this.requiredTrees / 100, 0), 500);
-		
+
 		// Adds the trees to the diagramm
 		this.trees &#x3D; [];
 		for(let i &#x3D; 0; i &lt; requiredTrees; i++) {
@@ -235,9 +251,9 @@ export class TreeDiagramComponent implements OnInit {
 			});
 		}
 	}
-
+  /** @ignore */
 	constructor() { }
-
+  /** @ignore */
 	ngOnInit(): void {
 	}
 

@@ -68,6 +68,15 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>The CalculationListComponent is a component that displays a list of calculations and allows
+the user to perform various actions on them, such as viewing diagrams, exporting, importing,
+and deleting calculations</p>
+
+    </p>
 
 
     <p class="comment">
@@ -205,12 +214,16 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/calculation-list/calculation-list.component.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/calculation-list/calculation-list.component.ts:36</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Inside the constructor, several services are being injected
+current route and navigate to new routes.
+manage calculations.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -219,6 +232,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -233,6 +247,11 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>ActivatedRoute is an Angular service that is used to get information about the
+current route and navigate to new routes.</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>navigation</td>
@@ -245,6 +264,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>NavigationService is a custom service that is used to change the text in the header.</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>calculationService</td>
@@ -257,6 +280,11 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>CalculationService is a custom service that is used to
+manage calculations.</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>menuService</td>
@@ -269,6 +297,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>MenuService is a custom service that is used to change the options in the menu.</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>translationManagerService</td>
@@ -281,6 +313,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>TranslationManagerService is a custom service that is used to manage the translations.</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>translateService</td>
@@ -293,6 +329,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>TranslateService is a service provided by the ngx-translate library that is used to translate strings.</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>_dialog</td>
@@ -305,6 +345,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>MatDialog is a service provided by the Angular Material library that is used to open dialogs.</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>_snackbar</td>
@@ -317,6 +361,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>MatSnackbar is a service provided by the Angular Material library that is used to open snackbars.</p>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -356,14 +404,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="117"
-                            class="link-to-prism">src/app/calculation-list/calculation-list.component.ts:117</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="168"
+                            class="link-to-prism">src/app/calculation-list/calculation-list.component.ts:168</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>deletes the current calculation from the list of calculations and from the local storage,
+and redirects the user to the emission route.</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -393,14 +444,23 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="83"
-                            class="link-to-prism">src/app/calculation-list/calculation-list.component.ts:83</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="131"
+                            class="link-to-prism">src/app/calculation-list/calculation-list.component.ts:131</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>It opens a dialog box (ImportFileDialogComponent) with a form to select the file to import.
+When the dialog box is closed, the method subscribes to the afterClosed() event and checks
+if the result is null or an empty string. If it is, the method ends. If it is not, it assigns
+the result to the variable importData of type ImportData. Then, it iterates through the
+modules in the importData and checks if the module is already registered in the current
+calculation. If it is, it skips this module. If not, it pushes the imported module to the
+current calculation&#39;s modules. Then, it saves the calculation and shows a snackbar message
+to the user to indicate that the import was successful</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -430,14 +490,21 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="46"
-                            class="link-to-prism">src/app/calculation-list/calculation-list.component.ts:46</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="81"
+                            class="link-to-prism">src/app/calculation-list/calculation-list.component.ts:81</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>the component subscribes to the route parameters and assigns the calculation to the
+_calculation property, it also update the navigation bar with the name of the calculation.
+It also assigns the currentUrl property to the appropriate URL. It also sets the menu
+options for the component by calling the changeMenu method of the menuService,
+passing an array of menu options, with the menuPointName translated to the current
+language, and the link and onClick properties set as appropriate.</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -467,14 +534,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="69"
-                            class="link-to-prism">src/app/calculation-list/calculation-list.component.ts:69</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="107"
+                            class="link-to-prism">src/app/calculation-list/calculation-list.component.ts:107</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>exports the current calculation to a JSON file, which can be saved to
+the user&#39;s local file system.</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -510,10 +580,17 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/calculation-list/calculation-list.component.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/calculation-list/calculation-list.component.ts:31</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The _calculation variable is a private member variable that is used to store the current
+calculation object, which contains all the data for the calculation.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -537,10 +614,17 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/calculation-list/calculation-list.component.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/calculation-list/calculation-list.component.ts:36</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The currentUrl variable is a public member variable that is used to store the current URL of
+the application, this is used to construct the links for the menu items in the component.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -566,9 +650,20 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/calculation-list/calculation-list.component.ts:37</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/calculation-list/calculation-list.component.ts:63</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>returns an array of the EmissionModule objects that are associated with the current calculation.</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="../interfaces/EmissionModule.html" target="_self" >EmissionModule[]</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -588,9 +683,20 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/calculation-list/calculation-list.component.ts:42</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/app/calculation-list/calculation-list.component.ts:70</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>returns the FactorManager associated with the current calculation.</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="../classes/FactorManager.html" target="_self" >FactorManager</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -608,22 +714,46 @@ import { MenuService } from &#x27;../shared/menu.service&#x27;;
 import { NavigationService } from &#x27;../shared/navigation.service&#x27;;
 import { CalculationService } from &#x27;../_services/calculation.service&#x27;;
 import { TranslationManagerService } from &#x27;../_services/translation-manager.service&#x27;;
-import { MatDialog } from &#x27;@angular/material/dialog&#x27;; 
+import { MatDialog } from &#x27;@angular/material/dialog&#x27;;
 import { saveAs } from &#x27;file-saver&#x27;;
 import { ImportData, ImportFileDialogComponent } from &#x27;./import-file-dialog/import-file-dialog.component&#x27;;
 import { MatSnackBar } from &#x27;@angular/material/snack-bar&#x27;;
 import { FactorManager } from &#x27;../emissionmodule/factor-manager&#x27;;
 
+/**
+ * The CalculationListComponent is a component that displays a list of calculations and allows
+ * the user to perform various actions on them, such as viewing diagrams, exporting, importing,
+ * and deleting calculations
+ */
 @Component({
   selector: &#x27;app-calculation-list&#x27;,
   templateUrl: &#x27;./calculation-list.component.html&#x27;,
   styleUrls: [&#x27;./calculation-list.component.scss&#x27;]
 })
 export class CalculationListComponent implements OnInit{
-  
+  /**
+   * The _calculation variable is a private member variable that is used to store the current
+   * calculation object, which contains all the data for the calculation.
+   */
   private _calculation!: Calculation;
+  /**
+   * The currentUrl variable is a public member variable that is used to store the current URL of
+   * the application, this is used to construct the links for the menu items in the component.
+   */
   public currentUrl!:string;
-
+  /**
+   * Inside the constructor, several services are being injected
+   * @param route ActivatedRoute is an Angular service that is used to get information about the
+   * current route and navigate to new routes.
+   * @param navigation  NavigationService is a custom service that is used to change the text in the header.
+   * @param calculationService CalculationService is a custom service that is used to
+   * manage calculations.
+   * @param menuService MenuService is a custom service that is used to change the options in the menu.
+   * @param translationManagerService TranslationManagerService is a custom service that is used to manage the translations.
+   * @param translateService TranslateService is a service provided by the ngx-translate library that is used to translate strings.
+   * @param _dialog MatDialog is a service provided by the Angular Material library that is used to open dialogs.
+   * @param _snackbar MatSnackbar is a service provided by the Angular Material library that is used to open snackbars.
+   */
   constructor(
     private route:ActivatedRoute,
     private navigation:NavigationService,
@@ -631,19 +761,30 @@ export class CalculationListComponent implements OnInit{
     private menuService:MenuService,
     private translationManagerService: TranslationManagerService,
     private translateService: TranslateService,
-	private _dialog: MatDialog,
-	private _snackbar: MatSnackBar
+	  private _dialog: MatDialog,
+	  private _snackbar: MatSnackBar
     ){}
-
+  /**
+   * returns an array of the EmissionModule objects that are associated with the current calculation.
+   */
   get modules(): EmissionModule[] {
     this.calculationService.save()
     return this._calculation?.modules;
   }
-
+  /**
+   * returns the FactorManager associated with the current calculation.
+   */
   get factorManager(): FactorManager {
 	  return this._calculation.factorManager;
   }
-
+  /**
+   * the component subscribes to the route parameters and assigns the calculation to the
+   * _calculation property, it also update the navigation bar with the name of the calculation.
+   * It also assigns the currentUrl property to the appropriate URL. It also sets the menu
+   * options for the component by calling the changeMenu method of the menuService,
+   * passing an array of menu options, with the menuPointName translated to the current
+   * language, and the link and onClick properties set as appropriate.
+   */
   ngOnInit(): void {
 
     this.route.params.subscribe(params&#x3D;&gt;{
@@ -654,67 +795,83 @@ export class CalculationListComponent implements OnInit{
     });
 
     this.translateService.getTranslation(this.translationManagerService.lang).subscribe(translations &#x3D;&gt; {
-		const translationManager &#x3D; this.translationManagerService;
-		const translate &#x3D; function(name: string){
-			return translationManager.getTranslation(translations, name);
-		}
-		this.menuService.changeMenu([
-			{icon:&quot;bar_chart&quot;, menuPointName: translate(&quot;diagrams&quot;), link:this.currentUrl+&quot;/diagram&quot;},
-			{ icon: &quot;file_download&quot;, menuPointName: translate(&quot;export&quot;), link: undefined, onClick: () &#x3D;&gt; { this.saveCalculation(); } },
-			{ icon: &quot;file_upload&quot;, menuPointName: translate(&quot;import&quot;), link: undefined, onClick: () &#x3D;&gt; { this.loadCalculation(); } },
-			{icon:&quot;delete&quot;, menuPointName: this.translationManagerService.getTranslation(translations, &quot;delete&quot;), link:&quot;/emission/&quot;, onClick: () &#x3D;&gt; this.delete() }
-		]);
-	});
+      const translationManager &#x3D; this.translationManagerService;
+      const translate &#x3D; function(name: string){
+        return translationManager.getTranslation(translations, name);
+      }
+      this.menuService.changeMenu([
+        {icon:&quot;bar_chart&quot;, menuPointName: translate(&quot;diagrams&quot;), link:this.currentUrl+&quot;/diagram&quot;},
+        { icon: &quot;file_download&quot;, menuPointName: translate(&quot;export&quot;), link: undefined, onClick: () &#x3D;&gt; { this.saveCalculation(); } },
+        { icon: &quot;file_upload&quot;, menuPointName: translate(&quot;import&quot;), link: undefined, onClick: () &#x3D;&gt; { this.loadCalculation(); } },
+        {icon:&quot;delete&quot;, menuPointName: this.translationManagerService.getTranslation(translations, &quot;delete&quot;), link:&quot;/emission/&quot;, onClick: () &#x3D;&gt; this.delete() }
+      ]);
+	  });
   }
-
+  /**
+   * exports the current calculation to a JSON file, which can be saved to
+   * the user&#x27;s local file system.
+   */
   saveCalculation(){
-	const saveData &#x3D; this._calculation.save();
+    const saveData &#x3D; this._calculation.save();
 
-	// We don&#x27;t want these properties
-	delete saveData.id;
-	delete saveData.name;
+    // We don&#x27;t want these properties
+    delete saveData.id;
+    delete saveData.name;
 
-	let jsonString &#x3D; JSON.stringify(saveData, null, 2);
+    let jsonString &#x3D; JSON.stringify(saveData, null, 2);
 
-	const blob &#x3D; new Blob([jsonString]);
-	const filename &#x3D; this._calculation.name;
-	saveAs(blob, filename + &quot;.json&quot;);
+    const blob &#x3D; new Blob([jsonString]);
+    const filename &#x3D; this._calculation.name;
+    saveAs(blob, filename + &quot;.json&quot;);
   }
 
+  /**
+   * It opens a dialog box (ImportFileDialogComponent) with a form to select the file to import.
+   * When the dialog box is closed, the method subscribes to the afterClosed() event and checks
+   * if the result is null or an empty string. If it is, the method ends. If it is not, it assigns
+   * the result to the variable importData of type ImportData. Then, it iterates through the
+   * modules in the importData and checks if the module is already registered in the current
+   * calculation. If it is, it skips this module. If not, it pushes the imported module to the
+   * current calculation&#x27;s modules. Then, it saves the calculation and shows a snackbar message
+   * to the user to indicate that the import was successful
+   */
   loadCalculation(){
   	const dialogRef &#x3D; this._dialog.open(ImportFileDialogComponent, {
 		minWidth: &quot;30%&quot;,
-	});
+	  });
 
-	dialogRef.afterClosed().subscribe(result &#x3D;&gt; {
-		if(result &#x3D;&#x3D; null || result &#x3D;&#x3D; &quot;&quot;) return;
-		const importData: ImportData &#x3D; result as ImportData;
+	  dialogRef.afterClosed().subscribe(result &#x3D;&gt; {
+		  if(result &#x3D;&#x3D; null || result &#x3D;&#x3D; &quot;&quot;) return;
+		  const importData: ImportData &#x3D; result as ImportData;
 
-		importData.modules.forEach(module &#x3D;&gt; {
-			// CHECK IF MODULE ALREADY REGISTERED
-			if(this._calculation.getModule(module.id) !&#x3D; null) return;
+      importData.modules.forEach(module &#x3D;&gt; {
+        // CHECK IF MODULE ALREADY REGISTERED
+        if(this._calculation.getModule(module.id) !&#x3D; null) return;
 
-			this._calculation.modules.push(module);
-		});
+        this._calculation.modules.push(module);
+      });
 
-		// SAVE CALCULATION
-		this.calculationService.save();
+      // SAVE CALCULATION
+      this.calculationService.save();
 
 
-		this.translateService.getTranslation(this.translationManagerService.lang).subscribe(translations &#x3D;&gt; {
-			const translationManager &#x3D; this.translationManagerService;
-			const translate &#x3D; function(name: string){
-				return translationManager.getTranslation(translations, name);
-			}
+      this.translateService.getTranslation(this.translationManagerService.lang).subscribe(translations &#x3D;&gt; {
+        const translationManager &#x3D; this.translationManagerService;
+        const translate &#x3D; function(name: string){
+          return translationManager.getTranslation(translations, name);
+        }
 
-			this._snackbar.open(translate(&quot;import_success&quot;), translate(&quot;close&quot;), {
-				duration: 2000,
-				panelClass: [ &#x27;snackbar-custom&#x27; ]
-			});
-		});
-	});
+        this._snackbar.open(translate(&quot;import_success&quot;), translate(&quot;close&quot;), {
+          duration: 2000,
+          panelClass: [ &#x27;snackbar-custom&#x27; ]
+        });
+      });
+	  });
   }
-
+  /**
+   * deletes the current calculation from the list of calculations and from the local storage,
+   * and redirects the user to the emission route.
+   */
   delete(){
     this.calculationService.removeCalculation(this._calculation);
   }
@@ -773,7 +930,7 @@ export class CalculationListComponent implements OnInit{
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="content" fxLayout="column" fxLayoutGap="15px" style="padding: 5px 30px;">    <app-calculation-card *ngFor="let module of modules" [module]="module" [factorManager]="factorManager"></app-calculation-card></div><a     routerLink="{{this.currentUrl}}/create"    id="add_button"    mat-fab color="primary"    aria-label="Add new calculation button">    <mat-icon>add</mat-icon></a></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BarDiagramBothComponent', 'selector': 'app-bar-diagram-both'},{'name': 'BarDiagramCompareComponent', 'selector': 'app-bar-diagram-compare'},{'name': 'BarDiagramComponent', 'selector': 'app-bar-diagram'},{'name': 'CalculationDiagramCompareComponent', 'selector': 'app-calculation-diagram-compare'},{'name': 'CalculationDiagramComponent', 'selector': 'app-calculation-diagram'},{'name': 'CalculationListComponent', 'selector': 'app-calculation-list'},{'name': 'CalculationSelectCompareComponent', 'selector': 'app-calculation-select-compare'},{'name': 'CreateCalculationComponent', 'selector': 'app-create-calculation'},{'name': 'CreateModuleComponent', 'selector': 'app-create-module'},{'name': 'CreateTypeComponent', 'selector': 'app-create-type'},{'name': 'DiagramCompareDialogComponent', 'selector': 'app-diagram-dialog'},{'name': 'DiagramDialogComponent', 'selector': 'app-diagram-dialog'},{'name': 'EmissionItemComponent', 'selector': 'app-emission-item'},{'name': 'EmissionListComponent', 'selector': 'app-emission-list'},{'name': 'FactorEmissionModuleComponent', 'selector': 'app-factor-emission-module'},{'name': 'FileUploadComponent', 'selector': 'app-file-upload'},{'name': 'ImportFileDialogComponent', 'selector': 'app-import-file-dialog'},{'name': 'KonamiDialogComponent', 'selector': 'app-konami-dialog'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'PieDiagramComponent', 'selector': 'app-pie-diagram'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SpecificCalculationListComponent', 'selector': 'app-specific-calculation-list'},{'name': 'TreeDiagramComponent', 'selector': 'app-tree-diagram'},{'name': 'TypeEmissionModuleComponent', 'selector': 'app-type-emission-module'},{'name': 'TypeInputComponent', 'selector': 'app-type-input'}];
+    var COMPONENTS = [{'name': 'BarDiagramBothComponent', 'selector': 'app-bar-diagram-both'},{'name': 'BarDiagramCompareComponent', 'selector': 'app-bar-diagram-compare'},{'name': 'BarDiagramComponent', 'selector': 'app-bar-diagram'},{'name': 'CalculationCardComponent', 'selector': 'app-calculation-card'},{'name': 'CalculationDiagramCompareComponent', 'selector': 'app-calculation-diagram-compare'},{'name': 'CalculationDiagramComponent', 'selector': 'app-calculation-diagram'},{'name': 'CalculationListComponent', 'selector': 'app-calculation-list'},{'name': 'CalculationSelectCompareComponent', 'selector': 'app-calculation-select-compare'},{'name': 'CreateCalculationComponent', 'selector': 'app-create-calculation'},{'name': 'CreateModuleComponent', 'selector': 'app-create-module'},{'name': 'CreateTypeComponent', 'selector': 'app-create-type'},{'name': 'DiagramCompareDialogComponent', 'selector': 'app-diagram-dialog'},{'name': 'DiagramDialogComponent', 'selector': 'app-diagram-dialog'},{'name': 'EmissionItemComponent', 'selector': 'app-emission-item'},{'name': 'EmissionListComponent', 'selector': 'app-emission-list'},{'name': 'FactorEmissionModuleComponent', 'selector': 'app-factor-emission-module'},{'name': 'FileUploadComponent', 'selector': 'app-file-upload'},{'name': 'ImportFileDialogComponent', 'selector': 'app-import-file-dialog'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'PieDiagramComponent', 'selector': 'app-pie-diagram'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SpecificCalculationListComponent', 'selector': 'app-specific-calculation-list'},{'name': 'TreeDiagramComponent', 'selector': 'app-tree-diagram'},{'name': 'TypeEmissionModuleComponent', 'selector': 'app-type-emission-module'},{'name': 'TypeInputComponent', 'selector': 'app-type-input'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'CalculationListComponent'};
 </script>

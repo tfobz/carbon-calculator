@@ -68,6 +68,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>This is an Angular component that is used to create a new emission calculation.</p>
+
+    </p>
 
 
     <p class="comment">
@@ -195,12 +202,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/create-calculation/create-calculation.component.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/create-calculation/create-calculation.component.ts:37</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>The constructor assigns these services to private variables,
+so that they can be used throughout the component.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -209,6 +219,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -223,6 +234,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>The &quot;UntypedFormBuilder&quot; is used to create a form group that will be used to collect user input.</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>_calculationService</td>
@@ -235,6 +250,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>The &quot;CalculationService&quot; is used to manage the list of calculations.</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>_router</td>
@@ -247,6 +266,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>The &quot;Router&quot; is used to navigate to different pages in the application.</p>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -286,14 +309,19 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="38"
-                            class="link-to-prism">src/app/create-calculation/create-calculation.component.ts:38</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">src/app/create-calculation/create-calculation.component.ts:69</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>The create method is called when the user submits the form. It first retrieves data from
+the form, then resets the form, creates a new calculation with the data and a FactorManager,
+adds the calculation to the list of calculation, saves the list of calculations, and navigates
+to the emission page.</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -323,14 +351,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">src/app/create-calculation/create-calculation.component.ts:29</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="55"
+                            class="link-to-prism">src/app/create-calculation/create-calculation.component.ts:55</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p> It creates a form group and sets its initial values and validators. It also sets up any
+ other necessary state or variables that the component needs when it starts.</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -366,10 +397,22 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/create-calculation/create-calculation.component.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/create-calculation/create-calculation.component.ts:37</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>This is a private class property of the &quot;CreateCalculationComponent&quot; class. It&#39;s an
+instance of the &quot;UntypedFormGroup&quot; class. It&#39;s used to hold the instance of the form
+group that is used to create the form fields in the template. The form group is used
+to manage the form fields and validate the form data.
+The &quot;!&quot; after the property name means that this property is non-nullable, it has to be
+assigned a value before it&#39;s used.
+It&#39;s used in the ngOnInit method and the create() method.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -395,9 +438,21 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/create-calculation/create-calculation.component.ts:53</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">src/app/create-calculation/create-calculation.component.ts:88</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>The getter method is returning the value of the private property &quot;_createForm&quot;
+which is an instance of the &quot;UntypedFormGroup&quot;</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>UntypedFormGroup</code>
+
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -417,9 +472,21 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/create-calculation/create-calculation.component.ts:57</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="95" class="link-to-prism">src/app/create-calculation/create-calculation.component.ts:95</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>The getter method is returning the value of the &quot;PRESET_FACTORS_LIST&quot; constant that is
+imported from the &quot;factor_provider&quot; class.</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>string[]</code>
+
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -436,35 +503,66 @@ import { FactorManager } from &#x27;../emissionmodule/factor-manager&#x27;;
 import { FactorProvider, PRESET_FACTORS_LIST } from &#x27;../emissionmodule/factor_provider&#x27;;
 import { CalculationService } from &#x27;../_services/calculation.service&#x27;;
 
+/**
+ * This is an interface that defines the structure of the data that will be used to
+ * create a new calculation.
+ */
 interface CalculationData{
+  /** &quot;name&quot; is a string that will store the name of the calculation. */
   name: string,
+  /** &quot;factors&quot; is a string that will store the factors of the calculation. */
   factors: string
 }
-
+/**
+ * This is an Angular component that is used to create a new emission calculation.
+ */
 @Component({
   selector: &#x27;app-create-calculation&#x27;,
   templateUrl: &#x27;./create-calculation.component.html&#x27;,
   styleUrls: [&#x27;./create-calculation.component.scss&#x27;]
 })
 export class CreateCalculationComponent implements OnInit {
-
+  /**
+   * This is a private class property of the &quot;CreateCalculationComponent&quot; class. It&#x27;s an
+   * instance of the &quot;UntypedFormGroup&quot; class. It&#x27;s used to hold the instance of the form
+   * group that is used to create the form fields in the template. The form group is used
+   * to manage the form fields and validate the form data.
+   * The &quot;!&quot; after the property name means that this property is non-nullable, it has to be
+   * assigned a value before it&#x27;s used.
+   * It&#x27;s used in the ngOnInit method and the create() method.
+   */
   private _createForm!: UntypedFormGroup;
-
+  /**
+   * The constructor assigns these services to private variables,
+   * so that they can be used throughout the component.
+   * @param _fb The &quot;UntypedFormBuilder&quot; is used to create a form group that will be used to collect user input.
+   * @param _calculationService  The &quot;CalculationService&quot; is used to manage the list of calculations.
+   * @param _router The &quot;Router&quot; is used to navigate to different pages in the application.
+   */
   constructor(
     private _fb: UntypedFormBuilder,
     private _calculationService: CalculationService,
     private _router: Router
     ) { }
 
+  /**
+   *  It creates a form group and sets its initial values and validators. It also sets up any
+   *  other necessary state or variables that the component needs when it starts.
+   */
   ngOnInit(): void {
     const data: CalculationData &#x3D; { name: &quot;&quot;, factors: PRESET_FACTORS_LIST[0] };
-    
+
     this._createForm &#x3D; this._fb.group({
       name: [data.name, [ Validators.required, Validators.minLength(4) ]],
       factors: [ data.factors, Validators.required ]
     });
   }
-
+  /**
+   * The create method is called when the user submits the form. It first retrieves data from
+   * the form, then resets the form, creates a new calculation with the data and a FactorManager,
+   * adds the calculation to the list of calculation, saves the list of calculations, and navigates
+   * to the emission page.
+   */
   create(){
     const data: CalculationData &#x3D; { name: &quot;&quot;, factors: &quot;&quot; };
     Object.assign(data, this._createForm.value);
@@ -473,17 +571,24 @@ export class CreateCalculationComponent implements OnInit {
 
     const factorManager: FactorManager &#x3D; FactorProvider.get(data.factors);
 
-    const calculation &#x3D; new Calculation(data.name);
+    const calculation &#x3D; new Calculation(data.name,data.factors);
     calculation.factorManager &#x3D; factorManager;
     this._calculationService.addCalculation(calculation);
     this._calculationService.save();
-    this._router.navigate([&quot;emission&quot;]);
-  }
+    this._router.navigate([&quot;emission/&quot;+calculation.id+&quot;/create&quot;]);
 
+  }
+  /**
+   * The getter method is returning the value of the private property &quot;_createForm&quot;
+   * which is an instance of the &quot;UntypedFormGroup&quot;
+   */
   get createForm(): UntypedFormGroup{
     return this._createForm;
   }
-
+  /**
+   * The getter method is returning the value of the &quot;PRESET_FACTORS_LIST&quot; constant that is
+   * imported from the &quot;factor_provider&quot; class.
+   */
   get PRESET_FACTORS_LIST(): string[] {
     return PRESET_FACTORS_LIST;
   }
@@ -496,7 +601,7 @@ export class CreateCalculationComponent implements OnInit {
         <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container&quot;&gt;
     &lt;form [formGroup]&#x3D;&quot;createForm&quot; (ngSubmit)&#x3D;&quot;create()&quot; fxLayout&#x3D;&quot;column&quot;&gt;
         &lt;mat-form-field appearance&#x3D;&quot;fill&quot;&gt;
-            &lt;mat-label&gt;{{ &quot;name&quot; | translate }}&lt;/mat-label&gt;
+            &lt;mat-label&gt;{{ &quot;organisationsname&quot; | translate }}&lt;/mat-label&gt;
             &lt;input matInput placeholder&#x3D;&quot;Name&quot; formControlName&#x3D;&quot;name&quot;&gt;
             &lt;mat-error *ngIf&#x3D;&quot;createForm.get(&#x27;name&#x27;)?.hasError(&#x27;required&#x27;)&quot;&gt;
                 {{ &quot;name_empty&quot; | translate }}
@@ -504,9 +609,9 @@ export class CreateCalculationComponent implements OnInit {
             &lt;mat-error *ngIf&#x3D;&quot;createForm.get(&#x27;name&#x27;)?.hasError(&#x27;minlength&#x27;)&quot;&gt;
                 {{ &quot;name_length&quot; | translate }}
             &lt;/mat-error&gt;
-        &lt;/mat-form-field&gt;    
+        &lt;/mat-form-field&gt;
         &lt;mat-form-field appearance&#x3D;&quot;fill&quot;&gt;
-            &lt;mat-label&gt;{{ &quot;factors&quot; | translate }}&lt;/mat-label&gt;
+            &lt;mat-label&gt;{{ &quot;country&quot; | translate }}&lt;/mat-label&gt;
             &lt;mat-select formControlName&#x3D;&quot;factors&quot;&gt;
               &lt;mat-option *ngFor&#x3D;&quot;let factor_preset of PRESET_FACTORS_LIST&quot; [value]&#x3D;&quot;factor_preset&quot;&gt;{{&quot;factor_preset.&quot; + factor_preset | translate}}&lt;/mat-option&gt;
             &lt;/mat-select&gt;
@@ -554,8 +659,8 @@ export class CreateCalculationComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="container">    <form [formGroup]="createForm" (ngSubmit)="create()" fxLayout="column">        <mat-form-field appearance="fill">            <mat-label>{{ "name" | translate }}</mat-label>            <input matInput placeholder="Name" formControlName="name">            <mat-error *ngIf="createForm.get(\'name\')?.hasError(\'required\')">                {{ "name_empty" | translate }}            </mat-error>            <mat-error *ngIf="createForm.get(\'name\')?.hasError(\'minlength\')">                {{ "name_length" | translate }}            </mat-error>        </mat-form-field>            <mat-form-field appearance="fill">            <mat-label>{{ "factors" | translate }}</mat-label>            <mat-select formControlName="factors">              <mat-option *ngFor="let factor_preset of PRESET_FACTORS_LIST" [value]="factor_preset">{{"factor_preset." + factor_preset | translate}}</mat-option>            </mat-select>        </mat-form-field>        <button mat-flat-button color="primary" type="submit" [disabled]="!createForm.valid">{{ "add_button" | translate }}</button>    </form></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BarDiagramBothComponent', 'selector': 'app-bar-diagram-both'},{'name': 'BarDiagramCompareComponent', 'selector': 'app-bar-diagram-compare'},{'name': 'BarDiagramComponent', 'selector': 'app-bar-diagram'},{'name': 'CalculationDiagramCompareComponent', 'selector': 'app-calculation-diagram-compare'},{'name': 'CalculationDiagramComponent', 'selector': 'app-calculation-diagram'},{'name': 'CalculationListComponent', 'selector': 'app-calculation-list'},{'name': 'CalculationSelectCompareComponent', 'selector': 'app-calculation-select-compare'},{'name': 'CreateCalculationComponent', 'selector': 'app-create-calculation'},{'name': 'CreateModuleComponent', 'selector': 'app-create-module'},{'name': 'CreateTypeComponent', 'selector': 'app-create-type'},{'name': 'DiagramCompareDialogComponent', 'selector': 'app-diagram-dialog'},{'name': 'DiagramDialogComponent', 'selector': 'app-diagram-dialog'},{'name': 'EmissionItemComponent', 'selector': 'app-emission-item'},{'name': 'EmissionListComponent', 'selector': 'app-emission-list'},{'name': 'FactorEmissionModuleComponent', 'selector': 'app-factor-emission-module'},{'name': 'FileUploadComponent', 'selector': 'app-file-upload'},{'name': 'ImportFileDialogComponent', 'selector': 'app-import-file-dialog'},{'name': 'KonamiDialogComponent', 'selector': 'app-konami-dialog'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'PieDiagramComponent', 'selector': 'app-pie-diagram'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SpecificCalculationListComponent', 'selector': 'app-specific-calculation-list'},{'name': 'TreeDiagramComponent', 'selector': 'app-tree-diagram'},{'name': 'TypeEmissionModuleComponent', 'selector': 'app-type-emission-module'},{'name': 'TypeInputComponent', 'selector': 'app-type-input'}];
+        var COMPONENT_TEMPLATE = '<div><div class="container">    <form [formGroup]="createForm" (ngSubmit)="create()" fxLayout="column">        <mat-form-field appearance="fill">            <mat-label>{{ "organisationsname" | translate }}</mat-label>            <input matInput placeholder="Name" formControlName="name">            <mat-error *ngIf="createForm.get(\'name\')?.hasError(\'required\')">                {{ "name_empty" | translate }}            </mat-error>            <mat-error *ngIf="createForm.get(\'name\')?.hasError(\'minlength\')">                {{ "name_length" | translate }}            </mat-error>        </mat-form-field>        <mat-form-field appearance="fill">            <mat-label>{{ "country" | translate }}</mat-label>            <mat-select formControlName="factors">              <mat-option *ngFor="let factor_preset of PRESET_FACTORS_LIST" [value]="factor_preset">{{"factor_preset." + factor_preset | translate}}</mat-option>            </mat-select>        </mat-form-field>        <button mat-flat-button color="primary" type="submit" [disabled]="!createForm.valid">{{ "add_button" | translate }}</button>    </form></div></div>'
+    var COMPONENTS = [{'name': 'BarDiagramBothComponent', 'selector': 'app-bar-diagram-both'},{'name': 'BarDiagramCompareComponent', 'selector': 'app-bar-diagram-compare'},{'name': 'BarDiagramComponent', 'selector': 'app-bar-diagram'},{'name': 'CalculationCardComponent', 'selector': 'app-calculation-card'},{'name': 'CalculationDiagramCompareComponent', 'selector': 'app-calculation-diagram-compare'},{'name': 'CalculationDiagramComponent', 'selector': 'app-calculation-diagram'},{'name': 'CalculationListComponent', 'selector': 'app-calculation-list'},{'name': 'CalculationSelectCompareComponent', 'selector': 'app-calculation-select-compare'},{'name': 'CreateCalculationComponent', 'selector': 'app-create-calculation'},{'name': 'CreateModuleComponent', 'selector': 'app-create-module'},{'name': 'CreateTypeComponent', 'selector': 'app-create-type'},{'name': 'DiagramCompareDialogComponent', 'selector': 'app-diagram-dialog'},{'name': 'DiagramDialogComponent', 'selector': 'app-diagram-dialog'},{'name': 'EmissionItemComponent', 'selector': 'app-emission-item'},{'name': 'EmissionListComponent', 'selector': 'app-emission-list'},{'name': 'FactorEmissionModuleComponent', 'selector': 'app-factor-emission-module'},{'name': 'FileUploadComponent', 'selector': 'app-file-upload'},{'name': 'ImportFileDialogComponent', 'selector': 'app-import-file-dialog'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'PieDiagramComponent', 'selector': 'app-pie-diagram'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SpecificCalculationListComponent', 'selector': 'app-specific-calculation-list'},{'name': 'TreeDiagramComponent', 'selector': 'app-tree-diagram'},{'name': 'TypeEmissionModuleComponent', 'selector': 'app-type-emission-module'},{'name': 'TypeInputComponent', 'selector': 'app-type-input'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'CreateCalculationComponent'};
 </script>

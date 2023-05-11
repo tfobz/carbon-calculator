@@ -152,6 +152,12 @@ The result is the calculated number from all modules in the card</p>
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>number of CalculationCard</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -185,6 +191,12 @@ The result is the calculated number from all modules in the card</p>
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>result is the calculated number from all modules in the card</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -218,6 +230,12 @@ The result is the calculated number from all modules in the card</p>
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>```html</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -236,12 +254,17 @@ import { FactorManager } from &#x27;../emissionmodule/factor-manager&#x27;;
  * The result is the calculated number from all modules in the card
  */
 interface CalculationCardData{
+  /** number of CalculationCard */
   number: string,
+  /** unit of CalculationCard @example m^3*/
   unit: string,
+  /** result is the calculated number from all modules in the card */
   result: string
 }
 /**
- * @ignore
+ * A Calculation card is the component that holds the amount of CO2 condumed by paper for example
+ * It always has a title, an amount and the result, whoch would be the amount of CO2 consumed
+ * To see one you need to do the following:
  */
 @Component({
   selector: &#x27;app-calculation-card&#x27;,
@@ -249,21 +272,27 @@ interface CalculationCardData{
   styleUrls: [&#x27;./calculation-card.component.scss&#x27;]
 })
 
-/**
- * Defines the CalculationCard component.
- * A Calculation card is the component that holds the amount of CO2 condumed by paper for example
- * It always has a title, an amount and the result, whoch would be the amount of CO2 consumed
- * To see one you need to do the following:
- * 
- * Create a new entry &gt; click on it &gt; click on the plus &gt; add an entry &gt; CalculationCard
- */
+
 export class CalculationCardComponent implements OnInit {
-
+  /**
+   * is a property of the component that is passed in from its parent component.
+   * It determines whether the card can be edited or not.
+   */
   @Input() edit: boolean &#x3D; true;
-
+  /**
+   * is also a property that is passed in from the parent component. It is an instance of the
+   * FactorManager class, which is responsible for managing the factors used in the calculation
+   * of emissions.
+   */
   @Input() factorManager!: FactorManager;
+  /**
+   * is another property that is passed in from the parent component. It is an instance of the
+   * EmissionModule class, which is responsible for calculating the emissions for a specific module.
+   */
   @Input() module!: EmissionModule;
-  
+  /**
+   * @ignore
+  */
   ngOnInit(): void {}
 
   /**

@@ -68,6 +68,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>The EmissionListComponent is used to display a list of emissions calculations</p>
+
+    </p>
 
 
     <p class="comment">
@@ -152,6 +159,9 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#deleteCalculation" >deleteCalculation</a>
+                            </li>
+                            <li>
                                 <a href="#ngOnInit" >ngOnInit</a>
                             </li>
                         </ul>
@@ -191,12 +201,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/emission-list/emission-list.component.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/emission-list/emission-list.component.ts:25</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>The constructor assigns these services to private variables with the same name,
+so that they can be used throughout the component.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -205,6 +218,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -219,6 +233,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>is used to change the navigation data displayed in the header of the application.</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>calculationService</td>
@@ -231,6 +249,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>is used to retrieve the list of calculations.</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>translateService</td>
@@ -243,6 +265,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>is used to handle translations in the application.</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>translationManagerService</td>
@@ -255,6 +281,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>is used to manage translations in the application.</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>menuService</td>
@@ -267,6 +297,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>is used to change the menu items displayed in the application.</p>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -290,6 +324,82 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="deleteCalculation"></a>
+                    <span class="name">
+                        <span ><b>deleteCalculation</b></span>
+                        <a href="#deleteCalculation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteCalculation($event: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="85"
+                            class="link-to-prism">src/app/emission-list/emission-list.component.ts:85</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The method is called when the user clicks on the delete button of a calculation.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>$event</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>is the name of the calculation that will be deleted</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="ngOnInit"></a>
                     <span class="name">
                         <span ><b>ngOnInit</b></span>
@@ -306,14 +416,28 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">src/app/emission-list/emission-list.component.ts:31</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">src/app/emission-list/emission-list.component.ts:57</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>The method is called when the component is first initialized and it performs several tasks:</p>
+<ol>
+<li>It uses the &quot;translateService&quot; to get the translation of the word &quot;emission&quot; and then it
+calls the &quot;changeMessage&quot; method of the &quot;navigation&quot; service to update the navigation data</li>
+<li>It uses the &quot;translateService&quot; to get the translation of the &quot;main_page_starting_hint&quot;
+and assigns the translation to the &quot;empty_hint_msg&quot; property.</li>
+<li>It uses the &quot;calculationService&quot; to check if there are any calculations, if there are,
+it sets the &quot;empty_hint_status&quot; property to false, which means that the hint message will
+not be shown.</li>
+<li>It uses the &quot;translateService&quot; and &quot;translationManagerService&quot; to get the translation of
+the word &quot;settings&quot; and calls the &quot;changeMenu&quot; method of the &quot;menuService&quot; to update the
+menu items.</li>
+</ol>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -353,10 +477,17 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/emission-list/emission-list.component.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/emission-list/emission-list.component.ts:25</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>is a string property that holds the message that will be displayed as the hint.
+ The default value of this property is an empty string</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -378,10 +509,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/emission-list/emission-list.component.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/emission-list/emission-list.component.ts:21</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>is a boolean property that is used to control the visibility of a hint message in the view.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -407,9 +544,20 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/emission-list/emission-list.component.ts:53</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">src/app/emission-list/emission-list.component.ts:92</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Retrieves the list of all created calculations</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="../classes/Calculation.html" target="_self" >Calculation[]</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -426,19 +574,33 @@ import { NavigationService } from &#x27;../shared/navigation.service&#x27;;
 import { CalculationService } from &#x27;../_services/calculation.service&#x27;;
 import { TranslationManagerService } from &#x27;../_services/translation-manager.service&#x27;;
 
-// Defines where to search for styling and HTML of this page
+/**
+ * The EmissionListComponent is used to display a list of emissions calculations
+ */
 @Component({
   selector: &#x27;app-emission-list&#x27;,
   templateUrl: &#x27;./emission-list.component.html&#x27;,
   styleUrls: [&#x27;./emission-list.component.scss&#x27;]
 })
 
-// Is like a constructor for this page, defining variables and other things that can then be defined
-// in the HTML file
+
 export class EmissionListComponent implements OnInit {
-  // Custom variable to make Hints disappear once an entry got created
+  /** is a boolean property that is used to control the visibility of a hint message in the view. */
   empty_hint_status &#x3D; true;
+  /** is a string property that holds the message that will be displayed as the hint.
+   *  The default value of this property is an empty string
+  */
   empty_hint_msg &#x3D; &quot;&quot;;
+
+  /**
+   * The constructor assigns these services to private variables with the same name,
+   * so that they can be used throughout the component.
+   * @param navigation is used to change the navigation data displayed in the header of the application.
+   * @param calculationService is used to retrieve the list of calculations.
+   * @param translateService is used to handle translations in the application.
+   * @param translationManagerService is used to manage translations in the application.
+   * @param menuService  is used to change the menu items displayed in the application.
+   */
   constructor(
     private navigation:NavigationService,
     private calculationService: CalculationService,
@@ -447,7 +609,19 @@ export class EmissionListComponent implements OnInit {
     private menuService:MenuService,
   ){}
 
-  // This function triggers every time you open this page
+  /**
+   * The method is called when the component is first initialized and it performs several tasks:
+   *  1. It uses the &quot;translateService&quot; to get the translation of the word &quot;emission&quot; and then it
+   *     calls the &quot;changeMessage&quot; method of the &quot;navigation&quot; service to update the navigation data
+   *  2. It uses the &quot;translateService&quot; to get the translation of the &quot;main_page_starting_hint&quot;
+   *     and assigns the translation to the &quot;empty_hint_msg&quot; property.
+   *  3. It uses the &quot;calculationService&quot; to check if there are any calculations, if there are,
+   *     it sets the &quot;empty_hint_status&quot; property to false, which means that the hint message will
+   *     not be shown.
+   *  4. It uses the &quot;translateService&quot; and &quot;translationManagerService&quot; to get the translation of
+   *     the word &quot;settings&quot; and calls the &quot;changeMenu&quot; method of the &quot;menuService&quot; to update the
+   *     menu items.
+   */
   ngOnInit(): void {
     this.translateService.get(&quot;emission&quot;).subscribe(translation &#x3D;&gt; {
       this.navigation.changeMessage(translation);
@@ -457,19 +631,32 @@ export class EmissionListComponent implements OnInit {
       this.empty_hint_msg &#x3D; translation;
     })
 
-    // Check if there is an emission item and change the visibility of the hints accordingly
-    // calculationService.calculations will retrieve nothing if there is no calculation, and something else if there is
+    /**
+     * Check if there is an emission item and change the visibility of the hints accordingly
+     * calculationService.calculations will retrieve nothing if there is no calculation, and
+     * something else if there is
+     */
     if (this.calculationService.calculations.toString() &amp;&amp; this.calculationService.calculations.toString().trim()) {
       this.empty_hint_status &#x3D; false;
     }
 
-    // Defines the menu of the website
+    /* Defines the menu of the website */
     this.translateService.getTranslation(this.translationManagerService.lang).subscribe(translations &#x3D;&gt; {
       this.menuService.changeMenu([{icon:&quot;settings&quot;, menuPointName: this.translationManagerService.getTranslation(translations, &quot;settings&quot;), link: &#x60;/emission/settings&#x60;}])
     });
-  }
 
-  // Retrieves the list of all created calculations
+  }
+  /**
+   * The method is called when the user clicks on the delete button of a calculation.
+   * @param $event is the name of the calculation that will be deleted
+   */
+  deleteCalculation($event:string){
+    console.log($event);
+    this.calculationService.removeCalculation(this.calculationService.getByName($event));
+  }
+  /**
+   * Retrieves the list of all created calculations
+   */
   get calculations(): Calculation[] {
     this.calculationService.save()
     return this.calculationService.calculations;
@@ -483,13 +670,16 @@ export class EmissionListComponent implements OnInit {
 
 &lt;!-- This div mainly creates an empty gap between the navigation bar and the content--&gt;
 &lt;div class&#x3D;&quot;content&quot; fxLayout&#x3D;&quot;column&quot; fxLayoutGap&#x3D;&quot;15px&quot;&gt;
-    &lt;p *ngIf&#x3D;&quot;empty_hint_status &#x3D;&#x3D; true&quot;&gt;{{ empty_hint_msg }}&lt;/p&gt;
-    &lt;app-emission-item *ngFor&#x3D;&quot;let calcs of calculations&quot; [link]&#x3D;&quot;[&#x27;/emission&#x27;, calcs.id]&quot; [name]&#x3D;&quot;calcs.name&quot; [emission]&#x3D;&quot;calcs.calculate()&quot;&gt;&lt;/app-emission-item&gt;
-&lt;/div&gt;
+    &lt;h2 *ngIf&#x3D;&quot;empty_hint_status &#x3D;&#x3D; true&quot;&gt;{{ empty_hint_msg }}&lt;/h2&gt;
+    &lt;app-emission-item *ngFor&#x3D;&quot;let calcs of calculations&quot; [link]&#x3D;&quot;[&#x27;/emission&#x27;, calcs.id]&quot;
+    [name]&#x3D;&quot;calcs.name&quot; [factor_preset]&#x3D;&quot;calcs.factor_preset&quot;  [emission]&#x3D;&quot;calcs.calculate()&quot;
+    (deleteItself)&#x3D;&quot;deleteCalculation($event)&quot;&gt;&lt;/app-emission-item&gt;
+  &lt;/div&gt;
+
 
 &lt;!-- This is the &quot;+&quot; Button in the bottom right corner of the app
     The routerLink defines its action --&gt;
-&lt;a 
+&lt;a
     routerLink&#x3D;&quot;/emission/create&quot;
     id&#x3D;&quot;add_button&quot;
     mat-fab color&#x3D;&quot;primary&quot;
@@ -505,13 +695,13 @@ export class EmissionListComponent implements OnInit {
                 </p>
                 <pre class="line-numbers"><code class="language-scss">.content{
 
-    -webkit-touch-callout: none; 
-    -webkit-user-select: none; 
-    -khtml-user-select: none; 
-    -moz-user-select: none; 
-    -ms-user-select: none; 
-     user-select: none; 
-    
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+
     padding: 15px;
 
     app-emission-item{
@@ -528,7 +718,7 @@ export class EmissionListComponent implements OnInit {
 
         }
         @media screen and (max-width: 800px) {
-            
+
             width: 90%;
 
         }
@@ -538,7 +728,13 @@ export class EmissionListComponent implements OnInit {
     position: fixed;
     bottom: 25px;
     right: 25px;
-}</code></pre>
+}
+h2
+{
+    text-align: center;
+    margin-top: 20%;
+}
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -566,8 +762,8 @@ export class EmissionListComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><!-- This is the main window that opens when you first open the app--><!-- This div mainly creates an empty gap between the navigation bar and the content--><div class="content" fxLayout="column" fxLayoutGap="15px">    <p *ngIf="empty_hint_status == true">{{ empty_hint_msg }}</p>    <app-emission-item *ngFor="let calcs of calculations" [link]="[\'/emission\', calcs.id]" [name]="calcs.name" [emission]="calcs.calculate()"></app-emission-item></div><!-- This is the "+" Button in the bottom right corner of the app    The routerLink defines its action --><a     routerLink="/emission/create"    id="add_button"    mat-fab color="primary"    aria-label="Add new calculation button">    <mat-icon>add</mat-icon></a></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BarDiagramBothComponent', 'selector': 'app-bar-diagram-both'},{'name': 'BarDiagramCompareComponent', 'selector': 'app-bar-diagram-compare'},{'name': 'BarDiagramComponent', 'selector': 'app-bar-diagram'},{'name': 'CalculationDiagramCompareComponent', 'selector': 'app-calculation-diagram-compare'},{'name': 'CalculationDiagramComponent', 'selector': 'app-calculation-diagram'},{'name': 'CalculationListComponent', 'selector': 'app-calculation-list'},{'name': 'CalculationSelectCompareComponent', 'selector': 'app-calculation-select-compare'},{'name': 'CreateCalculationComponent', 'selector': 'app-create-calculation'},{'name': 'CreateModuleComponent', 'selector': 'app-create-module'},{'name': 'CreateTypeComponent', 'selector': 'app-create-type'},{'name': 'DiagramCompareDialogComponent', 'selector': 'app-diagram-dialog'},{'name': 'DiagramDialogComponent', 'selector': 'app-diagram-dialog'},{'name': 'EmissionItemComponent', 'selector': 'app-emission-item'},{'name': 'EmissionListComponent', 'selector': 'app-emission-list'},{'name': 'FactorEmissionModuleComponent', 'selector': 'app-factor-emission-module'},{'name': 'FileUploadComponent', 'selector': 'app-file-upload'},{'name': 'ImportFileDialogComponent', 'selector': 'app-import-file-dialog'},{'name': 'KonamiDialogComponent', 'selector': 'app-konami-dialog'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'PieDiagramComponent', 'selector': 'app-pie-diagram'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SpecificCalculationListComponent', 'selector': 'app-specific-calculation-list'},{'name': 'TreeDiagramComponent', 'selector': 'app-tree-diagram'},{'name': 'TypeEmissionModuleComponent', 'selector': 'app-type-emission-module'},{'name': 'TypeInputComponent', 'selector': 'app-type-input'}];
+        var COMPONENT_TEMPLATE = '<div><!-- This is the main window that opens when you first open the app--><!-- This div mainly creates an empty gap between the navigation bar and the content--><div class="content" fxLayout="column" fxLayoutGap="15px">    <h2 *ngIf="empty_hint_status == true">{{ empty_hint_msg }}</h2>    <app-emission-item *ngFor="let calcs of calculations" [link]="[\'/emission\', calcs.id]"    [name]="calcs.name" [factor_preset]="calcs.factor_preset"  [emission]="calcs.calculate()"    (deleteItself)="deleteCalculation($event)"></app-emission-item>  </div><!-- This is the "+" Button in the bottom right corner of the app    The routerLink defines its action --><a    routerLink="/emission/create"    id="add_button"    mat-fab color="primary"    aria-label="Add new calculation button">    <mat-icon>add</mat-icon></a></div>'
+    var COMPONENTS = [{'name': 'BarDiagramBothComponent', 'selector': 'app-bar-diagram-both'},{'name': 'BarDiagramCompareComponent', 'selector': 'app-bar-diagram-compare'},{'name': 'BarDiagramComponent', 'selector': 'app-bar-diagram'},{'name': 'CalculationCardComponent', 'selector': 'app-calculation-card'},{'name': 'CalculationDiagramCompareComponent', 'selector': 'app-calculation-diagram-compare'},{'name': 'CalculationDiagramComponent', 'selector': 'app-calculation-diagram'},{'name': 'CalculationListComponent', 'selector': 'app-calculation-list'},{'name': 'CalculationSelectCompareComponent', 'selector': 'app-calculation-select-compare'},{'name': 'CreateCalculationComponent', 'selector': 'app-create-calculation'},{'name': 'CreateModuleComponent', 'selector': 'app-create-module'},{'name': 'CreateTypeComponent', 'selector': 'app-create-type'},{'name': 'DiagramCompareDialogComponent', 'selector': 'app-diagram-dialog'},{'name': 'DiagramDialogComponent', 'selector': 'app-diagram-dialog'},{'name': 'EmissionItemComponent', 'selector': 'app-emission-item'},{'name': 'EmissionListComponent', 'selector': 'app-emission-list'},{'name': 'FactorEmissionModuleComponent', 'selector': 'app-factor-emission-module'},{'name': 'FileUploadComponent', 'selector': 'app-file-upload'},{'name': 'ImportFileDialogComponent', 'selector': 'app-import-file-dialog'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'PieDiagramComponent', 'selector': 'app-pie-diagram'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SpecificCalculationListComponent', 'selector': 'app-specific-calculation-list'},{'name': 'TreeDiagramComponent', 'selector': 'app-tree-diagram'},{'name': 'TypeEmissionModuleComponent', 'selector': 'app-type-emission-module'},{'name': 'TypeInputComponent', 'selector': 'app-type-input'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'EmissionListComponent'};
 </script>

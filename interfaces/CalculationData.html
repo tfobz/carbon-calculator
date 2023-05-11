@@ -69,6 +69,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>This is an interface that defines the structure of the data that will be used to
+create a new calculation.</p>
+
+            </p>
 
 
         <section>
@@ -137,6 +145,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>&quot;factors&quot; is a string that will store the factors of the calculation.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -170,6 +184,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>&quot;name&quot; is a string that will store the name of the calculation.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -185,35 +205,66 @@ import { FactorManager } from &#x27;../emissionmodule/factor-manager&#x27;;
 import { FactorProvider, PRESET_FACTORS_LIST } from &#x27;../emissionmodule/factor_provider&#x27;;
 import { CalculationService } from &#x27;../_services/calculation.service&#x27;;
 
+/**
+ * This is an interface that defines the structure of the data that will be used to
+ * create a new calculation.
+ */
 interface CalculationData{
+  /** &quot;name&quot; is a string that will store the name of the calculation. */
   name: string,
+  /** &quot;factors&quot; is a string that will store the factors of the calculation. */
   factors: string
 }
-
+/**
+ * This is an Angular component that is used to create a new emission calculation.
+ */
 @Component({
   selector: &#x27;app-create-calculation&#x27;,
   templateUrl: &#x27;./create-calculation.component.html&#x27;,
   styleUrls: [&#x27;./create-calculation.component.scss&#x27;]
 })
 export class CreateCalculationComponent implements OnInit {
-
+  /**
+   * This is a private class property of the &quot;CreateCalculationComponent&quot; class. It&#x27;s an
+   * instance of the &quot;UntypedFormGroup&quot; class. It&#x27;s used to hold the instance of the form
+   * group that is used to create the form fields in the template. The form group is used
+   * to manage the form fields and validate the form data.
+   * The &quot;!&quot; after the property name means that this property is non-nullable, it has to be
+   * assigned a value before it&#x27;s used.
+   * It&#x27;s used in the ngOnInit method and the create() method.
+   */
   private _createForm!: UntypedFormGroup;
-
+  /**
+   * The constructor assigns these services to private variables,
+   * so that they can be used throughout the component.
+   * @param _fb The &quot;UntypedFormBuilder&quot; is used to create a form group that will be used to collect user input.
+   * @param _calculationService  The &quot;CalculationService&quot; is used to manage the list of calculations.
+   * @param _router The &quot;Router&quot; is used to navigate to different pages in the application.
+   */
   constructor(
     private _fb: UntypedFormBuilder,
     private _calculationService: CalculationService,
     private _router: Router
     ) { }
 
+  /**
+   *  It creates a form group and sets its initial values and validators. It also sets up any
+   *  other necessary state or variables that the component needs when it starts.
+   */
   ngOnInit(): void {
     const data: CalculationData &#x3D; { name: &quot;&quot;, factors: PRESET_FACTORS_LIST[0] };
-    
+
     this._createForm &#x3D; this._fb.group({
       name: [data.name, [ Validators.required, Validators.minLength(4) ]],
       factors: [ data.factors, Validators.required ]
     });
   }
-
+  /**
+   * The create method is called when the user submits the form. It first retrieves data from
+   * the form, then resets the form, creates a new calculation with the data and a FactorManager,
+   * adds the calculation to the list of calculation, saves the list of calculations, and navigates
+   * to the emission page.
+   */
   create(){
     const data: CalculationData &#x3D; { name: &quot;&quot;, factors: &quot;&quot; };
     Object.assign(data, this._createForm.value);
@@ -222,17 +273,24 @@ export class CreateCalculationComponent implements OnInit {
 
     const factorManager: FactorManager &#x3D; FactorProvider.get(data.factors);
 
-    const calculation &#x3D; new Calculation(data.name);
+    const calculation &#x3D; new Calculation(data.name,data.factors);
     calculation.factorManager &#x3D; factorManager;
     this._calculationService.addCalculation(calculation);
     this._calculationService.save();
-    this._router.navigate([&quot;emission&quot;]);
-  }
+    this._router.navigate([&quot;emission/&quot;+calculation.id+&quot;/create&quot;]);
 
+  }
+  /**
+   * The getter method is returning the value of the private property &quot;_createForm&quot;
+   * which is an instance of the &quot;UntypedFormGroup&quot;
+   */
   get createForm(): UntypedFormGroup{
     return this._createForm;
   }
-
+  /**
+   * The getter method is returning the value of the &quot;PRESET_FACTORS_LIST&quot; constant that is
+   * imported from the &quot;factor_provider&quot; class.
+   */
   get PRESET_FACTORS_LIST(): string[] {
     return PRESET_FACTORS_LIST;
   }

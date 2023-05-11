@@ -66,6 +66,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>The EmissionsManager class is used to handle different types of EmissionModule objects,
+which are used to calculate emissions</p>
+
+            </p>
 
 
 
@@ -86,6 +94,10 @@
                             <li>
                                     <span class="modifier">Static</span>
                                 <a href="#getModuleIDs" >getModuleIDs</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#getModuleUnits" >getModuleUnits</a>
                             </li>
                             <li>
                                     <span class="modifier">Static</span>
@@ -136,17 +148,107 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="56"
-                            class="link-to-prism">src/app/emissionmodule/emissions_manager.ts:56</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="79"
+                            class="link-to-prism">src/app/emissionmodule/emissions_manager.ts:79</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>returns an array of strings representing the ids of all available emission module types.</p>
+</div>
 
+                    <div>
+                    </div>
                     <div class="io-description">
                         <b>Returns : </b>    <code>string[]</code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>array of strings representing the ids of all available emission module types</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getModuleUnits"></a>
+                    <span class="name">
+                        <span class="modifier">Static</span>
+                        <span ><b>getModuleUnits</b></span>
+                        <a href="#getModuleUnits"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getModuleUnits(ids: string[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="89"
+                            class="link-to-prism">src/app/emissionmodule/emissions_manager.ts:89</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>returns an array of strings representing the units of measurement for all available
+emission module types.
+emission module types</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ids</td>
+                                    <td>
+                                            <code>string[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>array of strings representing the ids of all available emission module types</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>string[]</code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>array of strings representing the units of measurement for all available
+emission module types</p>
 
                     </div>
                 </td>
@@ -175,14 +277,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="33"
-                            class="link-to-prism">src/app/emissionmodule/emissions_manager.ts:33</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">src/app/emissionmodule/emissions_manager.ts:48</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p> Loads an object with unknown type</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -246,14 +350,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">src/app/emissionmodule/emissions_manager.ts:48</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="68"
+                            class="link-to-prism">src/app/emissionmodule/emissions_manager.ts:68</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>takes in an instance of EmissionModule and returns an object that can be saved
+to a file or database.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -308,12 +415,24 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EmissionModule } from &quot;./emission-module&quot;;
 import { advancedSerializer } from &quot;./serializer/advanced-serializer&quot;;
 import { factorSerializer } from &quot;./serializer/factor-serializer&quot;;
-
+/**
+ * he purpose of the Serializer interface is to provide a way to convert EmissionModule objects
+ * to and from a serialized format, such as JSON, for storage or transmission.
+ */
 export interface Serializer {
-    save(module: EmissionModule): any, 
+  /** takes an EmissionModule object as an argument and returns a serialized version
+   *  of that object in the form of any.
+  */
+    save(module: EmissionModule): any,
+  /**
+   * takes a serialized object in the form of any as an argument and returns an EmissionModule object.
+   */
     load(data: any): EmissionModule
 }
-
+/**
+ * The emissions variable is a map that associates each EmissionModule type with a serializer
+ * that can be used to save and load the module.
+ */
 const emissions: Map&lt;string, Serializer&gt; &#x3D; new Map();
 emissions.set(&quot;school_car_emission_module&quot;, factorSerializer);
 emissions.set(&quot;heating_emission_module&quot;, factorSerializer);
@@ -332,10 +451,13 @@ emissions.set(&quot;coffee_emission_module&quot;, factorSerializer);
 
 emissions.set(&quot;electricity_emission_module&quot;, advancedSerializer);
 emissions.set(&quot;mobility_emission_module&quot;, advancedSerializer);
-
+/**
+ * The EmissionsManager class is used to handle different types of EmissionModule objects,
+ * which are used to calculate emissions
+ */
 export default class EmissionsManager{
-    /*
-        Loads an object with unknown type
+    /**
+    *  Loads an object with unknown type
     */
     static load(data: any): EmissionModule|undefined{
         if(data.type){
@@ -351,7 +473,12 @@ export default class EmissionsManager{
         }
         return undefined;
     }
-    
+    /**
+     * takes in an instance of EmissionModule and returns an object that can be saved
+     * to a file or database.
+     * @param module
+     * @returns
+     */
     static save(module: EmissionModule): any{
         let utils: Serializer|undefined &#x3D; emissions.get(module.id);
         if(utils){
@@ -359,16 +486,37 @@ export default class EmissionsManager{
         }
         return undefined;
     }
-
+    /**
+     * returns an array of strings representing the ids of all available emission module types.
+     * @returns array of strings representing the ids of all available emission module types
+     */
     static getModuleIDs(): string[] {
         return Array.from(emissions.keys());
     }
+    /**
+     * returns an array of strings representing the units of measurement for all available
+     * emission module types.
+     * @returns array of strings representing the units of measurement for all available
+     * emission module types
+     * @param ids array of strings representing the ids of all available emission module types
+     */
+    static getModuleUnits(ids:string[]): string[] {
+        let ret: string[] &#x3D; [];
+        for(let id of ids){
+            if(units.has(id)){
+                ret.push(units.get(id) as string);
+            }
+        }
+        return ret;
+    }
 }
-
+/**
+ * The units variable is a map that associates each EmissionModule type with a string
+ * representing the unit of measurement for the module.
+ */
 const units: Map&lt;string, string&gt; &#x3D; new Map();
 units.set(&quot;water_emission_module&quot;, &quot;m³&quot;);
 units.set(&quot;heating_emission_module&quot;, &quot;m³&quot;);
-
 units.set(&quot;toner_emission_module&quot;, &quot;piece&quot;);
 units.set(&quot;computer_emission_module&quot;, &quot;piece&quot;);
 units.set(&quot;laptop_emission_module&quot;, &quot;piece&quot;);
@@ -379,15 +527,12 @@ units.set(&quot;server_emission_module&quot;, &quot;piece&quot;);
 units.set(&quot;pizza_emission_module&quot;, &quot;piece&quot;);
 units.set(&quot;dina3_emission_module&quot;, &quot;piece&quot;);
 units.set(&quot;dina4_emission_module&quot;, &quot;piece&quot;);
-
 units.set(&quot;coffee_emission_module&quot;, &quot;cup&quot;);
-
 units.set(&quot;drinks_500ml_emission_module&quot;, &quot;glass&quot;);
-
 units.set(&quot;school_car_emission_module&quot;, &quot;km&quot;);
 units.set(&quot;mobility_emission_module&quot;, &quot;km&quot;);
-
-units.set(&quot;electricity_emission_module&quot;, &quot;kWh&quot;);</code></pre>
+units.set(&quot;electricity_emission_module&quot;, &quot;kWh&quot;);
+</code></pre>
     </div>
 </div>
 

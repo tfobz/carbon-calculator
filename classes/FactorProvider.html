@@ -66,6 +66,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>The FactorProvider class provides a way to get a FactorManager object based on a preset name.
+The class imports four json files, one for each of the preset names in the PRESET_FACTORS_LIST.</p>
+
+            </p>
 
 
 
@@ -128,14 +136,18 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="13"
-                            class="link-to-prism">src/app/emissionmodule/factor_provider.ts:13</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">src/app/emissionmodule/factor_provider.ts:23</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>takes a preset name as an argument and returns a FactorManager object based on the preset name
+If a preset name that is not in the PRESET_FACTORS_LIST is passed as an argument to the
+get(preset_name: string) method, it will return a new instance of FactorManager with no data.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -146,6 +158,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -160,6 +173,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>names of countries currentl supported by the app</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -171,7 +188,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>Faktormanager object</p>
+
                     </div>
                 </td>
             </tr>
@@ -193,12 +211,22 @@ import italy from &quot;../../assets/factors/italy.json&quot;;
 import austria from &quot;../../assets/factors/austria.json&quot;;
 import sweden from &quot;../../assets/factors/sweden.json&quot;;
 import spain from &quot;../../assets/factors/spain.json&quot;;
-
+/** is an array of preset names of countries that are currently supported by the class.  */
 export const PRESET_FACTORS_LIST: string[] &#x3D; [
     &quot;italy&quot;, &quot;austria&quot;, &quot;sweden&quot;, &quot;spain&quot;
 ];
-
+/**
+ * The FactorProvider class provides a way to get a FactorManager object based on a preset name.
+ * The class imports four json files, one for each of the preset names in the PRESET_FACTORS_LIST.
+ */
 export class FactorProvider{
+  /**
+   * takes a preset name as an argument and returns a FactorManager object based on the preset name
+   * If a preset name that is not in the PRESET_FACTORS_LIST is passed as an argument to the
+   * get(preset_name: string) method, it will return a new instance of FactorManager with no data.
+   * @param preset_name names of countries currentl supported by the app
+   * @returns Faktormanager object
+   */
     static get(preset_name: string): FactorManager{
         switch(preset_name.toLowerCase()){
             case &quot;italy&quot;: {
@@ -217,8 +245,9 @@ export class FactorProvider{
                 return new FactorManager();
             }
         }
-    } 
-}</code></pre>
+    }
+}
+</code></pre>
     </div>
 </div>
 

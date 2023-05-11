@@ -68,6 +68,14 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>This diagramm showcses how many trees one should plant to equivalent the amount of CO2 produced
+The amount is then showcased graphically with trees and a big black number over it</p>
+
+    </p>
 
 
     <p class="comment">
@@ -145,20 +153,6 @@
                     </td>
                 </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Methods</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                <a href="#ngOnInit" >ngOnInit</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -196,24 +190,6 @@
     </table>
 </section>
 
-    <section>
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-<code>constructor()</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/calculation-diagram/tree-diagram/tree-diagram.component.ts:51</a></div>
-                            </td>
-                        </tr>
-
-            </tbody>
-        </table>
-</section>
 
     <section>
     <h3 id="inputs">Inputs</h3>
@@ -233,7 +209,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/calculation-diagram/tree-diagram/tree-diagram.component.ts:31</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/calculation-diagram/tree-diagram/tree-diagram.component.ts:35</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -248,49 +224,7 @@
 
 
 
-    <section>
-    
-    <h3 id="methods">
-        Methods
-    </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="ngOnInit"></a>
-                    <span class="name">
-                        <span ><b>ngOnInit</b></span>
-                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>ngOnInit()</code>
-                </td>
-            </tr>
 
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="55"
-                            class="link-to-prism">src/app/calculation-diagram/tree-diagram/tree-diagram.component.ts:55</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</section>
     <section>
     
     <h3 id="inputs">
@@ -321,10 +255,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/calculation-diagram/tree-diagram/tree-diagram.component.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/calculation-diagram/tree-diagram/tree-diagram.component.ts:28</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Defines how many trees are required</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -353,10 +293,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/calculation-diagram/tree-diagram/tree-diagram.component.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/calculation-diagram/tree-diagram/tree-diagram.component.ts:26</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>array of trees</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -383,7 +329,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/calculation-diagram/tree-diagram/tree-diagram.component.ts:31</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/calculation-diagram/tree-diagram/tree-diagram.component.ts:35</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -443,23 +389,27 @@ import type { DiagramData } from &#x27;../../shared&#x27;;
 /**
  * Defines a simple &quot;tree&quot; which will then be duplicated in the diagramm
  */
-interface Tree {
-	position: { x: number, y: number },
-	size: number
-}
+  interface Tree {
+    /** is an object that has two properties, x and y, which represent the x and y coordinates of the tree in a 2D space. */
+    position: { x: number, y: number },
+    /** size of tree */
+    size: number
+  }
 
+/**
+ * This diagramm showcses how many trees one should plant to equivalent the amount of CO2 produced
+ * The amount is then showcased graphically with trees and a big black number over it
+ */
 @Component({
   selector: &#x27;app-tree-diagram&#x27;,
   templateUrl: &#x27;./tree-diagram.component.html&#x27;,
   styleUrls: [&#x27;./tree-diagram.component.scss&#x27;]
 })
 
-/**
- * This diagramm showcses how many trees one should plant to equivalent the amount of CO2 produced
- * The amount is then showcased graphically with trees and a big black number over it
- */
 export class TreeDiagramComponent implements OnInit {
+  /** array of trees */
 	public trees: Tree[] &#x3D; [];
+  /** Defines how many trees are required */
 	public requiredTrees: number &#x3D; 0;
 
 	/**
@@ -473,7 +423,7 @@ export class TreeDiagramComponent implements OnInit {
 		// Calculates the amount of required trees
 		this.requiredTrees &#x3D; Math.ceil(co2sum / 31.5);
 		const requiredTrees &#x3D; Math.min(Math.max(this.requiredTrees / 100, 0), 500);
-		
+
 		// Adds the trees to the diagramm
 		this.trees &#x3D; [];
 		for(let i &#x3D; 0; i &lt; requiredTrees; i++) {
@@ -488,9 +438,9 @@ export class TreeDiagramComponent implements OnInit {
 			});
 		}
 	}
-
+  /** @ignore */
 	constructor() { }
-
+  /** @ignore */
 	ngOnInit(): void {
 	}
 
@@ -565,7 +515,7 @@ export class TreeDiagramComponent implements OnInit {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div #container>	<img		*ngFor="let tree of trees"		src="assets/tree.png"		style="left: {{tree.position.x}}%; top: {{tree.position.y}}%; z-index: {{tree.position.y}}; width: {{tree.size}}%;"	/>	<h3>{{requiredTrees}}</h3></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BarDiagramBothComponent', 'selector': 'app-bar-diagram-both'},{'name': 'BarDiagramCompareComponent', 'selector': 'app-bar-diagram-compare'},{'name': 'BarDiagramComponent', 'selector': 'app-bar-diagram'},{'name': 'CalculationDiagramCompareComponent', 'selector': 'app-calculation-diagram-compare'},{'name': 'CalculationDiagramComponent', 'selector': 'app-calculation-diagram'},{'name': 'CalculationListComponent', 'selector': 'app-calculation-list'},{'name': 'CalculationSelectCompareComponent', 'selector': 'app-calculation-select-compare'},{'name': 'CreateCalculationComponent', 'selector': 'app-create-calculation'},{'name': 'CreateModuleComponent', 'selector': 'app-create-module'},{'name': 'CreateTypeComponent', 'selector': 'app-create-type'},{'name': 'DiagramCompareDialogComponent', 'selector': 'app-diagram-dialog'},{'name': 'DiagramDialogComponent', 'selector': 'app-diagram-dialog'},{'name': 'EmissionItemComponent', 'selector': 'app-emission-item'},{'name': 'EmissionListComponent', 'selector': 'app-emission-list'},{'name': 'FactorEmissionModuleComponent', 'selector': 'app-factor-emission-module'},{'name': 'FileUploadComponent', 'selector': 'app-file-upload'},{'name': 'ImportFileDialogComponent', 'selector': 'app-import-file-dialog'},{'name': 'KonamiDialogComponent', 'selector': 'app-konami-dialog'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'PieDiagramComponent', 'selector': 'app-pie-diagram'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SpecificCalculationListComponent', 'selector': 'app-specific-calculation-list'},{'name': 'TreeDiagramComponent', 'selector': 'app-tree-diagram'},{'name': 'TypeEmissionModuleComponent', 'selector': 'app-type-emission-module'},{'name': 'TypeInputComponent', 'selector': 'app-type-input'}];
+    var COMPONENTS = [{'name': 'BarDiagramBothComponent', 'selector': 'app-bar-diagram-both'},{'name': 'BarDiagramCompareComponent', 'selector': 'app-bar-diagram-compare'},{'name': 'BarDiagramComponent', 'selector': 'app-bar-diagram'},{'name': 'CalculationCardComponent', 'selector': 'app-calculation-card'},{'name': 'CalculationDiagramCompareComponent', 'selector': 'app-calculation-diagram-compare'},{'name': 'CalculationDiagramComponent', 'selector': 'app-calculation-diagram'},{'name': 'CalculationListComponent', 'selector': 'app-calculation-list'},{'name': 'CalculationSelectCompareComponent', 'selector': 'app-calculation-select-compare'},{'name': 'CreateCalculationComponent', 'selector': 'app-create-calculation'},{'name': 'CreateModuleComponent', 'selector': 'app-create-module'},{'name': 'CreateTypeComponent', 'selector': 'app-create-type'},{'name': 'DiagramCompareDialogComponent', 'selector': 'app-diagram-dialog'},{'name': 'DiagramDialogComponent', 'selector': 'app-diagram-dialog'},{'name': 'EmissionItemComponent', 'selector': 'app-emission-item'},{'name': 'EmissionListComponent', 'selector': 'app-emission-list'},{'name': 'FactorEmissionModuleComponent', 'selector': 'app-factor-emission-module'},{'name': 'FileUploadComponent', 'selector': 'app-file-upload'},{'name': 'ImportFileDialogComponent', 'selector': 'app-import-file-dialog'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'PieDiagramComponent', 'selector': 'app-pie-diagram'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SpecificCalculationListComponent', 'selector': 'app-specific-calculation-list'},{'name': 'TreeDiagramComponent', 'selector': 'app-tree-diagram'},{'name': 'TypeEmissionModuleComponent', 'selector': 'app-type-emission-module'},{'name': 'TypeInputComponent', 'selector': 'app-type-input'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'TreeDiagramComponent'};
 </script>

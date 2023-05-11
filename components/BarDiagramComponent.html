@@ -68,6 +68,14 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Defines the bar-diagramm and its purpose is to showcase how much CO2 each module creates.
+It especially also shows the value on the y-axis and each bar has a specific place on the x-axis</p>
+
+    </p>
 
 
     <p class="comment">
@@ -205,12 +213,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="83" class="link-to-prism">src/app/calculation-diagram/bar-diagram/bar-diagram.component.ts:83</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">src/app/calculation-diagram/bar-diagram/bar-diagram.component.ts:92</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Injects required Services</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -273,12 +283,12 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/calculation-diagram/bar-diagram/bar-diagram.component.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/calculation-diagram/bar-diagram/bar-diagram.component.ts:23</a></div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>A function to import data from somewhere and display it on the diagram</p>
+                        <div class="io-description"><p>A function to import data and display it on the diagram</p>
 </div>
                     </td>
                 </tr>
@@ -313,8 +323,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="94"
-                            class="link-to-prism">src/app/calculation-diagram/bar-diagram/bar-diagram.component.ts:94</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="103"
+                            class="link-to-prism">src/app/calculation-diagram/bar-diagram/bar-diagram.component.ts:103</a></div>
                 </td>
             </tr>
 
@@ -375,10 +385,18 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">src/app/calculation-diagram/bar-diagram/bar-diagram.component.ts:76</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">src/app/calculation-diagram/bar-diagram/bar-diagram.component.ts:85</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The merge variable is also an instance of the EChartsOption class, it is used to merge new
+data into the options variable. It updates the data property of xAxis and series in options
+variable.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -438,10 +456,20 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/calculation-diagram/bar-diagram/bar-diagram.component.ts:42</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/calculation-diagram/bar-diagram/bar-diagram.component.ts:47</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The options variable is an instance of the EChartsOption class, which is a class provided by
+the ECharts library to configure chart options. It sets the color of the chart, the tooltip,
+grid and axis properties of the chart. xAxis and yAxis are objects that define the x and y
+axis of the chart respectively. series is an array of objects that define the data that will
+be displayed on the chart.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -468,12 +496,12 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/calculation-diagram/bar-diagram/bar-diagram.component.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/calculation-diagram/bar-diagram/bar-diagram.component.ts:23</a></div>
                                 </td>
                             </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-description"><p>A function to import data from somewhere and display it on the diagram</p>
+                                <div class="io-description"><p>A function to import data and display it on the diagram</p>
 </div>
 
                                 <div class="io-description">
@@ -527,21 +555,20 @@ import { TranslateService } from &#x27;@ngx-translate/core&#x27;;
 import type { EChartsOption } from &#x27;echarts&#x27;;
 import { TranslationManagerService } from &#x27;src/app/_services/translation-manager.service&#x27;;
 import type { DiagramData } from &#x27;../../shared&#x27;;
-
+/**
+ * Defines the bar-diagramm and its purpose is to showcase how much CO2 each module creates.
+ * It especially also shows the value on the y-axis and each bar has a specific place on the x-axis
+ */
 @Component({
   selector: &#x27;app-bar-diagram&#x27;,
   templateUrl: &#x27;./bar-diagram.component.html&#x27;,
   styleUrls: [&#x27;./bar-diagram.component.scss&#x27;]
 })
 
-/**
- * Defines the bar-diagramm and its purpose is to showcase how much CO2 each module creates.
- * It especially also shows the value on the y-axis and each bar has a specific place on the x-axis
- */
 export class BarDiagramComponent implements OnInit {
 
 	/**
-	 * A function to import data from somewhere and display it on the diagram
+	 * A function to import data and display it on the diagram
 	 * @param {DiagramData} diagramData Data to be set on the diagramm
 	 */
 	@Input()
@@ -562,7 +589,13 @@ export class BarDiagramComponent implements OnInit {
 		};
 	}
 
-	// This defines important styling options for the diagramm, something like CSS for webpages
+	/**
+   * The options variable is an instance of the EChartsOption class, which is a class provided by
+   * the ECharts library to configure chart options. It sets the color of the chart, the tooltip,
+   * grid and axis properties of the chart. xAxis and yAxis are objects that define the x and y
+   * axis of the chart respectively. series is an array of objects that define the data that will
+   * be displayed on the chart.
+   * */
 	options: EChartsOption &#x3D; {
 		// One could also save this in an external stylesheet
 		// TODO: Test reading the values below from a stylesheet
@@ -596,7 +629,11 @@ export class BarDiagramComponent implements OnInit {
 			data: []
 		}]
 	};
-
+  /**
+   * The merge variable is also an instance of the EChartsOption class, it is used to merge new
+   * data into the options variable. It updates the data property of xAxis and series in options
+   * variable.
+   */
 	merge: EChartsOption &#x3D; {
 		xAxis: {
 			data: [],
@@ -605,7 +642,7 @@ export class BarDiagramComponent implements OnInit {
 			data: [],
 		}
 	}
-
+  /** Injects required Services */
 	constructor(
 		private translateService: TranslateService,
 		private translationManager: TranslationManagerService,
@@ -659,7 +696,7 @@ export class BarDiagramComponent implements OnInit {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div echarts [options]="options" [merge]="merge"></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BarDiagramBothComponent', 'selector': 'app-bar-diagram-both'},{'name': 'BarDiagramCompareComponent', 'selector': 'app-bar-diagram-compare'},{'name': 'BarDiagramComponent', 'selector': 'app-bar-diagram'},{'name': 'CalculationDiagramCompareComponent', 'selector': 'app-calculation-diagram-compare'},{'name': 'CalculationDiagramComponent', 'selector': 'app-calculation-diagram'},{'name': 'CalculationListComponent', 'selector': 'app-calculation-list'},{'name': 'CalculationSelectCompareComponent', 'selector': 'app-calculation-select-compare'},{'name': 'CreateCalculationComponent', 'selector': 'app-create-calculation'},{'name': 'CreateModuleComponent', 'selector': 'app-create-module'},{'name': 'CreateTypeComponent', 'selector': 'app-create-type'},{'name': 'DiagramCompareDialogComponent', 'selector': 'app-diagram-dialog'},{'name': 'DiagramDialogComponent', 'selector': 'app-diagram-dialog'},{'name': 'EmissionItemComponent', 'selector': 'app-emission-item'},{'name': 'EmissionListComponent', 'selector': 'app-emission-list'},{'name': 'FactorEmissionModuleComponent', 'selector': 'app-factor-emission-module'},{'name': 'FileUploadComponent', 'selector': 'app-file-upload'},{'name': 'ImportFileDialogComponent', 'selector': 'app-import-file-dialog'},{'name': 'KonamiDialogComponent', 'selector': 'app-konami-dialog'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'PieDiagramComponent', 'selector': 'app-pie-diagram'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SpecificCalculationListComponent', 'selector': 'app-specific-calculation-list'},{'name': 'TreeDiagramComponent', 'selector': 'app-tree-diagram'},{'name': 'TypeEmissionModuleComponent', 'selector': 'app-type-emission-module'},{'name': 'TypeInputComponent', 'selector': 'app-type-input'}];
+    var COMPONENTS = [{'name': 'BarDiagramBothComponent', 'selector': 'app-bar-diagram-both'},{'name': 'BarDiagramCompareComponent', 'selector': 'app-bar-diagram-compare'},{'name': 'BarDiagramComponent', 'selector': 'app-bar-diagram'},{'name': 'CalculationCardComponent', 'selector': 'app-calculation-card'},{'name': 'CalculationDiagramCompareComponent', 'selector': 'app-calculation-diagram-compare'},{'name': 'CalculationDiagramComponent', 'selector': 'app-calculation-diagram'},{'name': 'CalculationListComponent', 'selector': 'app-calculation-list'},{'name': 'CalculationSelectCompareComponent', 'selector': 'app-calculation-select-compare'},{'name': 'CreateCalculationComponent', 'selector': 'app-create-calculation'},{'name': 'CreateModuleComponent', 'selector': 'app-create-module'},{'name': 'CreateTypeComponent', 'selector': 'app-create-type'},{'name': 'DiagramCompareDialogComponent', 'selector': 'app-diagram-dialog'},{'name': 'DiagramDialogComponent', 'selector': 'app-diagram-dialog'},{'name': 'EmissionItemComponent', 'selector': 'app-emission-item'},{'name': 'EmissionListComponent', 'selector': 'app-emission-list'},{'name': 'FactorEmissionModuleComponent', 'selector': 'app-factor-emission-module'},{'name': 'FileUploadComponent', 'selector': 'app-file-upload'},{'name': 'ImportFileDialogComponent', 'selector': 'app-import-file-dialog'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'PieDiagramComponent', 'selector': 'app-pie-diagram'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SpecificCalculationListComponent', 'selector': 'app-specific-calculation-list'},{'name': 'TreeDiagramComponent', 'selector': 'app-tree-diagram'},{'name': 'TypeEmissionModuleComponent', 'selector': 'app-type-emission-module'},{'name': 'TypeInputComponent', 'selector': 'app-type-input'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'BarDiagramComponent'};
 </script>

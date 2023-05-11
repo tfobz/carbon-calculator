@@ -69,6 +69,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>The &quot;MenuPoint&quot; interface defines the structure of the menu items.
+Each menu point has an icon, a name and an optional link and onClick function.</p>
+
+            </p>
 
 
         <section>
@@ -151,6 +159,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>&quot;icon&quot; is a string that represents the name of the icon.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -189,6 +203,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>&quot;link&quot; is an optional string that represents the link of the menu point.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -222,6 +242,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>&quot;menuPointName&quot; is a string that represents the name of the menu point.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -260,6 +286,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>&quot;onClick&quot; is an optional function that will be executed when the menu point is clicked.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -270,44 +302,80 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import { NavigationStart, Router } from &#x27;@angular/router&#x27;;
 import { BehaviorSubject, Subject } from &#x27;rxjs&#x27;;
-
+/**
+ * The &quot;MenuPoint&quot; interface defines the structure of the menu items.
+ * Each menu point has an icon, a name and an optional link and onClick function.
+ */
 export interface MenuPoint{
-  //angular material icon name
+  /** &quot;icon&quot; is a string that represents the name of the icon. */
   icon:string;
+  /** &quot;menuPointName&quot; is a string that represents the name of the menu point. */
   menuPointName:string;
+  /** &quot;link&quot; is an optional string that represents the link of the menu point. */
   link?:string;
+  /** &quot;onClick&quot; is an optional function that will be executed when the menu point is clicked. */
   onClick?: () &#x3D;&gt; void ;
 }
-
+/**
+ * This is an Angular service that is used to manage the menu of the application
+ */
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
 export class MenuService {
 
-  constructor(
-    private _router: Router
-  ){
+  /**
+   * The constructor of the class injects the Router service and subscribes to the router events
+   * in order to listen for NavigationStart events, when NavigationStart event is fired the method
+   * changeMenu is called with an empty array as the parameter.
+   * @param _router
+   */
+  constructor(private _router: Router ){
     this._router.events.subscribe(event &#x3D;&gt; {
       if(event instanceof NavigationStart){
         this.changeMenu([]);
       }
     });
   }
-  
+  /**
+   * &quot;editDataDetails&quot; is a public property that is initialized as an empty array.
+   *  It holds data that can be used for editing.
+   */
   public editDataDetails: any &#x3D; [];
 
+  /**
+   * &quot;subject&quot; is a public property that is initialized as a new Subject object.
+   *  It is used to emit events.
+   */
   public subject &#x3D; new Subject&lt;any&gt;();
 
+  /**
+   * &quot;messageSource&quot; is a private property that is initialized as a new BehaviorSubject.
+   *  It is passed the value of &quot;editDataDetails&quot; as an initial value.
+   */
   private messageSource &#x3D; new BehaviorSubject(this.editDataDetails);
 
+  /**
+   * &quot;_currentMenu&quot; is a private property that is an observable of the &quot;messageSource&quot; property.
+   * It can be subscribed to in order to receive updates when the value of &quot;messageSource&quot; changes.
+   */
   private _currentMenu &#x3D; this.messageSource.asObservable();
 
+  /**
+   * get method that returns the property currentMenu
+   * @return currentMenu
+   */
   get currentMenu(){
-
     return this._currentMenu;
-
   }
-
+  /**
+   *The method takes in a single parameter &quot;message&quot; which is an array of &quot;MenuPoint&quot; interface.
+    Inside the method, the &quot;next&quot; method of the &quot;messageSource&quot; property is called and passed the
+   &quot;message&quot; parameter. This updates the value of &quot;messageSource&quot; to the new &quot;message&quot; value and
+    emits the new value to any subscribers of the &quot;currentMenu&quot; observable. This allows other parts
+    of the application to be notified of changes to the menu and respond accordingly.
+   * @param message
+   */
   changeMenu(message: MenuPoint[]) {
    this.messageSource.next(message)
   }
