@@ -1,5 +1,6 @@
 # Carbon Calculator
 ![Documentation Coverage](https://github.com/Chris3444/carbon-calculator/blob/master/documentation/images/coverage-badge-documentation.svg)
+![Lines of code](https://img.shields.io/tokei/lines/github/tfobz/carbon-calculator?label=Lines%20of%20code)
 
 # Table of contents
 

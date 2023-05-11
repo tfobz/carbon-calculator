@@ -1,0 +1,24 @@
+# Same syntax as .gitignore
+# Ignores files from being counted with tokei line counter
+
+# Misc
+package.json
+package-lock.json
+angular.json
+/documentation/
+
+CODE_OF_CONDUCT.md
+DOCUMENTING.md
+Dokumentation.pdf
+
+# Exclude generated build files
+dist
+
+# Exclude configuration files
+.angular-cli.json
+tsconfig.json
+tslint.json
+
+# Exclude testing files
+karma.conf.js
+protractor.conf.js
