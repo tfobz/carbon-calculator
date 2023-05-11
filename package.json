@@ -10,10 +10,10 @@
     "test:ci": "ng test --watch=false --browsers=ChromeHeadlessCustom",
     "deploy": "ng deploy --base-href=/carbon-calculator/",
     "extract-translations": "ngx-translate-extract --input ./src --output ./src/assets/i18n/*.json --clean --sort --format namespaced-json --marker _",
-    "compodoc": "npx compodoc -p tsconfig.doc.json -w -s",
+    "compodoc": "npx compodoc -p tsconfig.doc.json",
     "compodoc:build": "compodoc -p tsconfig.doc.json",
     "compodoc:build-and-serve": "compodoc -p tsconfig.doc.json -s",
-    "compodoc:serve": "compodoc -s"
+    "compodoc:serve": "compodoc  -w -s"
   },
   "private": true,
   "dependencies": {
