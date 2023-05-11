@@ -3,3 +3,20 @@
 
 package.json
 package-lock.json
+angular.json
+
+CODE_OF_CONDUCT.md
+DOCUMENTING.md
+Dokumentation.pdf
+
+# Exclude generated build files
+dist
+
+# Exclude configuration files
+.angular-cli.json
+tsconfig.json
+tslint.json
+
+# Exclude testing files
+karma.conf.js
+protractor.conf.js
