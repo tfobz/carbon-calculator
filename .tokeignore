@@ -1,0 +1,5 @@
+# Same syntax as .gitignore
+# Ignores files from being counted with tokei line counter
+
+package.json
+package-lock.json
