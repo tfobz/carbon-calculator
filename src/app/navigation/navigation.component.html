@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" fxFlex.gt-lg>
 
   <button *ngIf="back" [routerLink]="back" mat-icon-button class="icon" aria-label="back">
     <mat-icon>keyboard_backspace</mat-icon>
@@ -8,7 +8,7 @@
   </a>
 
   <div fxFlex >
-    <span style="display: inline;">{{ maintitle }} </span><span class="title" style="display: inline;"> {{title}}</span>
+    <span >{{ maintitle }} </span><span class="title" style="display: inline;"> {{title}}</span>
   </div>
 
 
