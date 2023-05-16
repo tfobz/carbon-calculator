@@ -62,4 +62,12 @@ export class CalculationSelectCompareComponent implements OnInit {
   get calculations(): Calculation[] {
     return this.calculationService.calculations.filter(calc => calc.name !== this.title);
   }
+  /**
+   * The method is called when the user clicks on the delete button of a calculation.
+   * @param $event is the name of the calculation that will be deleted
+   */
+  deleteCalculation($event:string){
+    console.log($event);
+    this.calculationService.removeCalculation(this.calculationService.getByName($event));
+  }
 }
