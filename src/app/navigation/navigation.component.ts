@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Router, Event, NavigationEnd } from '@angular/router';
 import { MenuPoint, MenuService } from '../shared/menu.service';
 import { NavigationService } from '../shared/navigation.service';
@@ -14,13 +14,17 @@ import { NavigationService } from '../shared/navigation.service';
 
 export class NavigationComponent implements OnInit{
   /** maintitle property is used to display the  title of the programm */
-  maintitle: string = "CF Train in VET - Carbon Footprint Calculator";
+  maintitle: string = "CF Train in VET - ";
   /**title property is uused to display the current page title */
   title: string = "";
+  /** title2 property is used to display the title of the project*/
+  title2: string = "Carbon Footprint Calculator - ";
   /** back property is used to determine whether the back button should be displayed or not */
   back: string = "";
   /** menuPoints property is used to determine which menu items should be displayed in the menu */
   menuPoints!: MenuPoint[];
+
+
   /**
    *  It subscribes to the events emitted by the router service and listens for a NavigationEnd
    *  event. When a NavigationEnd event is emitted, the code checks the length of the URL split
@@ -77,9 +81,12 @@ export class NavigationComponent implements OnInit{
   ngOnInit(): void {
 
     this.navigation.currentMessage.subscribe(params=>{
-      this.maintitle = "CF Train in VET - Carbon Footprint Calculator - ";
+      this.maintitle = "CF Train in VET - ";
+      this.title2 = "Carbon Footprint Calculator - ";
       this.title = params;
     });
     this.menuService.currentMenu.subscribe(menu => this.menuPoints = menu);
+
   }
+
 }

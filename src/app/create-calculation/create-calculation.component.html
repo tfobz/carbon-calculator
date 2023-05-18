@@ -1,8 +1,8 @@
 <div class="container">
     <form [formGroup]="createForm" (ngSubmit)="create()" fxLayout="column">
         <mat-form-field appearance="fill">
-            <mat-label>{{ "organisationsname" | translate }}</mat-label>
-            <input matInput placeholder="Name" formControlName="name">
+            <mat-label>{{ "organisationname" | translate }}</mat-label>
+            <input matInput placeholder='{{"name"|translate}}' formControlName="name">
             <mat-error *ngIf="createForm.get('name')?.hasError('required')">
                 {{ "name_empty" | translate }}
             </mat-error>

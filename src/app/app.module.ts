@@ -57,7 +57,7 @@ import { ImportFileDialogComponent } from './calculation-list/import-file-dialog
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -88,6 +88,7 @@ import { environment } from '../environments/environment';
     KonamiDialogComponent,
     FileUploadComponent,
 	  ImportFileDialogComponent,
+   FooterComponent,
   ],
   imports: [
     BrowserModule,

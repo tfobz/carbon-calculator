@@ -2,14 +2,14 @@
 
   <mat-form-field appearance="fill">
     <mat-label>{{ "language" | translate }}</mat-label>
-    <mat-select [(ngModel)]="selectedLanguage">
+    <mat-select [(ngModel)]="selectedLanguage" aria-label="Select language">
       <mat-option *ngFor="let language of languages" [value]="language">
         {{ language.name }}
       </mat-option>
     </mat-select>
   </mat-form-field>
 
-  <button mat-flat-button color="primary" (click)="save()">{{ "save" | translate}}</button>
+  <button mat-flat-button color="primary" (click)="save()" aria-label="Save">{{ "save" | translate}}</button>
 
 </div>
 
