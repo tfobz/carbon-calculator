@@ -17,11 +17,13 @@ export class NavigationComponent implements OnInit{
   maintitle: string = "CF Train in VET - ";
   /**title property is uused to display the current page title */
   title: string = "";
+  /** title2 property is used to display the title of the project*/
   title2: string = "Carbon Footprint Calculator - ";
   /** back property is used to determine whether the back button should be displayed or not */
   back: string = "";
   /** menuPoints property is used to determine which menu items should be displayed in the menu */
   menuPoints!: MenuPoint[];
+
 
   /**
    *  It subscribes to the events emitted by the router service and listens for a NavigationEnd
@@ -84,6 +86,7 @@ export class NavigationComponent implements OnInit{
       this.title = params;
     });
     this.menuService.currentMenu.subscribe(menu => this.menuPoints = menu);
+
   }
 
 }
