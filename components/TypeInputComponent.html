@@ -727,6 +727,7 @@ export class TypeInputComponent implements OnInit {
 
     &lt;/div&gt;
 &lt;/div&gt;
+&lt;app-footer&gt;&lt;/app-footer&gt;
 </code></pre>
     </div>
 
@@ -816,7 +817,7 @@ export class TypeInputComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="typeModule">  <p class="hint">{{"hints."+module.id+"."+type.id|translate}}</p>    <mat-card>        <input matInput type="number" (keyup)="save()" [(ngModel)]="type.number">        <p>{{ module == undefined ? "" : module.unit | translate }}/{{"year"|translate}}</p>    </mat-card>    <div class="result">        <p>{{ type.number*factorManager.get(module.id + "_" + type.id) }} kg CO²</p>    </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="typeModule">  <p class="hint">{{"hints."+module.id+"."+type.id|translate}}</p>    <mat-card>        <input matInput type="number" (keyup)="save()" [(ngModel)]="type.number">        <p>{{ module == undefined ? "" : module.unit | translate }}/{{"year"|translate}}</p>    </mat-card>    <div class="result">        <p>{{ type.number*factorManager.get(module.id + "_" + type.id) }} kg CO²</p>    </div></div><app-footer></app-footer></div>'
     var COMPONENTS = [{'name': 'BarDiagramBothComponent', 'selector': 'app-bar-diagram-both'},{'name': 'BarDiagramCompareComponent', 'selector': 'app-bar-diagram-compare'},{'name': 'BarDiagramComponent', 'selector': 'app-bar-diagram'},{'name': 'CalculationCardComponent', 'selector': 'app-calculation-card'},{'name': 'CalculationDiagramCompareComponent', 'selector': 'app-calculation-diagram-compare'},{'name': 'CalculationDiagramComponent', 'selector': 'app-calculation-diagram'},{'name': 'CalculationListComponent', 'selector': 'app-calculation-list'},{'name': 'CalculationSelectCompareComponent', 'selector': 'app-calculation-select-compare'},{'name': 'CreateCalculationComponent', 'selector': 'app-create-calculation'},{'name': 'CreateModuleComponent', 'selector': 'app-create-module'},{'name': 'CreateTypeComponent', 'selector': 'app-create-type'},{'name': 'DiagramCompareDialogComponent', 'selector': 'app-diagram-dialog'},{'name': 'DiagramDialogComponent', 'selector': 'app-diagram-dialog'},{'name': 'EmissionItemComponent', 'selector': 'app-emission-item'},{'name': 'EmissionListComponent', 'selector': 'app-emission-list'},{'name': 'FactorEmissionModuleComponent', 'selector': 'app-factor-emission-module'},{'name': 'FileUploadComponent', 'selector': 'app-file-upload'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ImportFileDialogComponent', 'selector': 'app-import-file-dialog'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'PieDiagramComponent', 'selector': 'app-pie-diagram'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SpecificCalculationListComponent', 'selector': 'app-specific-calculation-list'},{'name': 'TreeDiagramComponent', 'selector': 'app-tree-diagram'},{'name': 'TypeEmissionModuleComponent', 'selector': 'app-type-emission-module'},{'name': 'TypeInputComponent', 'selector': 'app-type-input'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'TypeInputComponent'};

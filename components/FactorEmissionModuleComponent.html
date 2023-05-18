@@ -574,11 +574,10 @@ export class FactorEmissionModuleComponent implements OnInit {
         &lt;/p&gt;
     &lt;/mat-card&gt;
     &lt;div class&#x3D;&quot;result&quot;&gt;
-
         &lt;p&gt;{{ module.calculate(factorManager) }} kg CO²&lt;/p&gt;
-
     &lt;/div&gt;
 &lt;/div&gt;
+&lt;app-footer&gt;&lt;/app-footer&gt;
 </code></pre>
     </div>
 
@@ -627,7 +626,7 @@ export class FactorEmissionModuleComponent implements OnInit {
     .result{
         font-size: larger;
         position: absolute;
-        top: 93%;
+        top: 80%;
         left: 50%;
         transform: translate(-50%, 0%);
         border: solid 2px;
@@ -668,7 +667,7 @@ export class FactorEmissionModuleComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="factorEmissionModule">  <p class="hint">{{"hints."+module.id|translate}}</p>    <mat-card>        <input matInput type="number" min="0" (keypress)="save()" [(ngModel)]="module.number"        onkeypress="return event.charCode >= 48">        <p>          {{ module.id == "server_emission_module" || module.id == "printer_3d_emission_module" || module.id == "printer_emission_module" || module.id == "plotter_emission_module" || module.id == "laptop_emission_module" || module.id == "computer_emission_module"          ? (module.unit | translate)          : (module.unit | translate) + \'/\' + (\'year\' | translate) }}        </p>    </mat-card>    <div class="result">        <p>{{ module.calculate(factorManager) }} kg CO²</p>    </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="factorEmissionModule">  <p class="hint">{{"hints."+module.id|translate}}</p>    <mat-card>        <input matInput type="number" min="0" (keypress)="save()" [(ngModel)]="module.number"        onkeypress="return event.charCode >= 48">        <p>          {{ module.id == "server_emission_module" || module.id == "printer_3d_emission_module" || module.id == "printer_emission_module" || module.id == "plotter_emission_module" || module.id == "laptop_emission_module" || module.id == "computer_emission_module"          ? (module.unit | translate)          : (module.unit | translate) + \'/\' + (\'year\' | translate) }}        </p>    </mat-card>    <div class="result">        <p>{{ module.calculate(factorManager) }} kg CO²</p>    </div></div><app-footer></app-footer></div>'
     var COMPONENTS = [{'name': 'BarDiagramBothComponent', 'selector': 'app-bar-diagram-both'},{'name': 'BarDiagramCompareComponent', 'selector': 'app-bar-diagram-compare'},{'name': 'BarDiagramComponent', 'selector': 'app-bar-diagram'},{'name': 'CalculationCardComponent', 'selector': 'app-calculation-card'},{'name': 'CalculationDiagramCompareComponent', 'selector': 'app-calculation-diagram-compare'},{'name': 'CalculationDiagramComponent', 'selector': 'app-calculation-diagram'},{'name': 'CalculationListComponent', 'selector': 'app-calculation-list'},{'name': 'CalculationSelectCompareComponent', 'selector': 'app-calculation-select-compare'},{'name': 'CreateCalculationComponent', 'selector': 'app-create-calculation'},{'name': 'CreateModuleComponent', 'selector': 'app-create-module'},{'name': 'CreateTypeComponent', 'selector': 'app-create-type'},{'name': 'DiagramCompareDialogComponent', 'selector': 'app-diagram-dialog'},{'name': 'DiagramDialogComponent', 'selector': 'app-diagram-dialog'},{'name': 'EmissionItemComponent', 'selector': 'app-emission-item'},{'name': 'EmissionListComponent', 'selector': 'app-emission-list'},{'name': 'FactorEmissionModuleComponent', 'selector': 'app-factor-emission-module'},{'name': 'FileUploadComponent', 'selector': 'app-file-upload'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ImportFileDialogComponent', 'selector': 'app-import-file-dialog'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'PieDiagramComponent', 'selector': 'app-pie-diagram'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SpecificCalculationListComponent', 'selector': 'app-specific-calculation-list'},{'name': 'TreeDiagramComponent', 'selector': 'app-tree-diagram'},{'name': 'TypeEmissionModuleComponent', 'selector': 'app-type-emission-module'},{'name': 'TypeInputComponent', 'selector': 'app-type-input'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'FactorEmissionModuleComponent'};
