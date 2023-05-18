@@ -1,24 +1,15 @@
-<mat-toolbar color="primary" fxFlex.gt-lg>
 
+<mat-toolbar color="primary" >
   <button *ngIf="back" [routerLink]="back" mat-icon-button class="icon" aria-label="back">
     <mat-icon>keyboard_backspace</mat-icon>
   </button>
-  <a mat-button [routerLink]="['/emission']"class="logo" >
-    <img src="assets/logo.png"  alt="Logo" />
-  </a>
-
-  <div fxFlex >
-    <span >{{ maintitle }} </span><span class="title" style="display: inline;"> {{title}}</span>
-  </div>
-
-
-
-
-
-  <span class="spacer"></span>
+  <button mat-icon-button [routerLink]="['/emission']" class="logo">
+    <img src="assets/logo.png" alt="Logo"  />
+  </button>
+  <div class="long-title"><span class="title">{{ maintitle }}</span><span class="title">{{ title2 }}</span> <span style="margin-left: 5px;"><strong >{{ title }}</strong></span></div>
 
   <span *ngIf="menuPoints.length>1; else settings">
-    <button [matMenuTriggerFor]="menu" aria-label="menu" style="display: flex;">
+    <button [matMenuTriggerFor]="menu" aria-label="menu" style="display: flex;" class="menu">
       <span style="margin-right: 5px; margin-top: 5%; font-size: medium;">Menu</span>
       <mat-icon>more_vert</mat-icon>
     </button>
@@ -35,7 +26,5 @@
       <mat-icon> {{menuPoints[0].icon}}</mat-icon>
     </button>
   </ng-template>
-
-
 
 </mat-toolbar>

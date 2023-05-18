@@ -1,20 +1,20 @@
-/**
-* Generated theme by Material Theme Generator
-* https://materialtheme.arcsine.dev
-* Fork at: https://materialtheme.arcsine.dev/?c=YHBhbGV0dGU$YHByaW1hcnk$YF48IzU5OTgxYSIsIj9lcjwjY2RlMGJhIiwiO2VyPCMzZTdiMGZ$LCIlPmBePCM4MWI2MjIiLCI~ZXI8I2Q5ZTliZCIsIjtlcjwjNjQ5ZTE0fiwid2Fybj5gXjwjZWQ1ZDRjIiwiP2VyPCNmYWNlYzkiLCI7ZXI8I2U1NDEzM34sIj9UZXh0PCM0MTQ1M2UiLCI~PTwjZjNmNWRhIiwiO1RleHQ8I2ZmZmZmZiIsIjs9PCMyYzJjMmN$LCJmb250cz5bYEA8KC00fixgQDwoLTN$LGBAPCgtMn4sYEA8KC0xfixgQDxoZWFkbGluZX4sYEA8dGl0bGV$LGBAPHN1YiktMn4sYEA8c3ViKS0xfixgQDxib2R5LTJ$LGBAPGJvZHktMX4sYEA8YnV0dG9ufixgQDxjYXB0aW9ufixgQDxpbnB1dCIsInNpemU$bnVsbH1dLCJpY29uczxPdXRsaW5lZCIsIj9uZXNzPnRydWUsInZlcnNpb24$MTF9
-*/
+// /**
+// * Generated theme by Material Theme Generator
+// * https://materialtheme.arcsine.dev
+// * Fork at: https://materialtheme.arcsine.dev/?c=YHBhbGV0dGU$YHByaW1hcnk$YF48IzU5OTgxYSIsIj9lcjwjY2RlMGJhIiwiO2VyPCMzZTdiMGZ$LCIlPmBePCM4MWI2MjIiLCI~ZXI8I2Q5ZTliZCIsIjtlcjwjNjQ5ZTE0fiwid2Fybj5gXjwjZWQ1ZDRjIiwiP2VyPCNmYWNlYzkiLCI7ZXI8I2U1NDEzM34sIj9UZXh0PCM0MTQ1M2UiLCI~PTwjZjNmNWRhIiwiO1RleHQ8I2ZmZmZmZiIsIjs9PCMyYzJjMmN$LCJmb250cz5bYEA8KC00fixgQDwoLTN$LGBAPCgtMn4sYEA8KC0xfixgQDxoZWFkbGluZX4sYEA8dGl0bGV$LGBAPHN1YiktMn4sYEA8c3ViKS0xfixgQDxib2R5LTJ$LGBAPGJvZHktMX4sYEA8YnV0dG9ufixgQDxjYXB0aW9ufixgQDxpbnB1dCIsInNpemU$bnVsbH1dLCJpY29uczxPdXRsaW5lZCIsIj9uZXNzPnRydWUsInZlcnNpb24$MTF9
+// */
 
-@import '@angular/material/theming';
+ @import '@angular/material/theming';
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100&display=swap');
 
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
+// // Include the common styles for Angular Material. We include this here so that you only
+// // have to load a single css file for Angular Material in your app.
 
-// Fonts
-@import 'https://fonts.googleapis.com/css?family=Material+Icons+Outlined';
+// // Fonts
+ @import 'https://fonts.googleapis.com/css?family=Material+Icons+Outlined';
 
-// $fontConfig:();
+// // $fontConfig:();
 $fontConfig: (
   display-4: mat-typography-level(7em, 7em, 300, 'Roboto', -0.0134em),
   display-3: mat-typography-level(3.5em, 3.5em, 400, 'Roboto', -0.0089em),
@@ -31,12 +31,15 @@ $fontConfig: (
   input: mat-typography-level(inherit, 1.125, 400, 'Roboto', 1.5px)
 );
 html, body {
-  display: block !important;
-  min-width: 100vh !important;
+  // display: block !important;
+  // min-width: 100vh !important;
+  position:fixed;
+  width:100%;
+  height:100%;
 }
-// Foreground Elements
+// // Foreground Elements
 
-// Light Theme Text
+// // Light Theme Text
 $dark-text: #41453e;
 $dark-primary-text: rgba($dark-text, 0.87);
 $dark-accent-text: rgba($dark-primary-text, 0.54);
@@ -90,8 +93,8 @@ $mat-dark-theme-foreground: (
   slider-off-active: rgba($light-text, 0.3),
 );
 
-// Background config
-// Light bg
+// // Background config
+// // Light bg
 $light-background:    #f3f5da;
 $light-bg-darker-5:   darken($light-background, 5%);
 $light-bg-darker-10:  darken($light-background, 10%);
@@ -129,7 +132,7 @@ $dark-bg-lighter-30:  lighten($dark-background, 30%);
 $light-bg-alpha-4:    rgba(#f3f5da, 0.04);
 $light-bg-alpha-12:   rgba(#f3f5da, 0.12);
 
-// Background palette for dark themes.
+// // Background palette for dark themes.
 $mat-dark-theme-background: (
   background:               $dark-background,
   status-bar:               $dark-bg-lighter-20,
@@ -148,10 +151,10 @@ $mat-dark-theme-background: (
   disabled-list-option:     $dark-bg-lighter-10,
 );
 
-// Compute font config
-@include mat-core($fontConfig);
+// // Compute font config
+ @include mat-core($fontConfig);
 
-// Theme Config
+// // Theme Config
 
 body {
   --primary-color: #59981a;
@@ -281,4 +284,34 @@ body {
 .snackbar-custom{
 	background-color: #fff;
 	color: var(--text-primary-lighter-color);
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@media (max-width: 600px) {
+  body {
+    font-size: 14px;
+  }
+
+  .mat-raised-button,
+  .mat-stroked-button,
+  .mat-flat-button {
+    line-height: 28px;
+  }
+}
+
+/* Add a media query for screens smaller than 400px */
+@media (max-width: 400px) {
+  body {
+    font-size: 12px ;
+  }
+
+  .mat-raised-button,
+  .mat-stroked-button,
+  .mat-flat-button {
+    line-height: 24px;
+  }
 }
