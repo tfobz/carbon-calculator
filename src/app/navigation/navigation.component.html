@@ -1,5 +1,5 @@
 
-<mat-toolbar color="primary" [class.flex-start]="back">
+<mat-toolbar color="primary" [class.flex-start]="menuPoints.length < 1">
   <button *ngIf="back" [routerLink]="back" mat-icon-button class="icon" aria-label="back">
     <mat-icon>keyboard_backspace</mat-icon>
   </button>

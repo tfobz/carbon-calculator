@@ -17,9 +17,11 @@
   margin-right: 10px;
 }
 img {
+  margin-left: 10px;
   width: auto;
   height: 100%;
   float: left;
+  position: relative;
 }
 .long-title{
   display: flex;
