@@ -2,7 +2,7 @@
 
 <!-- This div mainly creates an empty gap between the navigation bar and the content-->
 <div class="content" fxLayout="column" fxLayoutGap="15px">
-    <p>{{"description1" | translate}} <br> {{"description2" | translate}} <a href="assets/Handout.pdf" target="_blank">{{"description3" | translate}}</a></p>
+    <p *ngIf="empty_hint_status == true">{{"description1" | translate}} <br> {{"description2" | translate}} <a href="assets/Handout.pdf" target="_blank">{{"description3" | translate}}</a></p>
     <h2 *ngIf="empty_hint_status == true">{{ empty_hint_msg }}</h2>
     <app-emission-item *ngFor="let calcs of calculations" [link]="['/emission', calcs.id]"
     [name]="calcs.name" [factor_preset]="calcs.factor_preset"  [emission]="calcs.calculate()"
