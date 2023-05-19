@@ -1,6 +1,6 @@
 
 <mat-toolbar color="primary" [class.flex-start]="menuPoints.length < 1">
-  <button *ngIf="back" [routerLink]="back" mat-icon-button class="icon" aria-label="back">
+  <button *ngIf="back" [routerLink]="back" mat-icon-button class="icon" aria-label="back" class = "back">
     <mat-icon>keyboard_backspace</mat-icon>
   </button>
   <button mat-icon-button [routerLink]="['/emission']" class="logo">
@@ -10,7 +10,7 @@
 
   <span *ngIf="menuPoints.length>1; else settings">
     <button [matMenuTriggerFor]="menu" aria-label="menu" style="display: flex;" class="menu">
-      <span style="margin-right: 5px; margin-top: 5%; font-size: medium;">Menu</span>
+      <span style="margin-right: 5px; margin-top: 5%;" class="menuname">Menu</span>
       <mat-icon>more_vert</mat-icon>
     </button>
 
