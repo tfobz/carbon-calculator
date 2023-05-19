@@ -687,7 +687,7 @@ export class NavigationComponent implements OnInit{
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">
 &lt;mat-toolbar color&#x3D;&quot;primary&quot; [class.flex-start]&#x3D;&quot;menuPoints.length &lt; 1&quot;&gt;
-  &lt;button *ngIf&#x3D;&quot;back&quot; [routerLink]&#x3D;&quot;back&quot; mat-icon-button class&#x3D;&quot;icon&quot; aria-label&#x3D;&quot;back&quot;&gt;
+  &lt;button *ngIf&#x3D;&quot;back&quot; [routerLink]&#x3D;&quot;back&quot; mat-icon-button class&#x3D;&quot;icon&quot; aria-label&#x3D;&quot;back&quot; class &#x3D; &quot;back&quot;&gt;
     &lt;mat-icon&gt;keyboard_backspace&lt;/mat-icon&gt;
   &lt;/button&gt;
   &lt;button mat-icon-button [routerLink]&#x3D;&quot;[&#x27;/emission&#x27;]&quot; class&#x3D;&quot;logo&quot;&gt;
@@ -697,7 +697,7 @@ export class NavigationComponent implements OnInit{
 
   &lt;span *ngIf&#x3D;&quot;menuPoints.length&gt;1; else settings&quot;&gt;
     &lt;button [matMenuTriggerFor]&#x3D;&quot;menu&quot; aria-label&#x3D;&quot;menu&quot; style&#x3D;&quot;display: flex;&quot; class&#x3D;&quot;menu&quot;&gt;
-      &lt;span style&#x3D;&quot;margin-right: 5px; margin-top: 5%; font-size: medium;&quot;&gt;Menu&lt;/span&gt;
+      &lt;span style&#x3D;&quot;margin-right: 5px; margin-top: 5%;&quot; class&#x3D;&quot;menuname&quot;&gt;Menu&lt;/span&gt;
       &lt;mat-icon&gt;more_vert&lt;/mat-icon&gt;
     &lt;/button&gt;
 
@@ -760,6 +760,31 @@ img {
   img{
     height: 50%;
   }
+  .menuname{
+    font-size: small;
+  }
+}
+@media screen and (max-width: 400px) {
+  .mat-toolbar {
+    font-size: smaller;
+  }
+  .menuname{
+    font-size: smaller;
+    margin-right: 1px;
+  }
+  .menu{
+    margin-right: 2px;
+    margin-left: 2px;
+  }
+  .back{
+    height: 50%;
+  }
+
+}
+@media screen and (max-width: 350px) {
+  .menuname{
+    display: none;
+  }
 }
 .mat-toolbar-row, .mat-toolbar-single-row {
   white-space: wrap;
@@ -809,7 +834,7 @@ button{
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><mat-toolbar color="primary" [class.flex-start]="menuPoints.length < 1">  <button *ngIf="back" [routerLink]="back" mat-icon-button class="icon" aria-label="back">    <mat-icon>keyboard_backspace</mat-icon>  </button>  <button mat-icon-button [routerLink]="[\'/emission\']" class="logo">    <img src="assets/logo.png" alt="Logo"  />  </button>  <div class="long-title"><span class="title">{{ maintitle }}</span><span class="title">{{ title2 }}</span> <span style="margin-left: 5px;"><strong >{{ title }}</strong></span></div>  <span *ngIf="menuPoints.length>1; else settings">    <button [matMenuTriggerFor]="menu" aria-label="menu" style="display: flex;" class="menu">      <span style="margin-right: 5px; margin-top: 5%; font-size: medium;">Menu</span>      <mat-icon>more_vert</mat-icon>    </button>    <mat-menu #menu="matMenu" class="fixmenu">      <button class="menuPoints" *ngFor="let menuPoint of menuPoints" mat-menu-item (click)="handleClick(menuPoint)" >        <mat-icon *ngIf="menuPoint.icon!=\'\'">{{ menuPoint.icon }}</mat-icon>        <span>{{ menuPoint.menuPointName }}</span>      </button>    </mat-menu>  </span>  <ng-template #settings>    <button *ngIf="menuPoints.length >0" aria-label="menu" class="menuPoints" mat-icon-button (click)="handleClick(menuPoints[0])" >      <mat-icon> {{menuPoints[0].icon}}</mat-icon>    </button>  </ng-template></mat-toolbar></div>'
+        var COMPONENT_TEMPLATE = '<div><mat-toolbar color="primary" [class.flex-start]="menuPoints.length < 1">  <button *ngIf="back" [routerLink]="back" mat-icon-button class="icon" aria-label="back" class = "back">    <mat-icon>keyboard_backspace</mat-icon>  </button>  <button mat-icon-button [routerLink]="[\'/emission\']" class="logo">    <img src="assets/logo.png" alt="Logo"  />  </button>  <div class="long-title"><span class="title">{{ maintitle }}</span><span class="title">{{ title2 }}</span> <span style="margin-left: 5px;"><strong >{{ title }}</strong></span></div>  <span *ngIf="menuPoints.length>1; else settings">    <button [matMenuTriggerFor]="menu" aria-label="menu" style="display: flex;" class="menu">      <span style="margin-right: 5px; margin-top: 5%;" class="menuname">Menu</span>      <mat-icon>more_vert</mat-icon>    </button>    <mat-menu #menu="matMenu" class="fixmenu">      <button class="menuPoints" *ngFor="let menuPoint of menuPoints" mat-menu-item (click)="handleClick(menuPoint)" >        <mat-icon *ngIf="menuPoint.icon!=\'\'">{{ menuPoint.icon }}</mat-icon>        <span>{{ menuPoint.menuPointName }}</span>      </button>    </mat-menu>  </span>  <ng-template #settings>    <button *ngIf="menuPoints.length >0" aria-label="menu" class="menuPoints" mat-icon-button (click)="handleClick(menuPoints[0])" >      <mat-icon> {{menuPoints[0].icon}}</mat-icon>    </button>  </ng-template></mat-toolbar></div>'
     var COMPONENTS = [{'name': 'BarDiagramBothComponent', 'selector': 'app-bar-diagram-both'},{'name': 'BarDiagramCompareComponent', 'selector': 'app-bar-diagram-compare'},{'name': 'BarDiagramComponent', 'selector': 'app-bar-diagram'},{'name': 'CalculationCardComponent', 'selector': 'app-calculation-card'},{'name': 'CalculationDiagramCompareComponent', 'selector': 'app-calculation-diagram-compare'},{'name': 'CalculationDiagramComponent', 'selector': 'app-calculation-diagram'},{'name': 'CalculationListComponent', 'selector': 'app-calculation-list'},{'name': 'CalculationSelectCompareComponent', 'selector': 'app-calculation-select-compare'},{'name': 'CreateCalculationComponent', 'selector': 'app-create-calculation'},{'name': 'CreateModuleComponent', 'selector': 'app-create-module'},{'name': 'CreateTypeComponent', 'selector': 'app-create-type'},{'name': 'DiagramCompareDialogComponent', 'selector': 'app-diagram-dialog'},{'name': 'DiagramDialogComponent', 'selector': 'app-diagram-dialog'},{'name': 'EmissionItemComponent', 'selector': 'app-emission-item'},{'name': 'EmissionListComponent', 'selector': 'app-emission-list'},{'name': 'FactorEmissionModuleComponent', 'selector': 'app-factor-emission-module'},{'name': 'FileUploadComponent', 'selector': 'app-file-upload'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ImportFileDialogComponent', 'selector': 'app-import-file-dialog'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'PieDiagramComponent', 'selector': 'app-pie-diagram'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SpecificCalculationListComponent', 'selector': 'app-specific-calculation-list'},{'name': 'TreeDiagramComponent', 'selector': 'app-tree-diagram'},{'name': 'TypeEmissionModuleComponent', 'selector': 'app-type-emission-module'},{'name': 'TypeInputComponent', 'selector': 'app-type-input'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'NavigationComponent'};
