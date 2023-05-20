@@ -734,15 +734,15 @@ export class KonamiDialogComponent{
 	gdColumns.lt-md&#x3D;&quot;1fr&quot;
 	gdGap&#x3D;&quot;25px&quot;
 	style&#x3D;&quot;margin: 25px&quot;&gt;
-	&lt;mat-card (click)&#x3D;&quot;openDialog(&#x27;bar&#x27;)&quot;&gt;
+	&lt;mat-card (click)&#x3D;&quot;openDialog(&#x27;bar&#x27;)&quot; class&#x3D;&quot;bar&quot;&gt;
 		&lt;app-bar-diagram [data]&#x3D;&quot;data&quot;&gt;&lt;/app-bar-diagram&gt;
 	&lt;/mat-card&gt;
 
-	&lt;mat-card (click)&#x3D;&quot;openDialog(&#x27;pie&#x27;)&quot;&gt;
+	&lt;mat-card (click)&#x3D;&quot;openDialog(&#x27;pie&#x27;)&quot; class&#x3D;&quot;pie&quot;&gt;
 		&lt;app-pie-diagram [data]&#x3D;&quot;data&quot;&gt;&lt;/app-pie-diagram&gt;
 	&lt;/mat-card&gt;
 
-	&lt;mat-card gdColumn.gt-md&#x3D;&quot;span 2&quot;&gt;
+	&lt;mat-card gdColumn.gt-md&#x3D;&quot;span 2&quot; class&#x3D;&quot;span&quot;&gt;
 		&lt;app-tree-diagram [data]&#x3D;&quot;data&quot;&gt;&lt;/app-tree-diagram&gt;
 	&lt;/mat-card&gt;
 &lt;/div&gt;
@@ -753,7 +753,42 @@ export class KonamiDialogComponent{
                 <p class="comment">
                     <code>./calculation-diagram.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss"></code></pre>
+                <pre class="line-numbers"><code class="language-scss">@media screen and (max-width: 1250px) {
+  div{
+    height: 70%;
+    width: 70%;
+  }
+  .bar{
+    width: 70%;
+   }
+   .pie
+   {
+     width: 70%;
+   }
+   .span
+   {
+     width: 70%;
+   }
+}
+
+@media screen and (max-width: 400px) {
+  div{
+    height: 50%;
+  }
+  .bar{
+    width: 50%;
+   }
+   .pie
+   {
+     width: 50%;
+   }
+   .span
+   {
+     width: 50%;
+   }
+}
+
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -781,7 +816,7 @@ export class KonamiDialogComponent{
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div (konami)="openKonami()"	gdColumns.gt-md="1fr 1fr"	gdColumns.lt-md="1fr"	gdGap="25px"	style="margin: 25px">	<mat-card (click)="openDialog(\'bar\')">		<app-bar-diagram [data]="data"></app-bar-diagram>	</mat-card>	<mat-card (click)="openDialog(\'pie\')">		<app-pie-diagram [data]="data"></app-pie-diagram>	</mat-card>	<mat-card gdColumn.gt-md="span 2">		<app-tree-diagram [data]="data"></app-tree-diagram>	</mat-card></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div (konami)="openKonami()"	gdColumns.gt-md="1fr 1fr"	gdColumns.lt-md="1fr"	gdGap="25px"	style="margin: 25px">	<mat-card (click)="openDialog(\'bar\')" class="bar">		<app-bar-diagram [data]="data"></app-bar-diagram>	</mat-card>	<mat-card (click)="openDialog(\'pie\')" class="pie">		<app-pie-diagram [data]="data"></app-pie-diagram>	</mat-card>	<mat-card gdColumn.gt-md="span 2" class="span">		<app-tree-diagram [data]="data"></app-tree-diagram>	</mat-card></div></div>'
     var COMPONENTS = [{'name': 'BarDiagramBothComponent', 'selector': 'app-bar-diagram-both'},{'name': 'BarDiagramCompareComponent', 'selector': 'app-bar-diagram-compare'},{'name': 'BarDiagramComponent', 'selector': 'app-bar-diagram'},{'name': 'CalculationCardComponent', 'selector': 'app-calculation-card'},{'name': 'CalculationDiagramCompareComponent', 'selector': 'app-calculation-diagram-compare'},{'name': 'CalculationDiagramComponent', 'selector': 'app-calculation-diagram'},{'name': 'CalculationListComponent', 'selector': 'app-calculation-list'},{'name': 'CalculationSelectCompareComponent', 'selector': 'app-calculation-select-compare'},{'name': 'CreateCalculationComponent', 'selector': 'app-create-calculation'},{'name': 'CreateModuleComponent', 'selector': 'app-create-module'},{'name': 'CreateTypeComponent', 'selector': 'app-create-type'},{'name': 'DiagramCompareDialogComponent', 'selector': 'app-diagram-dialog'},{'name': 'DiagramDialogComponent', 'selector': 'app-diagram-dialog'},{'name': 'EmissionItemComponent', 'selector': 'app-emission-item'},{'name': 'EmissionListComponent', 'selector': 'app-emission-list'},{'name': 'FactorEmissionModuleComponent', 'selector': 'app-factor-emission-module'},{'name': 'FileUploadComponent', 'selector': 'app-file-upload'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ImportFileDialogComponent', 'selector': 'app-import-file-dialog'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'PieDiagramComponent', 'selector': 'app-pie-diagram'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SpecificCalculationListComponent', 'selector': 'app-specific-calculation-list'},{'name': 'TreeDiagramComponent', 'selector': 'app-tree-diagram'},{'name': 'TypeEmissionModuleComponent', 'selector': 'app-type-emission-module'},{'name': 'TypeInputComponent', 'selector': 'app-type-input'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'CalculationDiagramComponent'};
