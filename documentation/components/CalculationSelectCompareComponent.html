@@ -159,6 +159,9 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#deleteCalculation" >deleteCalculation</a>
+                            </li>
+                            <li>
                                 <a href="#ngOnInit" >ngOnInit</a>
                             </li>
                         </ul>
@@ -316,6 +319,82 @@
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteCalculation"></a>
+                    <span class="name">
+                        <span ><b>deleteCalculation</b></span>
+                        <a href="#deleteCalculation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteCalculation($event: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">src/app/calculation-select-compare/calculation-select-compare.component.ts:69</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The method is called when the user clicks on the delete button of a calculation.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>$event</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>is the name of the calculation that will be deleted</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -547,6 +626,14 @@ export class CalculationSelectCompareComponent implements OnInit {
   get calculations(): Calculation[] {
     return this.calculationService.calculations.filter(calc &#x3D;&gt; calc.name !&#x3D;&#x3D; this.title);
   }
+  /**
+   * The method is called when the user clicks on the delete button of a calculation.
+   * @param $event is the name of the calculation that will be deleted
+   */
+  deleteCalculation($event:string){
+    console.log($event);
+    this.calculationService.removeCalculation(this.calculationService.getByName($event));
+  }
 }
 </code></pre>
     </div>
@@ -554,7 +641,8 @@ export class CalculationSelectCompareComponent implements OnInit {
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;mat-card class&#x3D;&quot;error_card&quot; *ngIf&#x3D;&quot;calculations.length &#x3D;&#x3D;&#x3D; 0&quot;&gt;{{ &quot;diagram_compare_error&quot; | translate }}&lt;/mat-card&gt;
 &lt;div *ngIf&#x3D;&quot;calculations.length !&#x3D;&#x3D; 0&quot; class&#x3D;&quot;content&quot; fxLayout&#x3D;&quot;column&quot; fxLayoutGap&#x3D;&quot;15px&quot;&gt;
-    &lt;app-emission-item *ngFor&#x3D;&quot;let calcs of calculations&quot; [name]&#x3D;&quot;calcs.name&quot; [link]&#x3D;&quot;[&#x27;/emission&#x27;, id, &#x27;diagram&#x27;, calcs.id]&quot; [emission]&#x3D;&quot;calcs.calculate()&quot;&gt;&lt;/app-emission-item&gt;
+    &lt;app-emission-item *ngFor&#x3D;&quot;let calcs of calculations&quot; [name]&#x3D;&quot;calcs.name&quot; [link]&#x3D;&quot;[&#x27;/emission&#x27;, id, &#x27;diagram&#x27;, calcs.id]&quot; [emission]&#x3D;&quot;calcs.calculate()&quot;
+    [factor_preset]&#x3D;&quot;calcs.factor_preset&quot; (deleteItself)&#x3D;&quot;deleteCalculation($event)&quot;&gt;&lt;/app-emission-item&gt;
 &lt;/div&gt;
 </code></pre>
     </div>
@@ -622,8 +710,8 @@ export class CalculationSelectCompareComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><mat-card class="error_card" *ngIf="calculations.length === 0">{{ "diagram_compare_error" | translate }}</mat-card><div *ngIf="calculations.length !== 0" class="content" fxLayout="column" fxLayoutGap="15px">    <app-emission-item *ngFor="let calcs of calculations" [name]="calcs.name" [link]="[\'/emission\', id, \'diagram\', calcs.id]" [emission]="calcs.calculate()"></app-emission-item></div></div>'
-    var COMPONENTS = [{'name': 'BarDiagramBothComponent', 'selector': 'app-bar-diagram-both'},{'name': 'BarDiagramCompareComponent', 'selector': 'app-bar-diagram-compare'},{'name': 'BarDiagramComponent', 'selector': 'app-bar-diagram'},{'name': 'CalculationCardComponent', 'selector': 'app-calculation-card'},{'name': 'CalculationDiagramCompareComponent', 'selector': 'app-calculation-diagram-compare'},{'name': 'CalculationDiagramComponent', 'selector': 'app-calculation-diagram'},{'name': 'CalculationListComponent', 'selector': 'app-calculation-list'},{'name': 'CalculationSelectCompareComponent', 'selector': 'app-calculation-select-compare'},{'name': 'CreateCalculationComponent', 'selector': 'app-create-calculation'},{'name': 'CreateModuleComponent', 'selector': 'app-create-module'},{'name': 'CreateTypeComponent', 'selector': 'app-create-type'},{'name': 'DiagramCompareDialogComponent', 'selector': 'app-diagram-dialog'},{'name': 'DiagramDialogComponent', 'selector': 'app-diagram-dialog'},{'name': 'EmissionItemComponent', 'selector': 'app-emission-item'},{'name': 'EmissionListComponent', 'selector': 'app-emission-list'},{'name': 'FactorEmissionModuleComponent', 'selector': 'app-factor-emission-module'},{'name': 'FileUploadComponent', 'selector': 'app-file-upload'},{'name': 'ImportFileDialogComponent', 'selector': 'app-import-file-dialog'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'PieDiagramComponent', 'selector': 'app-pie-diagram'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SpecificCalculationListComponent', 'selector': 'app-specific-calculation-list'},{'name': 'TreeDiagramComponent', 'selector': 'app-tree-diagram'},{'name': 'TypeEmissionModuleComponent', 'selector': 'app-type-emission-module'},{'name': 'TypeInputComponent', 'selector': 'app-type-input'}];
+        var COMPONENT_TEMPLATE = '<div><mat-card class="error_card" *ngIf="calculations.length === 0">{{ "diagram_compare_error" | translate }}</mat-card><div *ngIf="calculations.length !== 0" class="content" fxLayout="column" fxLayoutGap="15px">    <app-emission-item *ngFor="let calcs of calculations" [name]="calcs.name" [link]="[\'/emission\', id, \'diagram\', calcs.id]" [emission]="calcs.calculate()"    [factor_preset]="calcs.factor_preset" (deleteItself)="deleteCalculation($event)"></app-emission-item></div></div>'
+    var COMPONENTS = [{'name': 'BarDiagramBothComponent', 'selector': 'app-bar-diagram-both'},{'name': 'BarDiagramCompareComponent', 'selector': 'app-bar-diagram-compare'},{'name': 'BarDiagramComponent', 'selector': 'app-bar-diagram'},{'name': 'CalculationCardComponent', 'selector': 'app-calculation-card'},{'name': 'CalculationDiagramCompareComponent', 'selector': 'app-calculation-diagram-compare'},{'name': 'CalculationDiagramComponent', 'selector': 'app-calculation-diagram'},{'name': 'CalculationListComponent', 'selector': 'app-calculation-list'},{'name': 'CalculationSelectCompareComponent', 'selector': 'app-calculation-select-compare'},{'name': 'CreateCalculationComponent', 'selector': 'app-create-calculation'},{'name': 'CreateModuleComponent', 'selector': 'app-create-module'},{'name': 'CreateTypeComponent', 'selector': 'app-create-type'},{'name': 'DiagramCompareDialogComponent', 'selector': 'app-diagram-dialog'},{'name': 'DiagramDialogComponent', 'selector': 'app-diagram-dialog'},{'name': 'EmissionItemComponent', 'selector': 'app-emission-item'},{'name': 'EmissionListComponent', 'selector': 'app-emission-list'},{'name': 'FactorEmissionModuleComponent', 'selector': 'app-factor-emission-module'},{'name': 'FileUploadComponent', 'selector': 'app-file-upload'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ImportFileDialogComponent', 'selector': 'app-import-file-dialog'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'PieDiagramComponent', 'selector': 'app-pie-diagram'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SpecificCalculationListComponent', 'selector': 'app-specific-calculation-list'},{'name': 'TreeDiagramComponent', 'selector': 'app-tree-diagram'},{'name': 'TypeEmissionModuleComponent', 'selector': 'app-type-emission-module'},{'name': 'TypeInputComponent', 'selector': 'app-type-input'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'CalculationSelectCompareComponent'};
 </script>
