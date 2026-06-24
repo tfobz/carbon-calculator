@@ -171,7 +171,7 @@ export const MODULE_CATALOG: Record<string, ModuleDef> = {
     unit: 'kWh',
     icon: '⚡',
     submodules: [
-      { id: 'neutral', title: 'Carbon Neutral (0 CO<sub>2</sub>)' },
+      { id: 'neutral', title: 'Carbon Neutral (0 CO₂)' },
       { id: 'wind', title: 'Wind Power' },
       { id: 'hydro', title: 'Hydro Power' },
       { id: 'gas', title: 'Natural Gas' },
