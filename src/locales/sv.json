@@ -15,7 +15,7 @@
   "addNewOrganization": "Lägg till ny organisation",
   "addOrganization": "Lägg till organisation",
   "organizationName": "Organisationsnamn (och år)",
-  "organizationNameRequired": "Organisationsnamn *",
+  "organizationNameRequired": "Organisationsnamn (och år) *",
   "organizationNamePlaceholder": "t.ex. Acme Corporation 2026",
   "description": "Beskrivning",
   "descriptionOptional": "Beskrivning (valfritt)",

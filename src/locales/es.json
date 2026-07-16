@@ -15,7 +15,7 @@
   "addNewOrganization": "Agregar nueva organización",
   "addOrganization": "Agregar Organización",
   "organizationName": "Nombre de la organización (y año)",
-  "organizationNameRequired": "Nombre de la organización *",
+  "organizationNameRequired": "Nombre de la organización (y año) *",
   "organizationNamePlaceholder": "p.ej. Corporación Acme 2026",
   "description": "Descripción",
   "descriptionOptional": "Descripción (opcional)",
