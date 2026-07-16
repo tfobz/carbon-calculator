@@ -115,9 +115,9 @@ export const MODULE_CATALOG: Record<string, ModuleDef> = {
   },
   heating: {
     id: 'heating',
-    title: 'Heating Energy',
+    title: 'Heating Energy (Gas/Oil)',
     description: 'Heating energy consumption',
-    unit: 'kWh',
+    unit: 'm³',
     icon: '🔥',
     calculateCO2: (value, _sub, country) => value * FACTORS[country].heating,
   },
