@@ -9,7 +9,56 @@ const initialOrgs: Organization[] = savedData ? JSON.parse(savedData) : [];
 // 2. Define Signals
 export const organizations = signal<Organization[]>(initialOrgs);
 export const activeOrgId = signal<string | null>(null);
-export const currentView = signal<"orgs" | "dashboard" | "settings" | "stats" | "about">("orgs");
+export type AppView = "orgs" | "dashboard" | "settings" | "stats" | "about";
+export const currentView = signal<AppView>("orgs");
+
+const historyStateKey = "carbonCalculator";
+
+type AppHistoryState = {
+  view: AppView;
+  orgId: string | null;
+};
+
+function readAppHistoryState(value: unknown): AppHistoryState | null {
+  if (!value || typeof value !== "object") return null;
+  const state = (value as Record<string, unknown>)[historyStateKey];
+  if (!state || typeof state !== "object") return null;
+
+  const appState = state as Record<string, unknown>;
+  const views: AppView[] = ["orgs", "dashboard", "settings", "stats", "about"];
+  if (
+    typeof appState.view !== "string" ||
+    !views.includes(appState.view as AppView) ||
+    (typeof appState.orgId !== "string" && appState.orgId !== null)
+  ) return null;
+
+  return { view: appState.view as AppView, orgId: appState.orgId };
+}
+
+function makeHistoryState(view: AppView, orgId: string | null) {
+  return {
+    ...history.state,
+    [historyStateKey]: { view, orgId },
+  };
+}
+
+history.replaceState(makeHistoryState(currentView.value, activeOrgId.value), "");
+
+window.addEventListener("popstate", (event: PopStateEvent) => {
+  const appState = readAppHistoryState(event.state);
+  if (!appState) {
+    activeOrgId.value = null;
+    currentView.value = "orgs";
+    return;
+  }
+
+  const orgExists = appState.orgId === null || organizations.value.some(org => org.id === appState.orgId);
+  const orgId = orgExists ? appState.orgId : null;
+  activeOrgId.value = orgId;
+  currentView.value = appState.view === "dashboard" && orgId === null
+    ? "orgs"
+    : appState.view;
+});
 
 // 3. Auto-save to LocalStorage whenever 'organizations' changes
 effect(() => {
@@ -34,8 +83,16 @@ export function addOrganization(name: string, description: string, country: Coun
 }
 
 export function selectOrganization(id: string | null) {
-  activeOrgId.value = id;
-  currentView.value = id ? "dashboard" : "orgs";
+  navigateTo(id ? "dashboard" : "orgs", id);
+}
+
+export function navigateTo(view: AppView, orgId = activeOrgId.value) {
+  if (view === "dashboard" && orgId === null) return;
+  if (currentView.value === view && activeOrgId.value === orgId) return;
+
+  history.pushState(makeHistoryState(view, orgId), "");
+  activeOrgId.value = orgId;
+  currentView.value = view;
 }
 
 export function addModuleInstance(defId: string) {

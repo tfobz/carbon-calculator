@@ -1,4 +1,4 @@
-import { currentView, activeOrgId, selectOrganization } from './store';
+import { currentView, activeOrgId, navigateTo, selectOrganization } from './store';
 import { OrganizationsView } from './pages/OrganizationsView';
 import { DashboardView } from './pages/DashboardView';
 import { StatisticsView } from './pages/StatisticsView';
@@ -34,7 +34,7 @@ function Navbar() {
         {activeOrgId.value && (
            <button 
              class={navBtnClass('dashboard')} 
-             onClick={() => currentView.value = 'dashboard'}
+             onClick={() => navigateTo('dashboard')}
            >
              <span>📊</span>
              <span class="hidden sm:inline">{t('dashboard')}</span>
@@ -43,7 +43,7 @@ function Navbar() {
         
         <button 
           class={navBtnClass('stats')} 
-          onClick={() => currentView.value = 'stats'}
+          onClick={() => navigateTo('stats')}
         >
           <span>📈</span>
           <span class="hidden sm:inline">{t('stats')}</span>
@@ -51,7 +51,7 @@ function Navbar() {
         
         <button 
           class={navBtnClass('settings')} 
-          onClick={() => currentView.value = 'settings'}
+          onClick={() => navigateTo('settings')}
         >
           <span>⚙️</span>
           <span class="hidden sm:inline">{t('settings')}</span>
@@ -71,7 +71,7 @@ function Footer() {
         <p class="m-0">© {currentYear} {t('copyright')}</p>
         <div class="flex items-center gap-4">
           <button 
-            onClick={() => currentView.value = 'about'}
+            onClick={() => navigateTo('about')}
             class="text-green-700 hover:text-green-900 font-medium transition-colors"
           >
             {t('about')}
