@@ -1,7 +1,7 @@
 import { useSignal } from '@preact/signals';
 import { organizations, addOrganization, selectOrganization, deleteOrganization } from '../store';
 import { OrganizationCard } from '../components/OrganizationCard';
-import { AddOrganizationModal } from '../components/AddOrganizationModal';
+import { AddEditOrganizationModal } from '../components/AddEditOrganizationModal';
 import { ConfirmationModal } from '../components/ConfirmationModal';
 import type { CountryCode } from '../data/factors';
 import { t } from '../i18n';
@@ -80,7 +80,7 @@ export function OrganizationsView() {
 
       {/* Add Organization Modal */}
       {showAddModal.value && (
-        <AddOrganizationModal 
+        <AddEditOrganizationModal 
           onClose={() => showAddModal.value = false}
           onConfirm={handleAddOrganization}
         />

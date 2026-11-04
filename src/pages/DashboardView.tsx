@@ -5,12 +5,14 @@ import { ModuleCard } from '../components/ModuleCard';
 import { AddModuleModal } from '../components/AddModuleModal';
 import { EditModuleModal } from '../components/EditModuleModal';
 import { ConfirmationModal } from '../components/ConfirmationModal';
+import { AddEditOrganizationModal } from '../components/AddEditOrganizationModal';
 import { t } from '../i18n';
 
 export function DashboardView() {
   const showAddModal = useSignal(false);
   const editingModule = useSignal<string | null>(null);
   const deletingModule = useSignal<string | null>(null);
+  const showEditOrganizationModal = useSignal(false);
 
   // Calculate total CO2
   const totalCO2 = useComputed(() => {
@@ -36,6 +38,13 @@ export function DashboardView() {
       deletingModule.value = null;
     }
   };
+
+  const handleEditOrganization = (name: string, description: string, country: string) => {
+    org.name = name;
+    org.description = description;
+    org.country = country as any; // Assuming CountryCode type is compatible
+    showEditOrganizationModal.value = false;
+  }
 
   const editModule = org.modules.find(m => m.id === editingModule.value);
 
@@ -79,6 +88,12 @@ export function DashboardView() {
         >
           ➕ {t('addModuleBtn')}
         </button>
+        <button
+          onClick={() => showEditOrganizationModal.value = true}
+          class="px-6 sm:px-8 py-2 sm:py-3 bg-blue-700 text-white font-bold rounded-lg hover:bg-blue-800 transition-colors shadow-lg text-sm sm:text-lg flex items-center gap-2 ml-4"
+        >
+          {t('editOrganization')}
+        </button>
       </div>
 
       {/* Modals */}
@@ -109,6 +124,14 @@ export function DashboardView() {
           isDelete={true}
           onConfirm={handleDeleteModule}
           onCancel={() => deletingModule.value = null}
+        />
+      )}
+
+      {showEditOrganizationModal.value && (
+        <AddEditOrganizationModal 
+          onClose={() => showEditOrganizationModal.value = false}
+          onConfirm={handleEditOrganization}
+          isEdit={{ name: org.name, description: org.description, country: org.country }}
         />
       )}
     </div>

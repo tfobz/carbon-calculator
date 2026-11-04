@@ -14,6 +14,7 @@
   "noOrganizationsMsg": "Inga organisationer ännu. Skapa en för att börja!",
   "addNewOrganization": "Lägg till ny organisation",
   "addOrganization": "Lägg till organisation",
+  "editOrganization": "Redigera organisation",
   "organizationName": "Organisationsnamn (och år)",
   "organizationNameRequired": "Organisationsnamn (och år) *",
   "organizationNamePlaceholder": "t.ex. Acme Corporation 2026",

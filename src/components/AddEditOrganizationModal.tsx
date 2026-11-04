@@ -5,12 +5,13 @@ import { t } from '../i18n';
 interface Props {
   onClose: () => void;
   onConfirm: (name: string, description: string, country: CountryCode) => void;
+  isEdit?: {name: string, description: string, country: CountryCode};
 }
 
-export function AddOrganizationModal({ onClose, onConfirm }: Props) {
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [country, setCountry] = useState<CountryCode>("it");
+export function AddEditOrganizationModal({ onClose, onConfirm, isEdit }: Props) {
+  const [name, setName] = useState(isEdit ? isEdit.name : "");
+  const [description, setDescription] = useState(isEdit ? isEdit.description : "");
+  const [country, setCountry] = useState<CountryCode>(isEdit ? isEdit.country : "it");
 
   const handleSubmit = (e: Event) => {
     e.preventDefault();
@@ -25,7 +26,7 @@ export function AddOrganizationModal({ onClose, onConfirm }: Props) {
   return (
     <div class="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
       <div class="bg-white rounded-lg p-4 sm:p-6 max-w-md w-full shadow-xl">
-        <h2 class="text-lg sm:text-xl font-bold mb-4">{t('addNewOrganization')}</h2>
+        <h2 class="text-lg sm:text-xl font-bold mb-4">{isEdit ? t('editOrganization') : t('addNewOrganization')}</h2>
         
         <form onSubmit={handleSubmit} class="space-y-4">
           <div>
@@ -76,7 +77,7 @@ export function AddOrganizationModal({ onClose, onConfirm }: Props) {
               type="submit"
               class="px-3 sm:px-4 py-2 bg-green-700 text-white font-bold rounded hover:bg-green-800 text-sm"
             >
-              {t('createOrganization')}
+              {isEdit ? t('editOrganization') : t('createOrganization')}
             </button>
           </div>
         </form>

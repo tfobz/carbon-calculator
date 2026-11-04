@@ -14,6 +14,7 @@
   "noOrganizationsMsg": "No organizations yet. Create one to get started!",
   "addNewOrganization": "Add New Organization",
   "addOrganization": "Add Organization",
+  "editOrganization": "Edit Organization",
   "organizationName": "Organization name (and year)",
   "organizationNameRequired": "Organization name (and year) *",
   "organizationNamePlaceholder": "e.g., Acme Corporation 2026",
