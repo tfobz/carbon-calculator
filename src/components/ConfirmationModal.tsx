@@ -1,3 +1,5 @@
+import { useEffect } from 'preact/hooks';
+
 interface Props {
   title: string;
   message: string;
@@ -17,6 +19,17 @@ export function ConfirmationModal({
   onCancel,
   isDelete = false
 }: Props) {
+
+  useEffect(() => {
+    const handleKeyUp = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        onCancel();
+      }
+    };
+    window.addEventListener('keyup', handleKeyUp);
+    return () => window.removeEventListener('keyup', handleKeyUp);
+  }, [onCancel]);
+
   return (
     <div class="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
       <div class="bg-white rounded-lg p-6 max-w-md w-full shadow-xl">

@@ -1,4 +1,4 @@
-import { useState } from 'preact/hooks';
+import { useEffect, useState } from 'preact/hooks';
 import { MODULE_CATALOG } from '../data/moduleCatalog';
 import type { ModuleInstance } from '../types';
 import { t } from '../i18n';
@@ -15,10 +15,21 @@ export function AddModuleModal({ onClose, onConfirm }: Props) {
 
   const def = MODULE_CATALOG[selectedDefId];
 
+  useEffect(() => {
+    const handleKeyUp = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    window.addEventListener('keyup', handleKeyUp);
+    return () => window.removeEventListener('keyup', handleKeyUp);
+  }, [onClose]);
+
   const handleSubChange = (subId: string, val: number) => {
     setSubValues(prev => ({ ...prev, [subId]: val }));
   };
-
+  
   const handleAdd = () => {
     const newModule: ModuleInstance = {
       id: crypto.randomUUID(),

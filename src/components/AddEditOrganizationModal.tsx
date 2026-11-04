@@ -1,4 +1,4 @@
-import { useState } from 'preact/hooks';
+import { useEffect, useState } from 'preact/hooks';
 import { COUNTRY_NAMES, type CountryCode } from '../data/factors';
 import { t } from '../i18n';
 
@@ -12,6 +12,17 @@ export function AddEditOrganizationModal({ onClose, onConfirm, isEdit }: Props) 
   const [name, setName] = useState(isEdit ? isEdit.name : "");
   const [description, setDescription] = useState(isEdit ? isEdit.description : "");
   const [country, setCountry] = useState<CountryCode>(isEdit ? isEdit.country : "it");
+
+  useEffect(() => {
+    const handleKeyUp = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    window.addEventListener('keyup', handleKeyUp);
+    return () => window.removeEventListener('keyup', handleKeyUp);
+  }, [onClose]);
 
   const handleSubmit = (e: Event) => {
     e.preventDefault();

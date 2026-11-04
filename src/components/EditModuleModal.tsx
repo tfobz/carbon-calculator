@@ -1,4 +1,4 @@
-import { useState } from 'preact/hooks';
+import { useEffect, useState } from 'preact/hooks';
 import type {  ModuleInstance } from '../types';
 import { MODULE_CATALOG } from '../data/moduleCatalog';
 import { t } from '../i18n';
@@ -17,6 +17,17 @@ export function EditModuleModal({ moduleInstance, onClose, onSave }: Props) {
   const [subValues, setSubValues] = useState<Record<string, number>>(moduleInstance.submoduleValues || {});
 
   if (!def) return null;
+
+  useEffect(() => {
+    const handleKeyUp = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    window.addEventListener('keyup', handleKeyUp);
+    return () => window.removeEventListener('keyup', handleKeyUp);
+  }, [onClose]);
 
   const handleSubChange = (subId: string, val: number) => {
     setSubValues(prev => ({ ...prev, [subId]: val }));
