@@ -9,6 +9,7 @@ import { t } from '../i18n';
 export function OrganizationsView() {
   const showAddModal = useSignal(false);
   const deletingOrgId = useSignal<string | null>(null);
+  const duplicateOrgId = useSignal<string | null>(null);
 
   const handleAddOrganization = (name: string, description: string, country: CountryCode) => {
     addOrganization(name, description, country);
@@ -19,6 +20,16 @@ export function OrganizationsView() {
     if (deletingOrgId.value) {
       deleteOrganization(deletingOrgId.value);
       deletingOrgId.value = null;
+    }
+  };
+
+  const handleDuplicateOrganization = () => {
+    if (duplicateOrgId.value) {
+      const orgToDuplicate = organizations.value.find(org => org.id === duplicateOrgId.value);
+      if (orgToDuplicate) {
+        addOrganization(orgToDuplicate.name + " 2", orgToDuplicate.description, orgToDuplicate.country, orgToDuplicate.modules);
+      }
+      duplicateOrgId.value = null;
     }
   };
 
@@ -38,6 +49,13 @@ export function OrganizationsView() {
                 org={org} 
                 onClick={() => selectOrganization(org.id)}
               />
+              <button
+                onClick={() => duplicateOrgId.value = org.id}
+                class="absolute top-2 right-10 p-2 text-blue-600 hover:bg-blue-50 rounded transition-colors"
+                title={t('duplicateOrgTitle')}
+              >
+                🔄
+              </button>
               <button
                 onClick={() => deletingOrgId.value = org.id}
                 class="absolute top-2 right-2 p-2 text-red-600 hover:bg-red-50 rounded transition-colors"
@@ -65,6 +83,19 @@ export function OrganizationsView() {
         <AddOrganizationModal 
           onClose={() => showAddModal.value = false}
           onConfirm={handleAddOrganization}
+        />
+      )}
+
+      {/* Duplicate Confirmation Modal */}
+      {duplicateOrgId.value && (
+        <ConfirmationModal
+          title={t('duplicateOrganization')}
+          message={t('duplicateOrgConfirm')}
+          confirmText={t('duplicate')}
+          cancelText={t('cancel')}
+          isDelete={false}
+          onConfirm={handleDuplicateOrganization}
+          onCancel={() => duplicateOrgId.value = null}
         />
       )}
 

@@ -28,7 +28,7 @@ export interface ModuleInstance {
 export interface Organization {
   id: string;
   name: string;
-  description?: string;
+  description: string;
   country: CountryCode;
   modules: ModuleInstance[];
 }

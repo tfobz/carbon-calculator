@@ -71,13 +71,13 @@ export const activeOrg = computed(() =>
 );
 
 // 5. Actions
-export function addOrganization(name: string, description: string, country: CountryCode) {
+export function addOrganization(name: string, description: string, country: CountryCode, modules: ModuleInstance[] = []) {
   const newOrg: Organization = { 
     id: crypto.randomUUID(), 
     name, 
     description,
     country, 
-    modules: [] 
+    modules: modules.map(mod => ({ ...mod, id: crypto.randomUUID() })) // Ensure new IDs for duplicated modules
   };
   organizations.value = [...organizations.value, newOrg];
 }
