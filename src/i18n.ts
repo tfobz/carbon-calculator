@@ -10,7 +10,7 @@ import sv from './locales/sv.json';
 export type Language = 'en' | 'de' | 'it' | 'es' | 'sv';
 
 const savedLang = localStorage.getItem("carbon-app-lang") as Language;
-export const currentLang = signal<Language>(savedLang || 'en');
+export const currentLang = signal<Language>(savedLang || navigator.language.substring(0, 2) as Language || 'en');
 
 effect(() => {
   localStorage.setItem("carbon-app-lang", currentLang.value);
