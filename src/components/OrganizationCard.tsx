@@ -24,11 +24,11 @@ export function OrganizationCard({ org, onClick }: Props) {
     : org.description;
   
   return (
-    <div 
+    <button 
       onClick={onClick}
-      class="border border-gray-200 rounded-lg p-4 cursor-pointer bg-white shadow-sm hover:shadow-md transition-shadow flex flex-col"
+      class="w-full border border-gray-200 rounded-lg p-4 cursor-pointer bg-white shadow-sm hover:shadow-md transition-shadow flex flex-col"
     >
-      <div class="flex-1">
+      <div class="flex-1 text-left">
         <h3 class="m-0 text-lg font-bold text-gray-900">{org.name}</h3>
         {truncatedDesc && (
           <p class="m-0 text-sm text-gray-600 mt-1 line-clamp-2">{truncatedDesc}</p>
@@ -38,6 +38,6 @@ export function OrganizationCard({ org, onClick }: Props) {
         <span>{flag} {countryName}</span>
         <span>{org.modules.length} module{org.modules.length !== 1 ? 's' : ''}</span>
       </div>
-    </div>
+    </button>
   );
 }

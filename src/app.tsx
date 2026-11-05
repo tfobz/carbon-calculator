@@ -20,13 +20,13 @@ function Navbar() {
     <nav class="flex items-center justify-between p-4 bg-white border-b border-gray-200 shadow-sm sticky top-0 z-10">
       
       {/* Logo / Home Button */}
-      <div 
+      <button 
         class="font-bold cursor-pointer flex items-center gap-2 text-lg hover:opacity-80 transition-opacity"
         onClick={() => selectOrganization(null)} // Clears active org and goes to 'orgs' view
       >
         <img src={logoPath} alt="Carbon Calculator" class="h-8 w-8" />
         <span class="hidden sm:inline text-green-700">Carbon Calculator</span>
-      </div>
+      </button>
 
       {/* Navigation Links */}
       <div class="flex gap-1 sm:gap-2">
