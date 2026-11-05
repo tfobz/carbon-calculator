@@ -34,6 +34,8 @@
   "edit": "Edit",
   "cancel": "Cancel",
   "confirm": "Confirm",
+  "module": "module",
+  "modules": "modules",
   "noModulesMsg": "No modules added yet. Click the button below to add one.",
   "addModule": "Add a Module",
   "addModuleBtn": "Add Module",

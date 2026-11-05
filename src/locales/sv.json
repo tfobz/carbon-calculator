@@ -34,6 +34,8 @@
   "edit": "Redigera",
   "cancel": "Avbryt",
   "confirm": "Bekräfta",
+  "module": "modul",
+  "modules": "moduler",
   "noModulesMsg": "Inga moduler tillagda ännu. Klicka på knappen nedan för att lägga till en.",
   "addModule": "Lägg till en modul",
   "addModuleBtn": "Lägg till modul",

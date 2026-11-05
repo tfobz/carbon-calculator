@@ -1,6 +1,7 @@
 // src/components/OrganizationCard.tsx
 import type { Organization } from '../types';
 import { COUNTRY_NAMES } from '../data/factors';
+import { t } from '../i18n';
 
 const COUNTRY_FLAGS: Record<string, string> = {
   it: '🇮🇹',
@@ -36,7 +37,7 @@ export function OrganizationCard({ org, onClick }: Props) {
       </div>
       <div class="flex items-center justify-between text-sm text-gray-500 mt-auto">
         <span>{flag} {countryName}</span>
-        <span>{org.modules.length} module{org.modules.length !== 1 ? 's' : ''}</span>
+        <span>{org.modules.length} {org.modules.length === 1 ? t('module') : t('modules')}</span>
       </div>
     </button>
   );
