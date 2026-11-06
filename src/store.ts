@@ -9,7 +9,7 @@ const initialOrgs: Organization[] = savedData ? JSON.parse(savedData) : [];
 // 2. Define Signals
 export const organizations = signal<Organization[]>(initialOrgs);
 export const activeOrgId = signal<string | null>(null);
-export type AppView = "orgs" | "dashboard" | "settings" | "stats" | "about";
+export type AppView = "orgs" | "dashboard" | "stats" | "factors" | "settings" | "about";
 export const currentView = signal<AppView>("orgs");
 
 const historyStateKey = "carbonCalculator";
@@ -25,7 +25,7 @@ function readAppHistoryState(value: unknown): AppHistoryState | null {
   if (!state || typeof state !== "object") return null;
 
   const appState = state as Record<string, unknown>;
-  const views: AppView[] = ["orgs", "dashboard", "settings", "stats", "about"];
+  const views: AppView[] = ["orgs", "dashboard", "stats", "factors", "settings", "about"];
   if (
     typeof appState.view !== "string" ||
     !views.includes(appState.view as AppView) ||

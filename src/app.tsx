@@ -2,6 +2,7 @@ import { currentView, activeOrgId, navigateTo, selectOrganization } from './stor
 import { OrganizationsView } from './pages/OrganizationsView';
 import { DashboardView } from './pages/DashboardView';
 import { StatisticsView } from './pages/StatisticsView';
+import { FactorsView } from './pages/FactorsView';
 import { SettingsView } from './pages/SettingsView';
 import { AboutView } from './pages/AboutView';
 import { t } from './i18n';
@@ -48,7 +49,15 @@ function Navbar() {
           <span>📈</span>
           <span class="hidden sm:inline">{t('stats')}</span>
         </button>
-        
+
+        <button
+          class={navBtnClass('factors')}
+          onClick={() => navigateTo('factors')}
+        >
+          <span>🔢</span>
+          <span class="hidden sm:inline">{t('factors')}</span>
+        </button>
+
         <button 
           class={navBtnClass('settings')} 
           onClick={() => navigateTo('settings')}
@@ -100,7 +109,8 @@ export function App() {
       <main class="flex-1 p-4 max-w-4xl mx-auto w-full">
         {currentView.value === 'orgs' && <OrganizationsView />}
         {currentView.value === 'dashboard' && <DashboardView />}
-        {currentView.value === 'stats' && <StatisticsView />} 
+        {currentView.value === 'stats' && <StatisticsView />}
+        {currentView.value === 'factors' && <FactorsView />}
         {currentView.value === 'settings' && <SettingsView />}
         {currentView.value === 'about' && <AboutView />}
       </main>

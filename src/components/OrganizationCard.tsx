@@ -1,14 +1,7 @@
 // src/components/OrganizationCard.tsx
 import type { Organization } from '../types';
-import { COUNTRY_NAMES } from '../data/factors';
+import { COUNTRY_FLAGS, COUNTRY_NAMES } from '../data/factors';
 import { t } from '../i18n';
-
-const COUNTRY_FLAGS: Record<string, string> = {
-  it: '🇮🇹',
-  at: '🇦🇹',
-  es: '🇪🇸',
-  sv: '🇸🇪',
-};
 
 interface Props {
   org: Organization;

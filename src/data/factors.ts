@@ -15,7 +15,7 @@ export const FACTORS: Record<CountryCode, EmissionFactors> = {
   at: atData,
   it: itData,
   es: esData,
-  sv: seData,
+  sv: seData
 };
 
 // The human-readable names for the UI dropdown
@@ -24,4 +24,11 @@ export const COUNTRY_NAMES: Record<CountryCode, string> = {
   it: "Italy",
   es: "Spain",
   sv: "Sweden"
+};
+
+export const COUNTRY_FLAGS: Record<CountryCode, string> = {
+  at: '🇦🇹',
+  it: '🇮🇹',
+  es: '🇪🇸',
+  sv: '🇸🇪'
 };
