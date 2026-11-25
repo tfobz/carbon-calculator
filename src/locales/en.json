@@ -85,6 +85,6 @@
   "featureExportImport": "Export and import data",
   "contributors": "Contributors",
   "contributorsDesc": "This project was developed as part of the Erasmus+ program.",
-  "contributorsAck": "We acknowledge the contribution of all developers, designers, and stakeholders who made this project possible.",
+  "contributorsAck": "We acknowledge the contribution of all developers, designers, and stakeholders who made this project possible. If you have any suggestions for improvement, please contact us via GitHub Issues.",
   "supportedBy": "Supported by"
 }
